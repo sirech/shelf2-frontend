@@ -19,10 +19,13 @@
     "eslint": "^3.19.0",
     "eslint-config-standard": "^10.2.1",
     "eslint-config-standard-react": "^5.0.0",
+    "eslint-plugin-jest": "^20.0.3",
     "eslint-plugin-node": "^4.2.2",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
-    "react-scripts": "1.0.7"
+    "react-scripts": "1.0.7",
+    "react-test-renderer": "^15.5.4",
+    "redux-mock-store": "^1.2.3"
   },
   "scripts": {
     "start": "react-scripts start",
