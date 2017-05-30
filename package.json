@@ -4,7 +4,9 @@
   "private": true,
   "dependencies": {
     "react": "^15.5.4",
-    "react-dom": "^15.5.4"
+    "react-dom": "^15.5.4",
+    "stylelint": "^7.10.1",
+    "stylelint-config-standard": "^16.0.0"
   },
   "devDependencies": {
     "eslint": "^3.19.0",
@@ -20,6 +22,13 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "linter:js": "node_modules/.bin/eslint src --ext jsx --ext js"
+    "linter:js": "node_modules/.bin/eslint src --ext jsx --ext js",
+    "linter:css": "stylelint src/**/*.css"
+  },
+  "eslintConfig": {
+    "extends": ".eslintrc.js"
+  },
+  "stylelint": {
+    "extends": "stylelint-config-standard"
   }
 }
