@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`components Header renders correctly 1`] = `
-<header>
+<header
+  className="mb-4"
+>
   <nav
     className="navbar navbar-inverse bg-inverse"
     role="navigation"
@@ -16,9 +18,10 @@ exports[`components Header renders correctly 1`] = `
       />
     </button>
     <a
-      className="navbar-brand"
+      className=" active navbar-brand"
       href="/"
       onClick={[Function]}
+      style={Object {}}
     >
       Shelf
     </a>

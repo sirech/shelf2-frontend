@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { LinkContainer } from 'react-router-bootstrap'
 
-import { Collapse, Nav, Navbar, NavItem, NavbarToggler } from 'reactstrap'
+import { Collapse, Nav, Navbar, NavbarBrand, NavItem, NavbarToggler } from 'reactstrap'
 
 class Header extends React.Component {
   constructor (props) {
@@ -21,10 +22,12 @@ class Header extends React.Component {
 
   render () {
     return (
-      <header>
+      <header className='mb-4'>
         <Navbar inverse color='inverse'>
           <NavbarToggler right onClick={this.toggle} />
-          <Link to='/' className='navbar-brand'>Shelf</Link>
+          <LinkContainer to='/' >
+            <NavbarBrand>Shelf</NavbarBrand>
+          </LinkContainer>
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className='ml-auto' navbar>
               <NavItem>
