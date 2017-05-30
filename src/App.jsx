@@ -13,7 +13,7 @@ class App extends Component {
         <div>
           <Header />
           <Container fluid>
-            <Route exact path='/' component={Home} />
+            <Route path='/' component={Home} />
           </Container>
         </div>
       </Router>
