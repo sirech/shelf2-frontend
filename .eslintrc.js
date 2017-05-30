@@ -6,9 +6,11 @@ module.exports = {
   },
   "extends": [
     "standard",
-    "standard-react"
+    "standard-react",
+    "plugin:flowtype/recommended"
   ],
   "plugins": [
-    "jest"
+    "jest",
+    "flowtype"
   ]
 }

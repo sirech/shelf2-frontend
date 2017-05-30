@@ -21,10 +21,12 @@
     "eslint": "^3.19.0",
     "eslint-config-standard": "^10.2.1",
     "eslint-config-standard-react": "^5.0.0",
+    "eslint-plugin-flowtype": "^2.34.0",
     "eslint-plugin-jest": "^20.0.3",
     "eslint-plugin-node": "^4.2.2",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
+    "flow-bin": "^0.47.0",
     "react-scripts": "1.0.7",
     "react-test-renderer": "^15.5.4",
     "redux-mock-store": "^1.2.3"
@@ -34,6 +36,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
+    "flow": "flow",
     "linter:js": "node_modules/.bin/eslint src --ext jsx --ext js",
     "linter:css": "stylelint src/**/*.css"
   },

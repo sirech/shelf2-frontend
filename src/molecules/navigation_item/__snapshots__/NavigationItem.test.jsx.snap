@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components NavigationItem renders correctly 1`] = `
+<li
+  activeClass="active"
+  className="list-group-item"
+  href="/books/2016"
+  onClick={[Function]}
+  style={undefined}
+>
+  <span>
+    2016
+  </span>
+  <span
+    className="ml-auto badge badge-warning badge-pill"
+  >
+    2
+  </span>
+</li>
+`;

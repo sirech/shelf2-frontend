@@ -1,8 +1,10 @@
+// @flow
+
 import React from 'react'
 import { Badge, ListGroupItem } from 'reactstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 
-const NavigationItem = ({year, count}) => (
+const NavigationItem = ({year, count}: { year: number, count: number}) => (
   <LinkContainer to={`/books/${year}`} activeClass='active'>
     <ListGroupItem>
       <span>{year}</span >

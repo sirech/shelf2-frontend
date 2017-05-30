@@ -1,0 +1,9 @@
+[ignore]
+.*/node_modules/stylelint/.*
+
+[include]
+
+[libs]
+./node_modules/fbjs/flow/lib
+
+[options]
