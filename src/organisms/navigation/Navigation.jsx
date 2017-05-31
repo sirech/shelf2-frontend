@@ -16,7 +16,7 @@ class Navigation extends React.Component {
   render () {
     const { entries } = this.props
     return (
-      <ListGroup>
+      <ListGroup tag='div'>
         {entries.map(entry =>
           <NavigationItem key={entry.year} {...entry} />
         )}
