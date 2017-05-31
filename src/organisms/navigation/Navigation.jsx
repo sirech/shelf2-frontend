@@ -10,13 +10,8 @@ type Props = {
 }
 
 class Navigation extends React.Component {
-  defaultProps: {
-    entries: [
-      { year: 2017, count: 3 },
-      { year: 2016, count: 5 }
-    ]
-  }
   props: Props
+  static defaultProps: Props
 
   render () {
     const { entries } = this.props
@@ -28,6 +23,13 @@ class Navigation extends React.Component {
       </ListGroup>
     )
   }
+}
+
+Navigation.defaultProps = {
+  entries: [
+    { year: 2017, count: 3 },
+    { year: 2016, count: 5 }
+  ]
 }
 
 export default Navigation
