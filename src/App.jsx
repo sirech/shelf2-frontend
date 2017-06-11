@@ -14,28 +14,28 @@ class App extends Component {
     return (
       <Router>
         <div>
+          <Route exact path='/books' render={() => (
+            <Redirect to={`/books/${year}`} />
+          )} />
           <Header />
-          <Container fluid>
-            <Route exact path='/books' render={() => (
-              <Redirect to={`/books/${year}`} />
-            )} />
-            <Route exact path='/books/:year' component={Home} />
-          </Container>
+          <Content />
         </div>
       </Router>
     )
   }
 }
 
-const Home = () => (
-  <Row>
-    <Col sm='8' md='9' lg='10'>
-      <BookList />
-    </Col>
-    <Col sm='4' md='3' lg='2'>
-      <Navigation />
-    </Col>
-  </Row>
+const Content = () => (
+  <Container fluid>
+    <Row>
+      <Col sm='8' md='9' lg='10'>
+        <Route exact path='/books/:year' component={BookList} />
+      </Col>
+      <Col sm='4' md='3' lg='2'>
+        <Navigation />
+      </Col>
+    </Row>
+  </Container>
 )
 
 export default App
