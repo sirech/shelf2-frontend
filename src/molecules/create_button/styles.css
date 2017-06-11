@@ -1,0 +1,15 @@
+.create-button {
+  display: block;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.create-button button {
+  cursor: pointer;
+  width: inherit;
+}
+
+.create-button svg {
+  font-size: 1.2rem;
+  margin-right: 0.5rem;
+}
