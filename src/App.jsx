@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom'
 
 import { Col, Container, Row } from 'reactstrap'
 
-import CreateButton from './molecules/create_button'
 import Header from './molecules/header'
+import BookCreator from './organisms/book_creator'
 import BookList from './organisms/book_list'
 import Navigation from './organisms/navigation'
 
@@ -29,7 +29,7 @@ const Content = () => (
   <Container fluid>
     <Row>
       <Col sm='8' md='9' lg='10'>
-        <CreateButton />
+        <BookCreator />
         <Route exact path='/books/:year' component={BookList} />
       </Col>
       <Col sm='4' md='3' lg='2'>

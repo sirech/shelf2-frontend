@@ -17,8 +17,8 @@ const Category = ({name, books}: CategoryType) => (
     </CardHeader>
     <ul className='list-unstyled mb-0'>
       {books.map(book =>
-        <li className='book-list-item'>
-          <Book key={book.id} {...book} />
+        <li key={book.id} className='book-list-item'>
+          <Book {...book} />
         </li>
       )}
     </ul>
