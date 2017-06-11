@@ -1,0 +1,15 @@
+.star svg {
+  transition: all .5s ease;
+}
+
+.star svg:hover {
+  transform: scale(1.5);
+
+  &:not(:first-child) {
+    margin-left: 0.2em;
+  }
+
+  &:not(:last-child) {
+    margin-right: 0.2em;
+  }
+}

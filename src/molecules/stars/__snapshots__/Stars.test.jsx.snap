@@ -5,6 +5,7 @@ exports[`components Stars renders correctly 1`] = `
   className="stars"
 >
   <span
+    className="star"
     onClick={[Function]}
   >
     <svg
@@ -28,6 +29,7 @@ exports[`components Stars renders correctly 1`] = `
     </svg>
   </span>
   <span
+    className="star"
     onClick={[Function]}
   >
     <svg
@@ -51,6 +53,7 @@ exports[`components Stars renders correctly 1`] = `
     </svg>
   </span>
   <span
+    className="star"
     onClick={[Function]}
   >
     <svg
@@ -74,6 +77,7 @@ exports[`components Stars renders correctly 1`] = `
     </svg>
   </span>
   <span
+    className="star"
     onClick={[Function]}
   >
     <svg
@@ -97,6 +101,7 @@ exports[`components Stars renders correctly 1`] = `
     </svg>
   </span>
   <span
+    className="star"
     onClick={[Function]}
   >
     <svg
