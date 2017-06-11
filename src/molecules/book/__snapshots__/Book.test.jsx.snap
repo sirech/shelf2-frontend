@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`components Book renders correctly 1`] = `
-<li>
+<div
+  className="book"
+>
   <h5>
     Catch-22
   </h5>
@@ -129,5 +131,5 @@ exports[`components Book renders correctly 1`] = `
       </svg>
     </span>
   </span>
-</li>
+</div>
 `;

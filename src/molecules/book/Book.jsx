@@ -4,13 +4,15 @@ import React from 'react'
 
 import Stars from '../stars'
 
+import './styles.css'
+
 import type { Book as BookType } from '../../types'
 
 const Book = ({title, stars}: BookType) => (
-  <li>
+  <div className='book'>
     <h5>{title}</h5>
     <Stars count={stars} />
-  </li>
+  </div>
 )
 
 export default Book

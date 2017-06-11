@@ -1,0 +1,7 @@
+.book-list-item:not(:first-child) {
+  border-top: 1px solid #ECEEEF;
+}
+
+.book-list-item:nth-of-type(even) {
+  background-color: rgba(85, 211, 255, 0.05)
+}
