@@ -33,9 +33,6 @@ class Header extends React.Component {
               <NavItem>
                 <Link to='/books' className='nav-link'>Books</Link>
               </NavItem>
-              <NavItem>
-                <Link to='/books' className='nav-link'>Books</Link>
-              </NavItem>
             </Nav>
           </Collapse>
         </Navbar>

@@ -43,17 +43,6 @@ exports[`components Header renders correctly 1`] = `
             Books
           </a>
         </li>
-        <li
-          className="nav-item"
-        >
-          <a
-            className="nav-link"
-            href="/books"
-            onClick={[Function]}
-          >
-            Books
-          </a>
-        </li>
       </ul>
     </div>
   </nav>
