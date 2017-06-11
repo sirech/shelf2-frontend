@@ -4,6 +4,8 @@ import React from 'react'
 import Star from 'react-icons/lib/fa/star'
 import HalfStar from 'react-icons/lib/fa/star-o'
 
+import './styles.css'
+
 import type { StarCount } from '../../types'
 
 const renderStar = (isFull) => {
@@ -16,7 +18,7 @@ const renderStar = (isFull) => {
 }
 
 const Stars = ({count, handleClick}: { count: StarCount, handleClick: number => void }) => (
-  <span>
+  <span className='stars'>
     {[...Array(5).keys()].map(i =>
       <span key={i} onClick={() => handleClick(i + 1)}>
         {renderStar(i < count)}

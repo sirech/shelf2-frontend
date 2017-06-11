@@ -5,7 +5,9 @@ exports[`components Book renders correctly 1`] = `
   <h5>
     Catch-22
   </h5>
-  <span>
+  <span
+    className="stars"
+  >
     <span
       onClick={[Function]}
     >
