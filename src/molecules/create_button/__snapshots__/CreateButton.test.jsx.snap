@@ -7,7 +7,7 @@ exports[`components CreateButton renders correctly 1`] = `
   <button
     className="btn btn-success"
     onClick={[Function]}
-    type="button"
+    type={undefined}
   >
     <svg
       fill="currentColor"
