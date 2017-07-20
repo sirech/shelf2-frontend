@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^4.0.0-alpha.6",
-    "ramda": "^0.24.0",
+    "ramda": "^0.24.1",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-redux": "^5.0.5",
@@ -28,6 +28,7 @@
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
     "flow-bin": "^0.47.0",
+    "nock": "^9.0.14",
     "react-icons": "^2.2.5",
     "react-scripts": "1.0.10",
     "react-test-renderer": "^15.5.4",
@@ -45,6 +46,7 @@
   "eslintConfig": {
     "extends": ".eslintrc.js"
   },
+  "proxy": "http://localhost:3001",
   "stylelint": {
     "extends": "stylelint-config-standard"
   }
