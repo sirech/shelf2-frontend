@@ -1,17 +1,18 @@
 import nock from 'nock'
-import { mockStore } from '../../../test'
+import { mockStore, factories } from '../../../test'
 
 import { fetchBooks } from '../actions'
 
 describe('actions', () => {
   let store
   let year = '2017'
+  let books = factories.book.buildList(3)
 
   describe('fetchBooks', () => {
     beforeEach(() => {
       nock('http://localhost')
         .get(`/rest/books?year=${year}`)
-        .reply(200, [])
+        .reply(200, books)
 
       store = mockStore({})
     })
@@ -22,7 +23,7 @@ describe('actions', () => {
 
     it('should dispatch the correct actions', () => {
       const expectedActions = [
-        { type: 'books:receive', payload: [] }
+        { type: 'books:receive', payload: books }
       ]
 
       return store.dispatch(fetchBooks(year))
