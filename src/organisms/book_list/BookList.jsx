@@ -2,8 +2,11 @@
 
 import React from 'react'
 import { connect } from 'react-redux'
+import { createStructuredSelector } from 'reselect'
 
 import R from 'ramda'
+
+import booksSelector from './selectors'
 
 import { actions } from '../../state/books'
 import Category from '../../molecules/category'
@@ -16,7 +19,8 @@ type Props = {
   fetchBooks: (string) => void
 }
 
-class BookList extends React.Component {
+// exported for testing
+export class BookList extends React.Component {
   static defaultProps: Props
   props: Props
 
@@ -55,24 +59,14 @@ class BookList extends React.Component {
 
 BookList.defaultProps = {
   match: { params: {} },
-  categories: [
-    { name: 'Software',
-      books: [
-        { id: 4, title: 'Elegant Objects', stars: 3 },
-        { id: 5, title: 'Site reliability engineering', stars: 4 },
-        { id: 6, title: 'The hard thing about hard things', stars: 4 }
-      ]
-    },
-    { name: 'History',
-      books: [
-        { id: 8, title: 'Genghis Khan and the making of the modern world', stars: 3 }
-      ]
-    }
-  ],
+  categories: [],
   fetchBooks: (books) => undefined
 }
 
 export default connect(
-  null,
+  (state, props) =>
+    createStructuredSelector({
+      categories: booksSelector
+    })(state),
   R.pick(['fetchBooks'])(actions)
 )(BookList)
