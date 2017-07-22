@@ -6,7 +6,6 @@ exports[`components Header renders correctly 1`] = `
 >
   <nav
     className="navbar navbar-inverse bg-inverse"
-    role="navigation"
   >
     <button
       className="navbar-toggler navbar-toggler-right"
