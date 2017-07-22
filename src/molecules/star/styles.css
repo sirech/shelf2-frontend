@@ -1,6 +1,6 @@
 .star {
   display: inline-block;
-  transition: all .5s ease;
+  transition: all 0.5s ease;
 }
 
 .star:hover {
