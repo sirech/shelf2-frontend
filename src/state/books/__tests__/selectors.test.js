@@ -3,7 +3,6 @@ import booksSelector from '../selectors'
 
 describe('booksSelector', () => {
   it('selects the books', () => {
-    const st = state()
-    expect(booksSelector(st)).toEqual(st['books'])
+    expect(booksSelector(state())).toMatchSnapshot()
   })
 })
