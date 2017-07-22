@@ -1,13 +1,15 @@
+// @flow
+
 import isoFetch from 'isomorphic-fetch'
 
-const testableUrl = (path) => {
+const testableUrl = (path: string) => {
   const TESTING = process.env.NODE_ENV === 'test'
   return `${TESTING ? 'http://localhost' : ''}${path}`
 }
 
 const prepareUrl = path => testableUrl(`/rest${path}`)
 
-const fetch = (url, opts = {}) => {
+const fetch = (url: string, opts: Object = {}) => {
   const DEFAULT_OPTIONS = {
     credentials: 'same-origin',
     headers: {

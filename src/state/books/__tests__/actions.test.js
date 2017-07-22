@@ -2,6 +2,7 @@ import nock from 'nock'
 import { mockStore, factories } from '../../../test'
 
 import { fetchBooks } from '../actions'
+import { normalizeBooks } from '../../../rest'
 
 describe('actions', () => {
   let store
@@ -23,7 +24,7 @@ describe('actions', () => {
 
     it('should dispatch the correct actions', () => {
       const expectedActions = [
-        { type: 'books:receive', payload: books }
+        { type: 'books:receive', payload: normalizeBooks(books) }
       ]
 
       return store.dispatch(fetchBooks(year))

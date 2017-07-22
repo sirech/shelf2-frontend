@@ -1,6 +1,6 @@
 import { RECEIVE_BOOKS } from './constants'
 
-import { fetch } from '../../rest'
+import { fetch, normalizeBooks } from '../../rest'
 
 const receiveBooks = books => ({
   type: RECEIVE_BOOKS,
@@ -13,6 +13,7 @@ export function fetchBooks (year) {
 
     return fetch(url)
       .then(response => response.json())
-      .then(data => dispatch(receiveBooks(data)))
+      .then(data => normalizeBooks(data))
+      .then(books => dispatch(receiveBooks(books)))
   }
 }
