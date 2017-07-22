@@ -10,6 +10,7 @@ import Category from '../../molecules/category'
 
 import type { Category as CategoryType } from '../../types'
 type Props = {
+  // eslint-disable-next-line react/no-unused-prop-types
   match: { params: { year?: string } },
   categories: Array<CategoryType>,
   fetchBooks: (string) => void
@@ -19,15 +20,15 @@ class BookList extends React.Component {
   static defaultProps: Props
   props: Props
 
-  static getYear (props: Props) {
-    return props.match.params.year
+  static getYear (props) {
+    return R.path(['match', 'params', 'year'], props)
   }
 
   componentDidMount () {
     const year = BookList.getYear(this.props)
 
-    if (year !== null) {
-      this.props.fetchBooks(this.props.match.params.year)
+    if (year) {
+      this.props.fetchBooks(year)
     }
   }
 
