@@ -1,14 +1,17 @@
+// @flow
+
 import { RECEIVE_BOOKS } from './constants'
 
 import { fetch, normalizeBooks } from '../../rest'
+import type { NormalizedBooks } from '../../types'
 
-const receiveBooks = books => ({
+const receiveBooks = (books: NormalizedBooks) => ({
   type: RECEIVE_BOOKS,
   payload: books
 })
 
-export function fetchBooks (year) {
-  return (dispatch) => {
+export function fetchBooks (year: string) {
+  return (dispatch: Dispatch) => {
     const url = `/books?year=${year}`
 
     return fetch(url)

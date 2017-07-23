@@ -1,2 +1,2 @@
 export { default as fetch } from './fetch'
-export { normalizeBooks } from './normalize'
+export { normalizeBooks, normalizeYears } from './normalize'
