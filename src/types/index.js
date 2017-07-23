@@ -1,8 +1,9 @@
 // @flow
 
 export type StarCount = 1 | 2 | 3 | 4 | 5
-export type Book = { id: number, title: string, stars: StarCount }
-export type Category = { name: string, books: Array<Book> }
+export type Categories = 'sociology' | 'software' | 'econ' | 'history' | 'other'
+export type Book = { id: number, title: string, stars: StarCount, category: Categories }
+export type Category = { name: Categories, books: Array<Book> }
 
 export type Year = { year: number, count: number }
 

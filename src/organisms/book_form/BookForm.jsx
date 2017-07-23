@@ -9,6 +9,7 @@ import R from 'ramda'
 import { modelName, actions } from '../../state/form'
 import Stars from '../../molecules/stars'
 
+import type { Categories } from '../../types'
 type Props = {
   changeStars: (number) => void
 }
@@ -25,7 +26,7 @@ class BookForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  static categories () {
+  static categories (): Array<Categories> {
     return ['sociology', 'software', 'econ', 'history', 'other']
   }
 
