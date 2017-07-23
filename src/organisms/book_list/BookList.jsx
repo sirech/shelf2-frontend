@@ -59,7 +59,7 @@ class BookList extends React.Component {
 BookList.defaultProps = {
   match: { params: {} },
   categories: [],
-  fetchBooks: (books) => undefined
+  fetchBooks: (_) => undefined
 }
 
 export default connect(

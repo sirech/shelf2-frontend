@@ -3,6 +3,7 @@ import React from 'react'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 
 import CreateButton from '../../molecules/create_button'
+import BookForm from '../book_form'
 
 class BookCreator extends React.Component {
   constructor () {
@@ -27,7 +28,9 @@ class BookCreator extends React.Component {
         <CreateButton onClick={this.toggle} />
         <Modal isOpen={this.state.opened}>
           <ModalHeader toggle={this.toggle}>Add book</ModalHeader>
-          <ModalBody />
+          <ModalBody>
+            <BookForm />
+          </ModalBody>
           <ModalFooter>
             <Button color='primary'>Create</Button>
             <Button color='secondary' onClick={this.toggle}>Cancel</Button>
