@@ -19,8 +19,7 @@ type Props = {
   fetchBooks: (string) => void
 }
 
-// exported for testing
-export class BookList extends React.Component {
+class BookList extends React.Component {
   static defaultProps: Props
   props: Props
 

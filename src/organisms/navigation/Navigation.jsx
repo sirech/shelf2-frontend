@@ -1,23 +1,35 @@
 // @flow
 
 import React from 'react'
+import { connect } from 'react-redux'
+import { createStructuredSelector } from 'reselect'
+
+import R from 'ramda'
 import { ListGroup } from 'reactstrap'
 
 import NavigationItem from '../../molecules/navigation_item'
 
+import yearsSelector from './selectors'
+import { actions } from '../../state/years'
+
 type Props = {
-  entries: Array<{year: number, count: number}>
+  years: Array<{year: number, count: number}>,
+  fetchYears: () => void
 }
 
 class Navigation extends React.Component {
   props: Props
   static defaultProps: Props
 
+  componentDidMount () {
+    this.props.fetchYears()
+  }
+
   render () {
-    const { entries } = this.props
+    const { years } = this.props
     return (
       <ListGroup tag='div'>
-        {entries.map(entry =>
+        {years.map(entry =>
           <NavigationItem key={entry.year} {...entry} />
         )}
       </ListGroup>
@@ -26,10 +38,14 @@ class Navigation extends React.Component {
 }
 
 Navigation.defaultProps = {
-  entries: [
-    { year: 2017, count: 3 },
-    { year: 2016, count: 5 }
-  ]
+  years: [],
+  fetchYears: () => undefined
 }
 
-export default Navigation
+export default connect(
+  (state, props) =>
+    createStructuredSelector({
+      years: yearsSelector
+    })(state),
+  R.pick(['fetchYears'])(actions)
+)(Navigation)
