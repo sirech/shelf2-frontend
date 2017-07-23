@@ -14,12 +14,22 @@ class BookCreator extends React.Component {
     }
 
     this.toggle = this.toggle.bind(this)
+    this.attachForm = this.attachForm.bind(this)
+    this.handleClick = this.handleClick.bind(this)
   }
 
   toggle () {
     this.setState({
       opened: !this.state.opened
     })
+  }
+
+  attachForm (node) {
+    this._form = node
+  }
+
+  handleClick () {
+    this._form.submit()
   }
 
   render () {
@@ -29,10 +39,10 @@ class BookCreator extends React.Component {
         <Modal isOpen={this.state.opened}>
           <ModalHeader toggle={this.toggle}>Add book</ModalHeader>
           <ModalBody>
-            <BookForm />
+            <BookForm attachForm={this.attachForm} />
           </ModalBody>
           <ModalFooter>
-            <Button color='primary'>Create</Button>
+            <Button color='primary' onClick={this.handleClick}>Create</Button>
             <Button color='secondary' onClick={this.toggle}>Cancel</Button>
           </ModalFooter>
         </Modal>

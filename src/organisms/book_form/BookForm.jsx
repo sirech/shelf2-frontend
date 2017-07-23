@@ -11,7 +11,8 @@ import Stars from '../../molecules/stars'
 
 import type { Categories } from '../../types'
 type Props = {
-  changeStars: (number) => void
+  changeStars: (number) => void,
+  attachForm?: (HTMLButtonElement) => void
 }
 
 class BookForm extends React.Component {
@@ -30,13 +31,15 @@ class BookForm extends React.Component {
     return ['sociology', 'software', 'econ', 'history', 'other']
   }
 
-  handleSubmit () {
-    console.log("Form submitted: ")
+  handleSubmit (book) {
+    console.log("Form submitted: ", book)
   }
 
   render () {
+    const { changeStars, attachForm } = this.props
+
     return (
-      <Form model={modelName()} onSubmit={this.handleSubmit}>
+      <Form model={modelName()} onSubmit={this.handleSubmit} getRef={attachForm}>
         <FormGroup>
           <Label for='title'>Title</Label>
           <Control model='.title' type='text' name='title' id='title' placeholder='Catch-22' component={Input} />
@@ -56,7 +59,7 @@ class BookForm extends React.Component {
         <FormGroup>
           <Label for='stars'>Stars</Label>
           <div>
-            <Stars count={1} handleClick={this.props.changeStars} />
+            <Stars count={1} handleClick={changeStars} />
           </div>
         </FormGroup>
 
