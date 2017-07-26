@@ -2,15 +2,20 @@
 
 import React from 'react'
 import { connect } from 'react-redux'
+import { createStructuredSelector } from 'reselect'
+
 import { Form, Control } from 'react-redux-form'
 import { FormGroup, Label, Input, FormText } from 'reactstrap'
 import R from 'ramda'
+
+import { starsSelector } from './selectors'
 
 import { modelName, actions } from '../../state/form'
 import Stars from '../../molecules/stars'
 
 import type { Categories, BookForm as BookFormType } from '../../types'
 type Props = {
+  stars?: number,
   changeStars: (number) => void,
   create: (BookFormType) => void,
   attachForm?: (HTMLButtonElement) => void
@@ -37,7 +42,7 @@ class BookForm extends React.Component {
   }
 
   render () {
-    const { changeStars, attachForm } = this.props
+    const { stars, changeStars, attachForm } = this.props
 
     return (
       <Form model={modelName()} onSubmit={this.handleSubmit} getRef={attachForm}>
@@ -60,7 +65,7 @@ class BookForm extends React.Component {
         <FormGroup>
           <Label for='stars'>Stars</Label>
           <div>
-            <Stars count={1} handleClick={changeStars} />
+            <Stars count={stars} handleClick={changeStars} />
           </div>
         </FormGroup>
 
@@ -83,6 +88,9 @@ BookForm.defaultProps = {
 }
 
 export default connect(
-  null,
+  (state, props) =>
+    createStructuredSelector({
+      stars: starsSelector
+    })(state),
   R.pick(['changeStars', 'create'])(actions)
 )(BookForm)

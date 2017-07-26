@@ -3,7 +3,7 @@
 exports[`components Star renders a full star correctly 1`] = `
 <span
   className="star"
-  onClick={[Function]}
+  onClick={undefined}
 >
   <svg
     fill="currentColor"
@@ -30,7 +30,7 @@ exports[`components Star renders a full star correctly 1`] = `
 exports[`components Star renders a half star correctly 1`] = `
 <span
   className="star"
-  onClick={[Function]}
+  onClick={undefined}
 >
   <svg
     fill="currentColor"

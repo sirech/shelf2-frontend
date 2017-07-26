@@ -1,6 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`formSelector selects the form 1`] = `
+exports[`selectors bookSelector selects the form 1`] = `
+Object {
+  "category": "software",
+  "description": "",
+  "stars": 1,
+  "title": "",
+  "year": 2017,
+}
+`;
+
+exports[`selectors formSelector selects the form 1`] = `
 Object {
   "book": Object {
     "category": "software",

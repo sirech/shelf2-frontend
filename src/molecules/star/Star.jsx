@@ -15,14 +15,10 @@ const renderStar = (isFull) => {
   )
 }
 
-const Star = ({isFull, handleClick}: { isFull: boolean, handleClick?: void => void}) => (
-  <span className='star' onClick={handleClick}>
+const Star = ({isFull, onClick}: { isFull: boolean, onClick?: void => void}) => (
+  <span className='star' onClick={onClick}>
     {renderStar(isFull)}
   </span>
 )
-
-Star.defaultProps = {
-  handleClick: e => e
-}
 
 export default Star
