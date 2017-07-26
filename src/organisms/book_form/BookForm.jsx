@@ -9,9 +9,10 @@ import R from 'ramda'
 import { modelName, actions } from '../../state/form'
 import Stars from '../../molecules/stars'
 
-import type { Categories } from '../../types'
+import type { Categories, BookForm as BookFormType } from '../../types'
 type Props = {
   changeStars: (number) => void,
+  create: (BookFormType) => void,
   attachForm?: (HTMLButtonElement) => void
 }
 
@@ -32,7 +33,7 @@ class BookForm extends React.Component {
   }
 
   handleSubmit (book) {
-    console.log("Form submitted: ", book)
+    this.props.create(book)
   }
 
   render () {
@@ -77,10 +78,11 @@ class BookForm extends React.Component {
 }
 
 BookForm.defaultProps = {
-  changeStars: (_) => undefined
+  changeStars: (_) => undefined,
+  create: (_) => undefined
 }
 
 export default connect(
   null,
-  R.pick(['changeStars'])(actions)
+  R.pick(['changeStars', 'create'])(actions)
 )(BookForm)

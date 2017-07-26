@@ -1,4 +1,3 @@
-
 import nock from 'nock'
 import { mockStore, factories } from '../../../test'
 
