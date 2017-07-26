@@ -7,6 +7,8 @@ import { fetch } from '../../rest'
 import { BOOK_CREATE_SUCCESS, BOOK_CREATE_FAIL } from './constants'
 import { modelName } from './utils'
 
+import { actions as modalActions } from '../modal'
+
 import type { BookForm, Book } from '../../types'
 
 const bookCreated = (book: Book) => ({
@@ -43,6 +45,7 @@ export const create = (book: BookForm) => {
       .then(response => response.json())
       .then(data => dispatch(bookCreated(data)))
       .then(() => dispatch(resetForm()))
+      .then(() => dispatch(modalActions.modalToggled()))
       .catch(error => dispatch(bookCreationFailed(error)))
   }
 }

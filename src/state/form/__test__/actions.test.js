@@ -41,7 +41,8 @@ describe('actions', () => {
     it('should dispatch the correct actions', () => {
       const expectedActions = [
         { type: 'books:book:create:success', payload: book },
-        { type: 'rrf/reset', model: 'form.book' }
+        { type: 'rrf/reset', model: 'form.book' },
+        { type: 'modal:toggled' }
       ]
 
       return store.dispatch(create(book))

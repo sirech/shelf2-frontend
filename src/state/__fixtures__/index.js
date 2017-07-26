@@ -269,11 +269,16 @@ const form = () => ({
   }
 })
 
+const modal = () => ({
+  opened: false
+})
+
 const state = () => {
   return {
     books: books(),
     years: years(),
-    form: form()
+    form: form(),
+    modal: modal()
   }
 }
 

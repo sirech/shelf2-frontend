@@ -1,17 +1,33 @@
+// @flow
+
 import React from 'react'
+import { connect } from 'react-redux'
+import { createStructuredSelector } from 'reselect'
+
+import R from 'ramda'
 
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
+
+import openedSelector from './selectors'
+import { actions } from '../../state/modal'
 
 import CreateButton from '../../molecules/create_button'
 import BookForm from '../book_form'
 
+type Props = {
+  opened: boolean,
+  modalToggled: () => void
+}
+
 class BookCreator extends React.Component {
+  props: Props
+  _form: HTMLFormElement
+  toggle: Function
+  attachForm: Function
+  handleClick: Function
+
   constructor () {
     super()
-
-    this.state = {
-      opened: false
-    }
 
     this.toggle = this.toggle.bind(this)
     this.attachForm = this.attachForm.bind(this)
@@ -19,9 +35,7 @@ class BookCreator extends React.Component {
   }
 
   toggle () {
-    this.setState({
-      opened: !this.state.opened
-    })
+    this.props.modalToggled()
   }
 
   attachForm (node) {
@@ -36,7 +50,7 @@ class BookCreator extends React.Component {
     return (
       <div>
         <CreateButton onClick={this.toggle} />
-        <Modal isOpen={this.state.opened}>
+        <Modal isOpen={this.props.opened}>
           <ModalHeader toggle={this.toggle}>Add book</ModalHeader>
           <ModalBody>
             <BookForm attachForm={this.attachForm} />
@@ -51,4 +65,10 @@ class BookCreator extends React.Component {
   }
 }
 
-export default BookCreator
+export default connect(
+  (state, props) =>
+    createStructuredSelector({
+      opened: openedSelector
+    })(state),
+  R.pick(['modalToggled'])(actions)
+)(BookCreator)
