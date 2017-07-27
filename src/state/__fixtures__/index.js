@@ -1,4 +1,4 @@
-const books = () => (
+export const books = () => (
   {
     entities: {
       books: {
@@ -65,7 +65,7 @@ const books = () => (
   }
 )
 
-const years = () => (
+export const years = () => (
   {
     entities: {
       years: {
