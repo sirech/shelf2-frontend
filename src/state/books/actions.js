@@ -1,6 +1,6 @@
 // @flow
 
-import { RECEIVE_BOOKS } from './constants'
+import { RECEIVE_BOOKS, MARK_ACTIVE_YEAR } from './constants'
 
 import { fetch, normalizeBooks } from '../../rest'
 import type { NormalizedBooks } from '../../types'
@@ -8,6 +8,12 @@ import type { NormalizedBooks } from '../../types'
 const receiveBooks = (books: NormalizedBooks) => ({
   type: RECEIVE_BOOKS,
   payload: books
+})
+
+// exported for testing
+export const markActiveYear = (year: number) => ({
+  type: MARK_ACTIVE_YEAR,
+  payload: year
 })
 
 export function fetchBooks (year: string) {
@@ -18,5 +24,6 @@ export function fetchBooks (year: string) {
       .then(response => response.json())
       .then(data => normalizeBooks(data))
       .then(books => dispatch(receiveBooks(books)))
+      .then(() => dispatch(markActiveYear(parseInt(year))))
   }
 }

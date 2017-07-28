@@ -61,7 +61,8 @@ export const books = () => (
       6,
       7,
       11
-    ]
+    ],
+    activeYear: 2016
   }
 )
 

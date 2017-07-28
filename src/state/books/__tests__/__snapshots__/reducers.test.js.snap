@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`booksSelector selects the books 1`] = `
+exports[`book reducer handles BOOK_CREATE_SUCCESS adds the book if it is in the same year 1`] = `
 Object {
   "activeYear": 2016,
   "entities": Object {
@@ -17,6 +17,13 @@ Object {
         "id": 11,
         "stars": 2,
         "title": "Time To Murder And Create",
+        "year": 2016,
+      },
+      "2": Object {
+        "category": "software",
+        "id": 2,
+        "stars": 3,
+        "title": "My book",
         "year": 2016,
       },
       "4": Object {
@@ -64,6 +71,26 @@ Object {
     6,
     7,
     11,
+    2,
   ],
+}
+`;
+
+exports[`book reducer handles MARK_ACTIVE_YEAR 1`] = `
+Object {
+  "activeYear": 2017,
+  "entities": Object {
+    "books": Object {},
+  },
+  "result": Array [],
+}
+`;
+
+exports[`book reducer returns the initial state 1`] = `
+Object {
+  "entities": Object {
+    "books": Object {},
+  },
+  "result": Array [],
 }
 `;

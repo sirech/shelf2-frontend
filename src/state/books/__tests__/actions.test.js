@@ -24,7 +24,8 @@ describe('actions', () => {
 
     it('should dispatch the correct actions', () => {
       const expectedActions = [
-        { type: 'books:receive', payload: normalizeBooks(books) }
+        { type: 'books:receive', payload: normalizeBooks(books) },
+        { type: 'books:activeYear', payload: 2017 }
       ]
 
       return store.dispatch(fetchBooks(year))
