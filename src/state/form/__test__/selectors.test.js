@@ -1,5 +1,5 @@
 import state from '../../__fixtures__'
-import formSelector, { bookSelector } from '../selectors'
+import { formSelector, bookSelector, fieldSelectorBuilder } from '../selectors'
 
 describe('selectors', () => {
   describe('formSelector', () => {
@@ -11,6 +11,12 @@ describe('selectors', () => {
   describe('bookSelector', () => {
     it('selects the form', () => {
       expect(bookSelector(state())).toMatchSnapshot()
+    })
+  })
+
+  describe('fieldSelectorBuilder', () => {
+    it('selects a concrete field', () => {
+      expect(fieldSelectorBuilder('title')(state())).toMatchSnapshot()
     })
   })
 })

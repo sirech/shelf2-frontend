@@ -4,7 +4,9 @@ import R from 'ramda'
 
 import { namespace, bookModel } from './constants'
 
-const formSelector = R.path([namespace])
-export default formSelector
+const baseSelector = R.path([namespace])
 
-export const bookSelector = R.pipe(formSelector, R.path([bookModel]))
+export const fieldSelectorBuilder = (field: string) => R.pipe(baseSelector, R.path(['forms', bookModel, field]))
+export const formSelector = fieldSelectorBuilder('$form')
+
+export const bookSelector = R.pipe(baseSelector, R.path([bookModel]))
