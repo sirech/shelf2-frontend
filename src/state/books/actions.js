@@ -24,6 +24,6 @@ export function fetchBooks (year: string) {
       .then(response => response.json())
       .then(data => normalizeBooks(data))
       .then(books => dispatch(receiveBooks(books)))
-      .then(() => dispatch(markActiveYear(parseInt(year))))
+      .then(() => dispatch(markActiveYear(parseInt(year, 10))))
   }
 }

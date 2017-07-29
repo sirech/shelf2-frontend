@@ -3,15 +3,17 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
+import validator from 'validator'
 
 import { Form, Control } from 'react-redux-form'
-import { FormGroup, Label, Input, FormText } from 'reactstrap'
+import { FormGroup, Label, Input as BaseInput, FormText } from 'reactstrap'
 import R from 'ramda'
 
 import { starsSelector } from './selectors'
 
 import { modelName, actions } from '../../state/form'
 import Stars from '../../molecules/stars'
+import Input from '../../molecules/input'
 
 import type { Categories, BookForm as BookFormType } from '../../types'
 type Props = {
@@ -46,19 +48,32 @@ class BookForm extends React.Component {
 
     return (
       <Form model={modelName()} onSubmit={this.handleSubmit} getRef={attachForm}>
-        <FormGroup>
-          <Label for='title'>Title</Label>
-          <Control model='.title' type='text' name='title' id='title' placeholder='Catch-22' component={Input} />
-        </FormGroup>
+        <Input
+          name='title'
+          type='text'
+          placeholder='Catch-22'
+          validators={{
+            length: val => validator.isLength(val, { min: 5, max: 200 })
+          }}
+          messages={{
+            length: 'Title must be between 5 and 200 characters'
+          }}
+        />
 
-        <FormGroup>
-          <Label for='year'>Year</Label>
-          <Control model='.year' type='number' name='year' id='year' component={Input} />
-        </FormGroup>
+        <Input
+          name='year'
+          type='number'
+          validators={{
+            value: val => val > 2000 && val < 2100
+          }}
+          messages={{
+            value: 'It should be between 2000 and 2100'
+          }}
+        />
 
         <FormGroup>
           <Label for='description'>Description</Label>
-          <Control model='.description' type='textarea' name='description' id='description' placeholder="That's some catch, that Catch-22" rows='3' component={Input} />
+          <Control model='.description' type='textarea' name='description' id='description' placeholder="That's some catch, that Catch-22" rows='3' component={BaseInput} />
           <FormText className='text-muted'>Optional</FormText>
         </FormGroup>
 
@@ -71,7 +86,7 @@ class BookForm extends React.Component {
 
         <FormGroup>
           <Label for='category'>Category</Label>
-          <Control model='.category' type='select' name='category' id='category' component={Input}>
+          <Control model='.category' type='select' name='category' id='category' component={BaseInput}>
             {BookForm.categories().map(category =>
               <option key={category}>{category}</option>
             )}

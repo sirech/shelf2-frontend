@@ -18,7 +18,7 @@ Object {
   "intents": Array [],
   "model": "form.book.title",
   "pending": false,
-  "pristine": true,
+  "pristine": false,
   "retouched": false,
   "submitFailed": false,
   "submitted": false,
@@ -27,7 +27,7 @@ Object {
   "validated": false,
   "validating": false,
   "validity": Object {},
-  "value": "",
+  "value": "stuff",
 }
 `;
 

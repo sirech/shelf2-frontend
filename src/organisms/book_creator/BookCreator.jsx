@@ -8,7 +8,7 @@ import R from 'ramda'
 
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 
-import openedSelector from './selectors'
+import { openedSelector, validSelector } from './selectors'
 import { actions } from '../../state/modal'
 
 import CreateButton from '../../molecules/create_button'
@@ -16,6 +16,7 @@ import BookForm from '../book_form'
 
 type Props = {
   opened: boolean,
+  valid: boolean,
   modalToggled: () => void
 }
 
@@ -47,16 +48,18 @@ class BookCreator extends React.Component {
   }
 
   render () {
+    const { opened, valid } = this.props
+
     return (
       <div>
         <CreateButton onClick={this.toggle} />
-        <Modal isOpen={this.props.opened}>
+        <Modal isOpen={opened}>
           <ModalHeader toggle={this.toggle}>Add book</ModalHeader>
           <ModalBody>
             <BookForm attachForm={this.attachForm} />
           </ModalBody>
           <ModalFooter>
-            <Button color='primary' onClick={this.handleClick}>Create</Button>
+            <Button color='primary' disabled={!valid} onClick={this.handleClick}>Create</Button>
             <Button color='secondary' onClick={this.toggle}>Cancel</Button>
           </ModalFooter>
         </Modal>
@@ -68,7 +71,8 @@ class BookCreator extends React.Component {
 export default connect(
   (state, props) =>
     createStructuredSelector({
-      opened: openedSelector
+      opened: openedSelector,
+      valid: validSelector
     })(state),
   R.pick(['modalToggled'])(actions)
 )(BookCreator)
