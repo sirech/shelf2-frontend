@@ -13,7 +13,7 @@ import { starsSelector } from './selectors'
 
 import { modelName, actions } from '../../state/form'
 import Stars from '../../molecules/stars'
-import Input from '../../molecules/input'
+import Input from '../input'
 
 import type { Categories, BookForm as BookFormType } from '../../types'
 type Props = {

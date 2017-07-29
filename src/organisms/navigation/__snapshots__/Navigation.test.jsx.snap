@@ -6,27 +6,27 @@ exports[`components Navigation renders correctly 1`] = `
 >
   <a
     className="list-group-item-action list-group-item"
-    href="/books/2010"
+    href="/books/2016"
     onClick={[Function]}
     style={undefined}
   >
     <span>
-      2010
+      2016
     </span>
     <span
       className="ml-auto badge badge-warning badge-pill"
     >
-      1
+      7
     </span>
   </a>
   <a
     className="list-group-item-action list-group-item"
-    href="/books/2012"
+    href="/books/2014"
     onClick={[Function]}
     style={undefined}
   >
     <span>
-      2012
+      2014
     </span>
     <span
       className="ml-auto badge badge-warning badge-pill"
@@ -51,12 +51,12 @@ exports[`components Navigation renders correctly 1`] = `
   </a>
   <a
     className="list-group-item-action list-group-item"
-    href="/books/2014"
+    href="/books/2012"
     onClick={[Function]}
     style={undefined}
   >
     <span>
-      2014
+      2012
     </span>
     <span
       className="ml-auto badge badge-warning badge-pill"
@@ -66,17 +66,17 @@ exports[`components Navigation renders correctly 1`] = `
   </a>
   <a
     className="list-group-item-action list-group-item"
-    href="/books/2016"
+    href="/books/2010"
     onClick={[Function]}
     style={undefined}
   >
     <span>
-      2016
+      2010
     </span>
     <span
       className="ml-auto badge badge-warning badge-pill"
     >
-      7
+      1
     </span>
   </a>
 </div>

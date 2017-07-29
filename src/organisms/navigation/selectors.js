@@ -1,6 +1,10 @@
 import R from 'ramda'
+import { createSelector } from 'reselect'
 
 import { yearsSelector as baseSelector } from '../../state/years'
 
-const yearsSelector = R.pipe(baseSelector, R.path(['entities', 'years']), R.values)
+const yearsSelector = createSelector(
+  R.pipe(baseSelector, R.path(['entities', 'years']), R.values),
+  (years) => R.reverse(years)
+)
 export default yearsSelector
