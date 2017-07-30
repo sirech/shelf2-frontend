@@ -28,7 +28,7 @@ class App extends Component {
 const Content = () => (
   <Container fluid>
     <Row>
-      <Col sm='8' md='9' lg='10'>
+      <Col xs='12' sm='8' md='9' lg='10'>
         <BookCreator />
         <Route exact path='/books/:year' component={BookList} />
       </Col>
