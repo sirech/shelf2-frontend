@@ -23,7 +23,8 @@ type Props = {
   attachForm?: (HTMLButtonElement) => void
 }
 
-class BookForm extends React.Component {
+// exported for testing
+export class BookForm extends React.Component {
   static defaultProps: Props
   props: Props
 

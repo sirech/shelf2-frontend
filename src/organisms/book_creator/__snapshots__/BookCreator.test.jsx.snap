@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components BookCreator renders correctly 1`] = `
+<div>
+  <CreateButton
+    onClick={[Function]}
+  />
+  <Modal
+    autoFocus={true}
+    backdrop={true}
+    backdropTransitionTimeout={150}
+    fade={true}
+    isOpen={true}
+    keyboard={true}
+    modalTransitionTimeout={300}
+    zIndex={1050}
+  >
+    <ModalHeader
+      tag="h4"
+      toggle={[Function]}
+      wrapTag="div"
+    >
+      Add book
+    </ModalHeader>
+    <ModalBody
+      tag="div"
+    >
+      <Connect(BookForm)
+        attachForm={[Function]}
+      />
+    </ModalBody>
+    <ModalFooter
+      tag="div"
+    >
+      <Button
+        color="primary"
+        disabled={false}
+        onClick={[Function]}
+        tag="button"
+      >
+        Create
+      </Button>
+      <Button
+        color="secondary"
+        onClick={[Function]}
+        tag="button"
+      >
+        Cancel
+      </Button>
+    </ModalFooter>
+  </Modal>
+</div>
+`;

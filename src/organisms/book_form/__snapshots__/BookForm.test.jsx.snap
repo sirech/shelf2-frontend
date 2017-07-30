@@ -1,0 +1,112 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components BookForm renders correctly 1`] = `
+<Connect(Form)
+  model="form.book"
+  onSubmit={[Function]}
+>
+  <Connect(Input)
+    messages={
+      Object {
+        "length": "Title must be between 5 and 200 characters",
+      }
+    }
+    name="title"
+    placeholder="Catch-22"
+    type="text"
+    validators={
+      Object {
+        "length": [Function],
+      }
+    }
+  />
+  <Connect(Input)
+    messages={
+      Object {
+        "value": "It should be between 2000 and 2100",
+      }
+    }
+    name="year"
+    type="number"
+    validators={
+      Object {
+        "value": [Function],
+      }
+    }
+  />
+  <FormGroup
+    tag="div"
+  >
+    <Label
+      for="description"
+      tag="label"
+    >
+      Description
+    </Label>
+    <DefaultConnectedControl
+      component={[Function]}
+      id="description"
+      model=".description"
+      name="description"
+      placeholder="That's some catch, that Catch-22"
+      rows="3"
+      type="textarea"
+    />
+    <FormText
+      className="text-muted"
+      tag="small"
+    >
+      Optional
+    </FormText>
+  </FormGroup>
+  <FormGroup
+    tag="div"
+  >
+    <Label
+      for="stars"
+      tag="label"
+    >
+      Stars
+    </Label>
+    <div>
+      <Stars
+        count={3}
+        handleClick={[Function]}
+      />
+    </div>
+  </FormGroup>
+  <FormGroup
+    tag="div"
+  >
+    <Label
+      for="category"
+      tag="label"
+    >
+      Category
+    </Label>
+    <DefaultConnectedControl
+      component={[Function]}
+      id="category"
+      model=".category"
+      name="category"
+      type="select"
+    >
+      <option>
+        sociology
+      </option>
+      <option>
+        software
+      </option>
+      <option>
+        econ
+      </option>
+      <option>
+        history
+      </option>
+      <option>
+        other
+      </option>
+    </DefaultConnectedControl>
+  </FormGroup>
+</Connect(Form)>
+`;

@@ -20,7 +20,8 @@ type Props = {
   modalToggled: () => void
 }
 
-class BookCreator extends React.Component {
+// exported for testing
+export class BookCreator extends React.Component {
   props: Props
   _form: HTMLFormElement
   toggle: Function

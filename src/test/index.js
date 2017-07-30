@@ -1,6 +1,7 @@
 import mockStore from './mock_store'
 import fullRender from './full_render'
+import shallowRender from './shallow_render'
 
 import * as factories from './factories'
 
-export { mockStore, fullRender, factories }
+export { mockStore, fullRender, shallowRender, factories }

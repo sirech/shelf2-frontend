@@ -20,7 +20,8 @@ type Props = {
   messages: Object
 }
 
-class Input extends React.Component {
+// exported for testing
+export class Input extends React.Component {
   props: Props
 
   formState () {

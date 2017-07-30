@@ -23,6 +23,9 @@
   "devDependencies": {
     "classnames": "^2.2.5",
     "coveralls": "^2.13.1",
+    "enzyme": "^2.9.1",
+    "enzyme-redux": "^0.1.6",
+    "enzyme-to-json": "^1.5.1",
     "eslint": "^3.19.0",
     "eslint-config-standard": "^10.2.1",
     "eslint-config-standard-react": "^5.0.0",

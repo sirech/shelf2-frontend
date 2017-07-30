@@ -1,0 +1,102 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components Input displays error 1`] = `
+<FormGroup
+  color="danger"
+  tag="div"
+>
+  <Label
+    for="year"
+    tag="label"
+  >
+    year
+  </Label>
+  <DefaultConnectedControl
+    component={[Function]}
+    id="year"
+    model=".year"
+    name="year"
+    state="danger"
+    type="number"
+  />
+  <Modeled(Connect(Errors))
+    component={[Function]}
+    messages={
+      Object {
+        "err": "Error",
+      }
+    }
+    model=".year"
+    show={
+      Object {
+        "touched": true,
+        "valid": false,
+      }
+    }
+  />
+</FormGroup>
+`;
+
+exports[`components Input renders correctly 1`] = `
+<FormGroup
+  color=""
+  tag="div"
+>
+  <Label
+    for="title"
+    tag="label"
+  >
+    title
+  </Label>
+  <DefaultConnectedControl
+    component={[Function]}
+    id="title"
+    model=".title"
+    name="title"
+    state=""
+    type="text"
+  />
+  <Modeled(Connect(Errors))
+    component={[Function]}
+    model=".title"
+    show={
+      Object {
+        "touched": true,
+        "valid": false,
+      }
+    }
+  />
+</FormGroup>
+`;
+
+exports[`components Input renders correctly for different types 1`] = `
+<FormGroup
+  color=""
+  tag="div"
+>
+  <Label
+    for="year"
+    tag="label"
+  >
+    year
+  </Label>
+  <DefaultConnectedControl
+    component={[Function]}
+    id="year"
+    model=".year"
+    name="year"
+    state=""
+    type="number"
+  />
+  <Modeled(Connect(Errors))
+    component={[Function]}
+    model=".year"
+    show={
+      Object {
+        "touched": true,
+        "valid": false,
+      }
+    }
+  />
+</FormGroup>
+`;
