@@ -3,6 +3,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
+import { Helmet } from 'react-helmet'
 
 import R from 'ramda'
 
@@ -53,6 +54,11 @@ export class BookCreator extends React.Component {
 
     return (
       <div>
+        {opened &&
+          <Helmet>
+            <title>Add book</title>
+          </Helmet>
+        }
         <CreateButton onClick={this.toggle} />
         <Modal isOpen={opened}>
           <ModalHeader toggle={this.toggle}>Add book</ModalHeader>

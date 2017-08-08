@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { LinkContainer } from 'react-router-bootstrap'
+import { Helmet } from 'react-helmet'
 
 import { Collapse, Nav, Navbar, NavbarBrand, NavItem, NavbarToggler } from 'reactstrap'
 
@@ -23,6 +24,10 @@ class Header extends React.Component {
   render () {
     return (
       <header className='mb-4'>
+        <Helmet>
+          <meta charSet='utf-8' />
+          <title>Shelf</title>
+        </Helmet>
         <Navbar inverse color='inverse'>
           <NavbarToggler right onClick={this.toggle} />
           <LinkContainer to='/' >

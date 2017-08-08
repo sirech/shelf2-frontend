@@ -2,6 +2,13 @@
 
 exports[`components BookCreator renders correctly 1`] = `
 <div>
+  <HelmetWrapper
+    encodeSpecialCharacters={true}
+  >
+    <title>
+      Add book
+    </title>
+  </HelmetWrapper>
   <CreateButton
     onClick={[Function]}
   />
