@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^4.0.0-alpha.6",
+    "classnames": "^2.2.5",
     "immutability-helper": "^2.3.0",
     "normalizr": "^3.2.3",
     "ramda": "^0.24.1",
@@ -22,7 +23,6 @@
     "validator": "^8.0.0"
   },
   "devDependencies": {
-    "classnames": "^2.2.5",
     "coveralls": "^2.13.1",
     "enzyme": "^2.9.1",
     "enzyme-redux": "^0.1.6",
