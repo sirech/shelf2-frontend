@@ -40,7 +40,7 @@ export class BookForm extends React.Component {
     return ['sociology', 'software', 'econ', 'history', 'other']
   }
 
-  handleSubmit (book) {
+  handleSubmit (book: BookFormType) {
     this.props.create(book)
   }
 

@@ -41,7 +41,7 @@ export class BookCreator extends React.Component {
     this.props.modalToggled()
   }
 
-  attachForm (node) {
+  attachForm (node: HTMLFormElement) {
     this._form = node
   }
 
