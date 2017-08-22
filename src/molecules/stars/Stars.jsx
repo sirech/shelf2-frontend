@@ -11,7 +11,7 @@ const Stars = ({count, handleClick}: { count: StarCount, handleClick: number => 
   <span className='stars'>
     {[...Array(5).keys()].map(i =>
       <Star key={i} isFull={i < count} onClick={() => handleClick(i + 1)} />
-     )}
+    )}
   </span>
 )
 
