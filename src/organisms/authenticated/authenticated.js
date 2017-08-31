@@ -13,7 +13,7 @@ type Props = {
   authenticated: boolean
 }
 
-export default (shouldBeAuthenticated = true) => (Component) => {
+export default (shouldBeAuthenticated: boolean = true) => (Component: Class<React$Component<*, *, *>>) => {
   class AuthenticatedComponent extends React.Component {
     props: Props
 
