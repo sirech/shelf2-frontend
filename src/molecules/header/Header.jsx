@@ -30,13 +30,13 @@ class Header extends React.Component {
         </Helmet>
         <Navbar inverse color='inverse' toggleable>
           <NavbarToggler right onClick={this.toggle} />
-          <LinkContainer to='/' >
+          <LinkContainer to='/books' >
             <NavbarBrand>Shelf</NavbarBrand>
           </LinkContainer>
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className='ml-auto' navbar>
               <NavItem>
-                <Link to='/books' className='nav-link'>Books</Link>
+                <Link to='/login' className='nav-link'>Login</Link>
               </NavItem>
             </Nav>
           </Collapse>

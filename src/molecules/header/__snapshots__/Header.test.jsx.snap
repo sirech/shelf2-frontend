@@ -17,10 +17,10 @@ exports[`components Header renders correctly 1`] = `
       />
     </button>
     <a
-      className=" active navbar-brand"
-      href="/"
+      className="navbar-brand"
+      href="/books"
       onClick={[Function]}
-      style={Object {}}
+      style={undefined}
     >
       Shelf
     </a>
@@ -36,10 +36,10 @@ exports[`components Header renders correctly 1`] = `
         >
           <a
             className="nav-link"
-            href="/books"
+            href="/login"
             onClick={[Function]}
           >
-            Books
+            Login
           </a>
         </li>
       </ul>

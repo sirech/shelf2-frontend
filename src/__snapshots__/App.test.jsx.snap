@@ -5,6 +5,11 @@ exports[`components App renders correctly 1`] = `
   <div>
     <Route
       exact={true}
+      path="/"
+      render={[Function]}
+    />
+    <Route
+      exact={true}
       path="/books"
       render={[Function]}
     />

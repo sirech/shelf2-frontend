@@ -6,14 +6,19 @@ const modal = () => ({
   opened: false
 })
 
+const login = () => ({
+  authenticated: true
+})
+
 const state = () => {
   return {
     books: books(),
     years: years(),
     form: form(),
-    modal: modal()
+    modal: modal(),
+    login: login()
   }
 }
 
-export { books, years, form }
+export { books, years, form, login }
 export default state
