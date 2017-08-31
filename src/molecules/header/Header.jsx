@@ -3,7 +3,21 @@ import { Link } from 'react-router-dom'
 import { LinkContainer } from 'react-router-bootstrap'
 import { Helmet } from 'react-helmet'
 
+import authenticated from '../../organisms/authenticated'
+
 import { Collapse, Nav, Navbar, NavbarBrand, NavItem, NavbarToggler } from 'reactstrap'
+
+const Login = authenticated(false)(() => (
+  <NavItem>
+    <Link to='/login' className='nav-link'>Login</Link>
+  </NavItem>
+))
+
+const Logout = authenticated()(() => (
+  <NavItem>
+    <Link to='#' className='nav-link'>Logout</Link>
+  </NavItem>
+))
 
 class Header extends React.Component {
   constructor (props) {
@@ -35,9 +49,8 @@ class Header extends React.Component {
           </LinkContainer>
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className='ml-auto' navbar>
-              <NavItem>
-                <Link to='/login' className='nav-link'>Login</Link>
-              </NavItem>
+              <Login />
+              <Logout />
             </Nav>
           </Collapse>
         </Navbar>

@@ -30,19 +30,7 @@ exports[`components Header renders correctly 1`] = `
     >
       <ul
         className="ml-auto navbar-nav"
-      >
-        <li
-          className="nav-item"
-        >
-          <a
-            className="nav-link"
-            href="/login"
-            onClick={[Function]}
-          >
-            Login
-          </a>
-        </li>
-      </ul>
+      />
     </div>
   </nav>
 </header>

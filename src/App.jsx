@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-d
 
 import { Col, Container, Row } from 'reactstrap'
 
+import authenticated from './organisms/authenticated'
+
 import Header from './molecules/header'
 import BookCreator from './organisms/book_creator'
 import BookList from './organisms/book_list'
@@ -29,6 +31,7 @@ class App extends Component {
     )
   }
 }
+
 const Content = () => (
   <Container fluid>
     <Switch>
@@ -38,10 +41,12 @@ const Content = () => (
   </Container>
 )
 
+const AuthBookCreator = authenticated()(BookCreator)
+
 const Books = () => (
   <Row>
     <Col xs='12' sm='8' md='9' lg='10'>
-      <BookCreator />
+      <AuthBookCreator />
       <Route exact path='/books/:year' component={BookList} />
     </Col>
     <Col sm='4' md='3' lg='2'>
