@@ -28,7 +28,7 @@ class Header extends React.Component {
           <meta charSet='utf-8' />
           <title>Shelf</title>
         </Helmet>
-        <Navbar inverse color='inverse'>
+        <Navbar inverse color='inverse' toggleable>
           <NavbarToggler right onClick={this.toggle} />
           <LinkContainer to='/' >
             <NavbarBrand>Shelf</NavbarBrand>

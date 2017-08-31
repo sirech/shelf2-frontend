@@ -5,7 +5,7 @@ exports[`components Header renders correctly 1`] = `
   className="mb-4"
 >
   <nav
-    className="navbar navbar-inverse bg-inverse"
+    className="navbar navbar-toggleable navbar-inverse bg-inverse"
   >
     <button
       className="navbar-toggler navbar-toggler-right"
