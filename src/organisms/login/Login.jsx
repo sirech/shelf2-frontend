@@ -8,15 +8,16 @@ import { Redirect } from 'react-router-dom'
 import R from 'ramda'
 
 import { Form } from 'react-redux-form'
-import { Col, Row, Button } from 'reactstrap'
+import { Col, Row, Button, Alert } from 'reactstrap'
 import Input from '../input'
 
-import { constants, actions, authenticatedSelector } from '../../state/login'
+import { constants, actions, authenticatedSelector, failedSelector } from '../../state/login'
 
 import type { Login as LoginType } from '../../types'
 
 type Props = {
   authenticated: boolean,
+  failed: boolean,
   tryLogin: (LoginType) => void
 }
 
@@ -42,11 +43,20 @@ class Login extends React.Component {
     }
   }
 
+  errorMessage () {
+    if (this.props.failed) {
+      return (
+        <Alert color='danger'>Could not log in</Alert>
+      )
+    }
+  }
+
   render () {
     return (
       <Row>
         {this.redirectIfLoggedIn()}
         <Col xs='12'>
+          {this.errorMessage()}
           <Form model={constants.modelName} onSubmit={this.onSubmit}>
 
             <Input
@@ -69,12 +79,14 @@ class Login extends React.Component {
 
 Login.defaultProps = {
   authenticated: false,
+  failed: false,
   tryLogin: (_) => undefined
 }
 
 export default connect(
   (state, props) => createStructuredSelector({
-    authenticated: authenticatedSelector
+    authenticated: authenticatedSelector,
+    failed: failedSelector
   })(state),
   R.pick(['tryLogin'])(actions)
 )(Login)

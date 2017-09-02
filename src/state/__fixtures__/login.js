@@ -1,6 +1,7 @@
 const login = () => ({
   status: {
-    authenticated: true
+    authenticated: true,
+    failed: false
   },
   form: {
     login: {
