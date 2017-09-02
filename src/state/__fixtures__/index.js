@@ -1,15 +1,10 @@
 import books from './books'
 import years from './years'
 import form from './form'
+import login from './login'
 
 const modal = () => ({
   opened: false
-})
-
-const login = () => ({
-  status: {
-    authenticated: true
-  }
 })
 
 const state = () => {

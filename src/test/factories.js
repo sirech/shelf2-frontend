@@ -13,3 +13,7 @@ export const book = new Factory()
 export const year = new Factory()
   .attr('year', yearGenerator)
   .attr('count', () => faker.random.number({ min: 1, max: 20 }))
+
+export const login = new Factory()
+  .attr('user', () => faker.internet.userName())
+  .attr('password', () => faker.internet.password())
