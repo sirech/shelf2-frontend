@@ -7,7 +7,9 @@ const modal = () => ({
 })
 
 const login = () => ({
-  authenticated: true
+  status: {
+    authenticated: true
+  }
 })
 
 const state = () => {

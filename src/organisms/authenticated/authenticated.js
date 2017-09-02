@@ -7,7 +7,7 @@ import R from 'ramda'
 import wrapDisplayName from 'recompose/wrapDisplayName'
 import { createStructuredSelector } from 'reselect'
 
-import selector from './selectors'
+import { authenticatedSelector } from '../../state/login'
 
 type Props = {
   authenticated: boolean
@@ -36,7 +36,7 @@ export default (shouldBeAuthenticated: boolean = true) => (Component: Class<Reac
 
   return connect(
     (state, props) => createStructuredSelector({
-      authenticated: selector
+      authenticated: authenticatedSelector
     })(state)
   )(AuthenticatedComponent)
 }

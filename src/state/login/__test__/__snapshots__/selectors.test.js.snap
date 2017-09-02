@@ -1,6 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`login selector selects the login 1`] = `
+exports[`selectors authenticatedSelector selects the authenticated field 1`] = `true`;
+
+exports[`selectors login selector selects the login 1`] = `
 Object {
   "authenticated": true,
 }
