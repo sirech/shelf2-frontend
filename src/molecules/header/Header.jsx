@@ -1,3 +1,5 @@
+// @flow
+
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { LinkContainer } from 'react-router-bootstrap'
@@ -14,9 +16,16 @@ const Login = authenticated(false)(() => (
   </NavItem>
 ))
 
+type State = {
+  isOpen: boolean
+}
+
 class Header extends React.Component {
-  constructor (props) {
-    super(props)
+  state: State
+  toggle: Function
+
+  constructor () {
+    super()
 
     this.toggle = this.toggle.bind(this)
     this.state = {
