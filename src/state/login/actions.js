@@ -14,6 +14,10 @@ const loginFailure = () => ({
   type: LOGIN_FAILURE
 })
 
+const storeToken = (token) => {
+  localStorage.setItem('authToken', token)
+}
+
 export const tryLogin = (data: LoginType) => {
   return (dispatch: Dispatch) => {
     const url = '/login'
@@ -27,6 +31,8 @@ export const tryLogin = (data: LoginType) => {
         }
         return response
       })
+      .then(response => response.json())
+      .then(json => storeToken(json.auth_token))
       .then(() => dispatch(loginSuccess()))
       .catch(() => dispatch(loginFailure()))
   }

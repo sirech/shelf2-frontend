@@ -12,5 +12,8 @@ module.exports = {
   "plugins": [
     "jest",
     "flowtype"
-  ]
+  ],
+  "globals": {
+    "localStorage": true
+  }
 }
