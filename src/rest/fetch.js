@@ -9,6 +9,14 @@ const testableUrl = (path: string) => {
 
 const prepareUrl = path => testableUrl(`/rest${path}`)
 
+const addAuthorization = (headers) => {
+  const token = localStorage.getItem('authToken')
+
+  if (token) {
+    headers['Authorization'] = `Bearer: ${token}`
+  }
+}
+
 const fetch = (url: string, opts: Object = {}) => {
   const DEFAULT_OPTIONS = {
     credentials: 'same-origin',
@@ -20,6 +28,7 @@ const fetch = (url: string, opts: Object = {}) => {
   }
 
   const headers = {...DEFAULT_OPTIONS.headers, ...opts.headers}
+  addAuthorization(headers)
   const options = {...DEFAULT_OPTIONS, ...opts, ...{ headers }}
 
   return isoFetch(prepareUrl(url), options)

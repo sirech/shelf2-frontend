@@ -6,7 +6,7 @@ import { LOGIN_SUCCESS, LOGIN_FAILURE } from './constants'
 
 import type { Login as LoginType } from '../../types'
 
-const loginSuccess = () => ({
+export const loginSuccess = () => ({
   type: LOGIN_SUCCESS
 })
 

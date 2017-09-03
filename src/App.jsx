@@ -9,6 +9,7 @@ import Header from './molecules/header'
 import BookCreator from './organisms/book_creator'
 import BookList from './organisms/book_list'
 import Login from './organisms/login'
+import LoginStatusChecker from './organisms/login_status_checker'
 import Navigation from './organisms/navigation'
 
 const year = new Date().getFullYear()
@@ -24,6 +25,7 @@ class App extends Component {
           <Route exact path='/books' render={() => (
             <Redirect to={`/books/${year}`} />
           )} />
+          <LoginStatusChecker />
           <Header />
           <Content />
         </div>

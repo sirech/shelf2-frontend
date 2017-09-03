@@ -13,6 +13,7 @@ exports[`components App renders correctly 1`] = `
       path="/books"
       render={[Function]}
     />
+    <Connect(LoginStatusChecker) />
     <Header />
     <Content />
   </div>

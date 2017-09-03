@@ -26,9 +26,7 @@ describe('actions', () => {
         store = mockStore({})
         setItem = jest.fn()
 
-        global.localStorage = {
-          setItem: setItem
-        }
+        global.localStorage.setItem = setItem
       })
 
       it('should dispatch the correct actions', () => {
