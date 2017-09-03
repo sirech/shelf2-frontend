@@ -29,7 +29,7 @@ class Logout extends React.Component {
   render () {
     return (
       <NavItem>
-        <a href='#' onClick={this.onClick} className='nav-link'>Logout</a>
+        <div onClick={this.onClick} className='nav-link' role='link'>Logout</div>
       </NavItem>
     )
   }

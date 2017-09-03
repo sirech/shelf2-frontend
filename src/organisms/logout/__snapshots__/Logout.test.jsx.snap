@@ -4,12 +4,12 @@ exports[`components Logout renders correctly 1`] = `
 <li
   className="nav-item"
 >
-  <a
+  <div
     className="nav-link"
-    href="#"
     onClick={[Function]}
+    role="link"
   >
     Logout
-  </a>
+  </div>
 </li>
 `;
