@@ -2,7 +2,7 @@
 
 import { fetch } from '../../rest'
 
-import { LOGIN_SUCCESS, LOGIN_FAILURE } from './constants'
+import { LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT_SUCCESS } from './constants'
 
 import type { Login as LoginType } from '../../types'
 
@@ -14,8 +14,19 @@ const loginFailure = () => ({
   type: LOGIN_FAILURE
 })
 
+const logoutSuccess = () => ({
+  type: LOGOUT_SUCCESS
+})
+
 const storeToken = (token) => {
   localStorage.setItem('authToken', token)
+}
+
+export const logout = () => {
+  return (dispatch: Dispatch) => {
+    localStorage.removeItem('authToken')
+    dispatch(logoutSuccess())
+  }
 }
 
 export const tryLogin = (data: LoginType) => {

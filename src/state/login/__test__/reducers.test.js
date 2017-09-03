@@ -1,6 +1,6 @@
 import { status } from '../reducers'
 
-import { LOGIN_SUCCESS, LOGIN_FAILURE } from '../constants'
+import { LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT_SUCCESS } from '../constants'
 
 describe('login reducer', () => {
   it('returns the initial state', () => {
@@ -25,5 +25,11 @@ describe('login reducer', () => {
     expect(status(undefined, {
       type: LOGIN_FAILURE
     })).toEqual({ authenticated: false, failed: true })
+  })
+
+  it('handles LOGOUT_SUCCESS', () => {
+    expect(status({ authenticated: true }, {
+      type: LOGOUT_SUCCESS
+    })).toEqual({ authenticated: false })
   })
 })

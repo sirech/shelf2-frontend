@@ -4,18 +4,13 @@ import { LinkContainer } from 'react-router-bootstrap'
 import { Helmet } from 'react-helmet'
 
 import authenticated from '../../organisms/authenticated'
+import Logout from '../../organisms/logout'
 
 import { Collapse, Nav, Navbar, NavbarBrand, NavItem, NavbarToggler } from 'reactstrap'
 
 const Login = authenticated(false)(() => (
   <NavItem>
     <Link to='/login' className='nav-link'>Login</Link>
-  </NavItem>
-))
-
-const Logout = authenticated()(() => (
-  <NavItem>
-    <Link to='#' className='nav-link'>Logout</Link>
   </NavItem>
 ))
 

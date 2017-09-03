@@ -1,4 +1,4 @@
-import { namespace, loginModel, LOGIN_SUCCESS, LOGIN_FAILURE } from './constants'
+import { namespace, loginModel, LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT_SUCCESS } from './constants'
 import { combineReducers } from 'redux'
 import { combineForms } from 'react-redux-form'
 
@@ -10,6 +10,8 @@ export function status (state = initialState, action) {
       return { ...state, authenticated: true, failed: false }
     case LOGIN_FAILURE:
       return { ...state, failed: true }
+    case LOGOUT_SUCCESS:
+      return { ...state, authenticated: false }
     default:
       return state
   }

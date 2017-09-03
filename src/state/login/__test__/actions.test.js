@@ -1,10 +1,38 @@
 import nock from 'nock'
 import { mockStore, factories } from '../../../test'
 
-import { tryLogin } from '../actions'
+import { tryLogin, logout } from '../actions'
 
 describe('actions', () => {
   let store
+
+  beforeEach(() => {
+    store = mockStore({})
+  })
+
+  describe('logout', () => {
+    let removeItem
+
+    beforeEach(() => {
+      removeItem = jest.fn()
+      global.localStorage.removeItem = removeItem
+    })
+
+    it('should dispatch the correct actions', () => {
+      const expectedActions = [
+        { type: 'logout:success' }
+      ]
+
+      store.dispatch(logout())
+      expect(store.getActions()).toEqual(expectedActions)
+    })
+
+    it('removes the token from localStorage', () => {
+      store.dispatch(logout())
+      expect(removeItem.mock.calls.length).toBe(1)
+      expect(removeItem.mock.calls[0][0]).toBe('authToken')
+    })
+  })
 
   describe('tryLogin', () => {
     let login
@@ -23,9 +51,7 @@ describe('actions', () => {
           .post('/rest/login', JSON.stringify(login))
           .reply(201, token)
 
-        store = mockStore({})
         setItem = jest.fn()
-
         global.localStorage.setItem = setItem
       })
 
