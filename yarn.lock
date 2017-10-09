@@ -1840,6 +1840,12 @@ debug@^3.0.0:
   dependencies:
     ms "2.0.0"
 
+debug@^3.0.1:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/debug/-/debug-3.1.0.tgz#5bb5a0672628b64149566ba16819e61518c67261"
+  dependencies:
+    ms "2.0.0"
+
 debug@~2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.2.0.tgz#f87057e995b1a1f6ae6a4960664137bc56f039da"
@@ -2350,9 +2356,9 @@ eslint-plugin-flowtype@2.35.0:
   dependencies:
     lodash "^4.15.0"
 
-eslint-plugin-flowtype@^2.35.1:
-  version "2.35.1"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-flowtype/-/eslint-plugin-flowtype-2.35.1.tgz#9ad98181b467a3645fbd2a8d430393cc17a4ea63"
+eslint-plugin-flowtype@^2.39.1:
+  version "2.39.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-flowtype/-/eslint-plugin-flowtype-2.39.1.tgz#b5624622a0388bcd969f4351131232dcb9649cd5"
   dependencies:
     lodash "^4.15.0"
 
@@ -2371,9 +2377,9 @@ eslint-plugin-import@2.7.0, eslint-plugin-import@^2.7.0:
     minimatch "^3.0.3"
     read-pkg-up "^2.0.0"
 
-eslint-plugin-jest@^21.0.0:
-  version "21.0.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-jest/-/eslint-plugin-jest-21.0.0.tgz#7ba4cab39b54dbafa1e3b2a73b42afccea325efe"
+eslint-plugin-jest@^21.2.0:
+  version "21.2.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-jest/-/eslint-plugin-jest-21.2.0.tgz#292044df9cf0866ad9c530e78e6528fae287b926"
 
 eslint-plugin-jsx-a11y@5.1.1:
   version "5.1.1"
@@ -2387,9 +2393,9 @@ eslint-plugin-jsx-a11y@5.1.1:
     emoji-regex "^6.1.0"
     jsx-ast-utils "^1.4.0"
 
-eslint-plugin-node@^5.1.1:
-  version "5.1.1"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-node/-/eslint-plugin-node-5.1.1.tgz#a7ed956e780c22aef6afd1116005acd82f26eac6"
+eslint-plugin-node@^5.2.0:
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-node/-/eslint-plugin-node-5.2.0.tgz#e1efca04a385516cff3f2f04027ce8c5ae6db749"
   dependencies:
     ignore "^3.3.3"
     minimatch "^3.0.4"
@@ -2408,9 +2414,9 @@ eslint-plugin-react@7.1.0:
     has "^1.0.1"
     jsx-ast-utils "^1.4.1"
 
-eslint-plugin-react@^7.2.0:
-  version "7.3.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-react/-/eslint-plugin-react-7.3.0.tgz#ca9368da36f733fbdc05718ae4e91f778f38e344"
+eslint-plugin-react@^7.4.0:
+  version "7.4.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-react/-/eslint-plugin-react-7.4.0.tgz#300a95861b9729c087d362dd64abcc351a74364a"
   dependencies:
     doctrine "^2.0.0"
     has "^1.0.1"
@@ -2469,19 +2475,19 @@ eslint@4.4.1:
     table "^4.0.1"
     text-table "~0.2.0"
 
-eslint@^4.6.1:
-  version "4.6.1"
-  resolved "https://registry.yarnpkg.com/eslint/-/eslint-4.6.1.tgz#ddc7fc7fd70bf93205b0b3449bb16a1e9e7d4950"
+eslint@^4.8.0:
+  version "4.8.0"
+  resolved "https://registry.yarnpkg.com/eslint/-/eslint-4.8.0.tgz#229ef0e354e0e61d837c7a80fdfba825e199815e"
   dependencies:
     ajv "^5.2.0"
     babel-code-frame "^6.22.0"
     chalk "^2.1.0"
     concat-stream "^1.6.0"
     cross-spawn "^5.1.0"
-    debug "^2.6.8"
+    debug "^3.0.1"
     doctrine "^2.0.0"
     eslint-scope "^3.7.1"
-    espree "^3.5.0"
+    espree "^3.5.1"
     esquery "^1.0.0"
     estraverse "^4.2.0"
     esutils "^2.0.2"
@@ -2502,7 +2508,7 @@ eslint@^4.6.1:
     natural-compare "^1.4.0"
     optionator "^0.8.2"
     path-is-inside "^1.0.2"
-    pluralize "^4.0.0"
+    pluralize "^7.0.0"
     progress "^2.0.0"
     require-uncached "^1.0.3"
     semver "^5.3.0"
@@ -2514,6 +2520,13 @@ eslint@^4.6.1:
 espree@^3.5.0:
   version "3.5.0"
   resolved "https://registry.yarnpkg.com/espree/-/espree-3.5.0.tgz#98358625bdd055861ea27e2867ea729faf463d8d"
+  dependencies:
+    acorn "^5.1.1"
+    acorn-jsx "^3.0.0"
+
+espree@^3.5.1:
+  version "3.5.1"
+  resolved "https://registry.yarnpkg.com/espree/-/espree-3.5.1.tgz#0c988b8ab46db53100a1954ae4ba995ddd27d87e"
   dependencies:
     acorn "^5.1.1"
     acorn-jsx "^3.0.0"
@@ -5127,6 +5140,10 @@ pkg-dir@^2.0.0:
 pluralize@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/pluralize/-/pluralize-4.0.0.tgz#59b708c1c0190a2f692f1c7618c446b052fd1762"
+
+pluralize@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/pluralize/-/pluralize-7.0.0.tgz#298b89df8b93b0221dbf421ad2b1b1ea23fc6777"
 
 portfinder@^1.0.9:
   version "1.0.13"
