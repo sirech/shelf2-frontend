@@ -91,19 +91,29 @@ exports[`components BookForm renders correctly 1`] = `
       name="category"
       type="select"
     >
-      <option>
+      <option
+        key="sociology"
+      >
         sociology
       </option>
-      <option>
+      <option
+        key="software"
+      >
         software
       </option>
-      <option>
+      <option
+        key="econ"
+      >
         econ
       </option>
-      <option>
+      <option
+        key="history"
+      >
         history
       </option>
-      <option>
+      <option
+        key="other"
+      >
         other
       </option>
     </DefaultConnectedControl>
