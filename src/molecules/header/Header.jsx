@@ -7,6 +7,7 @@ import { Helmet } from 'react-helmet'
 
 import authenticated from '../../organisms/authenticated'
 import Logout from '../../organisms/logout'
+import SearchBar from '../../organisms/search_bar'
 
 import { Collapse, Nav, Navbar, NavbarBrand, NavItem, NavbarToggler } from 'reactstrap'
 
@@ -53,6 +54,7 @@ class Header extends React.Component {
           </LinkContainer>
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className='ml-auto' navbar>
+              <SearchBar />
               <Login />
               <Logout />
             </Nav>

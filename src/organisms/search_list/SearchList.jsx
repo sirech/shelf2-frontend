@@ -6,6 +6,7 @@ import { createStructuredSelector } from 'reselect'
 
 import R from 'ramda'
 import { Card } from 'reactstrap'
+import debounce from 'lodash.debounce'
 
 import Book from '../../molecules/book'
 
@@ -30,6 +31,8 @@ class SearchList extends React.Component {
   }
 
   componentDidMount () {
+    this.debouncedSearch = debounce(this.props.search, 300)
+
     const keyword = SearchList.getKeyword(this.props)
 
     if (keyword) {
@@ -42,7 +45,7 @@ class SearchList extends React.Component {
     const newKeyword = SearchList.getKeyword(nextProps)
 
     if (keyword && newKeyword && keyword !== newKeyword) {
-      this.props.search(newKeyword)
+      this.debouncedSearch(newKeyword)
     }
   }
 

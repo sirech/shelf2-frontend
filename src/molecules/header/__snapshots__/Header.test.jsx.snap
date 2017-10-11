@@ -30,7 +30,17 @@ exports[`components Header renders correctly 1`] = `
     >
       <ul
         className="ml-auto navbar-nav"
-      />
+      >
+        <form
+          className="form-inline"
+        >
+          <input
+            className="form-control"
+            onChange={[Function]}
+            type="text"
+          />
+        </form>
+      </ul>
     </div>
   </nav>
 </header>

@@ -39,6 +39,9 @@ const Content = () => (
   <Container fluid>
     <Switch>
       <Route exact path='/login' component={Login} />
+      <Route exact path='/books/search' render={() => (
+        <Redirect to='/books' />
+      )} />
       <Route exact path='/books/search/:keyword' component={SearchList} />
       <Route component={Books} />
     </Switch>
