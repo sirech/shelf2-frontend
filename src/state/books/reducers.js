@@ -20,6 +20,7 @@ const updateBook = (state, book) => {
     return state
   }
 }
+
 export default function books (state = initialState, action) {
   switch (action.type) {
     case RECEIVE_BOOKS:
