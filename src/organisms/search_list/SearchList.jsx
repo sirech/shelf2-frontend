@@ -36,7 +36,7 @@ class SearchList extends React.Component {
     const keyword = SearchList.getKeyword(this.props)
 
     if (keyword) {
-      this.props.search(keyword)
+      this.debouncedSearch(keyword)
     }
   }
 
