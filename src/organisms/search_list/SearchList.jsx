@@ -25,6 +25,7 @@ type Props = {
 class SearchList extends React.Component {
   static defaultProps: Props
   props: Props
+  debouncedSearch: (string) => void
 
   static getKeyword (props) {
     return R.path(['match', 'params', 'keyword'], props)
