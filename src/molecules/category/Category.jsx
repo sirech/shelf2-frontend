@@ -4,7 +4,7 @@ import React from 'react'
 
 import { Card, CardHeader } from 'reactstrap'
 
-import Book from '../book'
+import SimpleBookList from '../simple_book_list'
 
 import './styles.css'
 
@@ -15,13 +15,7 @@ const Category = ({name, books}: CategoryType) => (
     <CardHeader>
       <h4 className='d-inline-block'>{name}</h4>
     </CardHeader>
-    <ul className='list-unstyled mb-0'>
-      {books.map(book =>
-        <li key={book.id} className='book-list-item'>
-          <Book {...book} />
-        </li>
-      )}
-    </ul>
+    <SimpleBookList books={books} />
   </Card>
 )
 

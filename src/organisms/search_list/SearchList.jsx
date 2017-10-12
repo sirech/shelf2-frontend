@@ -8,7 +8,7 @@ import R from 'ramda'
 import { Card } from 'reactstrap'
 import debounce from 'lodash.debounce'
 
-import Book from '../../molecules/book'
+import SimpleBookList from '../../molecules/simple_book_list'
 
 import booksSelector from './selectors'
 
@@ -54,13 +54,7 @@ class SearchList extends React.Component {
     const { books } = this.props
     return (
       <Card>
-        <ul className='list-unstyled mb-0'>
-          {books.map(book =>
-            <li key={book.id} className='book-list-item'>
-              <Book {...book} />
-            </li>
-          )}
-        </ul>
+        <SimpleBookList books={books} />
       </Card>
     )
   }
