@@ -4,6 +4,15 @@ exports[`components SearchList renders correctly 1`] = `
 <div
   className="card"
 >
+  <div
+    className="text-right card-header"
+  >
+    <span>
+      7
+       
+      results
+    </span>
+  </div>
   <ul
     className="list-unstyled mb-0"
   >

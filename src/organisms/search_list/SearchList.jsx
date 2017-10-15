@@ -5,8 +5,9 @@ import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 
 import R from 'ramda'
-import { Card } from 'reactstrap'
+import { Card, CardHeader } from 'reactstrap'
 import debounce from 'lodash.debounce'
+import Pluralize from 'react-pluralize'
 
 import SimpleBookList from '../../molecules/simple_book_list'
 
@@ -54,6 +55,9 @@ class SearchList extends React.Component {
     const { books } = this.props
     return (
       <Card>
+        <CardHeader className='text-right'>
+          <Pluralize singular='result' count={books.length} />
+        </CardHeader>
         <SimpleBookList books={books} />
       </Card>
     )

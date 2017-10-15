@@ -5684,6 +5684,13 @@ react-icons@^2.2.5:
   dependencies:
     react-icon-base "2.0.7"
 
+react-pluralize@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/react-pluralize/-/react-pluralize-1.1.0.tgz#d7c49108745b0d6d9ff2fcfaf702a51ab73fbe37"
+  dependencies:
+    prop-types "^15.5.10"
+    react "^15.5.4"
+
 react-redux-form@^1.14.2:
   version "1.14.2"
   resolved "https://registry.yarnpkg.com/react-redux-form/-/react-redux-form-1.14.2.tgz#2f5fa61a1d88dd1c8c67f45b70397bf9932b1096"
@@ -5804,6 +5811,16 @@ react-transition-group@^1.2.0:
 "react@^15 || ^16", react@^15.6.1:
   version "15.6.1"
   resolved "https://registry.yarnpkg.com/react/-/react-15.6.1.tgz#baa8434ec6780bde997cdc380b79cd33b96393df"
+  dependencies:
+    create-react-class "^15.6.0"
+    fbjs "^0.8.9"
+    loose-envify "^1.1.0"
+    object-assign "^4.1.0"
+    prop-types "^15.5.10"
+
+react@^15.5.4:
+  version "15.6.2"
+  resolved "https://registry.yarnpkg.com/react/-/react-15.6.2.tgz#dba0434ab439cfe82f108f0f511663908179aa72"
   dependencies:
     create-react-class "^15.6.0"
     fbjs "^0.8.9"
