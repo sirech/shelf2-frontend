@@ -69,5 +69,6 @@
   "proxy": "http://localhost:3001",
   "stylelint": {
     "extends": "stylelint-config-standard"
-  }
+  },
+  "pre-commit": ["flow", "linter:js", "linter:css"]
 }
