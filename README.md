@@ -1,7 +1,6 @@
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+## Shelf Frontend
 
-Below you will find some information on how to perform common tasks.<br>
-You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
+[![Build Status](https://travis-ci.org/sirech/shelf2-frontend.svg?branch=master)](https://travis-ci.org/sirech/shelf2-frontend) [![Coverage Status](https://coveralls.io/repos/github/sirech/shelf2-frontend/badge.svg?branch=master)](https://coveralls.io/github/sirech/shelf2-frontend?branch=master)
 
 ## Table of Contents
 
