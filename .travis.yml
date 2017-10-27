@@ -9,6 +9,9 @@ jobs:
   include:
     - stage: 'Flow'
       script: npm run flow
+    - stage: 'Lint'
+      script: npm run linter:js
+    - script: npm run linter:css
     - stage: 'Test'
       script: npm test -- --coverage
       after_script: cat coverage/lcov.info | node_modules/.bin/coveralls
