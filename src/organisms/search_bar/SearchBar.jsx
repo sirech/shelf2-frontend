@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom'
 
 import { Form, Input } from 'reactstrap'
 
-type Props = { history: RouterHistory }
+type Props = { history: Object }
 
 class SearchBar extends React.Component {
   props: Props
