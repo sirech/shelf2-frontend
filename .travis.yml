@@ -11,3 +11,4 @@ jobs:
       script: npm run flow
     - stage: 'Test'
       script: npm test -- --coverage
+      after_script: cat coverage/lcov.info | node_modules/.bin/coveralls
