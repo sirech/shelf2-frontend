@@ -21,7 +21,8 @@ type Props = {
   tryLogin: (LoginType) => void
 }
 
-class Login extends React.Component {
+// exported for testing
+export class Login extends React.Component {
   static defaultProps: Props
   props: Props
   onSubmit: Function

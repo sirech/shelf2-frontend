@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components Login does not blow up 1`] = `
+<Row
+  tag="div"
+>
+  <Col
+    tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
+    xs="12"
+  >
+    <Connect(Form)
+      model="login.form.login"
+      onSubmit={[Function]}
+    >
+      <Connect(Input)
+        name="user"
+        type="text"
+      />
+      <Connect(Input)
+        name="password"
+        type="password"
+      />
+      <Button
+        color="secondary"
+        tag="button"
+        type="submit"
+      >
+        Submit
+      </Button>
+    </Connect(Form)>
+  </Col>
+</Row>
+`;
