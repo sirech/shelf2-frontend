@@ -70,5 +70,9 @@
   "stylelint": {
     "extends": "stylelint-config-standard"
   },
-  "pre-commit": ["flow", "linter:js", "linter:css"]
+  "pre-commit": [
+    "flow",
+    "linter:js",
+    "linter:css"
+  ]
 }
