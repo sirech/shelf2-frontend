@@ -47,7 +47,7 @@ describe('actions', () => {
         login = factories.login.build()
         token = { auth_token: 'token' }
 
-        nock('http://localhost')
+        nock('http://localhost:8989')
           .post('/rest/login', JSON.stringify(login))
           .reply(201, token)
 
@@ -80,7 +80,7 @@ describe('actions', () => {
       beforeEach(() => {
         login = factories.login.build()
 
-        nock('http://localhost')
+        nock('http://localhost:8989')
           .post('/rest/login', JSON.stringify(login))
           .reply(401)
 

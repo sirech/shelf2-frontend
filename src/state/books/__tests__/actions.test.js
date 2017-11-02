@@ -1,31 +1,55 @@
-import nock from 'nock'
-import { mockStore, factories } from '../../../test'
+/**
+ * @jest-environment node
+ */
+
+import R from 'ramda'
+
+import { mockStore, createProvider } from '../../../test'
 
 import { fetchBooks } from '../actions'
-import { normalizeBooks } from '../../../rest'
+
+import { books, rest } from '../../__fixtures__'
 
 describe('actions', () => {
   let store
-  let year = '2017'
-  let books = factories.book.buildList(3)
+  let year = '2016'
+  const provider = createProvider()
+
+  beforeAll(done => provider.setup().then(done))
+  afterAll(done => provider.verify().then(provider.finalize).then(done))
 
   describe('fetchBooks', () => {
-    beforeEach(() => {
-      nock('http://localhost')
-        .get(`/rest/books?year=${year}`)
-        .reply(200, books)
-
-      store = mockStore({})
+    beforeAll(done => {
+      const interaction = {
+        state: 'i have an empty state',
+        uponReceiving: 'a request for a list of books for a given year',
+        withRequest: {
+          method: 'GET',
+          path: '/rest/books',
+          query: { year },
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'X-Requested-With': 'XMLHttpRequest'
+          }
+        },
+        willRespondWith: {
+          status: 200,
+          headers: { 'Content-Type': 'application/json' },
+          body: rest.books
+        }
+      }
+      provider.addInteraction(interaction).then(done, done)
     })
 
-    afterEach(() => {
-      nock.cleanAll()
+    beforeEach(() => {
+      store = mockStore({})
     })
 
     it('should dispatch the correct actions', () => {
       const expectedActions = [
-        { type: 'books:receive', payload: normalizeBooks(books) },
-        { type: 'books:activeYear', payload: 2017 }
+        { type: 'books:receive', payload: R.pick(['entities', 'result'])(books()) },
+        { type: 'books:activeYear', payload: 2016 }
       ]
 
       return store.dispatch(fetchBooks(year))

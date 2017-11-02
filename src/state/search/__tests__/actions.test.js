@@ -11,7 +11,7 @@ describe('actions', () => {
 
   describe('search', () => {
     beforeEach(() => {
-      nock('http://localhost')
+      nock('http://localhost:8989')
         .get(`/rest/books/search/${keyword}`)
         .reply(200, books)
 

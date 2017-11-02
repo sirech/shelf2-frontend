@@ -46,6 +46,8 @@
     "flow-bin": "^0.52.0",
     "nock": "^9.0.22",
     "npm-ls-scripts": "^0.1.2",
+    "pact": "^4.0.0",
+    "path": "^0.12.7",
     "pre-commit": "^1.2.2",
     "react-scripts": "^1.0.14",
     "react-test-renderer": "^15.6.1",

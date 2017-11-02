@@ -5,6 +5,8 @@ import years from './years'
 import form from './form'
 import login from './login'
 
+import * as rest from './rest'
+
 const modal = () => ({
   opened: false
 })
@@ -22,5 +24,5 @@ const state = () => {
   }
 }
 
-export { books, search, years, form, login }
+export { books, search, years, form, login, rest }
 export default state

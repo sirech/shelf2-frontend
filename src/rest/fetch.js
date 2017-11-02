@@ -4,7 +4,7 @@ import isoFetch from 'isomorphic-fetch'
 
 const testableUrl = (path: string) => {
   const TESTING = process.env.NODE_ENV === 'test'
-  return `${TESTING ? 'http://localhost' : ''}${path}`
+  return `${TESTING ? 'http://localhost:8989' : ''}${path}`
 }
 
 const prepareUrl = path => testableUrl(`/rest${path}`)
@@ -22,7 +22,7 @@ const fetch = (url: string, opts: Object = {}) => {
     credentials: 'same-origin',
     headers: {
       Accept: 'application/json',
-      'Content-type': 'application/json',
+      'Content-Type': 'application/json',
       'X-Requested-With': 'XMLHttpRequest'
     }
   }

@@ -27,7 +27,7 @@ describe('actions', () => {
     beforeEach(() => {
       book = factories.book.build()
 
-      nock('http://localhost')
+      nock('http://localhost:8989')
         .post('/rest/books', JSON.stringify({ book }))
         .reply(200, book)
 

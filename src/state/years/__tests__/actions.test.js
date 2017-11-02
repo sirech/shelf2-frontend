@@ -10,7 +10,7 @@ describe('actions', () => {
 
   describe('fetchYears', () => {
     beforeEach(() => {
-      nock('http://localhost')
+      nock('http://localhost:8989')
         .get('/rest/books/years')
         .reply(200, years)
 
