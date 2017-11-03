@@ -49,3 +49,5 @@ export const books = [
     category: 'history'
   }
 ]
+
+export const years = [{year: 2010, count: 1}, {year: 2012, count: 1}, {year: 2013, count: 1}, {year: 2014, count: 1}, {year: 2016, count: 7}]

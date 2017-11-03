@@ -1,29 +1,55 @@
-import nock from 'nock'
-import { mockStore, factories } from '../../../test'
+/**
+ * @jest-environment node
+ */
+
+import { mockStore, createProvider } from '../../../test'
 
 import { fetchYears } from '../actions'
-import { normalizeYears } from '../../../rest'
+
+import { years, rest } from '../../__fixtures__'
 
 describe('actions', () => {
   let store
-  let years = factories.year.buildList(3)
+  const provider = createProvider()
+
+  beforeAll(async () => {
+    await provider.setup()
+
+    const interaction = {
+      state: 'i have an empty state',
+      uponReceiving: 'a request for a summary of all the years',
+      withRequest: {
+        method: 'GET',
+        path: '/rest/books/years',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          'X-Requested-With': 'XMLHttpRequest'
+        }
+      },
+      willRespondWith: {
+        status: 200,
+        headers: { 'Content-Type': 'application/json' },
+        body: rest.years
+      }
+    }
+
+    return provider.addInteraction(interaction)
+  }, 5 * 60 * 1000)
+
+  afterAll(async () => {
+    await provider.verify()
+    return provider.finalize()
+  }, 5 * 60 * 1000)
 
   describe('fetchYears', () => {
     beforeEach(() => {
-      nock('http://localhost:8989')
-        .get('/rest/books/years')
-        .reply(200, years)
-
       store = mockStore({})
-    })
-
-    afterEach(() => {
-      nock.cleanAll()
     })
 
     it('should dispatch the correct actions', () => {
       const expectedActions = [
-        { type: 'years:receive', payload: normalizeYears(years) }
+        { type: 'years:receive', payload: years() }
       ]
 
       return store.dispatch(fetchYears())
