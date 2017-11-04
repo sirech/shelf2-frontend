@@ -1,30 +1,57 @@
-import nock from 'nock'
-import { mockStore, factories } from '../../../test'
+/**
+ * @jest-environment node
+ */
 
+import R from 'ramda'
+
+import { mockStore, createProvider } from '../../../test'
 import { search } from '../actions'
-import { normalizeBooks } from '../../../rest'
+import { books, rest } from '../../__fixtures__'
 
 describe('actions', () => {
   let store
-  let keyword = 'stuff'
-  let books = factories.book.buildList(3)
+  let keyword = 'a'
+
+  const provider = createProvider()
+
+  beforeAll(async () => {
+    await provider.setup()
+
+    const interaction = {
+      state: 'i have an empty state',
+      uponReceiving: 'a search request',
+      withRequest: {
+        method: 'GET',
+        path: `/rest/books/search/${keyword}`,
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          'X-Requested-With': 'XMLHttpRequest'
+        }
+      },
+      willRespondWith: {
+        status: 200,
+        headers: { 'Content-Type': 'application/json' },
+        body: rest.books
+      }
+    }
+
+    return provider.addInteraction(interaction)
+  }, 5 * 60 * 1000)
+
+  afterAll(async () => {
+    await provider.verify()
+    return provider.finalize()
+  }, 5 * 60 * 1000)
 
   describe('search', () => {
     beforeEach(() => {
-      nock('http://localhost:8989')
-        .get(`/rest/books/search/${keyword}`)
-        .reply(200, books)
-
       store = mockStore({})
-    })
-
-    afterEach(() => {
-      nock.cleanAll()
     })
 
     it('should dispatch the correct actions', () => {
       const expectedActions = [
-        { type: 'search:result', payload: normalizeBooks(books) }
+        { type: 'search:result', payload: R.pick(['entities', 'result'])(books()) }
       ]
 
       return store.dispatch(search(keyword))

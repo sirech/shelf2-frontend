@@ -7,6 +7,7 @@ const provider = () => Pact({
   dir: path.resolve(process.cwd(), 'pacts'),
   spec: 2,
   consumer: 'React',
-  provider: 'Backend'
+  provider: 'Backend',
+  pactfileWriteMode: 'update'
 })
 export default provider
