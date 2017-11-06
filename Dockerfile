@@ -1,4 +1,4 @@
-FROM node:8.2.1
+FROM node:8.9.0-slim
 
 WORKDIR /app
 
@@ -10,6 +10,6 @@ RUN yarn
 COPY . .
 
 RUN yarn run build --production
-RUN gzip -rfk build/static
+    && gzip -rfk build/static
 
 CMD cp -a build/* public/ && echo 'Build done'
