@@ -40,6 +40,10 @@ describe('actions', () => {
     const provider = createProvider()
 
     beforeAll(() => provider.setup(), 5 * 60 * 1000)
+    afterAll(async () => {
+      await provider.verify()
+      return provider.finalize()
+    }, 5 * 60 * 1000)
 
     describe('successful login', () => {
       let setItem
