@@ -187,6 +187,89 @@
           }
         ]
       }
+    },
+    {
+      "description": "a request to create a new book",
+      "providerState": "i have an empty state",
+      "request": {
+        "method": "POST",
+        "path": "/rest/books",
+        "headers": {
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "body": {
+          "book": {
+            "title": "Alone on a Wide, Wide Sea",
+            "year": 2016,
+            "stars": 2,
+            "category": "sociology"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": 8,
+          "title": "Alone on a Wide, Wide Sea",
+          "year": 2016,
+          "stars": 2,
+          "category": "sociology"
+        }
+      }
+    },
+    {
+      "description": "a valid request for login",
+      "providerState": "i am not logged in",
+      "request": {
+        "method": "POST",
+        "path": "/rest/login",
+        "headers": {
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "body": {
+          "user": "Tronald",
+          "password": "Dump"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "auth_token": "token"
+        }
+      }
+    },
+    {
+      "description": "an invalid request for login",
+      "providerState": "i am not logged in",
+      "request": {
+        "method": "POST",
+        "path": "/rest/login",
+        "headers": {
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "body": {
+          "user": "Tronald",
+          "password": "Wrong"
+        }
+      },
+      "response": {
+        "status": 401,
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      }
     }
   ],
   "metadata": {

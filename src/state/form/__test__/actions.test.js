@@ -1,16 +1,20 @@
-import nock from 'nock'
-import { mockStore, factories } from '../../../test'
+/**
+ * @jest-environment node
+ */
+import R from 'ramda'
+import { mockStore, createProvider } from '../../../test'
 
 import { changeStars, create } from '../actions'
+import { rest } from '../../__fixtures__'
 
 describe('actions', () => {
   let store
 
-  describe('changeStars', () => {
-    beforeEach(() => {
-      store = mockStore({})
-    })
+  beforeEach(() => {
+    store = mockStore({})
+  })
 
+  describe('changeStars', () => {
     it('should dispatch the correct actions', () => {
       const expectedActions = [
         { external: true, model: 'form.book.stars', multi: false, silent: false, type: 'rrf/change', value: 1 }
@@ -22,30 +26,49 @@ describe('actions', () => {
   })
 
   describe('create', () => {
-    let book
+    const bookForm = R.omit(['id'])(rest.book)
 
-    beforeEach(() => {
-      book = factories.book.build()
+    const provider = createProvider()
 
-      nock('http://localhost:8989')
-        .post('/rest/books', JSON.stringify({ book }))
-        .reply(200, book)
+    beforeAll(async () => {
+      await provider.setup()
 
-      store = mockStore({})
-    })
+      const interaction = {
+        state: 'i have an empty state',
+        uponReceiving: 'a request to create a new book',
+        withRequest: {
+          method: 'POST',
+          path: '/rest/books',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'X-Requested-With': 'XMLHttpRequest'
+          },
+          body: { book: bookForm }
+        },
+        willRespondWith: {
+          status: 200,
+          headers: { 'Content-Type': 'application/json' },
+          body: rest.book
+        }
+      }
 
-    afterEach(() => {
-      nock.cleanAll()
-    })
+      return provider.addInteraction(interaction)
+    }, 5 * 60 * 1000)
+
+    afterAll(async () => {
+      await provider.verify()
+      return provider.finalize()
+    }, 5 * 60 * 1000)
 
     it('should dispatch the correct actions', () => {
       const expectedActions = [
-        { type: 'books:book:create:success', payload: book },
+        { type: 'books:book:create:success', payload: rest.book },
         { type: 'rrf/reset', model: 'form.book' },
         { type: 'modal:toggled' }
       ]
 
-      return store.dispatch(create(book))
+      return store.dispatch(create(bookForm))
         .then(() => {
           expect(store.getActions()).toEqual(expectedActions)
         })

@@ -1,5 +1,7 @@
-import nock from 'nock'
-import { mockStore, factories } from '../../../test'
+/**
+ * @jest-environment node
+ */
+import { mockStore, createProvider } from '../../../test'
 
 import { tryLogin, logout } from '../actions'
 
@@ -35,21 +37,41 @@ describe('actions', () => {
   })
 
   describe('tryLogin', () => {
-    let login
+    const provider = createProvider()
+
+    beforeAll(() => provider.setup(), 5 * 60 * 1000)
 
     describe('successful login', () => {
-      let token
       let setItem
+      const token = { auth_token: 'token' }
+      const login = { user: 'Tronald', password: 'Dump' }
+
+      beforeAll(() => {
+        const interaction = {
+          state: 'i am not logged in',
+          uponReceiving: 'a valid request for login',
+          withRequest: {
+            method: 'POST',
+            path: '/rest/login',
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json',
+              'X-Requested-With': 'XMLHttpRequest'
+            },
+            body: login
+          },
+          willRespondWith: {
+            status: 200,
+            headers: { 'Content-Type': 'application/json' },
+            body: token
+          }
+        }
+
+        return provider.addInteraction(interaction)
+      }, 5 * 60 * 1000)
 
       beforeEach(() => {
         jest.clearAllMocks()
-
-        login = factories.login.build()
-        token = { auth_token: 'token' }
-
-        nock('http://localhost:8989')
-          .post('/rest/login', JSON.stringify(login))
-          .reply(201, token)
 
         setItem = jest.fn()
         global.localStorage.setItem = setItem
@@ -77,15 +99,30 @@ describe('actions', () => {
     })
 
     describe('failed login', () => {
-      beforeEach(() => {
-        login = factories.login.build()
+      const login = { user: 'Tronald', password: 'Wrong' }
 
-        nock('http://localhost:8989')
-          .post('/rest/login', JSON.stringify(login))
-          .reply(401)
+      beforeAll(() => {
+        const interaction = {
+          state: 'i am not logged in',
+          uponReceiving: 'an invalid request for login',
+          withRequest: {
+            method: 'POST',
+            path: '/rest/login',
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json',
+              'X-Requested-With': 'XMLHttpRequest'
+            },
+            body: login
+          },
+          willRespondWith: {
+            status: 401,
+            headers: { 'Content-Type': 'application/json' }
+          }
+        }
 
-        store = mockStore({})
-      })
+        return provider.addInteraction(interaction)
+      }, 5 * 60 * 1000)
 
       it('should dispatch the correct actions', () => {
         const expectedActions = [
@@ -97,10 +134,6 @@ describe('actions', () => {
             expect(store.getActions()).toEqual(expectedActions)
           })
       })
-    })
-
-    afterEach(() => {
-      nock.cleanAll()
     })
   })
 })
