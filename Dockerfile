@@ -9,7 +9,6 @@ RUN yarn
 
 COPY . .
 
-RUN yarn run build --production
-    && gzip -rfk build/static
+RUN yarn run build --production && gzip -rfk build/static
 
 CMD cp -a build/* public/ && echo 'Build done'
