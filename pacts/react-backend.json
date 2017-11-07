@@ -7,246 +7,16 @@
   },
   "interactions": [
     {
-      "description": "a request for a summary of all the years",
-      "providerState": "i have an empty state",
-      "request": {
-        "method": "GET",
-        "path": "/rest/books/years",
-        "headers": {
-          "Accept": "application/json",
-          "Content-Type": "application/json",
-          "X-Requested-With": "XMLHttpRequest"
-        }
-      },
-      "response": {
-        "status": 200,
-        "headers": {
-          "Content-Type": "application/json; charset=utf-8"
-        },
-        "body": [
-          {
-            "year": 2010,
-            "count": 1
-          },
-          {
-            "year": 2012,
-            "count": 1
-          },
-          {
-            "year": 2013,
-            "count": 1
-          },
-          {
-            "year": 2014,
-            "count": 1
-          },
-          {
-            "year": 2016,
-            "count": 7
-          }
-        ]
-      }
-    },
-    {
-      "description": "a request for a list of books for a given year",
-      "providerState": "i have an empty state",
-      "request": {
-        "method": "GET",
-        "path": "/rest/books",
-        "query": "year=2016",
-        "headers": {
-          "Accept": "application/json",
-          "Content-Type": "application/json",
-          "X-Requested-With": "XMLHttpRequest"
-        }
-      },
-      "response": {
-        "status": 200,
-        "headers": {
-          "Content-Type": "application/json; charset=utf-8"
-        },
-        "body": [
-          {
-            "id": 8,
-            "title": "Alone on a Wide, Wide Sea",
-            "year": 2016,
-            "stars": 2,
-            "category": "sociology"
-          },
-          {
-            "id": 10,
-            "title": "Carrion Comfort",
-            "year": 2016,
-            "stars": 1,
-            "category": "other"
-          },
-          {
-            "id": 4,
-            "title": "Fear and Trembling",
-            "year": 2016,
-            "stars": 5,
-            "category": "history"
-          },
-          {
-            "id": 9,
-            "title": "I Know Why the Caged Bird Sings",
-            "year": 2016,
-            "stars": 2,
-            "category": "other"
-          },
-          {
-            "id": 6,
-            "title": "The Painted Veil",
-            "year": 2016,
-            "stars": 1,
-            "category": "sociology"
-          },
-          {
-            "id": 7,
-            "title": "Things Fall Apart",
-            "year": 2016,
-            "stars": 1,
-            "category": "other"
-          },
-          {
-            "id": 11,
-            "title": "Time To Murder And Create",
-            "year": 2016,
-            "stars": 2,
-            "category": "history"
-          }
-        ]
-      }
-    },
-    {
-      "description": "a search request",
-      "providerState": "i have an empty state",
-      "request": {
-        "method": "GET",
-        "path": "/rest/books/search/a",
-        "headers": {
-          "Accept": "application/json",
-          "Content-Type": "application/json",
-          "X-Requested-With": "XMLHttpRequest"
-        }
-      },
-      "response": {
-        "status": 200,
-        "headers": {
-          "Content-Type": "application/json; charset=utf-8"
-        },
-        "body": [
-          {
-            "id": 8,
-            "title": "Alone on a Wide, Wide Sea",
-            "year": 2016,
-            "stars": 2,
-            "category": "sociology"
-          },
-          {
-            "id": 10,
-            "title": "Carrion Comfort",
-            "year": 2016,
-            "stars": 1,
-            "category": "other"
-          },
-          {
-            "id": 4,
-            "title": "Fear and Trembling",
-            "year": 2016,
-            "stars": 5,
-            "category": "history"
-          },
-          {
-            "id": 9,
-            "title": "I Know Why the Caged Bird Sings",
-            "year": 2016,
-            "stars": 2,
-            "category": "other"
-          },
-          {
-            "id": 6,
-            "title": "The Painted Veil",
-            "year": 2016,
-            "stars": 1,
-            "category": "sociology"
-          },
-          {
-            "id": 7,
-            "title": "Things Fall Apart",
-            "year": 2016,
-            "stars": 1,
-            "category": "other"
-          },
-          {
-            "id": 11,
-            "title": "Time To Murder And Create",
-            "year": 2016,
-            "stars": 2,
-            "category": "history"
-          }
-        ]
-      }
-    },
-    {
-      "description": "a valid request for login",
-      "providerState": "i am not logged in",
-      "request": {
-        "method": "POST",
-        "path": "/rest/login",
-        "headers": {
-          "Accept": "application/json",
-          "Content-Type": "application/json",
-          "X-Requested-With": "XMLHttpRequest"
-        },
-        "body": {
-          "user": "Tronald",
-          "password": "Dump"
-        }
-      },
-      "response": {
-        "status": 200,
-        "headers": {
-          "Content-Type": "application/json; charset=utf-8"
-        },
-        "body": {
-          "auth_token": "token"
-        }
-      }
-    },
-    {
-      "description": "an invalid request for login",
-      "providerState": "i am not logged in",
-      "request": {
-        "method": "POST",
-        "path": "/rest/login",
-        "headers": {
-          "Accept": "application/json",
-          "Content-Type": "application/json",
-          "X-Requested-With": "XMLHttpRequest"
-        },
-        "body": {
-          "user": "Tronald",
-          "password": "Wrong"
-        }
-      },
-      "response": {
-        "status": 401,
-        "headers": {
-          "Content-Type": "application/json; charset=utf-8"
-        }
-      }
-    },
-    {
       "description": "a request to create a new book",
-      "providerState": "i have an empty state",
+      "providerState": "i am logged in",
       "request": {
         "method": "POST",
         "path": "/rest/books",
         "headers": {
           "Accept": "application/json",
           "Content-Type": "application/json",
-          "X-Requested-With": "XMLHttpRequest"
+          "X-Requested-With": "XMLHttpRequest",
+          "Authorization": "Bearer: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.M-dq05cUWkXfTD16Oz5eGIDFpcGn1S-97iJOXoPTvv8"
         },
         "body": {
           "book": {
@@ -258,7 +28,7 @@
         }
       },
       "response": {
-        "status": 200,
+        "status": 201,
         "headers": {
           "Content-Type": "application/json; charset=utf-8"
         },
@@ -268,6 +38,11 @@
           "year": 2016,
           "stars": 2,
           "category": "sociology"
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
         }
       }
     },
@@ -339,6 +114,167 @@
             "category": "history"
           }
         ]
+      }
+    },
+    {
+      "description": "a request for a list of books for a given year",
+      "providerState": "i have some books",
+      "request": {
+        "method": "GET",
+        "path": "/rest/books",
+        "query": "year=2016",
+        "headers": {
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+          "X-Requested-With": "XMLHttpRequest"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8"
+        },
+        "body": [
+          {
+            "id": 8,
+            "title": "Alone on a Wide, Wide Sea",
+            "year": 2016,
+            "stars": 2,
+            "category": "sociology"
+          },
+          {
+            "id": 10,
+            "title": "Carrion Comfort",
+            "year": 2016,
+            "stars": 1,
+            "category": "other"
+          },
+          {
+            "id": 4,
+            "title": "Fear and Trembling",
+            "year": 2016,
+            "stars": 5,
+            "category": "history"
+          },
+          {
+            "id": 9,
+            "title": "I Know Why the Caged Bird Sings",
+            "year": 2016,
+            "stars": 2,
+            "category": "other"
+          },
+          {
+            "id": 6,
+            "title": "The Painted Veil",
+            "year": 2016,
+            "stars": 1,
+            "category": "sociology"
+          },
+          {
+            "id": 7,
+            "title": "Things Fall Apart",
+            "year": 2016,
+            "stars": 1,
+            "category": "other"
+          },
+          {
+            "id": 11,
+            "title": "Time To Murder And Create",
+            "year": 2016,
+            "stars": 2,
+            "category": "history"
+          }
+        ]
+      }
+    },
+    {
+      "description": "a request for a summary of all the years",
+      "providerState": "i have books for different years",
+      "request": {
+        "method": "GET",
+        "path": "/rest/books/years",
+        "headers": {
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+          "X-Requested-With": "XMLHttpRequest"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8"
+        },
+        "body": [
+          {
+            "year": 2010,
+            "count": 1
+          },
+          {
+            "year": 2012,
+            "count": 1
+          },
+          {
+            "year": 2013,
+            "count": 1
+          },
+          {
+            "year": 2014,
+            "count": 1
+          },
+          {
+            "year": 2016,
+            "count": 7
+          }
+        ]
+      }
+    },
+    {
+      "description": "a valid request for login",
+      "providerState": "i am not logged in",
+      "request": {
+        "method": "POST",
+        "path": "/rest/login",
+        "headers": {
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "body": {
+          "user": "Tronald",
+          "password": "Dumpinator"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8"
+        },
+        "body": {
+          "auth_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.M-dq05cUWkXfTD16Oz5eGIDFpcGn1S-97iJOXoPTvv8"
+        }
+      }
+    },
+    {
+      "description": "an invalid request for login",
+      "providerState": "i am not logged in",
+      "request": {
+        "method": "POST",
+        "path": "/rest/login",
+        "headers": {
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "body": {
+          "user": "Tronald",
+          "password": "Wrongwrong"
+        }
+      },
+      "response": {
+        "status": 401,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8"
+        }
       }
     }
   ],

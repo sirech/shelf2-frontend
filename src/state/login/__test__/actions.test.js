@@ -4,6 +4,7 @@
 import { mockStore, createProvider } from '../../../test'
 
 import { tryLogin, logout } from '../actions'
+import { rest } from '../../__fixtures__'
 
 describe('actions', () => {
   let store
@@ -47,8 +48,11 @@ describe('actions', () => {
 
     describe('successful login', () => {
       let setItem
-      const token = { auth_token: 'token' }
-      const login = { user: 'Tronald', password: 'Dump' }
+
+      const token = {
+        auth_token: rest.authToken
+      }
+      const login = { user: 'Tronald', password: 'Dumpinator' }
 
       beforeAll(() => {
         const interaction = {
@@ -97,13 +101,13 @@ describe('actions', () => {
           .then(() => {
             expect(setItem.mock.calls.length).toBe(1)
             expect(setItem.mock.calls[0][0]).toBe('authToken')
-            expect(setItem.mock.calls[0][1]).toBe('token')
+            expect(setItem.mock.calls[0][1]).toBe(rest.authToken)
           })
       })
     })
 
     describe('failed login', () => {
-      const login = { user: 'Tronald', password: 'Wrong' }
+      const login = { user: 'Tronald', password: 'Wrongwrong' }
 
       beforeAll(() => {
         const interaction = {

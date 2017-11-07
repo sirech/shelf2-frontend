@@ -16,7 +16,7 @@ describe('actions', () => {
     await provider.setup()
 
     const interaction = {
-      state: 'i have an empty state',
+      state: 'i have books for different years',
       uponReceiving: 'a request for a summary of all the years',
       withRequest: {
         method: 'GET',

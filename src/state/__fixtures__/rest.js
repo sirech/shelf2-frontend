@@ -53,3 +53,5 @@ export const books = [
 export const book = books[0]
 
 export const years = [{year: 2010, count: 1}, {year: 2012, count: 1}, {year: 2013, count: 1}, {year: 2014, count: 1}, {year: 2016, count: 7}]
+
+export const authToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.M-dq05cUWkXfTD16Oz5eGIDFpcGn1S-97iJOXoPTvv8'
