@@ -66,7 +66,7 @@ describe('actions', () => {
           },
           willRespondWith: {
             status: 200,
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 'Content-Type': 'application/json; charset=utf-8' },
             body: token
           }
         }
@@ -121,7 +121,7 @@ describe('actions', () => {
           },
           willRespondWith: {
             status: 401,
-            headers: { 'Content-Type': 'application/json' }
+            headers: { 'Content-Type': 'application/json; charset=utf-8' }
           }
         }
 

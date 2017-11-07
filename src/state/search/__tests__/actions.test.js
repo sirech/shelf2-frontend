@@ -18,7 +18,7 @@ describe('actions', () => {
     await provider.setup()
 
     const interaction = {
-      state: 'i have an empty state',
+      state: 'i have some books',
       uponReceiving: 'a search request',
       withRequest: {
         method: 'GET',
@@ -31,7 +31,7 @@ describe('actions', () => {
       },
       willRespondWith: {
         status: 200,
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json; charset=utf-8' },
         body: rest.books
       }
     }
