@@ -32,7 +32,7 @@ jobs:
     deploy:
       provider: script
       skip_cleanup: true
-      script: ssh -i deploy_rsa $DEPLOY_USER@$DEPLOY_HOST "sh ${DEPLOY_PATH}/bin/update"
+      script: ssh -i deploy_rsa $DEPLOY_USER@$DEPLOY_HOST "sh ${DEPLOY_PATH}/bin/update shelf-frontend"
 env:
   global:
   - secure: ntaLASfYevkdfmuFRrnkjZ+TXIngNatT0cQXhbEAXL/VGK91I3qOmZbhgKw2dGG9Re02nfWH5emxznHtDNudPKShm4we85zj4ILRtEwSJBj0f7gX5Ahs/SGjE6ZlzAQnnUnaF/Ra+M5pOF7n9jD3l0Nk4tY30unSXFBXKOqSTX//+M8G4wDTIdQCR2ewSvRLimzRRcvnpy4vr86WMntewwpIUMqaN3n9UBBVnOQq3X5E/3gvNpNd2EbH+p76kxUpWacdFQL8qOURGZQKtQCG8YJx9gJqeVHiI8eL7uJ7kgTaz9lVeeLoHwCeNdP3ez36ua/Q8qmcaN+nyi1fcIPnS0RyvFSDcFuxmHRIskMVBdyFtrNsnNJRWZ6YUVfg8NIKI70th4EzScFpaY/F5fINRivbU6dwd+buU/oCg1m4HRRtzDWkalJZLY806OyiA0tCynkUE3pkWL7bMRGtsvhRj6u5V3ZxrKpdz+eRpz+a0/R9seKvlvoD380kKG+yOdxO9Yrw2+tQFbR+lc8xwpAPwspNmsas8bu3Q4NorLZeVk+3a64mXJnPV2hfvwJYuNfScsB0CkHaMrXVwpwemjQZxCXo5TW0zVje9y0aMfvxgjvQtw/vi4eT7m1gFZ8N4e0ZkB0fMGBZG/iWRpyfqvP4NrPFuCaF8i9zvBXL0OfCY24=
