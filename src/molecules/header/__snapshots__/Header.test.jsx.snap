@@ -5,17 +5,8 @@ exports[`components Header renders correctly 1`] = `
   className="mb-4"
 >
   <nav
-    className="navbar navbar-toggleable navbar-inverse bg-inverse"
+    className="navbar navbar-expand-sm navbar-dark bg-dark"
   >
-    <button
-      className="navbar-toggler navbar-toggler-right"
-      onClick={[Function]}
-      type="button"
-    >
-      <span
-        className="navbar-toggler-icon"
-      />
-    </button>
     <a
       className="navbar-brand"
       href="/books"
@@ -24,6 +15,16 @@ exports[`components Header renders correctly 1`] = `
     >
       Shelf
     </a>
+    <button
+      className="navbar-toggler"
+      onClick={[Function]}
+      right={true}
+      type="button"
+    >
+      <span
+        className="navbar-toggler-icon"
+      />
+    </button>
     <div
       className="collapse navbar-collapse"
       style={Object {}}

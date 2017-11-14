@@ -24,7 +24,7 @@ jobs:
     script: npm run linter:js
   - script: npm run linter:css
   - stage: test
-    script: npm test -- --coverage
+    script: npm test -- --coverage --maxWorkers=4
     after_script: cat coverage/lcov.info | node_modules/.bin/coveralls
   - stage: docker
     script:

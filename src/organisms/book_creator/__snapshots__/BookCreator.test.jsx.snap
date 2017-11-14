@@ -16,14 +16,27 @@ exports[`components BookCreator renders correctly 1`] = `
   <Modal
     autoFocus={true}
     backdrop={true}
-    backdropTransitionTimeout={150}
+    backdropTransition={
+      Object {
+        "mountOnEnter": true,
+        "timeout": 150,
+      }
+    }
     fade={true}
     isOpen={true}
     keyboard={true}
-    modalTransitionTimeout={300}
+    modalTransition={
+      Object {
+        "timeout": 300,
+      }
+    }
+    onClosed={[Function]}
+    onOpened={[Function]}
+    role="dialog"
     zIndex={1050}
   >
     <ModalHeader
+      closeAriaLabel="Close"
       tag="h4"
       toggle={[Function]}
       wrapTag="div"

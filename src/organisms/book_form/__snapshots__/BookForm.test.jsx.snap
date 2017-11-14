@@ -40,6 +40,15 @@ exports[`components BookForm renders correctly 1`] = `
     <Label
       for="description"
       tag="label"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
     >
       Description
     </Label>
@@ -54,6 +63,7 @@ exports[`components BookForm renders correctly 1`] = `
     />
     <FormText
       className="text-muted"
+      color="muted"
       tag="small"
     >
       Optional
@@ -65,6 +75,15 @@ exports[`components BookForm renders correctly 1`] = `
     <Label
       for="stars"
       tag="label"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
     >
       Stars
     </Label>
@@ -81,6 +100,15 @@ exports[`components BookForm renders correctly 1`] = `
     <Label
       for="category"
       tag="label"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
     >
       Category
     </Label>
