@@ -7,51 +7,12 @@
   },
   "interactions": [
     {
-      "description": "a request to create a new book",
-      "providerState": "i am logged in",
-      "request": {
-        "method": "POST",
-        "path": "/rest/books",
-        "headers": {
-          "Accept": "application/json",
-          "Content-Type": "application/json",
-          "X-Requested-With": "XMLHttpRequest",
-          "Authorization": "Bearer: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.xPUpABeLDWit5v187rP_x8dgTthuFjrMseKuPOK45NM"
-        },
-        "body": {
-          "book": {
-            "title": "Alone on a Wide, Wide Sea",
-            "year": 2016,
-            "stars": 2,
-            "category": "sociology"
-          }
-        }
-      },
-      "response": {
-        "status": 201,
-        "headers": {
-          "Content-Type": "application/json; charset=utf-8"
-        },
-        "body": {
-          "id": 8,
-          "title": "Alone on a Wide, Wide Sea",
-          "year": 2016,
-          "stars": 2,
-          "category": "sociology"
-        },
-        "matchingRules": {
-          "$.body": {
-            "match": "type"
-          }
-        }
-      }
-    },
-    {
-      "description": "a search request",
+      "description": "a request for a list of books for a given year",
       "providerState": "i have some books",
       "request": {
         "method": "GET",
-        "path": "/rest/books/search/a",
+        "path": "/rest/books",
+        "query": "year=2016",
         "headers": {
           "Accept": "application/json",
           "Content-Type": "application/json",
@@ -117,12 +78,100 @@
       }
     },
     {
-      "description": "a request for a list of books for a given year",
+      "description": "a request to create a new book",
+      "providerState": "i am logged in",
+      "request": {
+        "method": "POST",
+        "path": "/rest/books",
+        "headers": {
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+          "X-Requested-With": "XMLHttpRequest",
+          "Authorization": "Bearer: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.xPUpABeLDWit5v187rP_x8dgTthuFjrMseKuPOK45NM"
+        },
+        "body": {
+          "book": {
+            "title": "Alone on a Wide, Wide Sea",
+            "year": 2016,
+            "stars": 2,
+            "category": "sociology"
+          }
+        }
+      },
+      "response": {
+        "status": 201,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8"
+        },
+        "body": {
+          "id": 8,
+          "title": "Alone on a Wide, Wide Sea",
+          "year": 2016,
+          "stars": 2,
+          "category": "sociology"
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a valid request for login",
+      "providerState": "i am not logged in",
+      "request": {
+        "method": "POST",
+        "path": "/rest/login",
+        "headers": {
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "body": {
+          "user": "Tronald",
+          "password": "Dumpinator"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8"
+        },
+        "body": {
+          "auth_token": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.xPUpABeLDWit5v187rP_x8dgTthuFjrMseKuPOK45NM"
+        }
+      }
+    },
+    {
+      "description": "an invalid request for login",
+      "providerState": "i am not logged in",
+      "request": {
+        "method": "POST",
+        "path": "/rest/login",
+        "headers": {
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "body": {
+          "user": "Tronald",
+          "password": "Wrongwrong"
+        }
+      },
+      "response": {
+        "status": 401,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8"
+        }
+      }
+    },
+    {
+      "description": "a search request",
       "providerState": "i have some books",
       "request": {
         "method": "GET",
-        "path": "/rest/books",
-        "query": "year=2016",
+        "path": "/rest/books/search/a",
         "headers": {
           "Accept": "application/json",
           "Content-Type": "application/json",
@@ -226,55 +275,6 @@
             "count": 7
           }
         ]
-      }
-    },
-    {
-      "description": "a valid request for login",
-      "providerState": "i am not logged in",
-      "request": {
-        "method": "POST",
-        "path": "/rest/login",
-        "headers": {
-          "Accept": "application/json",
-          "Content-Type": "application/json",
-          "X-Requested-With": "XMLHttpRequest"
-        },
-        "body": {
-          "user": "Tronald",
-          "password": "Dumpinator"
-        }
-      },
-      "response": {
-        "status": 200,
-        "headers": {
-          "Content-Type": "application/json; charset=utf-8"
-        },
-        "body": {
-          "auth_token": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.xPUpABeLDWit5v187rP_x8dgTthuFjrMseKuPOK45NM"
-        }
-      }
-    },
-    {
-      "description": "an invalid request for login",
-      "providerState": "i am not logged in",
-      "request": {
-        "method": "POST",
-        "path": "/rest/login",
-        "headers": {
-          "Accept": "application/json",
-          "Content-Type": "application/json",
-          "X-Requested-With": "XMLHttpRequest"
-        },
-        "body": {
-          "user": "Tronald",
-          "password": "Wrongwrong"
-        }
-      },
-      "response": {
-        "status": 401,
-        "headers": {
-          "Content-Type": "application/json; charset=utf-8"
-        }
       }
     }
   ],
