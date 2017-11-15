@@ -24,18 +24,14 @@ type Props = {
 export class Input extends React.Component {
   props: Props
 
-  formState () {
+  isValid () {
     const { valid, touched } = this.props
 
     if (!touched) {
-      return ''
+      return undefined
     }
 
-    if (valid) {
-      return 'success'
-    } else {
-      return 'danger'
-    }
+    return valid
   }
 
   render () {
@@ -43,19 +39,20 @@ export class Input extends React.Component {
     const model = `.${name}`
 
     return (
-      <FormGroup color={this.formState()}>
+      <FormGroup>
         <Label for={name}>{name}</Label>
         <Control
           model={model}
           type={type}
           name={name}
           id={name}
-          state={this.formState()}
+          valid={this.isValid()}
           component={BaseInput}
           {...R.omit(['name', 'type', 'messages', 'valid', 'touched'])(this.props)}
         />
         <Errors
           model={model}
+          wrapper={(props) => props.children}
           component={props => <FormFeedback>{props.children}</FormFeedback>}
           messages={messages}
           show={{touched: true, valid: false}}

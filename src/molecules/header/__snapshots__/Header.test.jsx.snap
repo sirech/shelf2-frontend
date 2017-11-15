@@ -18,7 +18,6 @@ exports[`components Header renders correctly 1`] = `
     <button
       className="navbar-toggler"
       onClick={[Function]}
-      right={true}
       type="button"
     >
       <span

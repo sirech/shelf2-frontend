@@ -2,7 +2,6 @@
 
 exports[`components Input displays error 1`] = `
 <FormGroup
-  color="danger"
   tag="div"
 >
   <Label
@@ -25,8 +24,8 @@ exports[`components Input displays error 1`] = `
     id="year"
     model=".year"
     name="year"
-    state="danger"
     type="number"
+    valid={false}
   />
   <Modeled(Connect(Errors))
     component={[Function]}
@@ -42,13 +41,13 @@ exports[`components Input displays error 1`] = `
         "valid": false,
       }
     }
+    wrapper={[Function]}
   />
 </FormGroup>
 `;
 
 exports[`components Input renders correctly 1`] = `
 <FormGroup
-  color=""
   tag="div"
 >
   <Label
@@ -71,7 +70,6 @@ exports[`components Input renders correctly 1`] = `
     id="title"
     model=".title"
     name="title"
-    state=""
     type="text"
   />
   <Modeled(Connect(Errors))
@@ -83,13 +81,13 @@ exports[`components Input renders correctly 1`] = `
         "valid": false,
       }
     }
+    wrapper={[Function]}
   />
 </FormGroup>
 `;
 
 exports[`components Input renders correctly for different types 1`] = `
 <FormGroup
-  color=""
   tag="div"
 >
   <Label
@@ -112,7 +110,6 @@ exports[`components Input renders correctly for different types 1`] = `
     id="year"
     model=".year"
     name="year"
-    state=""
     type="number"
   />
   <Modeled(Connect(Errors))
@@ -124,6 +121,7 @@ exports[`components Input renders correctly for different types 1`] = `
         "valid": false,
       }
     }
+    wrapper={[Function]}
   />
 </FormGroup>
 `;

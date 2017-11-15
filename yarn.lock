@@ -6097,16 +6097,16 @@ react-popper@^0.7.2:
     popper.js "^1.12.5"
     prop-types "^15.5.10"
 
-react-redux-form@^1.14.2:
-  version "1.14.2"
-  resolved "https://registry.yarnpkg.com/react-redux-form/-/react-redux-form-1.14.2.tgz#2f5fa61a1d88dd1c8c67f45b70397bf9932b1096"
+react-redux-form@^1.16.0:
+  version "1.16.0"
+  resolved "https://registry.yarnpkg.com/react-redux-form/-/react-redux-form-1.16.0.tgz#53d5b572f47797d86b4bfb57895cf9c2a163a112"
   dependencies:
     icepick "^1.1.0"
     invariant "~2.2.1"
     lodash.get "~4.4.2"
     lodash.topath "~4.5.2"
     prop-types "^15.5.6"
-    shallow-compare "1.2.1"
+    shallow-compare "^1.2.1"
 
 react-redux@^5.0.6:
   version "5.0.6"
@@ -6119,9 +6119,9 @@ react-redux@^5.0.6:
     loose-envify "^1.1.0"
     prop-types "^15.5.10"
 
-react-router-bootstrap@^0.24.3:
-  version "0.24.3"
-  resolved "https://registry.yarnpkg.com/react-router-bootstrap/-/react-router-bootstrap-0.24.3.tgz#a6c2c38164e0a779843fdbbaea05dcd4de233a3b"
+react-router-bootstrap@^0.24.4:
+  version "0.24.4"
+  resolved "https://registry.yarnpkg.com/react-router-bootstrap/-/react-router-bootstrap-0.24.4.tgz#6e89481d8a8979649a0dd4535e4a68df4a3d0b12"
   dependencies:
     prop-types "^15.5.10"
 
@@ -6792,9 +6792,9 @@ sha.js@^2.4.0, sha.js@^2.4.8:
   dependencies:
     inherits "^2.0.1"
 
-shallow-compare@1.2.1:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/shallow-compare/-/shallow-compare-1.2.1.tgz#6a42931a81f8ab52bfad229c14f1635e5488ba7a"
+shallow-compare@^1.2.1:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/shallow-compare/-/shallow-compare-1.2.2.tgz#fa4794627bf455a47c4f56881d8a6132d581ffdb"
 
 shallowequal@^1.0.1:
   version "1.0.2"

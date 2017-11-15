@@ -51,7 +51,7 @@ class Header extends React.Component {
           <LinkContainer to='/books' >
             <NavbarBrand>Shelf</NavbarBrand>
           </LinkContainer>
-          <NavbarToggler right onClick={this.toggle} />
+          <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className='ml-auto' navbar>
               <SearchBar />
