@@ -1,0 +1,8 @@
+# -*- mode: Shell-script-*-
+#!/usr/bin/env bash
+
+name=pact-stub
+
+docker pull pactfoundation/pact-stub-server
+docker stop ${name}
+docker run -t --rm --name ${name} -p 3001:3001 -v "$(pwd)/pacts/:/app/pacts" pactfoundation/pact-stub-server -p 3001 -d pacts
