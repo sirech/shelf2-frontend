@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 
 import { createStructuredSelector } from 'reselect'
 import { Redirect } from 'react-router-dom'
-import R from 'ramda'
+import * as R from 'ramda'
 
 import { Form } from 'react-redux-form'
 import { Col, Row, Button, Alert } from 'reactstrap'
@@ -70,7 +70,7 @@ export class Login extends React.Component {
               type='password'
             />
 
-            <Button type='submit'>Submit</Button>
+            <Button color='primary' type='submit'>Submit</Button>
           </Form>
         </Col>
       </Row>

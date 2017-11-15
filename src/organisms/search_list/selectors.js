@@ -1,4 +1,4 @@
-import R from 'ramda'
+import * as R from 'ramda'
 
 import { searchSelector as baseSelector } from '../../state/search'
 

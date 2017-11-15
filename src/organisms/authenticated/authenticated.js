@@ -3,7 +3,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import R from 'ramda'
+import * as R from 'ramda'
 import wrapDisplayName from 'recompose/wrapDisplayName'
 import { createStructuredSelector } from 'reselect'
 

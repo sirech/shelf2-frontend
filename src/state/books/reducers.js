@@ -1,5 +1,5 @@
 import update from 'immutability-helper'
-import R from 'ramda'
+import * as R from 'ramda'
 
 import { RECEIVE_BOOKS, MARK_ACTIVE_YEAR } from './constants'
 import { constants } from '../form'

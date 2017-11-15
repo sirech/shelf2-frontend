@@ -4,7 +4,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 
-import R from 'ramda'
+import * as R from 'ramda'
 
 import booksSelector from './selectors'
 

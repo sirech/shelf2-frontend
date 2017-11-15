@@ -4,7 +4,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 
-import R from 'ramda'
+import * as R from 'ramda'
 import { Card, CardHeader } from 'reactstrap'
 import debounce from 'lodash.debounce'
 import Pluralize from 'react-pluralize'

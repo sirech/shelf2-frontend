@@ -1,7 +1,7 @@
 /**
  * @jest-environment node
  */
-import R from 'ramda'
+import * as R from 'ramda'
 import { Matchers } from 'pact'
 
 import { mockStore, createProvider } from '../../../test'

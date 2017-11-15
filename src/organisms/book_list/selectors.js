@@ -1,4 +1,4 @@
-import R from 'ramda'
+import * as R from 'ramda'
 
 import { createSelector } from 'reselect'
 import { booksSelector as baseSelector } from '../../state/books'

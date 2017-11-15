@@ -7,7 +7,7 @@ import validator from 'validator'
 
 import { Form, Control } from 'react-redux-form'
 import { FormGroup, Label, Input as BaseInput, FormText } from 'reactstrap'
-import R from 'ramda'
+import * as R from 'ramda'
 
 import { starsSelector } from './selectors'
 

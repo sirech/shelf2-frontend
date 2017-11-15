@@ -30,7 +30,7 @@ exports[`components Login does not blow up 1`] = `
         type="password"
       />
       <Button
-        color="secondary"
+        color="primary"
         tag="button"
         type="submit"
       >

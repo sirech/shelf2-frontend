@@ -2,7 +2,7 @@
  * @jest-environment node
  */
 
-import R from 'ramda'
+import * as R from 'ramda'
 
 import { mockStore, createProvider } from '../../../test'
 import { search } from '../actions'

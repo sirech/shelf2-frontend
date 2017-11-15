@@ -1,6 +1,6 @@
 // @flow
 
-import R from 'ramda'
+import * as R from 'ramda'
 
 import { namespace, status } from './constants'
 
