@@ -1,12 +1,12 @@
 import React from 'react'
 
-import { fullRender } from '../../test'
-import state from '../../state/__fixtures__'
+import { fullRender } from 'test'
+import state from 'state/__fixtures__'
 import BookList from './BookList'
 
 // Mock thunk that triggers API request
-import { actions } from '../../state/books'
-jest.mock('../../state/books/actions', () => ({
+import { actions } from 'state/books'
+jest.mock('state/books/actions', () => ({
   fetchBooks: jest.fn(dispatch => jest.fn())
 }))
 

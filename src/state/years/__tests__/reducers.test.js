@@ -1,7 +1,7 @@
 import reducer from '../reducers'
 
 import { constants } from '../../form'
-import { factories } from '../../../test'
+import { factories } from 'test'
 import { years } from '../../__fixtures__'
 
 describe('years reducer', () => {

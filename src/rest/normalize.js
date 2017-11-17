@@ -1,7 +1,7 @@
 // @flow
 
 import { normalize, schema } from 'normalizr'
-import type { Book, NormalizedBooks, Year, NormalizedYears } from '../types'
+import type { Book, NormalizedBooks, Year, NormalizedYears } from 'types'
 
 const book = new schema.Entity('books', {}, { idAttribute: 'id' })
 const year = new schema.Entity('years', {}, { idAttribute: 'year' })

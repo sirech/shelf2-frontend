@@ -8,10 +8,10 @@ import * as R from 'ramda'
 
 import booksSelector from './selectors'
 
-import { actions } from '../../state/books'
-import Category from '../../molecules/category'
+import { actions } from 'state/books'
+import Category from 'molecules/category'
 
-import type { Category as CategoryType } from '../../types'
+import type { Category as CategoryType } from 'types'
 type Props = {
   // eslint-disable-next-line react/no-unused-prop-types
   match: { params: { year?: string } },

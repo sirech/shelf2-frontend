@@ -9,11 +9,11 @@ import * as R from 'ramda'
 
 import { Form } from 'react-redux-form'
 import { Col, Row, Button, Alert } from 'reactstrap'
-import Input from '../input'
+import Input from 'organisms/input'
 
-import { constants, actions, authenticatedSelector, failedSelector } from '../../state/login'
+import { constants, actions, authenticatedSelector, failedSelector } from 'state/login'
 
-import type { Login as LoginType } from '../../types'
+import type { Login as LoginType } from 'types'
 
 type Props = {
   authenticated: boolean,

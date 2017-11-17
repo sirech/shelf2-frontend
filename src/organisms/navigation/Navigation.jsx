@@ -7,10 +7,10 @@ import { createStructuredSelector } from 'reselect'
 import * as R from 'ramda'
 import { ListGroup } from 'reactstrap'
 
-import NavigationItem from '../../molecules/navigation_item'
+import NavigationItem from 'molecules/navigation_item'
 
 import yearsSelector from './selectors'
-import { actions } from '../../state/years'
+import { actions } from 'state/years'
 
 type Props = {
   years: Array<{year: number, count: number}>,

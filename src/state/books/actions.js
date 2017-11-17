@@ -2,8 +2,8 @@
 
 import { RECEIVE_BOOKS, MARK_ACTIVE_YEAR } from './constants'
 
-import { fetch, normalizeBooks } from '../../rest'
-import type { NormalizedBooks } from '../../types'
+import { fetch, normalizeBooks } from 'rest'
+import type { NormalizedBooks } from 'types'
 
 const receiveBooks = (books: NormalizedBooks) => ({
   type: RECEIVE_BOOKS,

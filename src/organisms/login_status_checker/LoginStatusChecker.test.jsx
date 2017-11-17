@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { fullRender } from '../../test'
+import { fullRender } from 'test'
 import { LoginStatusChecker } from './LoginStatusChecker'
 
 describe('components', () => {

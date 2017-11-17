@@ -1,8 +1,8 @@
 import * as R from 'ramda'
 import { createSelector } from 'reselect'
 
-import { modalSelector as baseSelector } from '../../state/modal'
-import { formSelector } from '../../state/form'
+import { modalSelector as baseSelector } from 'state/modal'
+import { formSelector } from 'state/form'
 
 export const openedSelector = R.pipe(baseSelector, R.path(['opened']))
 

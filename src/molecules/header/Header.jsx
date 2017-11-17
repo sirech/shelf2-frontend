@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom'
 import { LinkContainer } from 'react-router-bootstrap'
 import { Helmet } from 'react-helmet'
 
-import authenticated from '../../organisms/authenticated'
-import Logout from '../../organisms/logout'
-import SearchBar from '../../organisms/search_bar'
+import authenticated from 'organisms/authenticated'
+import Logout from 'organisms/logout'
+import SearchBar from 'organisms/search_bar'
 
 import { Collapse, Nav, Navbar, NavbarBrand, NavItem, NavbarToggler } from 'reactstrap'
 

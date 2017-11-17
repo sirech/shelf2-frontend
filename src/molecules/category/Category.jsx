@@ -4,11 +4,11 @@ import React from 'react'
 
 import { Card, CardHeader } from 'reactstrap'
 
-import SimpleBookList from '../simple_book_list'
+import SimpleBookList from 'molecules/simple_book_list'
 
 import './styles.css'
 
-import type { Category as CategoryType } from '../../types'
+import type { Category as CategoryType } from 'types'
 
 const Category = ({name, books}: CategoryType) => (
   <Card className='mb-3'>

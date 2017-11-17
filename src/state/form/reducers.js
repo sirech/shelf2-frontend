@@ -3,7 +3,7 @@
 import { namespace, bookModel } from './constants'
 import { combineForms } from 'react-redux-form'
 
-import type { BookForm as Book } from '../../types'
+import type { BookForm as Book } from 'types'
 
 const initialBook: Book = {
   title: '',

@@ -2,9 +2,9 @@
 
 import React from 'react'
 
-import Book from '../book'
+import Book from 'molecules/book'
 
-import type { Book as BookType } from '../../types'
+import type { Book as BookType } from 'types'
 
 const SimpleBookList = ({books}: {books: Array<BookType>}) => (
   <ul className='list-unstyled mb-0'>

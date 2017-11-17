@@ -2,11 +2,11 @@
 
 import React from 'react'
 
-import Stars from '../stars'
+import Stars from 'molecules/stars'
 
 import './styles.css'
 
-import type { Book as BookType } from '../../types'
+import type { Book as BookType } from 'types'
 
 const Book = ({title, stars}: BookType) => (
   <div className='book'>

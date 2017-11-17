@@ -2,7 +2,7 @@
 
 import * as R from 'ramda'
 
-import { fieldSelectorBuilder } from '../../state/form'
+import { fieldSelectorBuilder } from 'state/form'
 
 const selectorBuilder = (field: string) => (state: Object, props: { name: string }) => R.pipe(fieldSelectorBuilder(props.name), R.path([field]))(state)
 

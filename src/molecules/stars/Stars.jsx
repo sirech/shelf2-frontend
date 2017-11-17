@@ -1,11 +1,11 @@
 // @flow
 
 import React from 'react'
-import Star from '../star'
+import Star from 'molecules/star'
 
 import './styles.css'
 
-import type { StarCount } from '../../types'
+import type { StarCount } from 'types'
 
 const Stars = ({count, handleClick}: { count: StarCount, handleClick: number => void }) => (
   <span className='stars'>

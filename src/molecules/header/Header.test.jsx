@@ -1,5 +1,5 @@
 import React from 'react'
-import { fullRender } from '../../test'
+import { fullRender } from 'test'
 import Header from './Header'
 
 describe('components', () => {

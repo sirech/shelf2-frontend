@@ -6,8 +6,8 @@ import { connect } from 'react-redux'
 import * as R from 'ramda'
 import { NavItem } from 'reactstrap'
 
-import authenticated from '../../organisms/authenticated'
-import { actions } from '../../state/login'
+import authenticated from 'organisms/authenticated'
+import { actions } from 'state/login'
 
 type Props = {
   logout: void => void

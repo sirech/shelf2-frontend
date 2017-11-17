@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { fullRender } from '../../test'
-import state from '../../state/__fixtures__'
+import { fullRender } from 'test'
+import state from 'state/__fixtures__'
 
 import Logout from './Logout'
 

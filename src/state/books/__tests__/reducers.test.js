@@ -2,7 +2,7 @@ import reducer from '../reducers'
 import { markActiveYear } from '../actions'
 
 import { constants } from '../../form'
-import { factories } from '../../../test'
+import { factories } from 'test'
 import { books } from '../../__fixtures__'
 
 describe('book reducer', () => {

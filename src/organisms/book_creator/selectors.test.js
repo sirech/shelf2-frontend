@@ -1,4 +1,4 @@
-import state from '../../state/__fixtures__'
+import state from 'state/__fixtures__'
 import { openedSelector, validSelector } from './selectors'
 
 describe('selectors', () => {

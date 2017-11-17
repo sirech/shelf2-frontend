@@ -1,4 +1,4 @@
-import { mockStore } from '../../../test'
+import { mockStore } from 'test'
 
 import { logout } from '../actions'
 

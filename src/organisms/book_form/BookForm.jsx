@@ -11,11 +11,11 @@ import * as R from 'ramda'
 
 import { starsSelector } from './selectors'
 
-import { modelName, actions } from '../../state/form'
-import Stars from '../../molecules/stars'
-import Input from '../input'
+import { modelName, actions } from 'state/form'
+import Stars from 'molecules/stars'
+import Input from 'organisms/input'
 
-import type { Categories, BookForm as BookFormType } from '../../types'
+import type { Categories, BookForm as BookFormType } from 'types'
 type Props = {
   stars?: number,
   changeStars: (number) => void,

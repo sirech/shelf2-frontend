@@ -9,13 +9,13 @@ import { Card, CardHeader } from 'reactstrap'
 import debounce from 'lodash.debounce'
 import Pluralize from 'react-pluralize'
 
-import SimpleBookList from '../../molecules/simple_book_list'
+import SimpleBookList from 'molecules/simple_book_list'
 
 import booksSelector from './selectors'
 
-import { actions } from '../../state/search'
+import { actions } from 'state/search'
 
-import type { Book as BookType } from '../../types'
+import type { Book as BookType } from 'types'
 type Props = {
   // eslint-disable-next-line react/no-unused-prop-types
   match: { params: { keyword?: string } },

@@ -10,10 +10,10 @@ import * as R from 'ramda'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 
 import { openedSelector, validSelector } from './selectors'
-import { actions } from '../../state/modal'
+import { actions } from 'state/modal'
 
-import CreateButton from '../../molecules/create_button'
-import BookForm from '../book_form'
+import CreateButton from 'molecules/create_button'
+import BookForm from 'organisms/book_form'
 
 type Props = {
   opened: boolean,

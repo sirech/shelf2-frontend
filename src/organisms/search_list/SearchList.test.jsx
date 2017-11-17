@@ -1,12 +1,12 @@
 import React from 'react'
 
-import { fullRender } from '../../test'
-import state from '../../state/__fixtures__'
+import { fullRender } from 'test'
+import state from 'state/__fixtures__'
 import SearchList from './SearchList'
 
 // Mock thunk that triggers API request
-import { actions } from '../../state/search'
-jest.mock('../../state/search/actions', () => ({
+import { actions } from 'state/search'
+jest.mock('state/search/actions', () => ({
   search: jest.fn(dispatch => jest.fn())
 }))
 jest.mock('lodash.debounce', () => (f) => f)

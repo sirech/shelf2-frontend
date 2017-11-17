@@ -9,3 +9,5 @@
 [options]
 esproposal.class_static_fields=enable
 esproposal.class_instance_fields=enable
+module.system.node.resolve_dirname=node_modules
+module.system.node.resolve_dirname=src

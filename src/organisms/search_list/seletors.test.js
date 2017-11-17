@@ -1,4 +1,4 @@
-import state from '../../state/__fixtures__'
+import state from 'state/__fixtures__'
 import searchSelector from './selectors'
 
 describe('searchSelector', () => {

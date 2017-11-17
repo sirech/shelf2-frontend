@@ -7,7 +7,7 @@ import * as R from 'ramda'
 import wrapDisplayName from 'recompose/wrapDisplayName'
 import { createStructuredSelector } from 'reselect'
 
-import { authenticatedSelector } from '../../state/login'
+import { authenticatedSelector } from 'state/login'
 
 type Props = {
   authenticated: boolean

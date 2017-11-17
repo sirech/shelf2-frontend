@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 
 import * as R from 'ramda'
 
-import { actions } from '../../state/login'
+import { actions } from 'state/login'
 
 type Props = {
   loginSuccess: (void) => void

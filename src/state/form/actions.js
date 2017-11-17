@@ -2,14 +2,14 @@
 
 import { actions } from 'react-redux-form'
 
-import { fetch } from '../../rest'
+import { fetch } from 'rest'
 
 import { BOOK_CREATE_SUCCESS, BOOK_CREATE_FAIL } from './constants'
 import { modelName } from './utils'
 
 import { actions as modalActions } from '../modal'
 
-import type { BookForm, Book } from '../../types'
+import type { BookForm, Book } from 'types'
 
 const bookCreated = (book: Book) => ({
   type: BOOK_CREATE_SUCCESS,

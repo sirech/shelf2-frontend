@@ -3,15 +3,15 @@ import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-d
 
 import { Col, Container, Row } from 'reactstrap'
 
-import authenticated from './organisms/authenticated'
+import authenticated from 'organisms/authenticated'
 
-import Header from './molecules/header'
-import BookCreator from './organisms/book_creator'
-import BookList from './organisms/book_list'
-import SearchList from './organisms/search_list'
-import Login from './organisms/login'
-import LoginStatusChecker from './organisms/login_status_checker'
-import Navigation from './organisms/navigation'
+import Header from 'molecules/header'
+import BookCreator from 'organisms/book_creator'
+import BookList from 'organisms/book_list'
+import SearchList from 'organisms/search_list'
+import Login from 'organisms/login'
+import LoginStatusChecker from 'organisms/login_status_checker'
+import Navigation from 'organisms/navigation'
 
 const year = new Date().getFullYear()
 

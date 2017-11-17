@@ -1,10 +1,10 @@
 // @flow
 
-import { fetch } from '../../rest'
+import { fetch } from 'rest'
 
 import { LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT_SUCCESS } from './constants'
 
-import type { Login as LoginType } from '../../types'
+import type { Login as LoginType } from 'types'
 
 export const loginSuccess = () => ({
   type: LOGIN_SUCCESS

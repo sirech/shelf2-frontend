@@ -4,7 +4,7 @@
 import * as R from 'ramda'
 import { Matchers } from 'pact'
 
-import { mockStore, createProvider } from '../test'
+import { mockStore, createProvider } from 'test'
 
 import { fetchBooks } from './books/actions'
 import { create } from './form/actions'

@@ -2,8 +2,8 @@
 
 import { RECEIVE_YEARS } from './constants'
 
-import { fetch, normalizeYears } from '../../rest'
-import type { NormalizedYears } from '../../types'
+import { fetch, normalizeYears } from 'rest'
+import type { NormalizedYears } from 'types'
 
 const receiveYears = (years: NormalizedYears) => ({
   type: RECEIVE_YEARS,
