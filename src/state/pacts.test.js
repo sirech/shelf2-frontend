@@ -23,7 +23,7 @@ describe('pacts', () => {
 
   const provider = createProvider()
 
-  beforeAll(() => provider.setup())
+  beforeAll(() => provider.setup(), 5 * 60 * 1000)
   afterAll(() => provider.finalize(), 5 * 60 * 1000)
 
   describe('books - fetchBooks', () => {
