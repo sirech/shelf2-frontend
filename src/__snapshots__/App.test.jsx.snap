@@ -3,17 +3,7 @@
 exports[`components App renders correctly 1`] = `
 <BrowserRouter>
   <div>
-    <Route
-      exact={true}
-      path="/"
-      render={[Function]}
-    />
-    <Route
-      exact={true}
-      path="/books"
-      render={[Function]}
-    />
-    <Connect(LoginStatusChecker) />
+    <Checks />
     <Header />
     <Content />
   </div>

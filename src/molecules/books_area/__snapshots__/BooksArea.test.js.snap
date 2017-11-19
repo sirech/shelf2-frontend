@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components BooksArea renders correctly 1`] = `
+<Row
+  tag="div"
+>
+  <Col
+    lg="10"
+    md="9"
+    sm="8"
+    tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
+    xs="12"
+  >
+    <Connect(authenticatedComponent(Connect(BookCreator))) />
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/books/:year"
+    />
+  </Col>
+  <Col
+    lg="2"
+    md="3"
+    sm="4"
+    tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
+  >
+    <Connect(Navigation) />
+  </Col>
+</Row>
+`;
