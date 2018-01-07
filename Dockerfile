@@ -1,14 +1,14 @@
-FROM node:8.9.0-slim
+FROM node:9.3.0-alpine
 
 WORKDIR /app
 
-# Install packages before copying files
-COPY package.json package.json
-COPY yarn.lock yarn.lock
-RUN yarn
-
 COPY . .
 
-RUN yarn run build --production && gzip -rfk build/static
+RUN yarn \
+&& yarn run build \
+&& find build/static -type f ! -name *.gz | xargs -I@ sh -c "gzip -c @ > @.gz" \
+&& rm -rf node_modules \
+&& rm -rf /usr/local/share/.cache \
+&& rm -rf /usr/local/lib/node_modules
 
 CMD cp -a build/* public/ && echo 'Build done'
