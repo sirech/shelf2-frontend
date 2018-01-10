@@ -3792,9 +3792,9 @@ ignore@^3.3.3, ignore@^3.3.5, ignore@^3.3.6:
   version "3.3.7"
   resolved "https://registry.yarnpkg.com/ignore/-/ignore-3.3.7.tgz#612289bfb3c220e186a58118618d5be8c1bab021"
 
-immutability-helper@^2.5.0:
-  version "2.5.1"
-  resolved "https://registry.yarnpkg.com/immutability-helper/-/immutability-helper-2.5.1.tgz#1d38ba1c47d8d2d50783f917cb7fbeb5737121dd"
+immutability-helper@^2.6.4:
+  version "2.6.4"
+  resolved "https://registry.yarnpkg.com/immutability-helper/-/immutability-helper-2.6.4.tgz#a931aef97257fcb6d2b5456de652ab6e3bba8408"
   dependencies:
     invariant "^2.2.0"
 
@@ -6377,9 +6377,9 @@ react-reconciler@^0.7.0:
     object-assign "^4.1.1"
     prop-types "^15.6.0"
 
-react-redux-form@^1.16.0:
-  version "1.16.2"
-  resolved "https://registry.yarnpkg.com/react-redux-form/-/react-redux-form-1.16.2.tgz#9b524a73d6250f6c099924180926bd9135d7a717"
+react-redux-form@^1.16.3:
+  version "1.16.3"
+  resolved "https://registry.yarnpkg.com/react-redux-form/-/react-redux-form-1.16.3.tgz#2fa6a33c174bc2b8ae8d10b94d5e0b344ee7b9f1"
   dependencies:
     icepick "^1.1.0"
     invariant "~2.2.1"
@@ -8106,9 +8106,9 @@ validate-npm-package-license@^3.0.1:
     spdx-correct "~1.0.0"
     spdx-expression-parse "~1.0.0"
 
-validator@^9.1.1:
-  version "9.1.2"
-  resolved "https://registry.yarnpkg.com/validator/-/validator-9.1.2.tgz#5711b6413f78bd9d56003130c81b47c39e86546c"
+validator@^9.2.0:
+  version "9.2.0"
+  resolved "https://registry.yarnpkg.com/validator/-/validator-9.2.0.tgz#ad216eed5f37cac31a6fe00ceab1f6b88bded03e"
 
 value-equal@^0.4.0:
   version "0.4.0"
