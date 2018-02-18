@@ -37,7 +37,7 @@ exports[`components BookCreator renders correctly 1`] = `
   >
     <ModalHeader
       closeAriaLabel="Close"
-      tag="h4"
+      tag="h5"
       toggle={[Function]}
       wrapTag="div"
     >
