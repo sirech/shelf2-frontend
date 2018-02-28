@@ -9,8 +9,6 @@ export type Category = { name: Categories, books: Array<Book> }
 
 export type Year = { year: number, count: number }
 
-export type Login = { user: string, password: string }
-
 // State
 
 type Result = Array<number>

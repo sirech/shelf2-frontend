@@ -24,9 +24,8 @@ type Props = {
 }
 
 // exported for testing
-export class BookForm extends React.Component {
+export class BookForm extends React.Component<Props> {
   static defaultProps: Props
-  props: Props
 
   handleSubmit: Function
 

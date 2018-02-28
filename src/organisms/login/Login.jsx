@@ -7,33 +7,30 @@ import { createStructuredSelector } from 'reselect'
 import { Redirect } from 'react-router-dom'
 import * as R from 'ramda'
 
-import { Form } from 'react-redux-form'
-import { Col, Row, Button, Alert } from 'reactstrap'
-import Input from 'organisms/input'
+import GoogleLogin from 'react-google-login'
 
-import { constants, actions, authenticatedSelector, failedSelector } from 'state/login'
+import { Col, Row, Alert } from 'reactstrap'
 
-import type { Login as LoginType } from 'types'
+import { actions, authenticatedSelector, failedSelector } from 'state/login'
 
 type Props = {
   authenticated: boolean,
   failed: boolean,
-  tryLogin: (LoginType) => void
+  login: (string) => undefined,
+  loginFailure: (_) => undefined
 }
 
 // exported for testing
 export class Login extends React.Component {
   static defaultProps: Props
   props: Props
-  onSubmit: Function
+  onSuccess: Function
+  onFailure: Function
 
   constructor () {
     super()
-    this.onSubmit = this.onSubmit.bind(this)
-  }
-
-  onSubmit (login: LoginType) {
-    this.props.tryLogin(login)
+    this.onSuccess = this.onSuccess.bind(this)
+    this.onFailure = this.onFailure.bind(this)
   }
 
   redirectIfLoggedIn () {
@@ -52,26 +49,28 @@ export class Login extends React.Component {
     }
   }
 
+  onSuccess (response) {
+    this.props.login(response.accessToken)
+  }
+
+  onFailure (response) {
+    this.props.loginFailure()
+  }
+
   render () {
     return (
       <Row>
         {this.redirectIfLoggedIn()}
         <Col xs='12'>
           {this.errorMessage()}
-          <Form model={constants.modelName} onSubmit={this.onSubmit}>
-
-            <Input
-              name='user'
-              type='text'
+          <div className='text-center'>
+            <GoogleLogin
+              clientId='821590472100-8l14rsm3sof4so0p495tkaf6lgd5p47s.apps.googleusercontent.com'
+              buttonText='Login with Google'
+              onSuccess={this.onSuccess}
+              onFailure={this.onFailure}
             />
-
-            <Input
-              name='password'
-              type='password'
-            />
-
-            <Button color='primary' type='submit'>Submit</Button>
-          </Form>
+          </div>
         </Col>
       </Row>
     )
@@ -81,7 +80,8 @@ export class Login extends React.Component {
 Login.defaultProps = {
   authenticated: false,
   failed: false,
-  tryLogin: (_) => undefined
+  login: (_) => undefined,
+  loginFailure: (_) => undefined
 }
 
 export default connect(
@@ -89,5 +89,5 @@ export default connect(
     authenticated: authenticatedSelector,
     failed: failedSelector
   })(state),
-  R.pick(['tryLogin'])(actions)
+  R.pick(['login', 'loginFailure'])(actions)
 )(Login)

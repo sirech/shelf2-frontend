@@ -1,6 +1,4 @@
-import { namespace, loginModel, LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT_SUCCESS } from './constants'
-import { combineReducers } from 'redux'
-import { combineForms } from 'react-redux-form'
+import { LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT_SUCCESS } from './constants'
 
 const initialState = { authenticated: false, failed: false }
 
@@ -17,16 +15,4 @@ export function status (state = initialState, action) {
   }
 }
 
-const initialLogin = {
-  user: '',
-  password: ''
-}
-
-const reducer = combineReducers({
-  status,
-  form: combineForms({
-    [loginModel]: initialLogin
-  }, `${namespace}.form`)
-})
-
-export default reducer
+export default status

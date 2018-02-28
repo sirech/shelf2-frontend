@@ -118,55 +118,6 @@
       }
     },
     {
-      "description": "a valid request for login",
-      "providerState": "i am not logged in",
-      "request": {
-        "method": "POST",
-        "path": "/rest/login",
-        "headers": {
-          "Accept": "application/json",
-          "Content-Type": "application/json",
-          "X-Requested-With": "XMLHttpRequest"
-        },
-        "body": {
-          "user": "Tronald",
-          "password": "Dumpinator"
-        }
-      },
-      "response": {
-        "status": 200,
-        "headers": {
-          "Content-Type": "application/json; charset=utf-8"
-        },
-        "body": {
-          "auth_token": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.xPUpABeLDWit5v187rP_x8dgTthuFjrMseKuPOK45NM"
-        }
-      }
-    },
-    {
-      "description": "an invalid request for login",
-      "providerState": "i am not logged in",
-      "request": {
-        "method": "POST",
-        "path": "/rest/login",
-        "headers": {
-          "Accept": "application/json",
-          "Content-Type": "application/json",
-          "X-Requested-With": "XMLHttpRequest"
-        },
-        "body": {
-          "user": "Tronald",
-          "password": "Wrongwrong"
-        }
-      },
-      "response": {
-        "status": 401,
-        "headers": {
-          "Content-Type": "application/json; charset=utf-8"
-        }
-      }
-    },
-    {
       "description": "a search request",
       "providerState": "i have some books",
       "request": {

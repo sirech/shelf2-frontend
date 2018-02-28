@@ -23,9 +23,8 @@ type Props = {
   search: (string) => void
 }
 
-class SearchList extends React.Component {
+class SearchList extends React.Component<Props> {
   static defaultProps: Props
-  props: Props
   debouncedSearch: (string) => void
 
   static getKeyword (props) {

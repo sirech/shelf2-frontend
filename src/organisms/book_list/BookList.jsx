@@ -19,9 +19,8 @@ type Props = {
   fetchBooks: (string) => void
 }
 
-class BookList extends React.Component {
+class BookList extends React.Component<Props> {
   static defaultProps: Props
-  props: Props
 
   static getYear (props) {
     return R.path(['match', 'params', 'year'], props)

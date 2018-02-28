@@ -17,26 +17,30 @@ exports[`components Login does not blow up 1`] = `
     }
     xs="12"
   >
-    <Connect(Form)
-      model="login.form.login"
-      onSubmit={[Function]}
+    <div
+      className="text-center"
     >
-      <Connect(Input)
-        name="user"
-        type="text"
-      />
-      <Connect(Input)
-        name="password"
-        type="password"
-      />
-      <Button
-        color="primary"
+      <t
+        buttonText="Login with Google"
+        clientId="821590472100-8l14rsm3sof4so0p495tkaf6lgd5p47s.apps.googleusercontent.com"
+        cookiePolicy="single_host_origin"
+        disabledStyle={
+          Object {
+            "opacity": 0.6,
+          }
+        }
+        fetchBasicProfile={true}
+        isSignedIn={false}
+        onFailure={[Function]}
+        onRequest={[Function]}
+        onSuccess={[Function]}
+        prompt=""
+        scope="profile email"
         tag="button"
-        type="submit"
-      >
-        Submit
-      </Button>
-    </Connect(Form)>
+        type="button"
+        uxMode="popup"
+      />
+    </div>
   </Col>
 </Row>
 `;

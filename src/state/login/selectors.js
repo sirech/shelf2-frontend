@@ -2,9 +2,9 @@
 
 import * as R from 'ramda'
 
-import { namespace, status } from './constants'
+import { namespace } from './constants'
 
-const selector = R.path([namespace, status])
+const selector = R.path([namespace])
 
 export const authenticatedSelector = R.pipe(selector, R.path(['authenticated']))
 

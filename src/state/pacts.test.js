@@ -8,7 +8,6 @@ import { mockStore, createProvider } from 'test'
 
 import { fetchBooks } from './books/actions'
 import { create } from './form/actions'
-import { tryLogin } from './login/actions'
 import { search } from './search/actions'
 import { fetchYears } from './years/actions'
 
@@ -111,108 +110,6 @@ describe('pacts', () => {
         .then(() => {
           expect(store.getActions()).toEqual(expectedActions)
         })
-    })
-  })
-
-  describe('login - tryLogin', () => {
-    afterAll(() => provider.verify(), 5 * 60 * 1000)
-
-    describe('successful login', () => {
-      let setItem
-
-      const token = {
-        auth_token: rest.authToken
-      }
-      const login = { user: 'Tronald', password: 'Dumpinator' }
-
-      beforeAll(() => {
-        const interaction = {
-          state: 'i am not logged in',
-          uponReceiving: 'a valid request for login',
-          withRequest: {
-            method: 'POST',
-            path: '/rest/login',
-            headers: {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json',
-              'X-Requested-With': 'XMLHttpRequest'
-            },
-            body: login
-          },
-          willRespondWith: {
-            status: 200,
-            headers: { 'Content-Type': 'application/json; charset=utf-8' },
-            body: token
-          }
-        }
-
-        return provider.addInteraction(interaction)
-      }, 5 * 60 * 1000)
-
-      beforeEach(() => {
-        jest.clearAllMocks()
-
-        setItem = jest.fn()
-        global.localStorage.setItem = setItem
-      })
-
-      it('should dispatch the correct actions', () => {
-        const expectedActions = [
-          { type: 'login:success' }
-        ]
-
-        return store.dispatch(tryLogin(login))
-          .then(() => {
-            expect(store.getActions()).toEqual(expectedActions)
-          })
-      })
-
-      it('stores the token in localStorage', () => {
-        return store.dispatch(tryLogin(login))
-          .then(() => {
-            expect(setItem.mock.calls.length).toBe(1)
-            expect(setItem.mock.calls[0][0]).toBe('authToken')
-            expect(setItem.mock.calls[0][1]).toBe(rest.authToken)
-          })
-      })
-    })
-
-    describe('failed login', () => {
-      const login = { user: 'Tronald', password: 'Wrongwrong' }
-
-      beforeAll(() => {
-        const interaction = {
-          state: 'i am not logged in',
-          uponReceiving: 'an invalid request for login',
-          withRequest: {
-            method: 'POST',
-            path: '/rest/login',
-            headers: {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json',
-              'X-Requested-With': 'XMLHttpRequest'
-            },
-            body: login
-          },
-          willRespondWith: {
-            status: 401,
-            headers: { 'Content-Type': 'application/json; charset=utf-8' }
-          }
-        }
-
-        return provider.addInteraction(interaction)
-      }, 5 * 60 * 1000)
-
-      it('should dispatch the correct actions', () => {
-        const expectedActions = [
-          { type: 'login:failure' }
-        ]
-
-        return store.dispatch(tryLogin(login))
-          .then(() => {
-            expect(store.getActions()).toEqual(expectedActions)
-          })
-      })
     })
   })
 
