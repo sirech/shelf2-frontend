@@ -8,6 +8,7 @@ import * as R from 'ramda'
 
 import booksSelector from './selectors'
 
+import { actionPicker } from 'state'
 import { actions } from 'state/books'
 import Category from 'molecules/category'
 
@@ -66,5 +67,5 @@ export default connect(
     createStructuredSelector({
       categories: booksSelector
     })(state),
-  R.pick(['fetchBooks'])(actions)
+  actionPicker(['fetchBooks'])(actions)
 )(BookList)

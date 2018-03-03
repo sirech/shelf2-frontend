@@ -4,12 +4,13 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 
-import * as R from 'ramda'
 import { ListGroup } from 'reactstrap'
 
 import NavigationItem from 'molecules/navigation_item'
 
 import yearsSelector from './selectors'
+
+import { actionPicker } from 'state'
 import { actions } from 'state/years'
 
 type Props = {
@@ -47,5 +48,5 @@ export default connect(
     createStructuredSelector({
       years: yearsSelector
     })(state),
-  R.pick(['fetchYears'])(actions)
+  actionPicker(['fetchYears'])(actions)
 )(Navigation)

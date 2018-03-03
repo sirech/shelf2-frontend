@@ -2,7 +2,7 @@
 
 import { LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT_SUCCESS } from './constants'
 
-const loginSuccess = () => ({
+export const loginSuccess = () => ({
   type: LOGIN_SUCCESS
 })
 

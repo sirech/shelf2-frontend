@@ -5,11 +5,11 @@ import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 import { Helmet } from 'react-helmet'
 
-import * as R from 'ramda'
-
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 
 import { openedSelector, validSelector } from './selectors'
+
+import { actionPicker } from 'state'
 import { actions } from 'state/modal'
 
 import CreateButton from 'molecules/create_button'
@@ -81,5 +81,5 @@ export default connect(
       opened: openedSelector,
       valid: validSelector
     })(state),
-  R.pick(['modalToggled'])(actions)
+  actionPicker(['modalToggled'])(actions)
 )(BookCreator)

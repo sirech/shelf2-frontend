@@ -5,12 +5,12 @@ import { connect } from 'react-redux'
 
 import { createStructuredSelector } from 'reselect'
 import { Redirect } from 'react-router-dom'
-import * as R from 'ramda'
 
 import GoogleLogin from 'react-google-login'
 
 import { Col, Row, Alert } from 'reactstrap'
 
+import { actionPicker } from 'state'
 import { actions, authenticatedSelector, failedSelector } from 'state/login'
 
 type Props = {
@@ -89,5 +89,5 @@ export default connect(
     authenticated: authenticatedSelector,
     failed: failedSelector
   })(state),
-  R.pick(['login', 'loginFailure'])(actions)
+  actionPicker(['login', 'loginFailure'])(actions)
 )(Login)

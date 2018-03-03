@@ -3,8 +3,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import * as R from 'ramda'
-
+import { actionPicker } from 'state'
 import { actions } from 'state/login'
 
 type Props = {
@@ -30,5 +29,5 @@ export class LoginStatusChecker extends React.Component {
 
 export default connect(
   null,
-  R.pick(['loginSuccess'])(actions)
+  actionPicker(['loginSuccess'])(actions)
 )(LoginStatusChecker)

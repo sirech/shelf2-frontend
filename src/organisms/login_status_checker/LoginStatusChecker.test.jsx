@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { fullRender } from 'test'
-import { LoginStatusChecker } from './LoginStatusChecker'
+import FullStatusChecker, { LoginStatusChecker } from './LoginStatusChecker'
 
 describe('components', () => {
   describe('LoginStatusChecker', () => {
@@ -24,6 +24,13 @@ describe('components', () => {
     it('does not call loginSuccess if there is no token', () => {
       fullRender(<LoginStatusChecker loginSuccess={loginSuccess} />)
       expect(loginSuccess.mock.calls.length).toBe(0)
+    })
+  })
+
+  describe('FullStatusChecker', () => {
+    it('does not blow up', () => {
+      const { component } = fullRender(<FullStatusChecker />)
+      expect(component.toJSON()).toMatchSnapshot()
     })
   })
 })

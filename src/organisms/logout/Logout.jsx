@@ -3,10 +3,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import * as R from 'ramda'
 import { NavItem } from 'reactstrap'
 
 import authenticated from 'organisms/authenticated'
+
+import { actionPicker } from 'state'
 import { actions } from 'state/login'
 
 type Props = {
@@ -37,5 +38,5 @@ class Logout extends React.Component {
 
 export default authenticated()(connect(
   null,
-  R.pick(['logout'])(actions)
+  actionPicker(['logout'])(actions)
 )(Logout))

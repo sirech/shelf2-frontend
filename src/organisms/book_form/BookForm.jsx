@@ -7,11 +7,12 @@ import validator from 'validator'
 
 import { Form, Control } from 'react-redux-form'
 import { FormGroup, Label, Input as BaseInput, FormText } from 'reactstrap'
-import * as R from 'ramda'
 
 import { starsSelector } from './selectors'
 
+import { actionPicker } from 'state'
 import { modelName, actions } from 'state/form'
+
 import Stars from 'molecules/stars'
 import Input from 'organisms/input'
 
@@ -107,5 +108,5 @@ export default connect(
     createStructuredSelector({
       stars: starsSelector
     })(state),
-  R.pick(['changeStars', 'create'])(actions)
+  actionPicker(['changeStars', 'create'])(actions)
 )(BookForm)

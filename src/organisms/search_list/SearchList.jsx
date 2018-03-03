@@ -13,6 +13,7 @@ import SimpleBookList from 'molecules/simple_book_list'
 
 import booksSelector from './selectors'
 
+import { actionPicker } from 'state'
 import { actions } from 'state/search'
 
 import type { Book as BookType } from 'types'
@@ -74,5 +75,5 @@ export default connect(
     createStructuredSelector({
       books: booksSelector
     })(state),
-  R.pick(['search'])(actions)
+  actionPicker(['search'])(actions)
 )(SearchList)
