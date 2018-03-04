@@ -2,6 +2,7 @@
 
 exports[`modalSelector selects the modal 1`] = `
 Object {
+  "error": false,
   "opened": false,
 }
 `;

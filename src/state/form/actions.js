@@ -37,7 +37,7 @@ export const create = (book: BookForm) => {
 
     return fetch(url, { method, body })
       .then((response) => {
-        if (response.status === 422) {
+        if (response.status === 422 || response.status === 401) {
           return response.json().then((err) => { throw err })
         }
         return response

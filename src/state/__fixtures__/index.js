@@ -8,7 +8,8 @@ import login from './login'
 import * as rest from './rest'
 
 const modal = () => ({
-  opened: false
+  opened: false,
+  error: false
 })
 
 const search = R.pipe(books, R.omit(['activeYear']))

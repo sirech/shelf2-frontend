@@ -10,5 +10,10 @@ describe('components', () => {
       const component = shallow(<BookCreator opened valid />)
       expect(toJson(component)).toMatchSnapshot()
     })
+
+    it('renders an error', () => {
+      const component = shallow(<BookCreator opened valid error />)
+      expect(toJson(component)).toMatchSnapshot()
+    })
   })
 })

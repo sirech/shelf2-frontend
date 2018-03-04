@@ -5,6 +5,7 @@ import { modalSelector as baseSelector } from 'state/modal'
 import { formSelector } from 'state/form'
 
 export const openedSelector = R.pipe(baseSelector, R.path(['opened']))
+export const errorSelector = R.pipe(baseSelector, R.path(['error']))
 
 export const validSelector = createSelector(
   R.pipe(formSelector, R.path(['valid'])),

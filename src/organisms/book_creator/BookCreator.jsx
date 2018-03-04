@@ -5,9 +5,9 @@ import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 import { Helmet } from 'react-helmet'
 
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
+import { Alert, Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 
-import { openedSelector, validSelector } from './selectors'
+import { openedSelector, validSelector, errorSelector } from './selectors'
 
 import { actionPicker } from 'state'
 import { actions } from 'state/modal'
@@ -17,6 +17,7 @@ import BookForm from 'organisms/book_form'
 
 type Props = {
   opened: boolean,
+  error: boolean,
   valid: boolean,
   modalToggled: () => void
 }
@@ -49,6 +50,16 @@ export class BookCreator extends React.Component {
     this._form.submit()
   }
 
+  showError () {
+    if (this.props.error) {
+      return (
+        <Alert color='danger'>
+          Error creating a book
+        </Alert>
+      )
+    }
+  }
+
   render () {
     const { opened, valid } = this.props
 
@@ -63,6 +74,7 @@ export class BookCreator extends React.Component {
         <Modal isOpen={opened}>
           <ModalHeader toggle={this.toggle}>Add book</ModalHeader>
           <ModalBody>
+            {this.showError()}
             <BookForm attachForm={this.attachForm} />
           </ModalBody>
           <ModalFooter>
@@ -79,6 +91,7 @@ export default connect(
   (state, props) =>
     createStructuredSelector({
       opened: openedSelector,
+      error: errorSelector,
       valid: validSelector
     })(state),
   actionPicker(['modalToggled'])(actions)

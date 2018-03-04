@@ -1,5 +1,106 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`components BookCreator renders an error 1`] = `
+<div>
+  <HelmetWrapper
+    defer={true}
+    encodeSpecialCharacters={true}
+  >
+    <title>
+      Add book
+    </title>
+  </HelmetWrapper>
+  <CreateButton
+    onClick={[Function]}
+  />
+  <Modal
+    autoFocus={true}
+    backdrop={true}
+    backdropTransition={
+      Object {
+        "mountOnEnter": true,
+        "timeout": 150,
+      }
+    }
+    fade={true}
+    isOpen={true}
+    keyboard={true}
+    modalTransition={
+      Object {
+        "timeout": 300,
+      }
+    }
+    onClosed={[Function]}
+    onOpened={[Function]}
+    role="dialog"
+    zIndex={1050}
+  >
+    <ModalHeader
+      closeAriaLabel="Close"
+      tag="h5"
+      toggle={[Function]}
+      wrapTag="div"
+    >
+      Add book
+    </ModalHeader>
+    <ModalBody
+      tag="div"
+    >
+      <Alert
+        closeAriaLabel="Close"
+        color="danger"
+        isOpen={true}
+        tag="div"
+        transition={
+          Object {
+            "appear": true,
+            "baseClass": "fade",
+            "baseClassActive": "show",
+            "enter": true,
+            "exit": true,
+            "in": true,
+            "mountOnEnter": false,
+            "onEnter": [Function],
+            "onEntered": [Function],
+            "onEntering": [Function],
+            "onExit": [Function],
+            "onExited": [Function],
+            "onExiting": [Function],
+            "tag": "div",
+            "timeout": 150,
+            "unmountOnExit": true,
+          }
+        }
+      >
+        Error creating a book
+      </Alert>
+      <Connect(BookForm)
+        attachForm={[Function]}
+      />
+    </ModalBody>
+    <ModalFooter
+      tag="div"
+    >
+      <Button
+        color="primary"
+        disabled={false}
+        onClick={[Function]}
+        tag="button"
+      >
+        Create
+      </Button>
+      <Button
+        color="secondary"
+        onClick={[Function]}
+        tag="button"
+      >
+        Cancel
+      </Button>
+    </ModalFooter>
+  </Modal>
+</div>
+`;
+
 exports[`components BookCreator renders correctly 1`] = `
 <div>
   <HelmetWrapper
