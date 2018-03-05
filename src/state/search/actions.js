@@ -15,8 +15,7 @@ export function search (keyword: string) {
     const url = `/books/search/${keyword}`
 
     return fetch(url)
-      .then(response => response.json())
-      .then(data => normalizeBooks(data))
+      .then(response => normalizeBooks(response.data))
       .then(books => dispatch(receiveSearchResult(books)))
   }
 }

@@ -1,6 +1,6 @@
 // @flow
 
-import isoFetch from 'isomorphic-fetch'
+import axios from 'axios'
 
 const testableUrl = (path: string) => {
   const TESTING = process.env.NODE_ENV === 'test'
@@ -31,7 +31,7 @@ const fetch = (url: string, opts: Object = {}) => {
   addAuthorization(headers)
   const options = {...DEFAULT_OPTIONS, ...opts, ...{ headers }}
 
-  return isoFetch(prepareUrl(url), options)
+  return axios(prepareUrl(url), options)
 }
 
 export default fetch

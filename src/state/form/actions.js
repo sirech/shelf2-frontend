@@ -33,19 +33,13 @@ export const create = (book: BookForm) => {
   return (dispatch: Dispatch) => {
     const url = '/books'
     const method = 'POST'
-    const body = JSON.stringify({ book })
+    // const body = JSON.stringify({ book })
+    const data = { book }
 
-    return fetch(url, { method, body })
-      .then((response) => {
-        if (response.status === 422 || response.status === 401) {
-          return response.json().then((err) => { throw err })
-        }
-        return response
-      })
-      .then(response => response.json())
-      .then(data => dispatch(bookCreated(data)))
+    return fetch(url, { method, data })
+      .then(response => dispatch(bookCreated(response.data)))
       .then(() => dispatch(resetForm()))
       .then(() => dispatch(modalActions.modalToggled()))
-      .catch(error => dispatch(bookCreationFailed(error)))
+      .catch(error => dispatch(bookCreationFailed(error.response.data)))
   }
 }

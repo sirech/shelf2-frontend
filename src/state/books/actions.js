@@ -21,8 +21,7 @@ export function fetchBooks (year: string) {
     const url = `/books?year=${year}`
 
     return fetch(url)
-      .then(response => response.json())
-      .then(data => normalizeBooks(data))
+      .then(response => normalizeBooks(response.data))
       .then(books => dispatch(receiveBooks(books)))
       .then(() => dispatch(markActiveYear(parseInt(year, 10))))
   }
