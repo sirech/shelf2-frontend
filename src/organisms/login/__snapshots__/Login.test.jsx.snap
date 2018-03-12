@@ -21,6 +21,7 @@ exports[`components Login does not blow up 1`] = `
       className="text-center"
     >
       <t
+        accessType="online"
         buttonText="Login with Google"
         clientId="821590472100-8l14rsm3sof4so0p495tkaf6lgd5p47s.apps.googleusercontent.com"
         cookiePolicy="single_host_origin"
@@ -31,6 +32,7 @@ exports[`components Login does not blow up 1`] = `
         }
         fetchBasicProfile={true}
         isSignedIn={false}
+        jsSrc="https://apis.google.com/js/client:platform.js"
         onFailure={[Function]}
         onRequest={[Function]}
         onSuccess={[Function]}
