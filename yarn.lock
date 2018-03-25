@@ -2483,9 +2483,9 @@ enzyme-adapter-utils@^1.3.0:
     object.assign "^4.0.4"
     prop-types "^15.6.0"
 
-enzyme-redux@^0.1.7:
-  version "0.1.8"
-  resolved "https://registry.yarnpkg.com/enzyme-redux/-/enzyme-redux-0.1.8.tgz#3c477f7e989de3ee6c99ffcdf1f8f955b371c37d"
+enzyme-redux@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/enzyme-redux/-/enzyme-redux-0.2.1.tgz#7c2ebebc8a4dd62749d632c5a12d5a23bcabc1ff"
 
 enzyme-to-json@^3.3.0:
   version "3.3.3"
@@ -3264,9 +3264,9 @@ flatten@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/flatten/-/flatten-1.0.2.tgz#dae46a9d78fbe25292258cc1e780a41d95c03782"
 
-flow-bin@0.67.1:
-  version "0.67.1"
-  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.67.1.tgz#eabb7197cce870ac9442cfd04251c7ddc30377db"
+flow-bin@0.68.0:
+  version "0.68.0"
+  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.68.0.tgz#86c2d14857d306eb2e85e274f2eebf543564f623"
 
 follow-redirects@^1.3.0:
   version "1.4.1"
