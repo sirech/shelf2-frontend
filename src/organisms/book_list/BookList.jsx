@@ -17,17 +17,17 @@ type Props = {
   // eslint-disable-next-line react/no-unused-prop-types
   match: { params: { year?: string } },
   categories: Array<CategoryType>,
-  fetchBooks: (string) => void
+  fetchBooks: string => void,
 }
 
 class BookList extends React.Component<Props> {
   static defaultProps: Props
 
-  static getYear (props) {
+  static getYear(props) {
     return R.path(['match', 'params', 'year'], props)
   }
 
-  componentDidMount () {
+  componentDidMount() {
     const year = BookList.getYear(this.props)
 
     if (year) {
@@ -35,7 +35,7 @@ class BookList extends React.Component<Props> {
     }
   }
 
-  componentWillUpdate (nextProps: Props) {
+  componentWillUpdate(nextProps: Props) {
     const year = BookList.getYear(this.props)
     const newYear = BookList.getYear(nextProps)
 
@@ -44,13 +44,13 @@ class BookList extends React.Component<Props> {
     }
   }
 
-  render () {
+  render() {
     const { categories } = this.props
     return (
       <div>
-        {categories.map(({name, books}) =>
+        {categories.map(({ name, books }) => (
           <Category key={name} name={name} books={books} />
-        )}
+        ))}
       </div>
     )
   }
@@ -59,13 +59,13 @@ class BookList extends React.Component<Props> {
 BookList.defaultProps = {
   match: { params: {} },
   categories: [],
-  fetchBooks: (_) => undefined
+  fetchBooks: _ => undefined,
 }
 
 export default connect(
   (state, props) =>
     createStructuredSelector({
-      categories: booksSelector
+      categories: booksSelector,
     })(state),
   actionPicker(['fetchBooks'])(actions)
 )(BookList)

@@ -13,12 +13,12 @@ import type { BookForm, Book } from 'types'
 
 const bookCreated = (book: Book) => ({
   type: BOOK_CREATE_SUCCESS,
-  payload: book
+  payload: book,
 })
 
-const bookCreationFailed = (error) => ({
+const bookCreationFailed = error => ({
   type: BOOK_CREATE_FAIL,
-  payload: error
+  payload: error,
 })
 
 export const changeStars = (count: number) => {

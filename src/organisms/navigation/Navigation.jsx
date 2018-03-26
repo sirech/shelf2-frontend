@@ -14,25 +14,22 @@ import { actionPicker } from 'state'
 import { actions } from 'state/years'
 
 type Props = {
-  years: Array<{year: number, count: number}>,
-  fetchYears: () => void
+  years: Array<{ year: number, count: number }>,
+  fetchYears: () => void,
 }
 
-class Navigation extends React.Component {
-  props: Props
+class Navigation extends React.Component<Props> {
   static defaultProps: Props
 
-  componentDidMount () {
+  componentDidMount() {
     this.props.fetchYears()
   }
 
-  render () {
+  render() {
     const { years } = this.props
     return (
-      <ListGroup tag='div'>
-        {years.map(entry =>
-          <NavigationItem key={entry.year} {...entry} />
-        )}
+      <ListGroup tag="div">
+        {years.map(entry => <NavigationItem key={entry.year} {...entry} />)}
       </ListGroup>
     )
   }
@@ -40,13 +37,13 @@ class Navigation extends React.Component {
 
 Navigation.defaultProps = {
   years: [],
-  fetchYears: () => undefined
+  fetchYears: () => undefined,
 }
 
 export default connect(
   (state, props) =>
     createStructuredSelector({
-      years: yearsSelector
+      years: yearsSelector,
     })(state),
   actionPicker(['fetchYears'])(actions)
 )(Navigation)

@@ -14,7 +14,7 @@ describe('components', () => {
 
     it('calls loginSuccess if the token is there', () => {
       global.localStorage = {
-        getItem: (_) => 'token'
+        getItem: _ => 'token',
       }
 
       fullRender(<LoginStatusChecker loginSuccess={loginSuccess} />)

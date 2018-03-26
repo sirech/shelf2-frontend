@@ -5,7 +5,14 @@ import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 import { Helmet } from 'react-helmet'
 
-import { Alert, Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
+import {
+  Alert,
+  Button,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+} from 'reactstrap'
 
 import { openedSelector, validSelector, errorSelector } from './selectors'
 
@@ -19,18 +26,17 @@ type Props = {
   opened: boolean,
   error: boolean,
   valid: boolean,
-  modalToggled: () => void
+  modalToggled: () => void,
 }
 
 // exported for testing
-export class BookCreator extends React.Component {
-  props: Props
+export class BookCreator extends React.Component<Props> {
   _form: HTMLFormElement
   toggle: Function
   attachForm: Function
   handleClick: Function
 
-  constructor () {
+  constructor() {
     super()
 
     this.toggle = this.toggle.bind(this)
@@ -38,38 +44,34 @@ export class BookCreator extends React.Component {
     this.handleClick = this.handleClick.bind(this)
   }
 
-  toggle () {
+  toggle() {
     this.props.modalToggled()
   }
 
-  attachForm (node: HTMLFormElement) {
+  attachForm(node: HTMLFormElement) {
     this._form = node
   }
 
-  handleClick () {
+  handleClick() {
     this._form.submit()
   }
 
-  showError () {
+  showError() {
     if (this.props.error) {
-      return (
-        <Alert color='danger'>
-          Error creating a book
-        </Alert>
-      )
+      return <Alert color="danger">Error creating a book</Alert>
     }
   }
 
-  render () {
+  render() {
     const { opened, valid } = this.props
 
     return (
       <div>
-        {opened &&
+        {opened && (
           <Helmet>
             <title>Add book</title>
           </Helmet>
-        }
+        )}
         <CreateButton onClick={this.toggle} />
         <Modal isOpen={opened}>
           <ModalHeader toggle={this.toggle}>Add book</ModalHeader>
@@ -78,8 +80,16 @@ export class BookCreator extends React.Component {
             <BookForm attachForm={this.attachForm} />
           </ModalBody>
           <ModalFooter>
-            <Button color='primary' disabled={!valid} onClick={this.handleClick}>Create</Button>
-            <Button color='secondary' onClick={this.toggle}>Cancel</Button>
+            <Button
+              color="primary"
+              disabled={!valid}
+              onClick={this.handleClick}
+            >
+              Create
+            </Button>
+            <Button color="secondary" onClick={this.toggle}>
+              Cancel
+            </Button>
           </ModalFooter>
         </Modal>
       </div>
@@ -92,7 +102,7 @@ export default connect(
     createStructuredSelector({
       opened: openedSelector,
       error: errorSelector,
-      valid: validSelector
+      valid: validSelector,
     })(state),
   actionPicker(['modalToggled'])(actions)
 )(BookCreator)

@@ -3,7 +3,7 @@ import { constants } from 'state/form'
 
 const initialState = { opened: false, error: false }
 
-export default function modal (state = initialState, action) {
+export default function modal(state = initialState, action) {
   switch (action.type) {
     case MODAL_TOGGLED:
       return { ...state, opened: !state.opened }

@@ -9,51 +9,60 @@ import authenticated from 'organisms/authenticated'
 import Logout from 'organisms/logout'
 import SearchBar from 'organisms/search_bar'
 
-import { Collapse, Nav, Navbar, NavbarBrand, NavItem, NavbarToggler } from 'reactstrap'
+import {
+  Collapse,
+  Nav,
+  Navbar,
+  NavbarBrand,
+  NavItem,
+  NavbarToggler,
+} from 'reactstrap'
 
 const Login = authenticated(false)(() => (
   <NavItem>
-    <Link to='/login' className='nav-link'>Login</Link>
+    <Link to="/login" className="nav-link">
+      Login
+    </Link>
   </NavItem>
 ))
 
 type State = {
-  isOpen: boolean
+  isOpen: boolean,
 }
 
 class Header extends React.Component {
   state: State
   toggle: Function
 
-  constructor () {
+  constructor() {
     super()
 
     this.toggle = this.toggle.bind(this)
     this.state = {
-      isOpen: false
+      isOpen: false,
     }
   }
 
-  toggle () {
+  toggle() {
     this.setState({
-      isOpen: !this.state.isOpen
+      isOpen: !this.state.isOpen,
     })
   }
 
-  render () {
+  render() {
     return (
-      <header className='mb-4'>
+      <header className="mb-4">
         <Helmet>
-          <meta charSet='utf-8' />
+          <meta charSet="utf-8" />
           <title>Shelf</title>
         </Helmet>
-        <Navbar dark color='dark' expand='sm'>
-          <LinkContainer to='/books' >
+        <Navbar dark color="dark" expand="sm">
+          <LinkContainer to="/books">
             <NavbarBrand>Shelf</NavbarBrand>
           </LinkContainer>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className='ml-auto' navbar>
+            <Nav className="ml-auto" navbar>
               <SearchBar />
               <Login />
               <Logout />

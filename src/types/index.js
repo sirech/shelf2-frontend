@@ -15,10 +15,10 @@ type Result = Array<number>
 
 export type NormalizedBooks = {
   result: Result,
-  books: { [string]: Book }
+  books: { [string]: Book },
 }
 
 export type NormalizedYears = {
   result: Result,
-  years: { [string]: Year }
+  years: { [string]: Year },
 }

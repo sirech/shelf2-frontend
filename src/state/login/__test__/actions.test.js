@@ -19,9 +19,7 @@ describe('actions', () => {
     })
 
     it('should dispatch the correct actions', () => {
-      const expectedActions = [
-        { type: 'login:success' }
-      ]
+      const expectedActions = [{ type: 'login:success' }]
 
       store.dispatch(login(token))
       expect(store.getActions()).toEqual(expectedActions)
@@ -44,9 +42,7 @@ describe('actions', () => {
     })
 
     it('should dispatch the correct actions', () => {
-      const expectedActions = [
-        { type: 'logout:success' }
-      ]
+      const expectedActions = [{ type: 'logout:success' }]
 
       store.dispatch(logout())
       expect(store.getActions()).toEqual(expectedActions)

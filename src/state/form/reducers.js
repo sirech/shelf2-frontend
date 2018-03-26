@@ -10,9 +10,12 @@ const initialBook: Book = {
   year: new Date().getFullYear(),
   description: '',
   stars: 1,
-  category: 'software'
+  category: 'software',
 }
 
-export default combineForms({
-  [bookModel]: initialBook
-}, namespace)
+export default combineForms(
+  {
+    [bookModel]: initialBook,
+  },
+  namespace
+)

@@ -5,7 +5,7 @@ import Book from './Book'
 describe('components', () => {
   describe('Book', () => {
     it('renders correctly', () => {
-      const component = renderer.create(<Book title='Catch-22' stars={3} />)
+      const component = renderer.create(<Book title="Catch-22" stars={3} />)
       expect(component.toJSON()).toMatchSnapshot()
     })
   })

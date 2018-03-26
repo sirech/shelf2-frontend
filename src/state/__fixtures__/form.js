@@ -4,7 +4,7 @@ const form = () => ({
     year: 2017,
     description: '',
     stars: 1,
-    category: 'software'
+    category: 'software',
   },
   forms: {
     $form: {
@@ -14,8 +14,8 @@ const form = () => ({
           year: 2017,
           description: '',
           stars: 1,
-          category: 'software'
-        }
+          category: 'software',
+        },
       },
       focus: false,
       pending: false,
@@ -37,9 +37,9 @@ const form = () => ({
           year: 2017,
           description: '',
           stars: 1,
-          category: 'software'
-        }
-      }
+          category: 'software',
+        },
+      },
     },
     book: {
       $form: {
@@ -48,7 +48,7 @@ const form = () => ({
           year: 2017,
           description: '',
           stars: 1,
-          category: 'software'
+          category: 'software',
         },
         focus: false,
         pending: false,
@@ -69,8 +69,8 @@ const form = () => ({
           year: 2017,
           description: '',
           stars: 1,
-          category: 'software'
-        }
+          category: 'software',
+        },
       },
       title: {
         initialValue: '',
@@ -88,7 +88,7 @@ const form = () => ({
         errors: {},
         intents: [],
         model: 'form.book.title',
-        value: 'stuff'
+        value: 'stuff',
       },
       year: {
         initialValue: 2017,
@@ -106,7 +106,7 @@ const form = () => ({
         errors: {},
         intents: [],
         model: 'form.book.year',
-        value: 2017
+        value: 2017,
       },
       description: {
         initialValue: '',
@@ -124,7 +124,7 @@ const form = () => ({
         errors: {},
         intents: [],
         model: 'form.book.description',
-        value: ''
+        value: '',
       },
       stars: {
         initialValue: 1,
@@ -142,7 +142,7 @@ const form = () => ({
         errors: {},
         intents: [],
         model: 'form.book.stars',
-        value: 1
+        value: 1,
       },
       category: {
         initialValue: 'software',
@@ -160,10 +160,10 @@ const form = () => ({
         errors: {},
         intents: [],
         model: 'form.book.category',
-        value: 'software'
-      }
-    }
-  }
+        value: 'software',
+      },
+    },
+  },
 })
 
 export default form

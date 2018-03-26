@@ -21,18 +21,18 @@ type Props = {
   // eslint-disable-next-line react/no-unused-prop-types
   match: { params: { keyword?: string } },
   books: Array<BookType>,
-  search: (string) => void
+  search: string => void,
 }
 
 class SearchList extends React.Component<Props> {
   static defaultProps: Props
-  debouncedSearch: (string) => void
+  debouncedSearch: string => void
 
-  static getKeyword (props) {
+  static getKeyword(props) {
     return R.path(['match', 'params', 'keyword'], props)
   }
 
-  componentDidMount () {
+  componentDidMount() {
     this.debouncedSearch = debounce(this.props.search, 300)
 
     const keyword = SearchList.getKeyword(this.props)
@@ -42,7 +42,7 @@ class SearchList extends React.Component<Props> {
     }
   }
 
-  componentWillUpdate (nextProps: Props) {
+  componentWillUpdate(nextProps: Props) {
     const keyword = SearchList.getKeyword(this.props)
     const newKeyword = SearchList.getKeyword(nextProps)
 
@@ -51,12 +51,12 @@ class SearchList extends React.Component<Props> {
     }
   }
 
-  render () {
+  render() {
     const { books } = this.props
     return (
       <Card>
-        <CardHeader className='text-right'>
-          <Pluralize singular='result' count={books.length} />
+        <CardHeader className="text-right">
+          <Pluralize singular="result" count={books.length} />
         </CardHeader>
         <SimpleBookList books={books} />
       </Card>
@@ -67,13 +67,13 @@ class SearchList extends React.Component<Props> {
 SearchList.defaultProps = {
   match: { params: {} },
   books: [],
-  search: (_) => undefined
+  search: _ => undefined,
 }
 
 export default connect(
   (state, props) =>
     createStructuredSelector({
-      books: booksSelector
+      books: booksSelector,
     })(state),
   actionPicker(['search'])(actions)
 )(SearchList)

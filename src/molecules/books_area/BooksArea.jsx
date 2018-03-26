@@ -14,11 +14,11 @@ const AuthBookCreator = authenticated()(BookCreator)
 
 const BooksArea = () => (
   <Row>
-    <Col xs='12' sm='8' md='9' lg='10'>
+    <Col xs="12" sm="8" md="9" lg="10">
       <AuthBookCreator />
-      <Route exact path='/books/:year' component={BookList} />
+      <Route exact path="/books/:year" component={BookList} />
     </Col>
-    <Col sm='4' md='3' lg='2'>
+    <Col sm="4" md="3" lg="2">
       <Navigation />
     </Col>
   </Row>

@@ -5,6 +5,6 @@ import { yearsSelector as baseSelector } from 'state/years'
 
 const yearsSelector = createSelector(
   R.pipe(baseSelector, R.path(['entities', 'years']), R.values),
-  (years) => R.reverse(years)
+  years => R.reverse(years)
 )
 export default yearsSelector

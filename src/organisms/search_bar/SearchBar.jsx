@@ -11,17 +11,17 @@ class SearchBar extends React.Component {
   props: Props
   onChange: Function
 
-  constructor () {
+  constructor() {
     super()
     this.onChange = this.onChange.bind(this)
   }
 
-  onChange (e) {
+  onChange(e) {
     e.preventDefault()
     this.props.history.push(`/books/search/${e.target.value}`)
   }
 
-  render () {
+  render() {
     return (
       <Form inline>
         <Input onChange={this.onChange} />

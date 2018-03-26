@@ -2,7 +2,7 @@ import { LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT_SUCCESS } from './constants'
 
 const initialState = { authenticated: false, failed: false }
 
-export function status (state = initialState, action) {
+export function status(state = initialState, action) {
   switch (action.type) {
     case LOGIN_SUCCESS:
       return { ...state, authenticated: true, failed: false }

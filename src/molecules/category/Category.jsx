@@ -10,10 +10,10 @@ import './styles.css'
 
 import type { Category as CategoryType } from 'types'
 
-const Category = ({name, books}: CategoryType) => (
-  <Card className='mb-3'>
+const Category = ({ name, books }: CategoryType) => (
+  <Card className="mb-3">
     <CardHeader>
-      <h4 className='d-inline-block'>{name}</h4>
+      <h4 className="d-inline-block">{name}</h4>
     </CardHeader>
     <SimpleBookList books={books} />
   </Card>

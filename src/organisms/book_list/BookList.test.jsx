@@ -7,7 +7,7 @@ import BookList from './BookList'
 // Mock thunk that triggers API request
 import { actions } from 'state/books'
 jest.mock('state/books/actions', () => ({
-  fetchBooks: jest.fn(dispatch => jest.fn())
+  fetchBooks: jest.fn(dispatch => jest.fn()),
 }))
 
 describe('components', () => {

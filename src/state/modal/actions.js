@@ -3,5 +3,5 @@
 import { MODAL_TOGGLED } from './constants'
 
 export const modalToggled = () => ({
-  type: MODAL_TOGGLED
+  type: MODAL_TOGGLED,
 })

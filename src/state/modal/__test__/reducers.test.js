@@ -9,20 +9,35 @@ describe('modal reducer', () => {
   })
 
   it('handles MODAL_TOGGLED', () => {
-    expect(modalReducer({}, {
-      type: MODAL_TOGGLED
-    })).toEqual({ opened: true })
+    expect(
+      modalReducer(
+        {},
+        {
+          type: MODAL_TOGGLED,
+        }
+      )
+    ).toEqual({ opened: true })
   })
 
   it('handles BOOK_CREATE_SUCCESS', () => {
-    expect(modalReducer({ error: true }, {
-      type: constants.BOOK_CREATE_SUCCESS
-    })).toEqual({ error: false })
+    expect(
+      modalReducer(
+        { error: true },
+        {
+          type: constants.BOOK_CREATE_SUCCESS,
+        }
+      )
+    ).toEqual({ error: false })
   })
 
   it('handles BOOK_CREATE_FAIL', () => {
-    expect(modalReducer({ error: false }, {
-      type: constants.BOOK_CREATE_FAIL
-    })).toEqual({ error: true })
+    expect(
+      modalReducer(
+        { error: false },
+        {
+          type: constants.BOOK_CREATE_FAIL,
+        }
+      )
+    ).toEqual({ error: true })
   })
 })

@@ -9,7 +9,7 @@ const testableUrl = (path: string) => {
 
 const prepareUrl = path => testableUrl(`/rest${path}`)
 
-const addAuthorization = (headers) => {
+const addAuthorization = headers => {
   const token = localStorage.getItem('authToken')
 
   if (token) {
@@ -23,13 +23,13 @@ const fetch = (url: string, opts: Object = {}) => {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      'X-Requested-With': 'XMLHttpRequest'
-    }
+      'X-Requested-With': 'XMLHttpRequest',
+    },
   }
 
-  const headers = {...DEFAULT_OPTIONS.headers, ...opts.headers}
+  const headers = { ...DEFAULT_OPTIONS.headers, ...opts.headers }
   addAuthorization(headers)
-  const options = {...DEFAULT_OPTIONS, ...opts, ...{ headers }}
+  const options = { ...DEFAULT_OPTIONS, ...opts, ...{ headers } }
 
   return axios(prepareUrl(url), options)
 }

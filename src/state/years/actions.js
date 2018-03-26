@@ -7,10 +7,10 @@ import type { NormalizedYears } from 'types'
 
 const receiveYears = (years: NormalizedYears) => ({
   type: RECEIVE_YEARS,
-  payload: years
+  payload: years,
 })
 
-export function fetchYears () {
+export function fetchYears() {
   return (dispatch: Dispatch) => {
     const url = '/books/years'
 

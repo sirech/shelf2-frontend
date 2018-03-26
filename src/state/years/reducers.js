@@ -7,27 +7,27 @@ import { constants } from '../form'
 const initialState = { entities: { years: {} }, result: [] }
 
 const newYear = (state, year) => {
-  return update(state,
-    {
-      entities: {
-        years: { $merge: { [year]: { year: year, count: 1 } } }
-      },
+  return update(state, {
+    entities: {
+      years: { $merge: { [year]: { year: year, count: 1 } } },
+    },
 
-      result: { $apply: list => R.pipe(R.append(year), R.sortBy(R.identity))(list) }
-    })
+    result: {
+      $apply: list => R.pipe(R.append(year), R.sortBy(R.identity))(list),
+    },
+  })
 }
 
 const increaseExisting = (state, year) => {
-  return update(state,
-    {
-      entities: {
-        years: {
-          [year]: {
-            count: { $apply: counter => counter + 1 }
-          }
-        }
-      }
-    })
+  return update(state, {
+    entities: {
+      years: {
+        [year]: {
+          count: { $apply: counter => counter + 1 },
+        },
+      },
+    },
+  })
 }
 
 const updateYear = (state, year) => {
@@ -40,7 +40,7 @@ const updateYear = (state, year) => {
   }
 }
 
-export default function years (state = initialState, action) {
+export default function years(state = initialState, action) {
   switch (action.type) {
     case RECEIVE_YEARS:
       return { ...state, ...action.payload }

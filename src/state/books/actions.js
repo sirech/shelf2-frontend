@@ -7,16 +7,16 @@ import type { NormalizedBooks } from 'types'
 
 const receiveBooks = (books: NormalizedBooks) => ({
   type: RECEIVE_BOOKS,
-  payload: books
+  payload: books,
 })
 
 // exported for testing
 export const markActiveYear = (year: number) => ({
   type: MARK_ACTIVE_YEAR,
-  payload: year
+  payload: year,
 })
 
-export function fetchBooks (year: string) {
+export function fetchBooks(year: string) {
   return (dispatch: Dispatch) => {
     const url = `/books?year=${year}`
 

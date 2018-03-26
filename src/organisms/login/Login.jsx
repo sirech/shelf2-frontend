@@ -16,8 +16,8 @@ import { actions, authenticatedSelector, failedSelector } from 'state/login'
 type Props = {
   authenticated: boolean,
   failed: boolean,
-  login: (string) => undefined,
-  loginFailure: (_) => undefined
+  login: string => undefined,
+  loginFailure: _ => undefined,
 }
 
 // exported for testing
@@ -27,46 +27,42 @@ export class Login extends React.Component {
   onSuccess: Function
   onFailure: Function
 
-  constructor () {
+  constructor() {
     super()
     this.onSuccess = this.onSuccess.bind(this)
     this.onFailure = this.onFailure.bind(this)
   }
 
-  redirectIfLoggedIn () {
+  redirectIfLoggedIn() {
     if (this.props.authenticated) {
-      return (
-        <Redirect to='/' />
-      )
+      return <Redirect to="/" />
     }
   }
 
-  errorMessage () {
+  errorMessage() {
     if (this.props.failed) {
-      return (
-        <Alert color='danger'>Could not log in</Alert>
-      )
+      return <Alert color="danger">Could not log in</Alert>
     }
   }
 
-  onSuccess (response) {
+  onSuccess(response: { accessToken: string }) {
     this.props.login(response.accessToken)
   }
 
-  onFailure (response) {
+  onFailure(_) {
     this.props.loginFailure()
   }
 
-  render () {
+  render() {
     return (
       <Row>
         {this.redirectIfLoggedIn()}
-        <Col xs='12'>
+        <Col xs="12">
           {this.errorMessage()}
-          <div className='text-center'>
+          <div className="text-center">
             <GoogleLogin
-              clientId='821590472100-8l14rsm3sof4so0p495tkaf6lgd5p47s.apps.googleusercontent.com'
-              buttonText='Login with Google'
+              clientId="821590472100-8l14rsm3sof4so0p495tkaf6lgd5p47s.apps.googleusercontent.com"
+              buttonText="Login with Google"
               onSuccess={this.onSuccess}
               onFailure={this.onFailure}
             />
@@ -80,14 +76,15 @@ export class Login extends React.Component {
 Login.defaultProps = {
   authenticated: false,
   failed: false,
-  login: (_) => undefined,
-  loginFailure: (_) => undefined
+  login: _ => undefined,
+  loginFailure: _ => undefined,
 }
 
 export default connect(
-  (state, props) => createStructuredSelector({
-    authenticated: authenticatedSelector,
-    failed: failedSelector
-  })(state),
+  (state, props) =>
+    createStructuredSelector({
+      authenticated: authenticatedSelector,
+      failed: failedSelector,
+    })(state),
   actionPicker(['login', 'loginFailure'])(actions)
 )(Login)

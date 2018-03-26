@@ -19,9 +19,9 @@ import Input from 'organisms/input'
 import type { Categories, BookForm as BookFormType } from 'types'
 type Props = {
   stars?: number,
-  changeStars: (number) => void,
-  create: (BookFormType) => void,
-  attachForm?: (HTMLButtonElement) => void
+  changeStars: number => void,
+  create: BookFormType => void,
+  attachForm?: HTMLButtonElement => void,
 }
 
 // exported for testing
@@ -30,67 +30,85 @@ export class BookForm extends React.Component<Props> {
 
   handleSubmit: Function
 
-  constructor () {
+  constructor() {
     super()
 
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  static categories (): Array<Categories> {
+  static categories(): Array<Categories> {
     return ['sociology', 'software', 'econ', 'history', 'other']
   }
 
-  handleSubmit (book: BookFormType) {
+  handleSubmit(book: BookFormType) {
     this.props.create(book)
   }
 
-  render () {
+  render() {
     const { stars, changeStars, attachForm } = this.props
 
     return (
-      <Form model={modelName()} onSubmit={this.handleSubmit} getRef={attachForm}>
+      <Form
+        model={modelName()}
+        onSubmit={this.handleSubmit}
+        getRef={attachForm}
+      >
         <Input
-          name='title'
-          type='text'
-          placeholder='Catch-22'
+          name="title"
+          type="text"
+          placeholder="Catch-22"
           validators={{
-            length: val => validator.isLength(val, { min: 5, max: 200 })
+            length: val => validator.isLength(val, { min: 5, max: 200 }),
           }}
           messages={{
-            length: 'Title must be between 5 and 200 characters'
+            length: 'Title must be between 5 and 200 characters',
           }}
         />
 
         <Input
-          name='year'
-          type='number'
+          name="year"
+          type="number"
           validators={{
-            value: val => val > 2000 && val < 2100
+            value: val => val > 2000 && val < 2100,
           }}
           messages={{
-            value: 'It should be between 2000 and 2100'
+            value: 'It should be between 2000 and 2100',
           }}
         />
 
         <FormGroup>
-          <Label for='description'>Description</Label>
-          <Control model='.description' type='textarea' name='description' id='description' placeholder="That's some catch, that Catch-22" rows='3' component={BaseInput} />
-          <FormText className='text-muted'>Optional</FormText>
+          <Label for="description">Description</Label>
+          <Control
+            model=".description"
+            type="textarea"
+            name="description"
+            id="description"
+            placeholder="That's some catch, that Catch-22"
+            rows="3"
+            component={BaseInput}
+          />
+          <FormText className="text-muted">Optional</FormText>
         </FormGroup>
 
         <FormGroup>
-          <Label for='stars'>Stars</Label>
+          <Label for="stars">Stars</Label>
           <div>
             <Stars count={stars} handleClick={changeStars} />
           </div>
         </FormGroup>
 
         <FormGroup>
-          <Label for='category'>Category</Label>
-          <Control model='.category' type='select' name='category' id='category' component={BaseInput}>
-            {BookForm.categories().map(category =>
+          <Label for="category">Category</Label>
+          <Control
+            model=".category"
+            type="select"
+            name="category"
+            id="category"
+            component={BaseInput}
+          >
+            {BookForm.categories().map(category => (
               <option key={category}>{category}</option>
-            )}
+            ))}
           </Control>
         </FormGroup>
       </Form>
@@ -99,14 +117,14 @@ export class BookForm extends React.Component<Props> {
 }
 
 BookForm.defaultProps = {
-  changeStars: (_) => undefined,
-  create: (_) => undefined
+  changeStars: _ => undefined,
+  create: _ => undefined,
 }
 
 export default connect(
   (state, props) =>
     createStructuredSelector({
-      stars: starsSelector
+      stars: starsSelector,
     })(state),
   actionPicker(['changeStars', 'create'])(actions)
 )(BookForm)

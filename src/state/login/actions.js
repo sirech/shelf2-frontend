@@ -3,15 +3,15 @@
 import { LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT_SUCCESS } from './constants'
 
 export const loginSuccess = () => ({
-  type: LOGIN_SUCCESS
+  type: LOGIN_SUCCESS,
 })
 
 export const loginFailure = () => ({
-  type: LOGIN_FAILURE
+  type: LOGIN_FAILURE,
 })
 
 export const logoutSuccess = () => ({
-  type: LOGOUT_SUCCESS
+  type: LOGOUT_SUCCESS,
 })
 
 export const login = (token: string) => {

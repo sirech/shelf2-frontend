@@ -8,7 +8,15 @@ export const book = new Factory()
   .attr('title', () => faker.name.findName())
   .attr('year', yearGenerator)
   .attr('stars', () => faker.random.number({ min: 1, max: 5 }))
-  .attr('category', () => faker.random.arrayElement(['sociology', 'software', 'econ', 'history', 'other']))
+  .attr('category', () =>
+    faker.random.arrayElement([
+      'sociology',
+      'software',
+      'econ',
+      'history',
+      'other',
+    ])
+  )
 
 export const year = new Factory()
   .attr('year', yearGenerator)

@@ -11,32 +11,32 @@ import { actionPicker } from 'state'
 import { actions } from 'state/login'
 
 type Props = {
-  logout: void => void
+  logout: void => void,
 }
 
-class Logout extends React.Component {
-  props: Props
+class Logout extends React.Component<Props> {
   onClick: Function
 
-  constructor () {
+  constructor() {
     super()
     this.onClick = this.onClick.bind(this)
   }
 
-  onClick () {
+  onClick() {
     this.props.logout()
   }
 
-  render () {
+  render() {
     return (
       <NavItem>
-        <div onClick={this.onClick} className='nav-link' role='link'>Logout</div>
+        <div onClick={this.onClick} className="nav-link" role="link">
+          Logout
+        </div>
       </NavItem>
     )
   }
 }
 
-export default authenticated()(connect(
-  null,
-  actionPicker(['logout'])(actions)
-)(Logout))
+export default authenticated()(
+  connect(null, actionPicker(['logout'])(actions))(Logout)
+)

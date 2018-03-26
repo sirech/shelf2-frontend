@@ -12,7 +12,14 @@ describe('actions', () => {
   describe('changeStars', () => {
     it('should dispatch the correct actions', () => {
       const expectedActions = [
-        { external: true, model: 'form.book.stars', multi: false, silent: false, type: 'rrf/change', value: 1 }
+        {
+          external: true,
+          model: 'form.book.stars',
+          multi: false,
+          silent: false,
+          type: 'rrf/change',
+          value: 1,
+        },
       ]
 
       store.dispatch(changeStars(1))

@@ -7,9 +7,9 @@ import PlusIcon from 'react-icons/lib/fa/plus'
 
 import './styles.css'
 
-const CreateButton = ({onClick}: { onClick: void => void}) => (
-  <span className='create-button'>
-    <Button color='success' onClick={onClick}>
+const CreateButton = ({ onClick }: { onClick: void => void }) => (
+  <span className="create-button">
+    <Button color="success" onClick={onClick}>
       <PlusIcon />
       Add Book
     </Button>

@@ -7,10 +7,10 @@ import type { NormalizedBooks } from 'types'
 
 const receiveSearchResult = (books: NormalizedBooks) => ({
   type: RECEIVE_SEARCH_RESULT,
-  payload: books
+  payload: books,
 })
 
-export function search (keyword: string) {
+export function search(keyword: string) {
   return (dispatch: Dispatch) => {
     const url = `/books/search/${keyword}`
 

@@ -7,27 +7,22 @@ import { actionPicker } from 'state'
 import { actions } from 'state/login'
 
 type Props = {
-  loginSuccess: (void) => void
+  loginSuccess: void => void,
 }
 
 // exported for testing
-export class LoginStatusChecker extends React.Component {
-  props: Props
-
-  componentDidMount () {
+export class LoginStatusChecker extends React.Component<Props> {
+  componentDidMount() {
     if (localStorage.getItem('authToken')) {
       this.props.loginSuccess()
     }
   }
 
-  render () {
-    return (
-      null
-    )
+  render() {
+    return null
   }
 }
 
-export default connect(
-  null,
-  actionPicker(['loginSuccess'])(actions)
-)(LoginStatusChecker)
+export default connect(null, actionPicker(['loginSuccess'])(actions))(
+  LoginStatusChecker
+)

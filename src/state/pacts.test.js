@@ -37,16 +37,16 @@ describe('pacts', () => {
           path: '/rest/books',
           query: { year },
           headers: {
-            'Accept': 'application/json',
+            Accept: 'application/json',
             'Content-Type': 'application/json',
-            'X-Requested-With': 'XMLHttpRequest'
-          }
+            'X-Requested-With': 'XMLHttpRequest',
+          },
         },
         willRespondWith: {
           status: 200,
           headers: { 'Content-Type': 'application/json; charset=utf-8' },
-          body: rest.books
-        }
+          body: rest.books,
+        },
       }
 
       return provider.addInteraction(interaction)
@@ -55,14 +55,16 @@ describe('pacts', () => {
 
     it('should dispatch the correct actions', () => {
       const expectedActions = [
-        { type: 'books:receive', payload: R.pick(['entities', 'result'])(books()) },
-        { type: 'books:activeYear', payload: 2016 }
+        {
+          type: 'books:receive',
+          payload: R.pick(['entities', 'result'])(books()),
+        },
+        { type: 'books:activeYear', payload: 2016 },
       ]
 
-      return store.dispatch(fetchBooks(year))
-        .then(() => {
-          expect(store.getActions()).toEqual(expectedActions)
-        })
+      return store.dispatch(fetchBooks(year)).then(() => {
+        expect(store.getActions()).toEqual(expectedActions)
+      })
     })
   })
 
@@ -77,18 +79,18 @@ describe('pacts', () => {
           method: 'POST',
           path: '/rest/books',
           headers: {
-            'Accept': 'application/json',
+            Accept: 'application/json',
             'Content-Type': 'application/json',
             'X-Requested-With': 'XMLHttpRequest',
-            'Authorization': `Bearer: ${rest.authToken}`
+            Authorization: `Bearer: ${rest.authToken}`,
           },
-          body: { book: bookForm }
+          body: { book: bookForm },
         },
         willRespondWith: {
           status: 201,
           headers: { 'Content-Type': 'application/json; charset=utf-8' },
-          body: Matchers.somethingLike(rest.book)
-        }
+          body: Matchers.somethingLike(rest.book),
+        },
       }
 
       return provider.addInteraction(interaction)
@@ -96,20 +98,19 @@ describe('pacts', () => {
     afterAll(() => provider.verify(), 5 * 60 * 1000)
 
     beforeEach(() => {
-      global.localStorage.getItem = (token) => rest.authToken
+      global.localStorage.getItem = token => rest.authToken
     })
 
     it('should dispatch the correct actions', () => {
       const expectedActions = [
         { type: 'books:book:create:success', payload: rest.book },
         { type: 'rrf/reset', model: 'form.book' },
-        { type: 'modal:toggled' }
+        { type: 'modal:toggled' },
       ]
 
-      return store.dispatch(create(bookForm))
-        .then(() => {
-          expect(store.getActions()).toEqual(expectedActions)
-        })
+      return store.dispatch(create(bookForm)).then(() => {
+        expect(store.getActions()).toEqual(expectedActions)
+      })
     })
   })
 
@@ -124,16 +125,16 @@ describe('pacts', () => {
           method: 'GET',
           path: `/rest/books/search/${keyword}`,
           headers: {
-            'Accept': 'application/json',
+            Accept: 'application/json',
             'Content-Type': 'application/json',
-            'X-Requested-With': 'XMLHttpRequest'
-          }
+            'X-Requested-With': 'XMLHttpRequest',
+          },
         },
         willRespondWith: {
           status: 200,
           headers: { 'Content-Type': 'application/json; charset=utf-8' },
-          body: rest.books
-        }
+          body: rest.books,
+        },
       }
 
       return provider.addInteraction(interaction)
@@ -142,13 +143,15 @@ describe('pacts', () => {
 
     it('should dispatch the correct actions', () => {
       const expectedActions = [
-        { type: 'search:result', payload: R.pick(['entities', 'result'])(books()) }
+        {
+          type: 'search:result',
+          payload: R.pick(['entities', 'result'])(books()),
+        },
       ]
 
-      return store.dispatch(search(keyword))
-        .then(() => {
-          expect(store.getActions()).toEqual(expectedActions)
-        })
+      return store.dispatch(search(keyword)).then(() => {
+        expect(store.getActions()).toEqual(expectedActions)
+      })
     })
   })
 
@@ -161,16 +164,16 @@ describe('pacts', () => {
           method: 'GET',
           path: '/rest/books/years',
           headers: {
-            'Accept': 'application/json',
+            Accept: 'application/json',
             'Content-Type': 'application/json',
-            'X-Requested-With': 'XMLHttpRequest'
-          }
+            'X-Requested-With': 'XMLHttpRequest',
+          },
         },
         willRespondWith: {
           status: 200,
           headers: { 'Content-Type': 'application/json; charset=utf-8' },
-          body: rest.years
-        }
+          body: rest.years,
+        },
       }
 
       return provider.addInteraction(interaction)
@@ -178,14 +181,11 @@ describe('pacts', () => {
     afterAll(() => provider.verify(), 5 * 60 * 1000)
 
     it('should dispatch the correct actions', () => {
-      const expectedActions = [
-        { type: 'years:receive', payload: years() }
-      ]
+      const expectedActions = [{ type: 'years:receive', payload: years() }]
 
-      return store.dispatch(fetchYears())
-        .then(() => {
-          expect(store.getActions()).toEqual(expectedActions)
-        })
+      return store.dispatch(fetchYears()).then(() => {
+        expect(store.getActions()).toEqual(expectedActions)
+      })
     })
   })
 })

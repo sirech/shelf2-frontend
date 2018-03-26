@@ -1,5 +1,10 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom'
+import {
+  BrowserRouter as Router,
+  Redirect,
+  Route,
+  Switch,
+} from 'react-router-dom'
 
 import { Container } from 'reactstrap'
 
@@ -13,7 +18,7 @@ import LoginStatusChecker from 'organisms/login_status_checker'
 const year = new Date().getFullYear()
 
 class App extends Component {
-  render () {
+  render() {
     return (
       <Router>
         <div>
@@ -28,12 +33,12 @@ class App extends Component {
 
 const Checks = () => (
   <div>
-    <Route exact path='/' render={() => (
-      <Redirect to='/books' />
-    )} />
-    <Route exact path='/books' render={() => (
-      <Redirect to={`/books/${year}`} />
-    )} />
+    <Route exact path="/" render={() => <Redirect to="/books" />} />
+    <Route
+      exact
+      path="/books"
+      render={() => <Redirect to={`/books/${year}`} />}
+    />
     <LoginStatusChecker />
   </div>
 )
@@ -41,11 +46,13 @@ const Checks = () => (
 const Content = () => (
   <Container fluid>
     <Switch>
-      <Route exact path='/login' component={Login} />
-      <Route exact path='/books/search' render={() => (
-        <Redirect to='/books' />
-      )} />
-      <Route exact path='/books/search/:keyword' component={SearchList} />
+      <Route exact path="/login" component={Login} />
+      <Route
+        exact
+        path="/books/search"
+        render={() => <Redirect to="/books" />}
+      />
+      <Route exact path="/books/search/:keyword" component={SearchList} />
       <Route component={BooksArea} />
     </Switch>
   </Container>

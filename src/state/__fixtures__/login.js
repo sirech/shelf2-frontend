@@ -1,6 +1,6 @@
 const login = () => ({
   authenticated: true,
-  failed: false
+  failed: false,
 })
 
 export default login

@@ -9,7 +9,7 @@ import * as rest from './rest'
 
 const modal = () => ({
   opened: false,
-  error: false
+  error: false,
 })
 
 const search = R.pipe(books, R.omit(['activeYear']))
@@ -21,7 +21,7 @@ const state = () => {
     years: years(),
     form: form(),
     modal: modal(),
-    login: login()
+    login: login(),
   }
 }
 

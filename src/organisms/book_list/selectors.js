@@ -8,7 +8,11 @@ const booksSelector = createSelector(
   R.pipe(
     R.groupBy(R.path(['category'])),
     R.toPairs,
-    R.map(([category, books]) => ({ name: category, books: R.sort(R.comparator((a, b) => a.title < b.title), books) })))
+    R.map(([category, books]) => ({
+      name: category,
+      books: R.sort(R.comparator((a, b) => a.title < b.title), books),
+    }))
+  )
 )
 
 export default booksSelector

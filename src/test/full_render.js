@@ -9,9 +9,7 @@ const fullRender = (jsx, state = {}) => {
   const store = mockStore(state)
   const component = renderer.create(
     <Provider store={store}>
-      <MemoryRouter>
-        {jsx}
-      </MemoryRouter>
+      <MemoryRouter>{jsx}</MemoryRouter>
     </Provider>
   )
 
