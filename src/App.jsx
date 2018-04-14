@@ -6,8 +6,6 @@ import {
   Switch,
 } from 'react-router-dom'
 
-import { Container } from 'reactstrap'
-
 import Header from 'molecules/header'
 import BooksArea from 'molecules/books_area'
 
@@ -44,18 +42,12 @@ const Checks = () => (
 )
 
 const Content = () => (
-  <Container fluid>
-    <Switch>
-      <Route exact path="/login" component={Login} />
-      <Route
-        exact
-        path="/books/search"
-        render={() => <Redirect to="/books" />}
-      />
-      <Route exact path="/books/search/:keyword" component={SearchList} />
-      <Route component={BooksArea} />
-    </Switch>
-  </Container>
+  <Switch>
+    <Route exact path="/login" component={Login} />
+    <Route exact path="/books/search" render={() => <Redirect to="/books" />} />
+    <Route exact path="/books/search/:keyword" component={SearchList} />
+    <Route component={BooksArea} />
+  </Switch>
 )
 
 export default App

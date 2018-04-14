@@ -2,7 +2,7 @@
 
 exports[`components SearchList renders correctly 1`] = `
 <div
-  className="card"
+  className="ml-3 mr-3 card"
 >
   <div
     className="text-right card-header"

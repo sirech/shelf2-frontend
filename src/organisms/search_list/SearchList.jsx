@@ -54,7 +54,7 @@ class SearchList extends React.Component<Props> {
   render() {
     const { books } = this.props
     return (
-      <Card>
+      <Card className="ml-3 mr-3">
         <CardHeader className="text-right">
           <Pluralize singular="result" count={books.length} />
         </CardHeader>
