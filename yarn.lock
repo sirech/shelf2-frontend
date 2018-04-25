@@ -7038,9 +7038,9 @@ react-native-segmented-control-tab@^3.2.1:
   dependencies:
     prop-types "^15.5.10"
 
-react-pluralize@^1.3.4:
-  version "1.3.4"
-  resolved "https://registry.yarnpkg.com/react-pluralize/-/react-pluralize-1.3.4.tgz#13cde7b92f5903fc1b9a5e147fdf6620687a5b17"
+react-pluralize@^1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/react-pluralize/-/react-pluralize-1.4.1.tgz#a7f36e5b011e29cc707a4e6d4dce3e4cd0cfebc0"
   dependencies:
     react "^15.5.4"
 
