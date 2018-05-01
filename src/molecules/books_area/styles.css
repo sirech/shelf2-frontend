@@ -1,23 +1,23 @@
 .grid {
   display: grid;
-  padding: 0 15px;
-  grid-gap: 30px;
+  padding: 0 1rem;
+  grid-gap: 2rem;
   grid-template-areas:
-    "main"
-    "aside";
+    'main'
+    'aside';
 }
 
 @media (min-width: 768px) {
   .grid {
     grid-template-columns: 3fr 1fr;
-    grid-template-areas: "main aside";
+    grid-template-areas: 'main aside';
   }
 }
 
 @media (min-width: 992px) {
   .grid {
     grid-template-columns: 5fr 1fr;
-    grid-template-areas: "main aside";
+    grid-template-areas: 'main aside';
   }
 }
 

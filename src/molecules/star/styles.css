@@ -8,9 +8,9 @@
 }
 
 .star:hover:not(:first-child) {
-  margin-left: 0.2em;
+  margin-left: 0.2rem;
 }
 
 .star:hover:not(:last-child) {
-  margin-right: 0.2em;
+  margin-right: 0.2rem;
 }

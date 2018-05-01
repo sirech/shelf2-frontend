@@ -1,3 +1,25 @@
 {
-  "extends": "stylelint-config-standard"
+  "extends": "stylelint-config-standard",
+  "rules": {
+    "function-url-quotes": "always",
+    "string-quotes": "single",
+
+    "at-rule-no-vendor-prefix": true,
+    "media-feature-name-no-vendor-prefix": true,
+    "property-no-vendor-prefix": true,
+    "selector-no-vendor-prefix": true,
+    "value-no-vendor-prefix": true,
+
+    "color-named": "never",
+    "declaration-no-important": true,
+    "declaration-property-unit-whitelist": {
+      "font-size": ["rem"],
+      "width": ["rem", "%"],
+      "height": ["rem", "%"],
+      "/^margin": ["rem"],
+      "/^padding": ["rem"]
+    },
+
+    "unit-blacklist": ["em"]
+  }
 }
