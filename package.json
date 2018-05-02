@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^8.1.1",
-    "coveralls": "^3.0.0",
+    "coveralls": "^3.0.1",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "enzyme-redux": "^0.2.1",
