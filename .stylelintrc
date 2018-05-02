@@ -1,5 +1,9 @@
 {
   "extends": "stylelint-config-standard",
+  "plugins": [
+    "stylelint-order",
+    "stylelint-declaration-block-no-ignored-properties"
+  ],
   "rules": {
     "function-url-quotes": "always",
     "string-quotes": "single",
@@ -20,6 +24,10 @@
       "/^padding": ["rem"]
     },
 
-    "unit-blacklist": ["em"]
+    "unit-blacklist": ["em"],
+
+    "order/order": ["custom-properties", "dollar-variables", "declarations", "rules", "at-rules"],
+    "order/properties-alphabetical-order": true,
+    "plugin/declaration-block-no-ignored-properties": true
   }
 }
