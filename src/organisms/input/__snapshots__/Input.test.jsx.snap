@@ -22,6 +22,7 @@ exports[`components Input displays error 1`] = `
   <DefaultConnectedControl
     component={[Function]}
     id="year"
+    invalid={true}
     model=".year"
     name="year"
     type="number"

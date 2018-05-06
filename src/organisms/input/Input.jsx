@@ -34,6 +34,16 @@ export class Input extends React.Component {
     return valid
   }
 
+  isInvalid() {
+    const { valid, touched } = this.props
+
+    if (!touched) {
+      return undefined
+    }
+
+    return !valid
+  }
+
   render() {
     const { name, type, messages } = this.props
     const model = `.${name}`
@@ -47,6 +57,7 @@ export class Input extends React.Component {
           name={name}
           id={name}
           valid={this.isValid()}
+          invalid={this.isInvalid()}
           component={BaseInput}
           {...R.omit(['name', 'type', 'messages', 'valid', 'touched'])(
             this.props
