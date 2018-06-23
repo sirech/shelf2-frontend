@@ -48,7 +48,7 @@
     "eslint-plugin-react": "^7.8.2",
     "eslint-plugin-standard": "^3.1.0",
     "faker": "^4.1.0",
-    "flow-bin": "^0.74.0",
+    "flow-bin": "0.75.0",
     "npm-ls-scripts": "^0.1.2",
     "pact": "^4.2.1",
     "path": "^0.12.7",
