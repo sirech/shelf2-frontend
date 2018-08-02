@@ -10,7 +10,7 @@
     "lodash.debounce": "^4.0.8",
     "normalizr": "^3.2.4",
     "ramda": "^0.25.0",
-    "react": "^16.4.1",
+    "react": "^16.4.2",
     "react-dom": "^16.4.1",
     "react-google-login": "^3.0.4",
     "react-helmet": "^5.2.0",
