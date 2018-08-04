@@ -26,7 +26,7 @@
     "redux": "^4.0.0",
     "redux-thunk": "^2.2.0",
     "reselect": "^3.0.1",
-    "validator": "^10.4.0"
+    "validator": "^10.5.0"
   },
   "devDependencies": {
     "babel-eslint": "^8.1.1",
@@ -48,7 +48,7 @@
     "eslint-plugin-react": "^7.8.2",
     "eslint-plugin-standard": "^3.1.0",
     "faker": "^4.1.0",
-    "flow-bin": "0.77.0",
+    "flow-bin": "0.78.0",
     "npm-ls-scripts": "^0.1.2",
     "pact": "^4.2.1",
     "path": "^0.12.7",
