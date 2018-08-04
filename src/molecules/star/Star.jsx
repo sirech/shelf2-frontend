@@ -1,14 +1,13 @@
 // @flow
 
 import React from 'react'
-import StarIcon from 'react-icons/lib/fa/star'
-import HalfStarIcon from 'react-icons/lib/fa/star-o'
+import { IoIosStar, IoIosStarOutline } from 'react-icons/io'
 
 import './styles.css'
 
 const renderStar = isFull => {
   const props = { size: '1.5em' }
-  const Component = isFull ? StarIcon : HalfStarIcon
+  const Component = isFull ? IoIosStar : IoIosStarOutline
 
   return <Component {...props} />
 }

@@ -3,14 +3,14 @@
 import React from 'react'
 import { Button } from 'reactstrap'
 
-import PlusIcon from 'react-icons/lib/fa/plus'
+import { FaPlus } from 'react-icons/fa'
 
 import './styles.css'
 
 const CreateButton = ({ onClick }: { onClick: void => void }) => (
   <span className="create-button">
     <Button color="success" onClick={onClick}>
-      <PlusIcon />
+      <FaPlus />
       Add Book
     </Button>
   </span>
