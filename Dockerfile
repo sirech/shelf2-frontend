@@ -1,4 +1,4 @@
-FROM node:10.8-alpine as builder
+FROM node:10.9-alpine as builder
 
 WORKDIR /app
 
@@ -10,7 +10,7 @@ RUN yarn \
     && yarn run build \
     && find build/static -type f ! -name "./*.gz" -print0 | xargs -I@ sh -c "gzip -c @ > @.gz"
 
-FROM alpine:3.7
+FROM alpine:3.4
 
 WORKDIR /app
 
