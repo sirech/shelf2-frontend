@@ -10,7 +10,7 @@ RUN yarn \
     && yarn run build \
     && find build/static -type f ! -name "./*.gz" -print0 | xargs -I@ sh -c "gzip -c @ > @.gz"
 
-FROM alpine:3.4
+FROM alpine:3.8
 
 WORKDIR /app
 
