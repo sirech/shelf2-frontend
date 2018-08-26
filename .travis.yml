@@ -1,9 +1,7 @@
-sudo: required
-services:
-- docker
+dist: trusty
 language: node_js
 node_js:
-- 8
+- 10
 cache:
   yarn: true
   directories:
@@ -13,8 +11,7 @@ stages:
   - lint
   - test
   - security
-  - name: docker
-    if: branch = master AND type IN (push)
+  - build
   - name: deploy
     if: branch = master AND type IN (push)
 jobs:
@@ -28,12 +25,16 @@ jobs:
     script: npm test -- --coverage --maxWorkers=4
     after_script: cat coverage/lcov.info | node_modules/.bin/coveralls
   - stage: security
-    script: docker run --rm -v $PWD:/target stono/hawkeye
-  - stage: docker
-    script:
-    - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD $DOCKER_REGISTRY
-    - docker build . --tag $DOCKER_REGISTRY/$REPO
-    - docker push $DOCKER_REGISTRY/$REPO
+    script: npm run audit
+  - stage: Build
+    before_script:
+    - openssl aes-256-cbc -K $encrypted_109e9b48b55f_key -iv $encrypted_109e9b48b55f_iv
+      -in deploy_rsa.enc -out deploy_rsa -d
+    - chmod 600 deploy_rsa
+    script: |
+      npm run build
+      find public -regextype posix-basic -regex '.*\.\(js\|css\)\(.map\)\?$' -print0 | xargs --null -I@ sh -c "gzip -c @ > @.gz"
+      scp -i deploy_rsa -r public $DEPLOY_USER@$DEPLOY_HOST:/tmp/shelf2-${TRAVIS_BUILD_NUMBER}
   - stage: deploy
     before_deploy:
     - openssl aes-256-cbc -K $encrypted_aa8150b9db17_key -iv $encrypted_aa8150b9db17_iv
@@ -43,7 +44,7 @@ jobs:
     deploy:
       provider: script
       skip_cleanup: true
-      script: ssh -i deploy_rsa $DEPLOY_USER@$DEPLOY_HOST "sh ${DEPLOY_PATH}/bin/update shelf2-frontend"
+      script: ssh -i deploy_rsa $DEPLOY_USER@$DEPLOY_HOST "sh ${DEPLOY_PATH}/bin/promote /tmp/shelf2-${TRAVIS_BUILD_NUMBER} /srv/shelf2_public"
 env:
   global:
   - secure: ntaLASfYevkdfmuFRrnkjZ+TXIngNatT0cQXhbEAXL/VGK91I3qOmZbhgKw2dGG9Re02nfWH5emxznHtDNudPKShm4we85zj4ILRtEwSJBj0f7gX5Ahs/SGjE6ZlzAQnnUnaF/Ra+M5pOF7n9jD3l0Nk4tY30unSXFBXKOqSTX//+M8G4wDTIdQCR2ewSvRLimzRRcvnpy4vr86WMntewwpIUMqaN3n9UBBVnOQq3X5E/3gvNpNd2EbH+p76kxUpWacdFQL8qOURGZQKtQCG8YJx9gJqeVHiI8eL7uJ7kgTaz9lVeeLoHwCeNdP3ez36ua/Q8qmcaN+nyi1fcIPnS0RyvFSDcFuxmHRIskMVBdyFtrNsnNJRWZ6YUVfg8NIKI70th4EzScFpaY/F5fINRivbU6dwd+buU/oCg1m4HRRtzDWkalJZLY806OyiA0tCynkUE3pkWL7bMRGtsvhRj6u5V3ZxrKpdz+eRpz+a0/R9seKvlvoD380kKG+yOdxO9Yrw2+tQFbR+lc8xwpAPwspNmsas8bu3Q4NorLZeVk+3a64mXJnPV2hfvwJYuNfScsB0CkHaMrXVwpwemjQZxCXo5TW0zVje9y0aMfvxgjvQtw/vi4eT7m1gFZ8N4e0ZkB0fMGBZG/iWRpyfqvP4NrPFuCaF8i9zvBXL0OfCY24=

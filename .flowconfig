@@ -1,4 +1,5 @@
 [ignore]
+.*/node_modules/.*\(lib\|test\|builtin-modules\|binary-extensions\|faker\|spdx\).*\.json
 .*/node_modules/stylelint/.*
 .*/node_modules/protobufjs/.*
 
