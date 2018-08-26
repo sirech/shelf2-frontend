@@ -33,8 +33,8 @@ jobs:
     - chmod 600 deploy_rsa
     script: |
       npm run build
-      find public -regextype posix-basic -regex '.*\.\(js\|css\)\(.map\)\?$' -print0 | xargs --null -I@ sh -c "gzip -c @ > @.gz"
-      scp -i deploy_rsa -r public $DEPLOY_USER@$DEPLOY_HOST:/tmp/shelf2-${TRAVIS_BUILD_NUMBER}
+      find build/static -regextype posix-basic -regex '.*\.\(js\|css\)\(.map\)\?$' -print0 | xargs --null -I@ sh -c "gzip -c @ > @.gz"
+      scp -i deploy_rsa -r build $DEPLOY_USER@$DEPLOY_HOST:/tmp/shelf2-${TRAVIS_BUILD_NUMBER}
   - stage: deploy
     before_deploy:
     - openssl aes-256-cbc -K $encrypted_aa8150b9db17_key -iv $encrypted_aa8150b9db17_iv
