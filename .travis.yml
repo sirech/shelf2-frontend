@@ -28,7 +28,7 @@ jobs:
     script: npm run audit
   - stage: Build
     before_script:
-    - openssl aes-256-cbc -K $encrypted_109e9b48b55f_key -iv $encrypted_109e9b48b55f_iv
+    - openssl aes-256-cbc -K $encrypted_aa8150b9db17_key -iv $encrypted_aa8150b9db17_iv
       -in deploy_rsa.enc -out deploy_rsa -d
     - chmod 600 deploy_rsa
     script: |
