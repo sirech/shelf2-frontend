@@ -29,7 +29,7 @@
     "validator": "^10.5.0"
   },
   "devDependencies": {
-    "babel-eslint": "^8.1.1",
+    "babel-eslint": "^9.0.0",
     "coveralls": "^3.0.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
