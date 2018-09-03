@@ -48,7 +48,7 @@
     "eslint-plugin-react": "^7.8.2",
     "eslint-plugin-standard": "^3.1.0",
     "faker": "^4.1.0",
-    "flow-bin": "0.79.1",
+    "flow-bin": "0.80.0",
     "hawkeye-scanner": "^1.0.4",
     "npm-ls-scripts": "^0.1.2",
     "pact": "^4.2.1",
