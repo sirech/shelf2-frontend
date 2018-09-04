@@ -118,6 +118,33 @@
       }
     },
     {
+      "description": "a request to create a new book",
+      "providerState": "i have an expired token",
+      "request": {
+        "method": "POST",
+        "path": "/rest/books",
+        "headers": {
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+          "X-Requested-With": "XMLHttpRequest",
+          "Authorization": "Bearer: EXPIRED"
+        },
+        "body": {
+          "book": {
+            "title": "Alone on a Wide, Wide Sea",
+            "year": 2016,
+            "stars": 2,
+            "category": "sociology"
+          }
+        }
+      },
+      "response": {
+        "status": 401,
+        "headers": {
+        }
+      }
+    },
+    {
       "description": "a search request",
       "providerState": "i have some books",
       "request": {

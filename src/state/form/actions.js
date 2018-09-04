@@ -8,6 +8,7 @@ import { BOOK_CREATE_SUCCESS, BOOK_CREATE_FAIL } from './constants'
 import { modelName } from './utils'
 
 import { actions as modalActions } from '../modal'
+import { actions as loginActions } from '../login'
 
 import type { BookForm, Book } from 'types'
 
@@ -33,13 +34,16 @@ export const create = (book: BookForm) => {
   return (dispatch: Dispatch) => {
     const url = '/books'
     const method = 'POST'
-    // const body = JSON.stringify({ book })
     const data = { book }
 
     return fetch(url, { method, data })
       .then(response => dispatch(bookCreated(response.data)))
       .then(() => dispatch(resetForm()))
       .then(() => dispatch(modalActions.modalToggled()))
-      .catch(error => dispatch(bookCreationFailed(error.response.data)))
+      .catch(error => {
+        localStorage.removeItem('authToken')
+        dispatch(bookCreationFailed(error.response.data))
+        dispatch(loginActions.logoutSuccess())
+      })
   }
 }

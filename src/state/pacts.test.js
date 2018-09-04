@@ -114,6 +114,55 @@ describe('pacts', () => {
     })
   })
 
+  describe('forms - errors', () => {
+    const bookForm = R.omit(['id'])(rest.book)
+
+    beforeAll(async () => {
+      const interaction = {
+        state: 'i have an expired token',
+        uponReceiving: 'a request to create a new book',
+        withRequest: {
+          method: 'POST',
+          path: '/rest/books',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+            'X-Requested-With': 'XMLHttpRequest',
+            Authorization: 'Bearer: EXPIRED',
+          },
+          body: { book: bookForm },
+        },
+        willRespondWith: {
+          status: 401,
+        },
+      }
+
+      return provider.addInteraction(interaction)
+    }, 5 * 60 * 1000)
+    afterAll(() => provider.verify(), 5 * 60 * 1000)
+
+    beforeEach(() => {
+      global.localStorage.getItem = _ => 'EXPIRED'
+    })
+
+    it('should dispatch the correct actions', () => {
+      const expectedActions = [
+        { type: 'books:book:create:fail', payload: '' },
+        { type: 'logout:success' },
+      ]
+
+      return store.dispatch(create(bookForm)).then(() => {
+        expect(store.getActions()).toEqual(expectedActions)
+      })
+    })
+
+    it('should delete the existing token', () => {
+      return store.dispatch(create(bookForm)).then(() => {
+        expect(global.localStorage.removeItem).toHaveBeenCalledWith('authToken')
+      })
+    })
+  })
+
   describe('search - search', () => {
     let keyword = 'a'
 
