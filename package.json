@@ -22,14 +22,14 @@
     "react-router-dom": "^4.3.1",
     "react-transition-group": "^2.4.0",
     "reactstrap": "^6.4.0",
-    "recompose": "^0.28.2",
+    "recompose": "^0.30.0",
     "redux": "^4.0.0",
     "redux-thunk": "^2.2.0",
     "reselect": "^3.0.1",
     "validator": "^10.5.0"
   },
   "devDependencies": {
-    "babel-eslint": "^8.1.1",
+    "babel-eslint": "^9.0.0",
     "coveralls": "^3.0.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
@@ -37,8 +37,8 @@
     "enzyme-to-json": "^3.3.0",
     "eslint": "^5.0.0",
     "eslint-config-prettier": "^3.0.1",
-    "eslint-config-standard": "12.0.0-alpha.0",
-    "eslint-config-standard-react": "^6.0.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-config-standard-react": "^7.0.2",
     "eslint-plugin-flowtype": "^2.50.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jest": "^21.15.1",
@@ -46,9 +46,9 @@
     "eslint-plugin-promise": "^4.0.0",
     "eslint-plugin-ramda": "^2.0.0",
     "eslint-plugin-react": "^7.8.2",
-    "eslint-plugin-standard": "^3.1.0",
+    "eslint-plugin-standard": "^4.0.0",
     "faker": "^4.1.0",
-    "flow-bin": "0.79.1",
+    "flow-bin": "0.81.0",
     "hawkeye-scanner": "^1.0.4",
     "npm-ls-scripts": "^0.1.2",
     "pact": "^4.2.1",
@@ -64,7 +64,7 @@
     "stylelint-config-standard": "^18.1.0",
     "stylelint-declaration-block-no-ignored-properties": "^1.1.0",
     "stylelint-order": "^1.0.0",
-    "webpack-bundle-analyzer": "^2.13.1"
+    "webpack-bundle-analyzer": "^3.0.2"
   },
   "scripts": {
     "start": "react-scripts start",
