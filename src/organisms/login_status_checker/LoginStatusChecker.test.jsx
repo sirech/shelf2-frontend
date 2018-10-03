@@ -9,19 +9,18 @@ describe('components', () => {
 
     beforeEach(() => {
       loginSuccess = jest.fn()
-      global.localStorage.getItem = jest.fn()
     })
 
     it('calls loginSuccess if the token is there', () => {
-      global.localStorage = {
-        getItem: _ => 'token',
-      }
+      localStorage.setItem('authToken', 'token')
 
       fullRender(<LoginStatusChecker loginSuccess={loginSuccess} />)
-      expect(loginSuccess.mock.calls.length).toBe(1)
+      expect(loginSuccess).toBeCalled()
     })
 
     it('does not call loginSuccess if there is no token', () => {
+      localStorage.removeItem('authToken')
+
       fullRender(<LoginStatusChecker loginSuccess={loginSuccess} />)
       expect(loginSuccess.mock.calls.length).toBe(0)
     })

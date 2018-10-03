@@ -7,7 +7,6 @@ exports[`components CreateButton renders correctly 1`] = `
   <button
     className="btn btn-success"
     onClick={[Function]}
-    type={undefined}
   >
     <svg
       attr={
@@ -15,7 +14,6 @@ exports[`components CreateButton renders correctly 1`] = `
           "viewBox": "0 0 448 512",
         }
       }
-      className={undefined}
       fill="currentColor"
       height="1em"
       stroke="currentColor"

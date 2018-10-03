@@ -3,7 +3,6 @@
 exports[`components Star renders a full star correctly 1`] = `
 <span
   className="star"
-  onClick={undefined}
 >
   <svg
     attr={
@@ -11,7 +10,6 @@ exports[`components Star renders a full star correctly 1`] = `
         "viewBox": "0 0 512 512",
       }
     }
-    className={undefined}
     fill="currentColor"
     height="1.5em"
     size="1.5em"
@@ -35,7 +33,6 @@ exports[`components Star renders a full star correctly 1`] = `
 exports[`components Star renders a half star correctly 1`] = `
 <span
   className="star"
-  onClick={undefined}
 >
   <svg
     attr={
@@ -43,7 +40,6 @@ exports[`components Star renders a half star correctly 1`] = `
         "viewBox": "0 0 512 512",
       }
     }
-    className={undefined}
     fill="currentColor"
     height="1.5em"
     size="1.5em"

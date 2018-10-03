@@ -39,7 +39,6 @@ exports[`components SearchList renders correctly 1`] = `
                   "viewBox": "0 0 512 512",
                 }
               }
-              className={undefined}
               fill="currentColor"
               height="1.5em"
               size="1.5em"
@@ -68,7 +67,6 @@ exports[`components SearchList renders correctly 1`] = `
                   "viewBox": "0 0 512 512",
                 }
               }
-              className={undefined}
               fill="currentColor"
               height="1.5em"
               size="1.5em"
@@ -97,7 +95,6 @@ exports[`components SearchList renders correctly 1`] = `
                   "viewBox": "0 0 512 512",
                 }
               }
-              className={undefined}
               fill="currentColor"
               height="1.5em"
               size="1.5em"
@@ -126,7 +123,6 @@ exports[`components SearchList renders correctly 1`] = `
                   "viewBox": "0 0 512 512",
                 }
               }
-              className={undefined}
               fill="currentColor"
               height="1.5em"
               size="1.5em"
@@ -155,7 +151,6 @@ exports[`components SearchList renders correctly 1`] = `
                   "viewBox": "0 0 512 512",
                 }
               }
-              className={undefined}
               fill="currentColor"
               height="1.5em"
               size="1.5em"
@@ -199,7 +194,6 @@ exports[`components SearchList renders correctly 1`] = `
                   "viewBox": "0 0 512 512",
                 }
               }
-              className={undefined}
               fill="currentColor"
               height="1.5em"
               size="1.5em"
@@ -228,7 +222,6 @@ exports[`components SearchList renders correctly 1`] = `
                   "viewBox": "0 0 512 512",
                 }
               }
-              className={undefined}
               fill="currentColor"
               height="1.5em"
               size="1.5em"
@@ -257,7 +250,6 @@ exports[`components SearchList renders correctly 1`] = `
                   "viewBox": "0 0 512 512",
                 }
               }
-              className={undefined}
               fill="currentColor"
               height="1.5em"
               size="1.5em"
@@ -286,7 +278,6 @@ exports[`components SearchList renders correctly 1`] = `
                   "viewBox": "0 0 512 512",
                 }
               }
-              className={undefined}
               fill="currentColor"
               height="1.5em"
               size="1.5em"
@@ -315,7 +306,6 @@ exports[`components SearchList renders correctly 1`] = `
                   "viewBox": "0 0 512 512",
                 }
               }
-              className={undefined}
               fill="currentColor"
               height="1.5em"
               size="1.5em"
@@ -359,7 +349,6 @@ exports[`components SearchList renders correctly 1`] = `
                   "viewBox": "0 0 512 512",
                 }
               }
-              className={undefined}
               fill="currentColor"
               height="1.5em"
               size="1.5em"
@@ -388,7 +377,6 @@ exports[`components SearchList renders correctly 1`] = `
                   "viewBox": "0 0 512 512",
                 }
               }
-              className={undefined}
               fill="currentColor"
               height="1.5em"
               size="1.5em"
@@ -417,7 +405,6 @@ exports[`components SearchList renders correctly 1`] = `
                   "viewBox": "0 0 512 512",
                 }
               }
-              className={undefined}
               fill="currentColor"
               height="1.5em"
               size="1.5em"
@@ -446,7 +433,6 @@ exports[`components SearchList renders correctly 1`] = `
                   "viewBox": "0 0 512 512",
                 }
               }
-              className={undefined}
               fill="currentColor"
               height="1.5em"
               size="1.5em"
@@ -475,7 +461,6 @@ exports[`components SearchList renders correctly 1`] = `
                   "viewBox": "0 0 512 512",
                 }
               }
-              className={undefined}
               fill="currentColor"
               height="1.5em"
               size="1.5em"
@@ -519,7 +504,6 @@ exports[`components SearchList renders correctly 1`] = `
                   "viewBox": "0 0 512 512",
                 }
               }
-              className={undefined}
               fill="currentColor"
               height="1.5em"
               size="1.5em"
@@ -548,7 +532,6 @@ exports[`components SearchList renders correctly 1`] = `
                   "viewBox": "0 0 512 512",
                 }
               }
-              className={undefined}
               fill="currentColor"
               height="1.5em"
               size="1.5em"
@@ -577,7 +560,6 @@ exports[`components SearchList renders correctly 1`] = `
                   "viewBox": "0 0 512 512",
                 }
               }
-              className={undefined}
               fill="currentColor"
               height="1.5em"
               size="1.5em"
@@ -606,7 +588,6 @@ exports[`components SearchList renders correctly 1`] = `
                   "viewBox": "0 0 512 512",
                 }
               }
-              className={undefined}
               fill="currentColor"
               height="1.5em"
               size="1.5em"
@@ -635,7 +616,6 @@ exports[`components SearchList renders correctly 1`] = `
                   "viewBox": "0 0 512 512",
                 }
               }
-              className={undefined}
               fill="currentColor"
               height="1.5em"
               size="1.5em"
@@ -679,7 +659,6 @@ exports[`components SearchList renders correctly 1`] = `
                   "viewBox": "0 0 512 512",
                 }
               }
-              className={undefined}
               fill="currentColor"
               height="1.5em"
               size="1.5em"
@@ -708,7 +687,6 @@ exports[`components SearchList renders correctly 1`] = `
                   "viewBox": "0 0 512 512",
                 }
               }
-              className={undefined}
               fill="currentColor"
               height="1.5em"
               size="1.5em"
@@ -737,7 +715,6 @@ exports[`components SearchList renders correctly 1`] = `
                   "viewBox": "0 0 512 512",
                 }
               }
-              className={undefined}
               fill="currentColor"
               height="1.5em"
               size="1.5em"
@@ -766,7 +743,6 @@ exports[`components SearchList renders correctly 1`] = `
                   "viewBox": "0 0 512 512",
                 }
               }
-              className={undefined}
               fill="currentColor"
               height="1.5em"
               size="1.5em"
@@ -795,7 +771,6 @@ exports[`components SearchList renders correctly 1`] = `
                   "viewBox": "0 0 512 512",
                 }
               }
-              className={undefined}
               fill="currentColor"
               height="1.5em"
               size="1.5em"
@@ -839,7 +814,6 @@ exports[`components SearchList renders correctly 1`] = `
                   "viewBox": "0 0 512 512",
                 }
               }
-              className={undefined}
               fill="currentColor"
               height="1.5em"
               size="1.5em"
@@ -868,7 +842,6 @@ exports[`components SearchList renders correctly 1`] = `
                   "viewBox": "0 0 512 512",
                 }
               }
-              className={undefined}
               fill="currentColor"
               height="1.5em"
               size="1.5em"
@@ -897,7 +870,6 @@ exports[`components SearchList renders correctly 1`] = `
                   "viewBox": "0 0 512 512",
                 }
               }
-              className={undefined}
               fill="currentColor"
               height="1.5em"
               size="1.5em"
@@ -926,7 +898,6 @@ exports[`components SearchList renders correctly 1`] = `
                   "viewBox": "0 0 512 512",
                 }
               }
-              className={undefined}
               fill="currentColor"
               height="1.5em"
               size="1.5em"
@@ -955,7 +926,6 @@ exports[`components SearchList renders correctly 1`] = `
                   "viewBox": "0 0 512 512",
                 }
               }
-              className={undefined}
               fill="currentColor"
               height="1.5em"
               size="1.5em"
@@ -999,7 +969,6 @@ exports[`components SearchList renders correctly 1`] = `
                   "viewBox": "0 0 512 512",
                 }
               }
-              className={undefined}
               fill="currentColor"
               height="1.5em"
               size="1.5em"
@@ -1028,7 +997,6 @@ exports[`components SearchList renders correctly 1`] = `
                   "viewBox": "0 0 512 512",
                 }
               }
-              className={undefined}
               fill="currentColor"
               height="1.5em"
               size="1.5em"
@@ -1057,7 +1025,6 @@ exports[`components SearchList renders correctly 1`] = `
                   "viewBox": "0 0 512 512",
                 }
               }
-              className={undefined}
               fill="currentColor"
               height="1.5em"
               size="1.5em"
@@ -1086,7 +1053,6 @@ exports[`components SearchList renders correctly 1`] = `
                   "viewBox": "0 0 512 512",
                 }
               }
-              className={undefined}
               fill="currentColor"
               height="1.5em"
               size="1.5em"
@@ -1115,7 +1081,6 @@ exports[`components SearchList renders correctly 1`] = `
                   "viewBox": "0 0 512 512",
                 }
               }
-              className={undefined}
               fill="currentColor"
               height="1.5em"
               size="1.5em"

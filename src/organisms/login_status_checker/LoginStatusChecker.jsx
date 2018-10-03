@@ -23,6 +23,7 @@ export class LoginStatusChecker extends React.Component<Props> {
   }
 }
 
-export default connect(null, actionPicker(['loginSuccess'])(actions))(
-  LoginStatusChecker
-)
+export default connect(
+  null,
+  actionPicker(['loginSuccess'])(actions)
+)(LoginStatusChecker)
