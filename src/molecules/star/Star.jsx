@@ -3,7 +3,7 @@
 import React from 'react'
 import { IoIosStar, IoIosStarOutline } from 'react-icons/io'
 
-import './styles.css'
+import styles from './styles.module.css'
 
 const renderStar = isFull => {
   const props = { size: '1.5em' }
@@ -19,7 +19,7 @@ const Star = ({
   isFull: boolean,
   onClick?: void => void,
 }) => (
-  <span className="star" onClick={onClick}>
+  <span className={styles.star} onClick={onClick}>
     {renderStar(isFull)}
   </span>
 )

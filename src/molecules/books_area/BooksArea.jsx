@@ -2,7 +2,7 @@
 
 import React from 'react'
 
-import './styles.css'
+import styles from './styles.module.css'
 
 import { Route } from 'react-router-dom'
 
@@ -14,7 +14,7 @@ import Navigation from 'organisms/navigation'
 const AuthBookCreator = authenticated()(BookCreator)
 
 const BooksArea = () => (
-  <div className="grid">
+  <div className={styles.grid}>
     <main>
       <AuthBookCreator />
       <Route exact path="/books/:year" component={BookList} />

@@ -3,7 +3,7 @@
 import React from 'react'
 import Star from 'molecules/star'
 
-import './styles.css'
+import styles from './styles.module.css'
 
 import type { StarCount } from 'types'
 
@@ -14,7 +14,7 @@ const Stars = ({
   count: StarCount,
   handleClick: number => void,
 }) => (
-  <span className="stars">
+  <span className={styles.stars}>
     {[...Array(5).keys()].map(i => (
       <Star key={i} isFull={i < count} onClick={() => handleClick(i + 1)} />
     ))}

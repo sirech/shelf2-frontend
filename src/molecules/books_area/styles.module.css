@@ -21,10 +21,10 @@
   }
 }
 
-main {
+.grid main {
   grid-area: main;
 }
 
-aside {
+.grid aside {
   grid-area: aside;
 }
