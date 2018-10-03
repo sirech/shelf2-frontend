@@ -3,14 +3,15 @@
 import React from 'react'
 import { Button } from 'reactstrap'
 
-import { FaPlus } from 'react-icons/fa'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
 import styles from './styles.module.css'
 
 const CreateButton = ({ onClick }: { onClick: void => void }) => (
   <span className={styles.createButton}>
     <Button color="success" onClick={onClick}>
-      <FaPlus />
+      <FontAwesomeIcon icon={faPlus} />
       Add Book
     </Button>
   </span>

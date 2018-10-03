@@ -1,15 +1,16 @@
 // @flow
 
 import React from 'react'
-import { IoIosStar, IoIosStarOutline } from 'react-icons/io'
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faStar } from '@fortawesome/free-solid-svg-icons'
+import { faStar as regularStar } from '@fortawesome/free-regular-svg-icons'
 
 import styles from './styles.module.css'
 
 const renderStar = isFull => {
-  const props = { size: '1.5em' }
-  const Component = isFull ? IoIosStar : IoIosStarOutline
-
-  return <Component {...props} />
+  const icon = isFull ? faStar : regularStar
+  return <FontAwesomeIcon icon={icon} size="lg" />
 }
 
 const Star = ({
