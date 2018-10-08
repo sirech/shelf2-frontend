@@ -34,7 +34,7 @@
   "devDependencies": {
     "coveralls": "^3.0.0",
     "enzyme": "^3.3.0",
-    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-adapter-react-16": "^1.6.0",
     "enzyme-redux": "^0.2.1",
     "enzyme-to-json": "^3.3.0",
     "eslint-config-prettier": "^3.0.1",
