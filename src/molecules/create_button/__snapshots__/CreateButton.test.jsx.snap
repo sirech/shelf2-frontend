@@ -5,6 +5,7 @@ exports[`components CreateButton renders correctly 1`] = `
   className="createButton"
 >
   <button
+    aria-label={null}
     className="btn btn-success"
     onClick={[Function]}
   >
