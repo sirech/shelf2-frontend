@@ -17,7 +17,7 @@ type Props = {
   authenticated: boolean,
   failed: boolean,
   login: string => undefined,
-  loginFailure: _ => undefined,
+  loginFailure: () => undefined,
 }
 
 // exported for testing
