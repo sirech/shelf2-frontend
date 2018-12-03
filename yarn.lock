@@ -9626,10 +9626,10 @@ react-native-segmented-control-tab@^3.2.1:
   dependencies:
     prop-types "^15.5.10"
 
-react-pluralize@^1.4.1:
-  version "1.4.1"
-  resolved "https://registry.yarnpkg.com/react-pluralize/-/react-pluralize-1.4.1.tgz#a7f36e5b011e29cc707a4e6d4dce3e4cd0cfebc0"
-  integrity sha512-PS5PkJYkgtLehlEUMXL6kDo+Gl8v2C7Xbnotft/HoDNiBKGCYk7rC3xsxNZfyYyrYCvoY181i8WzFWf57riu5A==
+react-pluralize@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/react-pluralize/-/react-pluralize-1.5.0.tgz#082aa9a04394a45faa96cdad29fb7dbaa4767ab7"
+  integrity sha512-dD6Tv05meo+436HZmSzf70gwJkx3HUncpFPggaE02vSzUr8vh+l/2kGfJsxWrFezqVaEq9l0jPeMcWe7dZPatw==
   dependencies:
     react "^15.5.4"
 
