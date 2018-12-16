@@ -20,7 +20,7 @@ exports[`components Login does not blow up 1`] = `
     <div
       className="text-center"
     >
-      <t
+      <e
         accessType="online"
         buttonText="Login with Google"
         clientId="821590472100-8l14rsm3sof4so0p495tkaf6lgd5p47s.apps.googleusercontent.com"
@@ -31,6 +31,7 @@ exports[`components Login does not blow up 1`] = `
           }
         }
         fetchBasicProfile={true}
+        icon={true}
         isSignedIn={false}
         jsSrc="https://apis.google.com/js/client:platform.js"
         onFailure={[Function]}
@@ -39,6 +40,7 @@ exports[`components Login does not blow up 1`] = `
         prompt=""
         scope="profile email"
         tag="button"
+        theme="light"
         type="button"
         uxMode="popup"
       />
