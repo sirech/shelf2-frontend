@@ -14,6 +14,7 @@ exports[`components CreateButton renders correctly 1`] = `
       className="svg-inline--fa fa-plus fa-w-14 "
       data-icon="plus"
       data-prefix="fas"
+      focusable="false"
       role="img"
       style={Object {}}
       viewBox="0 0 448 512"
