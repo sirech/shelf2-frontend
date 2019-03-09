@@ -13,7 +13,7 @@ jobs:
       - run: yarn
       - run: yarn run linter:js
       - run: yarn run linter:css
-      - run: yarn test -- --coverage
+      - run: yarn test --coverage --runInBand
       - run:
           name: Upload coverage results
           command: |
@@ -33,8 +33,8 @@ jobs:
           command: |
             yarn run build
             find build/static -regextype posix-basic -regex '.*\.\(js\|css\)\(.map\)\?$' -print0 | xargs --null -I@ sh -c "gzip -c @ > @.gz"
-      - run: scp -o StrictHostKeyChecking=no -i deploy_rsa -r build $DEPLOY_USER@$DEPLOY_HOST:/tmp/shelf2-${CIRCLE_BUILD_NUM}
-      - run: ssh -o StrictHostKeyChecking=no $DEPLOY_USER@$DEPLOY_HOST "sh ${DEPLOY_PATH}/bin/update echo"
+      - run: scp -o StrictHostKeyChecking=no -r build $DEPLOY_USER@$DEPLOY_HOST:/tmp/shelf2-${CIRCLE_BUILD_NUM}
+      - run: ssh -o StrictHostKeyChecking=no $DEPLOY_USER@$DEPLOY_HOST "sh ${DEPLOY_PATH}/bin/promote /tmp/shelf2-${CIRCLE_BUILD_NUM} /srv/shelf2_public"
 
 workflows:
   version: 2
