@@ -20,6 +20,16 @@ jobs:
             cat coverage/lcov.info | node_modules/.bin/coveralls
           when: always
       - run: yarn run audit
+      - run:
+          name: Build and package
+          command: |
+            yarn run build
+            find build/static -regextype posix-basic -regex '.*\.\(js\|css\)\(.map\)\?$' -print0 | xargs --null -I@ sh -c "gzip -c @ > @.gz"
+
+      - persist_to_workspace:
+          root: build
+          paths:
+            - "*"
 
   deploy:
 
@@ -28,13 +38,9 @@ jobs:
 
     steps:
 
-      - checkout
       - add_ssh_keys:
-      - run:
-          name: Build and package
-          command: |
-            yarn run build
-            find build/static -regextype posix-basic -regex '.*\.\(js\|css\)\(.map\)\?$' -print0 | xargs --null -I@ sh -c "gzip -c @ > @.gz"
+      - attach_workspace:
+          at: build
       - run: scp -o StrictHostKeyChecking=no -r build $DEPLOY_USER@$DEPLOY_HOST:/tmp/shelf2-${CIRCLE_BUILD_NUM}
       - run: ssh -o StrictHostKeyChecking=no $DEPLOY_USER@$DEPLOY_HOST "sh ${DEPLOY_PATH}/bin/promote /tmp/shelf2-${CIRCLE_BUILD_NUM} /srv/shelf2_public"
 
