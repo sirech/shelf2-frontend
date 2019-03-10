@@ -27,6 +27,8 @@ jobs:
       - image: circleci/node:11.10.1
 
     steps:
+
+      - checkout
       - add_ssh_keys:
       - run:
           name: Build and package
