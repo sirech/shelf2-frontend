@@ -15,7 +15,7 @@
     "normalizr": "^3.2.4",
     "ramda": "0.26.1",
     "react": "^16.8.4",
-    "react-dom": "^16.8.4",
+    "react-dom": "^16.8.5",
     "react-google-login": "^5.0.2",
     "react-helmet": "^5.2.0",
     "react-pluralize": "^1.4.1",
