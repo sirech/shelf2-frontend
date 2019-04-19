@@ -1,50 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`components Login does not blow up 1`] = `
-<Row
-  tag="div"
->
-  <Col
-    tag="div"
-    widths={
-      Array [
-        "xs",
-        "sm",
-        "md",
-        "lg",
-        "xl",
-      ]
-    }
-    xs="12"
-  >
-    <div
-      className="text-center"
-    >
-      <e
-        accessType="online"
-        buttonText="Login with Google"
-        clientId="821590472100-8l14rsm3sof4so0p495tkaf6lgd5p47s.apps.googleusercontent.com"
-        cookiePolicy="single_host_origin"
-        disabledStyle={
-          Object {
-            "opacity": 0.6,
-          }
-        }
-        fetchBasicProfile={true}
-        icon={true}
-        isSignedIn={false}
-        jsSrc="https://apis.google.com/js/api.js"
-        onFailure={[Function]}
-        onRequest={[Function]}
-        onSuccess={[Function]}
-        prompt=""
-        scope="profile email"
-        tag="button"
-        theme="light"
-        type="button"
-        uxMode="popup"
-      />
-    </div>
-  </Col>
-</Row>
+exports[`components Login does not blow up 1`] = `<div />`;
+
+exports[`components Login renders a redirect if authenticated 1`] = `
+<div>
+  <Redirect
+    to="/"
+  />
+</div>
 `;

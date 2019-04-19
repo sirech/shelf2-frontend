@@ -11,5 +11,10 @@ describe('components', () => {
       const component = shallow(<Login />)
       expect(toJson(component)).toMatchSnapshot()
     })
+
+    it('renders a redirect if authenticated', () => {
+      const component = shallow(<Login authenticated />)
+      expect(toJson(component)).toMatchSnapshot()
+    })
   })
 })

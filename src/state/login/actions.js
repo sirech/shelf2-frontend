@@ -1,5 +1,7 @@
 // @flow
 
+import auth0 from 'auth0-js'
+
 import { LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT_SUCCESS } from './constants'
 
 export const loginSuccess = () => ({
@@ -25,5 +27,21 @@ export const logout = () => {
   return (dispatch: Dispatch) => {
     localStorage.removeItem('authToken')
     dispatch(logoutSuccess())
+  }
+}
+
+const redirectUri = () => `${process.env.REACT_APP_HOST}/callback`
+
+export const startLogin = () => {
+  return (dispatch: Dispatch) => {
+    let client = new auth0.WebAuth({
+      clientID: 'q1MDnhpkECDbjSdA9MSsdNRbXEKhWIYj',
+      domain: 'hceris.eu.auth0.com',
+      responseType: 'token id_token',
+      audience: 'shelf2.hceris.com',
+      redirectUri: redirectUri(),
+      scope: 'openid profile create:books fuck:you',
+    })
+    client.authorize()
   }
 }
