@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`components BookForm renders correctly 1`] = `
-<Connect(Form)
+<ConnectFunction
   model="form.book"
   onSubmit={[Function]}
 >
-  <Connect(Input)
+  <ConnectFunction
     messages={
       Object {
         "length": "Title must be between 5 and 200 characters",
@@ -20,7 +20,7 @@ exports[`components BookForm renders correctly 1`] = `
       }
     }
   />
-  <Connect(Input)
+  <ConnectFunction
     messages={
       Object {
         "value": "It should be between 2000 and 2100",
@@ -146,5 +146,5 @@ exports[`components BookForm renders correctly 1`] = `
       </option>
     </DefaultConnectedControl>
   </FormGroup>
-</Connect(Form)>
+</ConnectFunction>
 `;

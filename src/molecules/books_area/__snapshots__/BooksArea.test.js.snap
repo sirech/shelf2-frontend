@@ -5,13 +5,22 @@ exports[`components BooksArea renders correctly 1`] = `
   className="grid"
 >
   <main>
-    <Connect(authenticatedComponent(Connect(BookCreator))) />
+    <ConnectFunction />
     <Route
-      component={[Function]}
+      component={
+        Object {
+          "$$typeof": Symbol(react.memo),
+          "WrappedComponent": [Function],
+          "compare": null,
+          "displayName": "Connect(BookList)",
+          "type": [Function],
+          Symbol(Symbol.hasInstance): [Function],
+        }
+      }
       exact={true}
       path="/books/:year"
     />
   </main>
-  <Connect(Navigation) />
+  <ConnectFunction />
 </div>
 `;
