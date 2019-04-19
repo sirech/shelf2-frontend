@@ -33,7 +33,10 @@ exports[`components BookCreator renders an error 1`] = `
     }
     onClosed={[Function]}
     onOpened={[Function]}
+    returnFocusAfterClose={true}
     role="dialog"
+    scrollable={false}
+    unmountOnClose={true}
     zIndex={1050}
   >
     <ModalHeader
@@ -137,7 +140,10 @@ exports[`components BookCreator renders correctly 1`] = `
     }
     onClosed={[Function]}
     onOpened={[Function]}
+    returnFocusAfterClose={true}
     role="dialog"
+    scrollable={false}
+    unmountOnClose={true}
     zIndex={1050}
   >
     <ModalHeader
