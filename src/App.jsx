@@ -10,6 +10,7 @@ import Header from 'molecules/header'
 import BooksArea from 'molecules/books_area'
 
 import SearchList from 'organisms/search_list'
+import Callback from 'organisms/callback'
 import Login from 'organisms/login'
 import LoginStatusChecker from 'organisms/login_status_checker'
 
@@ -44,6 +45,7 @@ const Checks = () => (
 const Content = () => (
   <Switch>
     <Route exact path="/login" component={Login} />
+    <Route exact path="/callback" component={Callback} />
     <Route exact path="/books/search" render={() => <Redirect to="/books" />} />
     <Route exact path="/books/search/:keyword" component={SearchList} />
     <Route component={BooksArea} />

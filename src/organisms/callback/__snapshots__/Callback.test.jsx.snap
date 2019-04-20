@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components Callback does not blow up 1`] = `<div />`;
+
+exports[`components Callback renders a redirect if authenticated 1`] = `
+<div>
+  <Redirect
+    to="/"
+  />
+</div>
+`;

@@ -16,32 +16,48 @@ export const logoutSuccess = () => ({
   type: LOGOUT_SUCCESS,
 })
 
-export const login = (token: string) => {
+export const login = () => {
   return (dispatch: Dispatch) => {
-    localStorage.setItem('authToken', token)
-    dispatch(loginSuccess())
+    auth0Client().parseHash((err, authResult) => {
+      if (authResult && authResult.accessToken) {
+        window.location.hash = ''
+        let expiresAt = new Date()
+        expiresAt.setSeconds(expiresAt.getSeconds() + authResult.expiresIn)
+
+        localStorage.setItem('authToken', authResult.accessToken)
+        localStorage.setItem('expiresAt', expiresAt)
+
+        dispatch(loginSuccess())
+      } else if (err) {
+        dispatch(loginFailure())
+      }
+    })
   }
 }
 
 export const logout = () => {
   return (dispatch: Dispatch) => {
     localStorage.removeItem('authToken')
+    localStorage.removeItem('expiresAt')
     dispatch(logoutSuccess())
   }
 }
 
-const redirectUri = () => `${process.env.REACT_APP_HOST}/callback`
-
 export const startLogin = () => {
   return (dispatch: Dispatch) => {
-    let client = new auth0.WebAuth({
-      clientID: 'q1MDnhpkECDbjSdA9MSsdNRbXEKhWIYj',
-      domain: 'hceris.eu.auth0.com',
-      responseType: 'token id_token',
-      audience: 'shelf2.hceris.com',
-      redirectUri: redirectUri(),
-      scope: 'openid profile create:books fuck:you',
-    })
-    client.authorize()
+    auth0Client().authorize()
   }
 }
+
+const auth0Client = () => {
+  return new auth0.WebAuth({
+    clientID: 'q1MDnhpkECDbjSdA9MSsdNRbXEKhWIYj',
+    domain: 'hceris.eu.auth0.com',
+    responseType: 'token id_token',
+    audience: 'shelf2.hceris.com',
+    redirectUri: redirectUri(),
+    scope: 'profile create:books',
+  })
+}
+
+const redirectUri = () => `${process.env.REACT_APP_HOST}/callback`

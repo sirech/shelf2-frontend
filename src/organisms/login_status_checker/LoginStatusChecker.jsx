@@ -13,13 +13,22 @@ type Props = {
 // exported for testing
 export class LoginStatusChecker extends React.Component<Props> {
   componentDidMount() {
-    if (localStorage.getItem('authToken')) {
+    if (this.tokenIsPresent() && !this.tokenIsExpired()) {
       this.props.loginSuccess()
     }
   }
 
   render() {
     return null
+  }
+
+  tokenIsPresent() {
+    return !!localStorage.getItem('authToken')
+  }
+
+  tokenIsExpired() {
+    const expiresAt = localStorage.getItem('expiresAt')
+    return expiresAt && Date.parse(expiresAt) < Date.now()
   }
 }
 
