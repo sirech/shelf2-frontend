@@ -14,7 +14,6 @@ exports[`components BooksArea renders correctly 1`] = `
           "compare": null,
           "displayName": "Connect(BookList)",
           "type": [Function],
-          Symbol(Symbol.hasInstance): [Function],
         }
       }
       exact={true}
