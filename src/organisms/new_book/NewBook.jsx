@@ -3,8 +3,8 @@
 import React from 'react'
 
 import { Button, Container, Row, Col } from 'reactstrap'
-import ReactstrapInput from './ReactstrapInput'
 import ReactstrapSelect from './ReactstrapSelect'
+import input from './input'
 import { Field, Form, Formik } from 'formik'
 
 import type { BookForm as Book } from 'types'
@@ -33,39 +33,15 @@ const NewBook = () => (
       <Container fluid>
         <Row>
           <Col>
-            <Field
-              name="title"
-              label="title"
-              id="title"
-              component={ReactstrapInput}
-              placeholder="Catch-22"
-            />
-
-            <Field
-              type="number"
-              name="year"
-              label="year"
-              id="year"
-              component={ReactstrapInput}
-            />
-
-            <Field
-              type="textarea"
-              name="description"
-              label="description"
-              id="description"
-              component={ReactstrapInput}
-              placeholder="That's some catch, that Catch-22"
-              rows="3"
-            />
-
-            <Field
-              type="number"
-              name="stars"
-              label="stars"
-              id="stars"
-              component={ReactstrapInput}
-            />
+            {input({ name: 'title', placeholder: 'Catch-22' })}
+            {input({ name: 'year', type: 'number' })}
+            {input({
+              name: 'description',
+              type: 'textarea',
+              placeholder: "That's some catch, that Catch-22",
+              rows: '3',
+            })}
+            {input({ name: 'stars', type: 'number' })}
 
             <Field
               name="category"
