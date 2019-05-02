@@ -163,13 +163,14 @@ exports[`components NewBook renders correctly 1`] = `
               </option>
             </select>
           </div>
-          <button
+          <a
             aria-label={null}
-            className="float-right  btn btn-secondary"
+            className="float-right btn btn-secondary"
+            href="/books"
             onClick={[Function]}
           >
             Cancel
-          </button>
+          </a>
           <button
             aria-label={null}
             className="float-right mr-2 btn btn-primary"

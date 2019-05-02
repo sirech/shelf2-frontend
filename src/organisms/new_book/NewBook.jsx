@@ -2,7 +2,9 @@
 
 import React from 'react'
 
+import { LinkContainer } from 'react-router-bootstrap'
 import { Button, Container, Row, Col } from 'reactstrap'
+
 import ReactstrapSelect from './ReactstrapSelect'
 import input from './input'
 import { Field, Form, Formik } from 'formik'
@@ -55,9 +57,11 @@ const NewBook = () => (
               }}
             />
 
-            <Button className="float-right " color="secondary">
-              Cancel
-            </Button>
+            <LinkContainer to="/books">
+              <Button className="float-right " color="secondary">
+                Cancel
+              </Button>
+            </LinkContainer>
 
             <Button className="float-right mr-2" color="primary">
               Create

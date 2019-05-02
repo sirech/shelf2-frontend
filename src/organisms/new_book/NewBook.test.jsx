@@ -1,11 +1,11 @@
 import React from 'react'
-import renderer from 'react-test-renderer'
+import { fullRender } from 'test'
 import NewBook from './NewBook'
 
 describe('components', () => {
   describe('NewBook', () => {
     it('renders correctly', () => {
-      const component = renderer.create(<NewBook />)
+      const { component } = fullRender(<NewBook />)
       expect(component.toJSON()).toMatchSnapshot()
     })
   })
