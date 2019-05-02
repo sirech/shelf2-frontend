@@ -1,0 +1,185 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components NewBook renders correctly 1`] = `
+<section>
+  <form
+    onReset={[Function]}
+    onSubmit={[Function]}
+  >
+    <div
+      className="container-fluid"
+    >
+      <div
+        className="row"
+      >
+        <div
+          className="col"
+        >
+          <div
+            className="form-group"
+          >
+            <label
+              className="label-color"
+              htmlFor="title"
+            >
+              title
+            </label>
+            <input
+              className="form-control"
+              id="title"
+              label="title"
+              name="title"
+              onBlur={[Function]}
+              onChange={[Function]}
+              placeholder="Catch-22"
+              type="text"
+              value=""
+            />
+            
+          </div>
+          <div
+            className="form-group"
+          >
+            <label
+              className="label-color"
+              htmlFor="year"
+            >
+              year
+            </label>
+            <input
+              className="form-control"
+              id="year"
+              label="year"
+              name="year"
+              onBlur={[Function]}
+              onChange={[Function]}
+              type="number"
+              value={2019}
+            />
+            
+          </div>
+          <div
+            className="form-group"
+          >
+            <label
+              className="label-color"
+              htmlFor="description"
+            >
+              description
+            </label>
+            <textarea
+              className="form-control"
+              id="description"
+              label="description"
+              name="description"
+              onBlur={[Function]}
+              onChange={[Function]}
+              placeholder="That's some catch, that Catch-22"
+              rows="3"
+              value=""
+            />
+            
+          </div>
+          <div
+            className="form-group"
+          >
+            <label
+              className="label-color"
+              htmlFor="stars"
+            >
+              stars
+            </label>
+            <input
+              className="form-control"
+              id="stars"
+              label="stars"
+              name="stars"
+              onBlur={[Function]}
+              onChange={[Function]}
+              type="number"
+              value={1}
+            />
+            
+          </div>
+          <div
+            className="form-group"
+          >
+            <label
+              className="label-color"
+              htmlFor="category"
+            >
+              category
+            </label>
+            <select
+              className="form-control"
+              id="category"
+              inputprops={
+                Object {
+                  "id": "category",
+                  "name": "category",
+                  "options": Array [
+                    "sociology",
+                    "software",
+                    "econ",
+                    "history",
+                    "other",
+                  ],
+                }
+              }
+              label="category"
+              name="category"
+              onBlur={[Function]}
+              onChange={[Function]}
+              placeholder="Test"
+              value="software"
+            >
+              <option
+                value=""
+              />
+              <option
+                value="sociology"
+              >
+                sociology
+              </option>
+              <option
+                value="software"
+              >
+                software
+              </option>
+              <option
+                value="econ"
+              >
+                econ
+              </option>
+              <option
+                value="history"
+              >
+                history
+              </option>
+              <option
+                value="other"
+              >
+                other
+              </option>
+            </select>
+          </div>
+          <button
+            aria-label={null}
+            className="float-right  btn btn-secondary"
+            onClick={[Function]}
+          >
+            Cancel
+          </button>
+          <button
+            aria-label={null}
+            className="float-right mr-2 btn btn-primary"
+            onClick={[Function]}
+          >
+            Create
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</section>
+`;

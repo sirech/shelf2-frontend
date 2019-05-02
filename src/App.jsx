@@ -13,6 +13,7 @@ import SearchList from 'organisms/search_list'
 import Callback from 'organisms/callback'
 import Login from 'organisms/login'
 import LoginStatusChecker from 'organisms/login_status_checker'
+import NewBook from 'organisms/new_book'
 
 const year = new Date().getFullYear()
 
@@ -48,6 +49,7 @@ const Content = () => (
     <Route exact path="/callback" component={Callback} />
     <Route exact path="/books/search" render={() => <Redirect to="/books" />} />
     <Route exact path="/books/search/:keyword" component={SearchList} />
+    <Route exact path="/books/new" component={NewBook} />
     <Route component={BooksArea} />
   </Switch>
 )
