@@ -3,6 +3,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
+import { withRouter } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
 
 import {
@@ -26,26 +27,26 @@ type Props = {
   opened: boolean,
   error: boolean,
   valid: boolean,
-  modalToggled: () => void,
+  history: object,
 }
 
 // exported for testing
 export class BookCreator extends React.Component<Props> {
   _form: HTMLFormElement
-  toggle: Function
+  goToNewBook: Function
   attachForm: Function
   handleClick: Function
 
   constructor() {
     super()
 
-    this.toggle = this.toggle.bind(this)
+    this.goToNewBook = this.goToNewBook.bind(this)
     this.attachForm = this.attachForm.bind(this)
     this.handleClick = this.handleClick.bind(this)
   }
 
-  toggle() {
-    this.props.modalToggled()
+  goToNewBook() {
+    this.props.history.push('/books/new')
   }
 
   attachForm(node: HTMLFormElement) {
@@ -72,9 +73,9 @@ export class BookCreator extends React.Component<Props> {
             <title>Add book</title>
           </Helmet>
         )}
-        <CreateButton onClick={this.toggle} />
+        <CreateButton onClick={this.goToNewBook} />
         <Modal isOpen={opened}>
-          <ModalHeader toggle={this.toggle}>Add book</ModalHeader>
+          <ModalHeader goToNewBook={this.goToNewBook}>Add book</ModalHeader>
           <ModalBody>
             {this.showError()}
             <BookForm attachForm={this.attachForm} />
@@ -87,7 +88,7 @@ export class BookCreator extends React.Component<Props> {
             >
               Create
             </Button>
-            <Button color="secondary" onClick={this.toggle}>
+            <Button color="secondary" onClick={this.goToNewBook}>
               Cancel
             </Button>
           </ModalFooter>
@@ -97,12 +98,14 @@ export class BookCreator extends React.Component<Props> {
   }
 }
 
-export default connect(
-  (state, props) =>
-    createStructuredSelector({
-      opened: openedSelector,
-      error: errorSelector,
-      valid: validSelector,
-    })(state),
-  actionPicker(['modalToggled'])(actions)
-)(BookCreator)
+export default withRouter(
+  connect(
+    (state, props) =>
+      createStructuredSelector({
+        opened: openedSelector,
+        error: errorSelector,
+        valid: validSelector,
+      })(state),
+    actionPicker(['modalToggled'])(actions)
+  )(BookCreator)
+)
