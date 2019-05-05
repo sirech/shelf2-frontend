@@ -1,6 +1,7 @@
 // @flow
 
 import React from 'react'
+import { connect } from 'react-redux'
 
 import { LinkContainer } from 'react-router-bootstrap'
 import { Button, Container, Row, Col } from 'reactstrap'
@@ -8,41 +9,32 @@ import { Button, Container, Row, Col } from 'reactstrap'
 import ReactstrapSelect from './ReactstrapSelect'
 import input from './input'
 import { Field, Form, Formik } from 'formik'
-import * as Yup from 'yup'
 
-import type { BookForm as Book } from 'types'
+import initialBook from './initial_book'
+import bookSchema from './schema'
 
-const initialBook: Book = {
-  title: '',
-  year: new Date().getFullYear(),
-  description: '',
-  stars: 1,
-  category: 'software',
+import { actionPicker } from 'state'
+import { actions } from 'state/form'
+
+import type { Categories, BookForm as BookFormType } from 'types'
+type Props = {
+  create: BookFormType => void,
 }
 
-const categories = ['sociology', 'software', 'econ', 'history', 'other']
+const categories: Array<Categories> = [
+  'sociology',
+  'software',
+  'econ',
+  'history',
+  'other',
+]
 
-const bookSchema = Yup.object().shape({
-  title: Yup.string()
-    .min(5, 'min length 5')
-    .max(200, 'max length 200')
-    .required('Required'),
-  year: Yup.number()
-    .min(2000, 'starting at 2000')
-    .max(2100, 'ending at 2100')
-    .required('Required'),
-  stars: Yup.number()
-    .min(1, 'min 1 star')
-    .max(5, 'max 5 stars')
-    .required('Required'),
-})
-
-const NewBookWrapper = () => (
+const NewBookWrapper = (props: Props) => (
   <Formik
     initialValues={initialBook}
     render={NewBook}
     validationSchema={bookSchema}
-    onSubmit={values => console.log(values)}
+    onSubmit={values => props.create(values)}
   />
 )
 
@@ -95,4 +87,11 @@ const NewBook = isSubmitting => (
   </section>
 )
 
-export default NewBookWrapper
+NewBookWrapper.defaultProps = {
+  create: _ => undefined,
+}
+
+export default connect(
+  null,
+  actionPicker(['create'])(actions)
+)(NewBookWrapper)
