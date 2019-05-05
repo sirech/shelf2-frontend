@@ -1,8 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`modalSelector selects the modal 1`] = `
-Object {
-  "error": false,
-  "opened": false,
-}
-`;

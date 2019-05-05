@@ -104,8 +104,6 @@ describe('pacts', () => {
     it('should dispatch the correct actions', () => {
       const expectedActions = [
         { type: 'books:book:create:success', payload: rest.book },
-        { type: 'rrf/reset', model: 'form.book' },
-        { type: 'modal:toggled' },
       ]
 
       return store.dispatch(create(bookForm)).then(() => {

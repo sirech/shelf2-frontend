@@ -1,186 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`components BookCreator renders an error 1`] = `
-<div>
-  <HelmetWrapper
-    defer={true}
-    encodeSpecialCharacters={true}
-  >
-    <title>
-      Add book
-    </title>
-  </HelmetWrapper>
-  <CreateButton
-    onClick={[Function]}
-  />
-  <Modal
-    autoFocus={true}
-    backdrop={true}
-    backdropTransition={
-      Object {
-        "mountOnEnter": true,
-        "timeout": 150,
-      }
-    }
-    centered={false}
-    fade={true}
-    isOpen={true}
-    keyboard={true}
-    modalTransition={
-      Object {
-        "timeout": 300,
-      }
-    }
-    onClosed={[Function]}
-    onOpened={[Function]}
-    returnFocusAfterClose={true}
-    role="dialog"
-    scrollable={false}
-    unmountOnClose={true}
-    zIndex={1050}
-  >
-    <ModalHeader
-      charCode={215}
-      closeAriaLabel="Close"
-      tag="h5"
-      toggle={[Function]}
-      wrapTag="div"
-    >
-      Add book
-    </ModalHeader>
-    <ModalBody
-      tag="div"
-    >
-      <Alert
-        closeAriaLabel="Close"
-        color="danger"
-        fade={true}
-        isOpen={true}
-        tag="div"
-        transition={
-          Object {
-            "appear": true,
-            "baseClass": "fade",
-            "baseClassActive": "show",
-            "enter": true,
-            "exit": true,
-            "in": true,
-            "mountOnEnter": false,
-            "onEnter": [Function],
-            "onEntered": [Function],
-            "onEntering": [Function],
-            "onExit": [Function],
-            "onExited": [Function],
-            "onExiting": [Function],
-            "tag": "div",
-            "timeout": 150,
-            "unmountOnExit": true,
-          }
-        }
-      >
-        Error creating a book
-      </Alert>
-      <ConnectFunction
-        attachForm={[Function]}
-      />
-    </ModalBody>
-    <ModalFooter
-      tag="div"
-    >
-      <Button
-        color="primary"
-        disabled={false}
-        onClick={[Function]}
-        tag="button"
-      >
-        Create
-      </Button>
-      <Button
-        color="secondary"
-        onClick={[Function]}
-        tag="button"
-      >
-        Cancel
-      </Button>
-    </ModalFooter>
-  </Modal>
-</div>
-`;
-
 exports[`components BookCreator renders correctly 1`] = `
-<div>
-  <HelmetWrapper
-    defer={true}
-    encodeSpecialCharacters={true}
-  >
-    <title>
-      Add book
-    </title>
-  </HelmetWrapper>
-  <CreateButton
+<span
+  className="createButton"
+>
+  <button
+    aria-label={null}
+    className="btn btn-success"
     onClick={[Function]}
-  />
-  <Modal
-    autoFocus={true}
-    backdrop={true}
-    backdropTransition={
-      Object {
-        "mountOnEnter": true,
-        "timeout": 150,
-      }
-    }
-    centered={false}
-    fade={true}
-    isOpen={true}
-    keyboard={true}
-    modalTransition={
-      Object {
-        "timeout": 300,
-      }
-    }
-    onClosed={[Function]}
-    onOpened={[Function]}
-    returnFocusAfterClose={true}
-    role="dialog"
-    scrollable={false}
-    unmountOnClose={true}
-    zIndex={1050}
+    type="button"
   >
-    <ModalHeader
-      charCode={215}
-      closeAriaLabel="Close"
-      tag="h5"
-      toggle={[Function]}
-      wrapTag="div"
+    <svg
+      aria-hidden="true"
+      className="svg-inline--fa fa-plus fa-w-14 "
+      data-icon="plus"
+      data-prefix="fas"
+      focusable="false"
+      role="img"
+      style={Object {}}
+      viewBox="0 0 448 512"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      Add book
-    </ModalHeader>
-    <ModalBody
-      tag="div"
-    >
-      <ConnectFunction
-        attachForm={[Function]}
+      <path
+        d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"
+        fill="currentColor"
+        style={Object {}}
       />
-    </ModalBody>
-    <ModalFooter
-      tag="div"
-    >
-      <Button
-        color="primary"
-        disabled={false}
-        onClick={[Function]}
-        tag="button"
-      >
-        Create
-      </Button>
-      <Button
-        color="secondary"
-        onClick={[Function]}
-        tag="button"
-      >
-        Cancel
-      </Button>
-    </ModalFooter>
-  </Modal>
-</div>
+    </svg>
+    Add Book
+  </button>
+</span>
 `;

@@ -1,13 +1,9 @@
 // @flow
 
-import { actions } from 'react-redux-form'
-
 import { fetch } from 'rest'
 
 import { BOOK_CREATE_SUCCESS, BOOK_CREATE_FAIL } from './constants'
-import { modelName } from './utils'
 
-import { actions as modalActions } from '../modal'
 import { actions as loginActions } from '../login'
 
 import type { BookForm, Book } from 'types'
@@ -22,14 +18,6 @@ const bookCreationFailed = error => ({
   payload: error,
 })
 
-export const changeStars = (count: number) => {
-  return (dispatch: Dispatch) => {
-    dispatch(actions.change(modelName('stars'), count))
-  }
-}
-
-const resetForm = () => actions.reset(modelName())
-
 export const create = (book: BookForm) => {
   return (dispatch: Dispatch) => {
     const url = '/books'
@@ -38,8 +26,6 @@ export const create = (book: BookForm) => {
 
     return fetch(url, { method, data })
       .then(response => dispatch(bookCreated(response.data)))
-      .then(() => dispatch(resetForm()))
-      .then(() => dispatch(modalActions.modalToggled()))
       .catch(error => {
         localStorage.removeItem('authToken')
         dispatch(bookCreationFailed(error.response.data))
