@@ -5,11 +5,13 @@ import { MemoryRouter } from 'react-router-dom'
 
 import mockStore from './mock_store'
 
-const fullRender = (jsx, state = {}) => {
+const fullRender = (jsx, state = {}, route = '/') => {
   const store = mockStore(state)
   const component = renderer.create(
     <Provider store={store}>
-      <MemoryRouter>{jsx}</MemoryRouter>
+      <MemoryRouter initialEntries={[route]} initialIndex={0}>
+        {jsx}
+      </MemoryRouter>
     </Provider>
   )
 

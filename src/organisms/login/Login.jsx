@@ -14,8 +14,7 @@ type Props = {
   startLogin: () => undefined,
 }
 
-// exported for testing
-export class Login extends React.Component {
+class Login extends React.Component {
   static defaultProps: Props
   props: Props
 

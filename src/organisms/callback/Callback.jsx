@@ -14,8 +14,7 @@ type Props = {
   login: () => undefined,
 }
 
-// exported for testing
-export class Callback extends React.Component {
+class Callback extends React.Component {
   static defaultProps: Props
   props: Props
 

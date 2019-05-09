@@ -1,20 +1,23 @@
 import React from 'react'
+import { fullRender } from 'test'
+import state from 'state/__fixtures__'
 
-import { shallow } from 'enzyme'
-import toJson from 'enzyme-to-json'
-
-import { Login } from './Login'
+import Login from './Login'
 
 describe('components', () => {
   describe('Login', () => {
-    it('does not blow up', () => {
-      const component = shallow(<Login />)
-      expect(toJson(component)).toMatchSnapshot()
+    xit('does not blow up', () => {
+      const currentState = state()
+      currentState.login.authenticated = false
+      const { component } = fullRender(<Login />, currentState, '/callback')
+      expect(component.toJSON()).toMatchSnapshot()
     })
 
-    it('renders a redirect if authenticated', () => {
-      const component = shallow(<Login authenticated />)
-      expect(toJson(component)).toMatchSnapshot()
+    xit('renders a redirect if authenticated', () => {
+      const currentState = state()
+      currentState.login.authenticated = true
+      const { component } = fullRender(<Login />, currentState, '/callback')
+      expect(component.toJSON()).toMatchSnapshot()
     })
   })
 })

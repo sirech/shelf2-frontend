@@ -5,21 +5,10 @@ exports[`components BooksArea renders correctly 1`] = `
   className="grid"
 >
   <main>
-    <ConnectFunction />
-    <Route
-      component={
-        Object {
-          "$$typeof": Symbol(react.memo),
-          "WrappedComponent": [Function],
-          "compare": null,
-          "displayName": "Connect(BookList)",
-          "type": [Function],
-        }
-      }
-      exact={true}
-      path="/books/:year"
-    />
+    <div />
   </main>
-  <ConnectFunction />
+  <aside
+    className="list-group"
+  />
 </div>
 `;

@@ -1,14 +1,13 @@
 import React from 'react'
-import { shallow } from 'enzyme'
-import toJson from 'enzyme-to-json'
+import { fullRender } from 'test'
 
 import BooksArea from './BooksArea'
 
 describe('components', () => {
   describe('BooksArea', () => {
     it('renders correctly', () => {
-      const component = shallow(<BooksArea />)
-      expect(toJson(component)).toMatchSnapshot()
+      const { component } = fullRender(<BooksArea />, {}, '/books/2016')
+      expect(component.toJSON()).toMatchSnapshot()
     })
   })
 })

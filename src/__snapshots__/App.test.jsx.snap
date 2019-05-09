@@ -1,11 +1,60 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`components App renders correctly 1`] = `
-<BrowserRouter>
-  <div>
-    <Checks />
-    <Header />
-    <Content />
+<div>
+  <div />
+  <header
+    className="mb-4"
+  >
+    <nav
+      className="navbar navbar-expand-sm navbar-dark bg-dark"
+    >
+      <a
+        className="active navbar-brand"
+        href="/books"
+        onClick={[Function]}
+        style={Object {}}
+      >
+        Shelf
+      </a>
+      <button
+        className="navbar-toggler"
+        onClick={[Function]}
+        type="button"
+      >
+        <span
+          className="navbar-toggler-icon"
+        />
+      </button>
+      <div
+        className="collapse navbar-collapse"
+        style={Object {}}
+      >
+        <ul
+          className="ml-auto navbar-nav"
+        >
+          <form
+            className="form-inline"
+          >
+            <input
+              className="form-control"
+              onChange={[Function]}
+              type="text"
+            />
+          </form>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <div
+    className="grid"
+  >
+    <main>
+      <div />
+    </main>
+    <aside
+      className="list-group"
+    />
   </div>
-</BrowserRouter>
+</div>
 `;
