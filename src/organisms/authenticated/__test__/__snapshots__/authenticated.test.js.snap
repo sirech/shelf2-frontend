@@ -1,10 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`authenticated does not render the component if authenticated is not required 1`] = `null`;
-
 exports[`authenticated renders the component if authenticated is required 1`] = `
 <div>
   Mock
-  stuff
 </div>
 `;
