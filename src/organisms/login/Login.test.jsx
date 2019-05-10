@@ -1,23 +1,38 @@
 import React from 'react'
+import { Route } from 'react-router-dom'
+
 import { fullRender } from 'test'
 import state from 'state/__fixtures__'
 
 import Login from './Login'
 
+import { actions } from 'state/login'
+jest.mock('state/login/actions', () => ({
+  startLogin: jest.fn(dispatch => jest.fn()),
+}))
+
 describe('components', () => {
   describe('Login', () => {
-    xit('does not blow up', () => {
+    it('does not blow up', () => {
       const currentState = state()
       currentState.login.authenticated = false
-      const { component } = fullRender(<Login />, currentState, '/callback')
-      expect(component.toJSON()).toMatchSnapshot()
+      fullRender(
+        <Route path="/login" component={Login} />,
+        currentState,
+        '/login'
+      )
+      expect(actions.startLogin.mock.calls.length).toBe(1)
     })
 
-    xit('renders a redirect if authenticated', () => {
+    it('renders a redirect if authenticated', () => {
       const currentState = state()
       currentState.login.authenticated = true
-      const { component } = fullRender(<Login />, currentState, '/callback')
-      expect(component.toJSON()).toMatchSnapshot()
+      const { component } = fullRender(
+        <Route path="/login" component={Login} />,
+        currentState,
+        '/login'
+      )
+      expect(component.toJSON()).toBeNull()
     })
   })
 })
