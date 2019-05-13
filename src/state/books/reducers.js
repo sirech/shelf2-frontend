@@ -1,34 +1,25 @@
-import update from 'immutability-helper'
-import * as R from 'ramda'
+import produce from 'immer'
 
 import { RECEIVE_BOOKS, MARK_ACTIVE_YEAR } from './constants'
 import { constants } from '../form'
 
 const initialState = { entities: { books: {} }, result: [] }
 
-const updateBook = (state, book) => {
-  if (state.activeYear === book.year) {
-    return update(state, {
-      entities: {
-        books: { $merge: { [book.id]: book } },
-      },
-
-      result: { $apply: list => R.append(book.id)(list) },
-    })
-  } else {
-    return state
-  }
-}
-
 export default function books(state = initialState, action) {
-  switch (action.type) {
-    case RECEIVE_BOOKS:
-      return { ...state, ...action.payload }
-    case MARK_ACTIVE_YEAR:
-      return { ...state, activeYear: action.payload }
-    case constants.BOOK_CREATE_SUCCESS:
-      return updateBook(state, action.payload)
-    default:
-      return state
-  }
+  return produce(state, draft => {
+    switch (action.type) {
+      case RECEIVE_BOOKS:
+        draft = { ...action.payload }
+        break
+      case MARK_ACTIVE_YEAR:
+        draft.activeYear = action.payload
+        break
+      case constants.BOOK_CREATE_SUCCESS:
+        const book = action.payload
+        if (state.activeYear === book.year) {
+          draft.entities.books[book.id] = book
+          draft.result.push(book.id)
+        }
+    }
+  })
 }

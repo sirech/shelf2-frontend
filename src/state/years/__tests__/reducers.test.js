@@ -11,7 +11,7 @@ describe('years reducer', () => {
 
   describe('handles BOOK_CREATE_SUCCESS', () => {
     it('it adds a new year entry', () => {
-      const book = factories.book.build({ year: 2100 })
+      const book = factories.book.build({ year: 2015 })
       expect(
         reducer(years(), { type: constants.BOOK_CREATE_SUCCESS, payload: book })
       ).toMatchSnapshot()
