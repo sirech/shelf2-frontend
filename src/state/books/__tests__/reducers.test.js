@@ -1,5 +1,5 @@
 import reducer from '../reducers'
-import { markActiveYear } from '../actions'
+import { markActiveYear, receiveBooks } from '../actions'
 
 import { constants } from '../../form'
 import { factories } from 'test'
@@ -8,6 +8,10 @@ import { books } from '../../__fixtures__'
 describe('book reducer', () => {
   it('returns the initial state', () => {
     expect(reducer(undefined, {})).toMatchSnapshot()
+  })
+
+  it('handles RECEIVE_BOOKS', () => {
+    expect(reducer(undefined, receiveBooks(books()))).toMatchSnapshot()
   })
 
   it('handles MARK_ACTIVE_YEAR', () => {

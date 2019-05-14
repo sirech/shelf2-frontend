@@ -9,7 +9,9 @@ export default function books(state = initialState, action) {
   return produce(state, draft => {
     switch (action.type) {
       case RECEIVE_BOOKS:
-        draft = { ...action.payload }
+        const { entities, result } = action.payload
+        draft.entities = entities
+        draft.result = result
         break
       case MARK_ACTIVE_YEAR:
         draft.activeYear = action.payload

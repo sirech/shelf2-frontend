@@ -5,7 +5,8 @@ import { RECEIVE_YEARS } from './constants'
 import { fetch, normalizeYears } from 'rest'
 import type { NormalizedYears } from 'types'
 
-const receiveYears = (years: NormalizedYears) => ({
+// exported for testing
+export const receiveYears = (years: NormalizedYears) => ({
   type: RECEIVE_YEARS,
   payload: years,
 })

@@ -1,5 +1,6 @@
 import reducer from '../reducers'
 
+import { receiveYears } from '../actions'
 import { constants } from '../../form'
 import { factories } from 'test'
 import { years } from '../../__fixtures__'
@@ -7,6 +8,10 @@ import { years } from '../../__fixtures__'
 describe('years reducer', () => {
   it('returns the initial state', () => {
     expect(reducer(undefined, {})).toMatchSnapshot()
+  })
+
+  it('handles RECEIVE_YEARS', () => {
+    expect(reducer(undefined, receiveYears(years()))).toMatchSnapshot()
   })
 
   describe('handles BOOK_CREATE_SUCCESS', () => {

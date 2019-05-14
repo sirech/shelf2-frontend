@@ -86,6 +86,73 @@ Object {
 }
 `;
 
+exports[`book reducer handles RECEIVE_BOOKS 1`] = `
+Object {
+  "entities": Object {
+    "books": Object {
+      "10": Object {
+        "category": "other",
+        "id": 10,
+        "stars": 1,
+        "title": "Carrion Comfort",
+        "year": 2016,
+      },
+      "11": Object {
+        "category": "history",
+        "id": 11,
+        "stars": 2,
+        "title": "Time To Murder And Create",
+        "year": 2016,
+      },
+      "4": Object {
+        "category": "history",
+        "id": 4,
+        "stars": 5,
+        "title": "Fear and Trembling",
+        "year": 2016,
+      },
+      "6": Object {
+        "category": "sociology",
+        "id": 6,
+        "stars": 1,
+        "title": "The Painted Veil",
+        "year": 2016,
+      },
+      "7": Object {
+        "category": "other",
+        "id": 7,
+        "stars": 1,
+        "title": "Things Fall Apart",
+        "year": 2016,
+      },
+      "8": Object {
+        "category": "sociology",
+        "id": 8,
+        "stars": 2,
+        "title": "Alone on a Wide, Wide Sea",
+        "year": 2016,
+      },
+      "9": Object {
+        "category": "other",
+        "id": 9,
+        "stars": 2,
+        "title": "I Know Why the Caged Bird Sings",
+        "year": 2016,
+      },
+    },
+  },
+  "result": Array [
+    8,
+    10,
+    4,
+    9,
+    6,
+    7,
+    11,
+  ],
+}
+`;
+
 exports[`book reducer returns the initial state 1`] = `
 Object {
   "entities": Object {

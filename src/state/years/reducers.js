@@ -23,7 +23,9 @@ export default function years(state = initialState, action) {
   return produce(state, draft => {
     switch (action.type) {
       case RECEIVE_YEARS:
-        draft = { ...action.payload }
+        const { entities, result } = action.payload
+        draft.entities = entities
+        draft.result = result
         break
       case constants.BOOK_CREATE_SUCCESS:
         const year = action.payload.year
