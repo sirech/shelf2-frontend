@@ -17,6 +17,8 @@ export function status(state = initialState, action) {
       case LOGOUT_SUCCESS:
         draft.authenticated = false
         break
+      default:
+        break
     }
   })
 }

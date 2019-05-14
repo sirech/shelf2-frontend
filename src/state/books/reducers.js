@@ -20,6 +20,9 @@ export default function books(state = initialState, action) {
           draft.entities.books[book.id] = book
           draft.result.push(book.id)
         }
+        break
+      default:
+        break
     }
   })
 }

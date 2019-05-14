@@ -10,6 +10,8 @@ export default function books(state = initialState, action) {
       case RECEIVE_SEARCH_RESULT:
         draft = { ...action.payload }
         break
+      default:
+        break
     }
   })
 }

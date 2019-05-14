@@ -34,6 +34,9 @@ export default function years(state = initialState, action) {
         } else {
           newYear(draft, year)
         }
+        break
+      default:
+        break
     }
   })
 }
