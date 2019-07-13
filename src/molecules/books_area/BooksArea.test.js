@@ -3,6 +3,8 @@ import { fullRender } from 'test'
 
 import BooksArea from './BooksArea'
 
+jest.mock('rest/fetch')
+
 describe('components', () => {
   describe('BooksArea', () => {
     it('renders correctly', () => {

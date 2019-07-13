@@ -3,6 +3,8 @@ import { fullRender } from 'test'
 
 import App from './App'
 
+jest.mock('rest/fetch')
+
 describe('components', () => {
   describe('App', () => {
     it('renders correctly', () => {
