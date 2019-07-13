@@ -26,7 +26,7 @@ describe('pacts', () => {
   afterAll(() => provider.finalize(), 5 * 60 * 1000)
 
   describe('books - fetchBooks', () => {
-    let year = '2016'
+    const year = '2016'
 
     beforeAll(async () => {
       const interaction = {
@@ -162,7 +162,7 @@ describe('pacts', () => {
   })
 
   describe('search - search', () => {
-    let keyword = 'a'
+    const keyword = 'a'
 
     beforeAll(async () => {
       const interaction = {

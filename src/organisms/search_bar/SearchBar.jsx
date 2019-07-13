@@ -9,6 +9,7 @@ type Props = { history: Object }
 
 class SearchBar extends React.Component {
   props: Props
+
   onChange: Function
 
   constructor() {

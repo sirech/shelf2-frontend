@@ -15,8 +15,8 @@ const ReactstrapSelect = ({
   label: string,
   inputprops: Object,
 }) => {
-  let error = errors[field.name]
-  let touch = touched[field.name]
+  const error = errors[field.name]
+  const touch = touched[field.name]
   return (
     <FormGroup>
       <Label for={props.inputprops.id} className={'label-color'}>

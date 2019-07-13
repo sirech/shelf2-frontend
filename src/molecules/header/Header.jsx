@@ -32,6 +32,7 @@ type State = {
 
 class Header extends React.Component {
   state: State
+
   toggle: Function
 
   constructor() {

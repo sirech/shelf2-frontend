@@ -16,6 +16,7 @@ type Props = {
 
 class Callback extends React.Component {
   static defaultProps: Props
+
   props: Props
 
   redirectIfLoggedIn() {

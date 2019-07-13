@@ -16,6 +16,7 @@ type Props = {
 
 class Login extends React.Component {
   static defaultProps: Props
+
   props: Props
 
   redirectIfLoggedIn() {

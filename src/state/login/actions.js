@@ -21,7 +21,7 @@ export const login = () => {
     auth0Client().parseHash((err, authResult) => {
       if (authResult && authResult.accessToken) {
         window.location.hash = ''
-        let expiresAt = new Date()
+        const expiresAt = new Date()
         expiresAt.setSeconds(expiresAt.getSeconds() + authResult.expiresIn)
 
         localStorage.setItem('authToken', authResult.accessToken)
