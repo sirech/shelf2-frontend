@@ -55,12 +55,12 @@
     "react-test-renderer": "^16.8.6",
     "redux-mock-store": "^1.5.3",
     "rosie": "^2.0.1",
+    "source-map-explorer": "^1.8.0",
     "stylelint": "^10.1.0",
     "stylelint-config-recommended": "^2.2.0",
     "stylelint-config-standard": "^18.3.0",
     "stylelint-declaration-block-no-ignored-properties": "^2.1.0",
-    "stylelint-order": "^3.0.1",
-    "webpack-bundle-analyzer": "^3.3.2"
+    "stylelint-order": "^3.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -72,7 +72,7 @@
     "linter:js": "node_modules/.bin/eslint src --ext jsx --ext js",
     "linter:css": "node_modules/.bin/stylelint \"src/**/*.css\"",
     "stub": "bin/launch-stub-server",
-    "bundle": "node scripts/bundle.js",
+    "bundle": "yarn build && source-map-explorer 'build/static/js/*.js'",
     "audit": "node_modules/.bin/hawkeye scan"
   },
   "eslintConfig": {
