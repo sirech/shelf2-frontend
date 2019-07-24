@@ -1,6 +1,7 @@
 // @flow
 
 import React from 'react'
+import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import { LinkContainer } from 'react-router-bootstrap'
@@ -18,6 +19,7 @@ import { actions } from 'state/form'
 
 import type { Categories, BookForm as BookFormType } from 'types'
 type Props = {
+  history: Object,
   create: BookFormType => void,
 }
 
@@ -34,7 +36,7 @@ const NewBookWrapper = (props: Props) => (
     initialValues={initialBook}
     render={NewBook}
     validationSchema={bookSchema}
-    onSubmit={values => props.create(values)}
+    onSubmit={values => props.create(values, props.history)}
   />
 )
 
@@ -94,4 +96,4 @@ NewBookWrapper.defaultProps = {
 export default connect(
   null,
   actionPicker(['create'])(actions)
-)(NewBookWrapper)
+)(withRouter(NewBookWrapper))

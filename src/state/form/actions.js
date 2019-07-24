@@ -18,7 +18,7 @@ const bookCreationFailed = error => ({
   payload: error,
 })
 
-export const create = (book: BookForm) => {
+export const create = (book: BookForm, history: Object) => {
   return (dispatch: Dispatch) => {
     const url = '/books'
     const method = 'POST'
@@ -26,6 +26,7 @@ export const create = (book: BookForm) => {
 
     return fetch(url, { method, data })
       .then(response => dispatch(bookCreated(response.data)))
+      .then(() => history.push('/books'))
       .catch(error => {
         localStorage.removeItem('authToken')
         dispatch(bookCreationFailed(error.response.data))

@@ -70,6 +70,7 @@ describe('pacts', () => {
 
   describe('forms - change', () => {
     const bookForm = R.omit(['id'])(rest.book)
+    const history = { push: jest.fn() }
 
     beforeAll(async () => {
       const interaction = {
@@ -106,14 +107,16 @@ describe('pacts', () => {
         { type: 'books:book:create:success', payload: rest.book },
       ]
 
-      return store.dispatch(create(bookForm)).then(() => {
+      return store.dispatch(create(bookForm, history)).then(() => {
         expect(store.getActions()).toEqual(expectedActions)
+        expect(history.push).toHaveBeenCalledWith('/books')
       })
     })
   })
 
   describe('forms - errors', () => {
     const bookForm = R.omit(['id'])(rest.book)
+    const history = { push: jest.fn() }
 
     beforeAll(async () => {
       const interaction = {
@@ -155,7 +158,7 @@ describe('pacts', () => {
     })
 
     it('should delete the existing token', () => {
-      return store.dispatch(create(bookForm)).then(() => {
+      return store.dispatch(create(bookForm, history)).then(() => {
         expect(global.localStorage.removeItem).toHaveBeenCalledWith('authToken')
       })
     })
