@@ -34,13 +34,18 @@ const categories: Array<Categories> = [
 const NewBookWrapper = (props: Props) => (
   <Formik
     initialValues={initialBook}
+    initialStatus={{ submitError: '' }}
     render={NewBook}
     validationSchema={bookSchema}
-    onSubmit={values => props.create(values, props.history)}
+    onSubmit={(values, { setStatus }) =>
+      props.create(values, props.history, error =>
+        setStatus({ submitError: error })
+      )
+    }
   />
 )
 
-const NewBook = isSubmitting => (
+const NewBook = ({ status: { submitError }, isSubmitting }: Object) => (
   <section>
     <Form>
       <Container fluid>
@@ -68,20 +73,22 @@ const NewBook = isSubmitting => (
               }}
             />
 
-            <LinkContainer to="/books">
-              <Button className="float-right " color="secondary">
-                Cancel
+            <section>
+              {submitError && <div>{submitError}</div>}
+              <LinkContainer to="/books">
+                <Button className="float-right " color="secondary">
+                  Cancel
+                </Button>
+              </LinkContainer>
+              <Button
+                className="float-right mr-2"
+                color="primary"
+                type="submit"
+                disabled={isSubmitting}
+              >
+                Create
               </Button>
-            </LinkContainer>
-
-            <Button
-              className="float-right mr-2"
-              color="primary"
-              type="submit"
-              disabled={!isSubmitting}
-            >
-              Create
-            </Button>
+            </section>
           </Col>
         </Row>
       </Container>

@@ -163,23 +163,26 @@ exports[`components NewBook renders correctly 1`] = `
               </option>
             </select>
           </div>
-          <a
-            aria-label={null}
-            className="float-right btn btn-secondary"
-            href="/books"
-            onClick={[Function]}
-          >
-            Cancel
-          </a>
-          <button
-            aria-label={null}
-            className="float-right mr-2 btn btn-primary"
-            disabled={false}
-            onClick={[Function]}
-            type="submit"
-          >
-            Create
-          </button>
+          <section>
+            
+            <a
+              aria-label={null}
+              className="float-right btn btn-secondary"
+              href="/books"
+              onClick={[Function]}
+            >
+              Cancel
+            </a>
+            <button
+              aria-label={null}
+              className="float-right mr-2 btn btn-primary"
+              disabled={false}
+              onClick={[Function]}
+              type="submit"
+            >
+              Create
+            </button>
+          </section>
         </div>
       </div>
     </div>

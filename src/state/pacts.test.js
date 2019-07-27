@@ -117,6 +117,7 @@ describe('pacts', () => {
   describe('forms - errors', () => {
     const bookForm = R.omit(['id'])(rest.book)
     const history = { push: jest.fn() }
+    const errorCallback = jest.fn()
 
     beforeAll(async () => {
       const interaction = {
@@ -147,20 +148,15 @@ describe('pacts', () => {
     })
 
     it('should dispatch the correct actions', () => {
-      const expectedActions = [
-        { type: 'books:book:create:fail', payload: '' },
-        { type: 'logout:success' },
-      ]
+      const expectedActions = [{ type: 'books:book:create:fail', payload: '' }]
 
-      return store.dispatch(create(bookForm)).then(() => {
-        expect(store.getActions()).toEqual(expectedActions)
-      })
-    })
-
-    it('should delete the existing token', () => {
-      return store.dispatch(create(bookForm, history)).then(() => {
-        expect(global.localStorage.removeItem).toHaveBeenCalledWith('authToken')
-      })
+      return store
+        .dispatch(create(bookForm, history, errorCallback))
+        .then(() => {
+          expect(store.getActions()).toEqual(expectedActions)
+          expect(history.push).not.toHaveBeenCalled()
+          expect(errorCallback).toHaveBeenCalled()
+        })
     })
   })
 
