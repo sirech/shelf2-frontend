@@ -35,7 +35,7 @@ class BookList extends React.Component<Props> {
     }
   }
 
-  componentWillUpdate(nextProps: Props) {
+  componentDidUpdate(nextProps: Props) {
     const year = BookList.getYear(this.props)
     const newYear = BookList.getYear(nextProps)
 

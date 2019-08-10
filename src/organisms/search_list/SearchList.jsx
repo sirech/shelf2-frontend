@@ -43,7 +43,7 @@ class SearchList extends React.Component<Props> {
     }
   }
 
-  componentWillUpdate(nextProps: Props) {
+  componentDidUpdate(nextProps: Props) {
     const keyword = SearchList.getKeyword(this.props)
     const newKeyword = SearchList.getKeyword(nextProps)
 
