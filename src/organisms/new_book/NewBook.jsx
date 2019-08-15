@@ -3,13 +3,14 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
+import { Field, Form, Formik } from 'formik'
 
 import { LinkContainer } from 'react-router-bootstrap'
 import { Button, Container, Row, Col } from 'reactstrap'
 
 import ReactstrapSelect from './ReactstrapSelect'
 import input from './input'
-import { Field, Form, Formik } from 'formik'
+import Stars from './Stars'
 
 import initialBook from './initial_book'
 import bookSchema from './schema'
@@ -45,7 +46,12 @@ const NewBookWrapper = (props: Props) => (
   />
 )
 
-const NewBook = ({ status: { submitError }, isSubmitting }: Object) => (
+const NewBook = ({
+  status: { submitError },
+  isSubmitting,
+  fields,
+  setFieldValue,
+}: Object) => (
   <section>
     <Form>
       <Container fluid>
@@ -59,7 +65,8 @@ const NewBook = ({ status: { submitError }, isSubmitting }: Object) => (
               placeholder: "That's some catch, that Catch-22",
               rows: '3',
             })}
-            {input({ name: 'stars', type: 'number' })}
+
+            <Stars />
 
             <Field
               name="category"
