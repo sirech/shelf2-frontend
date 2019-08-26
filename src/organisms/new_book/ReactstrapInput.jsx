@@ -14,7 +14,7 @@ const ReactstrapInput = ({
   label: string,
 }) => (
   <FormGroup>
-    <Label for={props.id} className={'label-color'}>
+    <Label for={props.id} className="label-color">
       {props.label}
     </Label>
     <Input

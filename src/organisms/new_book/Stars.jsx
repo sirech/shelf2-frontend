@@ -13,7 +13,7 @@ const Stars = () => (
   <Field name={fieldName} id={fieldName} type="number">
     {({ field: { value }, form: { setFieldValue } }) => (
       <FormGroup>
-        <Label for={fieldName} className={'label-color'}>
+        <Label for={fieldName} className="label-color">
           {fieldName}
         </Label>
         <div>

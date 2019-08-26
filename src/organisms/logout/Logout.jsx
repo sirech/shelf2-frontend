@@ -15,21 +15,21 @@ type Props = {
 }
 
 class Logout extends React.Component<Props> {
-  onClick: Function
+  handleClick: Function
 
   constructor() {
     super()
-    this.onClick = this.onClick.bind(this)
+    this.handleClick = this.handleClick.bind(this)
   }
 
-  onClick() {
+  handleClick() {
     this.props.logout()
   }
 
   render() {
     return (
       <NavItem>
-        <div onClick={this.onClick} className="nav-link" role="link">
+        <div onClick={this.handleClick} className="nav-link" role="link">
           Logout
         </div>
       </NavItem>
@@ -38,5 +38,8 @@ class Logout extends React.Component<Props> {
 }
 
 export default authenticated()(
-  connect(null, actionPicker(['logout'])(actions))(Logout)
+  connect(
+    null,
+    actionPicker(['logout'])(actions)
+  )(Logout)
 )

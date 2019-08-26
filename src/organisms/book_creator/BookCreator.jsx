@@ -11,20 +11,20 @@ type Props = {
 
 // exported for testing
 export class BookCreator extends React.Component<Props> {
-  goToNewBook: Function
+  handleClick: Function
 
   constructor() {
     super()
 
-    this.goToNewBook = this.goToNewBook.bind(this)
+    this.handleClick = this.handleClick.bind(this)
   }
 
-  goToNewBook() {
+  handleClick() {
     this.props.history.push('/books/new')
   }
 
   render() {
-    return <CreateButton onClick={this.goToNewBook} />
+    return <CreateButton onClick={this.handleClick} />
   }
 }
 

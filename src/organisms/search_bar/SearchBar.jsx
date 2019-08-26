@@ -10,14 +10,14 @@ type Props = { history: Object }
 class SearchBar extends React.Component {
   props: Props
 
-  onChange: Function
+  handleChange: Function
 
   constructor() {
     super()
-    this.onChange = this.onChange.bind(this)
+    this.handleChange = this.handleChange.bind(this)
   }
 
-  onChange(e) {
+  handleChange(e) {
     e.preventDefault()
     this.props.history.push(`/books/search/${e.target.value}`)
   }
@@ -25,7 +25,7 @@ class SearchBar extends React.Component {
   render() {
     return (
       <Form inline>
-        <Input onChange={this.onChange} />
+        <Input onChange={this.handleChange} />
       </Form>
     )
   }

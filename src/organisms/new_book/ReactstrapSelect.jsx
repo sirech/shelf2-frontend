@@ -19,7 +19,7 @@ const ReactstrapSelect = ({
   const touch = touched[field.name]
   return (
     <FormGroup>
-      <Label for={props.inputprops.id} className={'label-color'}>
+      <Label for={props.inputprops.id} className="label-color">
         {props.label}
       </Label>
       <Input

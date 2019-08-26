@@ -13,7 +13,7 @@ const addAuthorization = headers => {
   const token = localStorage.getItem('authToken')
 
   if (token) {
-    headers['Authorization'] = `Bearer: ${token}`
+    headers.Authorization = `Bearer: ${token}`
   }
 }
 

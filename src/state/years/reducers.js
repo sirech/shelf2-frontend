@@ -22,12 +22,13 @@ const increaseExisting = (draft, year) => {
 export default function years(state = initialState, action) {
   return produce(state, draft => {
     switch (action.type) {
-      case RECEIVE_YEARS:
+      case RECEIVE_YEARS: {
         const { entities, result } = action.payload
         draft.entities = entities
         draft.result = result
         break
-      case constants.BOOK_CREATE_SUCCESS:
+      }
+      case constants.BOOK_CREATE_SUCCESS: {
         const year = action.payload.year
         const yearList = state.result
 
@@ -37,6 +38,7 @@ export default function years(state = initialState, action) {
           newYear(draft, year)
         }
         break
+      }
       default:
         break
     }
