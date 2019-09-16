@@ -58,7 +58,7 @@
     "source-map-explorer": "^2.0.1",
     "stylelint": "^10.1.0",
     "stylelint-config-recommended": "^2.2.0",
-    "stylelint-config-standard": "^18.3.0",
+    "stylelint-config-standard": "^19.0.0",
     "stylelint-declaration-block-no-ignored-properties": "^2.1.0",
     "stylelint-order": "^3.1.0"
   },
