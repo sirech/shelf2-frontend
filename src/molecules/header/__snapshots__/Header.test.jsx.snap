@@ -15,6 +15,7 @@ exports[`components Header renders correctly 1`] = `
       Shelf
     </a>
     <button
+      aria-label="Toggle navigation"
       className="navbar-toggler"
       onClick={[Function]}
       type="button"
@@ -24,6 +25,7 @@ exports[`components Header renders correctly 1`] = `
       />
     </button>
     <div
+      aria-expanded="false"
       className="collapse navbar-collapse"
       style={Object {}}
     >

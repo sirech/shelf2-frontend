@@ -22,7 +22,7 @@ exports[`components SimpleBookList renders correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            className="svg-inline--fa fa-star fa-w-18 fa-lg fa-rotate-null fa-pull-null "
+            className="svg-inline--fa fa-star fa-w-18 fa-lg "
             data-icon="star"
             data-prefix="fas"
             focusable="false"
@@ -44,7 +44,7 @@ exports[`components SimpleBookList renders correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            className="svg-inline--fa fa-star fa-w-18 fa-lg fa-rotate-null fa-pull-null "
+            className="svg-inline--fa fa-star fa-w-18 fa-lg "
             data-icon="star"
             data-prefix="fas"
             focusable="false"
@@ -66,7 +66,7 @@ exports[`components SimpleBookList renders correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            className="svg-inline--fa fa-star fa-w-18 fa-lg fa-rotate-null fa-pull-null "
+            className="svg-inline--fa fa-star fa-w-18 fa-lg "
             data-icon="star"
             data-prefix="fas"
             focusable="false"
@@ -88,7 +88,7 @@ exports[`components SimpleBookList renders correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            className="svg-inline--fa fa-star fa-w-18 fa-lg fa-rotate-null fa-pull-null "
+            className="svg-inline--fa fa-star fa-w-18 fa-lg "
             data-icon="star"
             data-prefix="far"
             focusable="false"
@@ -110,7 +110,7 @@ exports[`components SimpleBookList renders correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            className="svg-inline--fa fa-star fa-w-18 fa-lg fa-rotate-null fa-pull-null "
+            className="svg-inline--fa fa-star fa-w-18 fa-lg "
             data-icon="star"
             data-prefix="far"
             focusable="false"
