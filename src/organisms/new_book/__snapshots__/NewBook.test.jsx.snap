@@ -3,6 +3,7 @@
 exports[`components NewBook renders correctly 1`] = `
 <section>
   <form
+    action="#"
     onReset={[Function]}
     onSubmit={[Function]}
   >
