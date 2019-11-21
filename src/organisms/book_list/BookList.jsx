@@ -35,9 +35,9 @@ class BookList extends React.Component<Props> {
     }
   }
 
-  componentDidUpdate(nextProps: Props) {
-    const year = BookList.getYear(this.props)
-    const newYear = BookList.getYear(nextProps)
+  componentDidUpdate(previousProps: Props) {
+    const newYear = BookList.getYear(this.props)
+    const year = BookList.getYear(previousProps)
 
     if (year && newYear && year !== newYear) {
       this.props.fetchBooks(newYear)
