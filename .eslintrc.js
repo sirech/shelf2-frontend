@@ -7,13 +7,14 @@ module.exports = {
   extends: [
     'standard',
     'standard-react',
+    'plugin:css-modules/recommended',
     'plugin:flowtype/recommended',
     'prettier',
     'prettier/flowtype',
     'prettier/react',
     'prettier/standard',
   ],
-  plugins: ['jest', 'flowtype'],
+  plugins: ['css-modules', 'jest', 'flowtype'],
   globals: {
     localStorage: true,
   },
