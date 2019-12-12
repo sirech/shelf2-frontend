@@ -19,7 +19,7 @@ jobs:
           command: |
             cat coverage/lcov.info | node_modules/.bin/coveralls
           when: always
-      - run: yarn run audit
+      - run: yarn audit --groups dependencies
       - run:
           name: Build and package
           command: |
