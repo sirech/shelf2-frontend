@@ -28,7 +28,7 @@
     "redux": "^4.0.4",
     "redux-thunk": "^2.2.0",
     "reselect": "^4.0.0",
-    "yup": "^0.27.0"
+    "yup": "^0.28.0"
   },
   "devDependencies": {
     "coveralls": "^3.0.9",
@@ -45,13 +45,13 @@
     "eslint-plugin-react": "^7.17.0",
     "eslint-plugin-standard": "^4.0.1",
     "faker": "^4.1.0",
-    "flow-bin": "0.112.0",
+    "flow-bin": "0.114.0",
     "npm-ls-scripts": "^0.1.2",
     "pact": "^4.2.1",
     "path": "^0.12.7",
     "pre-commit": "^1.2.2",
     "prettier": "^1.19.1",
-    "react-scripts": "3.2.0",
+    "react-scripts": "3.3.0",
     "react-test-renderer": "^16.12.0",
     "redux-mock-store": "^1.5.4",
     "rosie": "^2.0.1",
@@ -79,7 +79,6 @@
   },
   "proxy": "http://localhost:3001",
   "pre-commit": [
-    "flow",
     "linter:js",
     "linter:css"
   ],
