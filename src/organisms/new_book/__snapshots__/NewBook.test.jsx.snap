@@ -55,7 +55,7 @@ exports[`components NewBook renders correctly 1`] = `
               onBlur={[Function]}
               onChange={[Function]}
               type="number"
-              value={2019}
+              value={2020}
             />
             
           </div>
