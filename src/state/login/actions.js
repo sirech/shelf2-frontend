@@ -51,7 +51,7 @@ export const startLogin = () => {
 
 const auth0Client = () => {
   return new auth0.WebAuth({
-    clientID: 'q1MDnhpkECDbjSdA9MSsdNRbXEKhWIYj',
+    clientID: 'K0KbX0Mq54eJqqFg3bHaYWn71QhJf7K6',
     domain: 'hceris.eu.auth0.com',
     responseType: 'token id_token',
     audience: 'shelf2.hceris.com',
