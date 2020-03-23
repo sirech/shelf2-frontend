@@ -55,7 +55,7 @@
     "react-test-renderer": "^16.13.0",
     "redux-mock-store": "^1.5.4",
     "rosie": "^2.0.1",
-    "source-map-explorer": "^2.4.0",
+    "source-map-explorer": "^2.4.1",
     "stylelint": "^13.2.1",
     "stylelint-config-recommended": "^3.0.0",
     "stylelint-config-standard": "^20.0.0",
