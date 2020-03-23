@@ -8,7 +8,7 @@ import { faStar as regularStar } from '@fortawesome/free-regular-svg-icons'
 
 import styles from './styles.module.css'
 
-const renderStar = isFull => {
+const renderStar = (isFull) => {
   const icon = isFull ? faStar : regularStar
   return <FontAwesomeIcon icon={icon} size="lg" />
 }
@@ -18,7 +18,7 @@ const Star = ({
   onClick,
 }: {
   isFull: boolean,
-  onClick?: void => void,
+  onClick?: (void) => void,
 }) => (
   <span className={styles.star} onClick={onClick}>
     {renderStar(isFull)}

@@ -21,7 +21,7 @@ import { actions } from 'state/form'
 import type { Categories, BookForm as BookFormType } from 'types'
 type Props = {
   history: Object,
-  create: BookFormType => void,
+  create: (BookFormType) => void,
 }
 
 const categories: Array<Categories> = [
@@ -39,7 +39,7 @@ const NewBookWrapper = (props: Props) => (
     render={NewBook}
     validationSchema={bookSchema}
     onSubmit={(values, { setStatus }) =>
-      props.create(values, props.history, error =>
+      props.create(values, props.history, (error) =>
         setStatus({ submitError: error })
       )
     }
@@ -104,7 +104,7 @@ const NewBook = ({
 )
 
 NewBookWrapper.defaultProps = {
-  create: _ => undefined,
+  create: (_) => undefined,
 }
 
 export default connect(

@@ -16,7 +16,7 @@ export function fetchYears() {
     const url = '/books/years'
 
     return fetch(url)
-      .then(response => normalizeYears(response.data))
-      .then(years => dispatch(receiveYears(years)))
+      .then((response) => normalizeYears(response.data))
+      .then((years) => dispatch(receiveYears(years)))
   }
 }

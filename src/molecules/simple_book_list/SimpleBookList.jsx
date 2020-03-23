@@ -8,7 +8,7 @@ import type { Book as BookType } from 'types'
 
 const SimpleBookList = ({ books }: { books: Array<BookType> }) => (
   <ul className="list-unstyled mb-0">
-    {books.map(book => (
+    {books.map((book) => (
       <li key={book.id} className="book-list-item">
         <Book {...book} />
       </li>

@@ -11,7 +11,7 @@ const bookCreated = (book: Book) => ({
   payload: book,
 })
 
-const bookCreationFailed = error => ({
+const bookCreationFailed = (error) => ({
   type: BOOK_CREATE_FAIL,
   payload: error,
 })
@@ -19,7 +19,7 @@ const bookCreationFailed = error => ({
 export const create = (
   book: BookForm,
   history: Object,
-  errorCallback: string => void
+  errorCallback: (string) => void
 ) => {
   return (dispatch: Dispatch) => {
     const url = '/books'
@@ -27,9 +27,9 @@ export const create = (
     const data = { book }
 
     return fetch(url, { method, data })
-      .then(response => dispatch(bookCreated(response.data)))
+      .then((response) => dispatch(bookCreated(response.data)))
       .then(() => history.push('/books'))
-      .catch(error => {
+      .catch((error) => {
         dispatch(bookCreationFailed(error.response.data))
         errorCallback(error.response.data)
       })

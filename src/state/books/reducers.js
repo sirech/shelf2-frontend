@@ -6,7 +6,7 @@ import { constants } from '../form'
 const initialState = { entities: { books: {} }, result: [] }
 
 export default function books(state = initialState, action) {
-  return produce(state, draft => {
+  return produce(state, (draft) => {
     switch (action.type) {
       case RECEIVE_BOOKS: {
         const { entities, result } = action.payload

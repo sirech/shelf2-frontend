@@ -7,7 +7,7 @@ import { actionPicker } from 'state'
 import { actions } from 'state/login'
 
 type Props = {
-  loginSuccess: void => void,
+  loginSuccess: (void) => void,
 }
 
 // exported for testing

@@ -7,9 +7,9 @@ const testableUrl = (path: string) => {
   return `${TESTING ? 'http://localhost:8989' : ''}${path}`
 }
 
-const prepareUrl = path => testableUrl(`/rest${path}`)
+const prepareUrl = (path) => testableUrl(`/rest${path}`)
 
-const addAuthorization = headers => {
+const addAuthorization = (headers) => {
   const token = localStorage.getItem('authToken')
 
   if (token) {

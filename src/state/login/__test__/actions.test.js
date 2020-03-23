@@ -4,7 +4,7 @@ import { login, logout } from '../actions'
 
 jest.mock('auth0-js', () => ({
   WebAuth: jest.fn().mockImplementation(() => ({
-    parseHash: callback => {
+    parseHash: (callback) => {
       callback(null, { accessToken: 'token', expiresIn: 7200 })
     },
   })),

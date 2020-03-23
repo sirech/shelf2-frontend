@@ -8,7 +8,7 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
 import styles from './styles.module.css'
 
-const CreateButton = ({ onClick }: { onClick: void => void }) => (
+const CreateButton = ({ onClick }: { onClick: (void) => void }) => (
   <span className={styles.createButton}>
     <Button color="success" onClick={onClick}>
       <FontAwesomeIcon icon={faPlus} />

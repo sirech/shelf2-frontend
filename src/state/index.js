@@ -10,8 +10,8 @@ import {
 import { constants as yearsConstants, reducer as yearsReducer } from './years'
 import { constants as loginConstants, reducer as loginReducer } from './login'
 
-export const actionPicker = list => {
-  return actions => {
+export const actionPicker = (list) => {
+  return (actions) => {
     const h = R.pick(list)(actions)
 
     if (Object.keys(h).length !== list.length) {

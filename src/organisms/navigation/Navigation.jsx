@@ -29,7 +29,9 @@ class Navigation extends React.Component<Props> {
     const { years } = this.props
     return (
       <ListGroup tag="aside">
-        {years.map(entry => <NavigationItem key={entry.year} {...entry} />)}
+        {years.map((entry) => (
+          <NavigationItem key={entry.year} {...entry} />
+        ))}
       </ListGroup>
     )
   }

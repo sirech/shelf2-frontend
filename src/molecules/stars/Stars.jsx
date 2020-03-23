@@ -12,10 +12,10 @@ const Stars = ({
   handleClick,
 }: {
   count: StarCount,
-  handleClick: number => void,
+  handleClick: (number) => void,
 }) => (
   <span className={styles.stars}>
-    {[...Array(5).keys()].map(i => (
+    {[...Array(5).keys()].map((i) => (
       <Star key={i} isFull={i < count} onClick={() => handleClick(i + 1)} />
     ))}
   </span>
@@ -23,7 +23,7 @@ const Stars = ({
 
 Stars.defaultProps = {
   count: 1,
-  handleClick: e => e,
+  handleClick: (e) => e,
 }
 
 export default Stars

@@ -7,9 +7,9 @@ import SearchList from './SearchList'
 // Mock thunk that triggers API request
 import { actions } from 'state/search'
 jest.mock('state/search/actions', () => ({
-  search: jest.fn(dispatch => jest.fn()),
+  search: jest.fn((dispatch) => jest.fn()),
 }))
-jest.mock('lodash.debounce', () => f => f)
+jest.mock('lodash.debounce', () => (f) => f)
 
 describe('components', () => {
   describe('SearchList', () => {

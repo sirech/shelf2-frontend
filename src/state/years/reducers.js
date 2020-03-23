@@ -8,10 +8,7 @@ const initialState = { entities: { years: {} }, result: [] }
 
 const newYear = (draft, year) => {
   draft.entities.years[year] = { year: year, count: 1 }
-  draft.result = R.pipe(
-    R.append(year),
-    R.sortBy(R.identity)
-  )(draft.result)
+  draft.result = R.pipe(R.append(year), R.sortBy(R.identity))(draft.result)
 }
 
 const increaseExisting = (draft, year) => {
@@ -20,7 +17,7 @@ const increaseExisting = (draft, year) => {
 }
 
 export default function years(state = initialState, action) {
-  return produce(state, draft => {
+  return produce(state, (draft) => {
     switch (action.type) {
       case RECEIVE_YEARS: {
         const { entities, result } = action.payload

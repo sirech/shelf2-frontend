@@ -38,7 +38,7 @@ class Callback extends React.Component {
 
 Callback.defaultProps = {
   authenticated: false,
-  login: _ => undefined,
+  login: (_) => undefined,
 }
 
 export default connect(

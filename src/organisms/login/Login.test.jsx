@@ -8,7 +8,7 @@ import Login from './Login'
 
 import { actions } from 'state/login'
 jest.mock('state/login/actions', () => ({
-  startLogin: jest.fn(dispatch => jest.fn()),
+  startLogin: jest.fn((dispatch) => jest.fn()),
 }))
 
 describe('components', () => {

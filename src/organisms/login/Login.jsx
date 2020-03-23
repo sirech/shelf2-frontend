@@ -38,7 +38,7 @@ class Login extends React.Component {
 
 Login.defaultProps = {
   authenticated: false,
-  startLogin: _ => undefined,
+  startLogin: (_) => undefined,
 }
 
 export default connect(

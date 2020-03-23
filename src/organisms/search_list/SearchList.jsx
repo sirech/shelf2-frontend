@@ -21,13 +21,13 @@ type Props = {
   // eslint-disable-next-line react/no-unused-prop-types
   match: { params: { keyword?: string } },
   books: Array<BookType>,
-  search: string => void,
+  search: (string) => void,
 }
 
 class SearchList extends React.Component<Props> {
   static defaultProps: Props
 
-  debouncedSearch: string => void
+  debouncedSearch: (string) => void
 
   static getKeyword(props) {
     return R.path(['match', 'params', 'keyword'], props)
@@ -68,7 +68,7 @@ class SearchList extends React.Component<Props> {
 SearchList.defaultProps = {
   match: { params: {} },
   books: [],
-  search: _ => undefined,
+  search: (_) => undefined,
 }
 
 export default connect(

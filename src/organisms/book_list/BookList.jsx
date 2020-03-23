@@ -17,7 +17,7 @@ type Props = {
   // eslint-disable-next-line react/no-unused-prop-types
   match: { params: { year?: string } },
   categories: Array<CategoryType>,
-  fetchBooks: string => void,
+  fetchBooks: (string) => void,
 }
 
 class BookList extends React.Component<Props> {
@@ -59,7 +59,7 @@ class BookList extends React.Component<Props> {
 BookList.defaultProps = {
   match: { params: {} },
   categories: [],
-  fetchBooks: _ => undefined,
+  fetchBooks: (_) => undefined,
 }
 
 export default connect(

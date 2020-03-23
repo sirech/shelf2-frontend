@@ -19,7 +19,7 @@ const Stars = () => (
         <div>
           <StarBlock
             count={value}
-            handleClick={number => setFieldValue(fieldName, number)}
+            handleClick={(number) => setFieldValue(fieldName, number)}
           />
         </div>
       </FormGroup>

@@ -11,7 +11,7 @@ import { actionPicker } from 'state'
 import { actions } from 'state/login'
 
 type Props = {
-  logout: void => void,
+  logout: (void) => void,
 }
 
 class Logout extends React.Component<Props> {
@@ -38,8 +38,5 @@ class Logout extends React.Component<Props> {
 }
 
 export default authenticated()(
-  connect(
-    null,
-    actionPicker(['logout'])(actions)
-  )(Logout)
+  connect(null, actionPicker(['logout'])(actions))(Logout)
 )

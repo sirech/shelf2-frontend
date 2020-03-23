@@ -99,7 +99,7 @@ describe('pacts', () => {
     afterAll(() => provider.verify(), 5 * 60 * 1000)
 
     beforeEach(() => {
-      global.localStorage.getItem = token => rest.authToken
+      global.localStorage.getItem = (token) => rest.authToken
     })
 
     it('should dispatch the correct actions', () => {
@@ -144,7 +144,7 @@ describe('pacts', () => {
     afterAll(() => provider.verify(), 5 * 60 * 1000)
 
     beforeEach(() => {
-      global.localStorage.getItem = _ => 'EXPIRED'
+      global.localStorage.getItem = (_) => 'EXPIRED'
     })
 
     it('should dispatch the correct actions', () => {

@@ -8,7 +8,7 @@ import Callback from './Callback'
 
 import { actions } from 'state/login'
 jest.mock('state/login/actions', () => ({
-  login: jest.fn(dispatch => jest.fn()),
+  login: jest.fn((dispatch) => jest.fn()),
 }))
 
 describe('components', () => {
