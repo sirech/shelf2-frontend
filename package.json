@@ -31,7 +31,7 @@
     "yup": "^0.28.3"
   },
   "devDependencies": {
-    "coveralls": "^3.0.9",
+    "coveralls": "^3.0.11",
     "eslint-config-prettier": "^6.10.1",
     "eslint-config-standard": "^14.1.0",
     "eslint-config-standard-react": "^9.2.0",
