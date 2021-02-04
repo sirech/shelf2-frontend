@@ -8,7 +8,7 @@ import { Route } from 'react-router-dom'
 
 import authenticated from 'organisms/authenticated'
 import BookCreator from 'organisms/book_creator'
-import BookList from 'organisms/book_list'
+import BookList from 'book-list'
 import Navigation from 'navigation'
 
 const AuthBookCreator = authenticated()(BookCreator)
