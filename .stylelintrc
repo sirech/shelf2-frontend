@@ -16,7 +16,7 @@
 
     "color-named": "never",
     "declaration-no-important": true,
-    "declaration-property-unit-whitelist": {
+    "declaration-property-unit-allowed-list": {
       "font-size": ["rem"],
       "width": ["rem", "%"],
       "height": ["rem", "%"],
@@ -24,7 +24,7 @@
       "/^padding": ["rem"]
     },
 
-    "unit-blacklist": ["em"],
+    "unit-disallowed-list": ["em"],
 
     "order/order": ["custom-properties", "dollar-variables", "declarations", "rules", "at-rules"],
     "order/properties-alphabetical-order": true,
