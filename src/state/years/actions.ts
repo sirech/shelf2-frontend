@@ -1,9 +1,8 @@
-// @flow
-
 import { RECEIVE_YEARS } from './constants'
 
 import { fetch, normalizeYears } from 'rest'
-import type { NormalizedYears } from 'types'
+import { NormalizedYears } from 'types'
+import { Dispatch } from 'redux'
 
 // exported for testing
 export const receiveYears = (years: NormalizedYears) => ({

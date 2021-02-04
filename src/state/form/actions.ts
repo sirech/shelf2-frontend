@@ -1,12 +1,14 @@
-// @flow
-
 import { fetch } from 'rest'
 
-import { BOOK_CREATE_SUCCESS, BOOK_CREATE_FAIL } from './constants'
+import {
+  BOOK_CREATE_SUCCESS,
+  BOOK_CREATE_FAIL,
+  BookCreateSuccessAction,
+} from './constants'
 
-import type { BookForm, Book } from 'types'
+import { BookForm, Book } from 'types'
 
-const bookCreated = (book: Book) => ({
+const bookCreated = (book: Book): BookCreateSuccessAction => ({
   type: BOOK_CREATE_SUCCESS,
   payload: book,
 })

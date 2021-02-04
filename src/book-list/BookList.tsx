@@ -1,5 +1,3 @@
-// @flow
-
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -9,7 +7,7 @@ import { actions } from 'state/books'
 import Category from 'components/category'
 
 type Props = {
-  match: { params: { year?: string } },
+  match: { params: { year?: string } }
 }
 
 const BookList = ({

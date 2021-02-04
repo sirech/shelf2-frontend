@@ -1,24 +1,37 @@
-// @flow
-
 export type StarCount = 1 | 2 | 3 | 4 | 5
 export type Categories = 'sociology' | 'software' | 'econ' | 'history' | 'other'
 
-export type BookForm = { title: string, stars: StarCount, category: Categories }
+export interface BookForm {
+  title: string
+  stars: StarCount
+  category: Categories
+}
 export type Book = BookForm & { id: number }
-export type Category = { name: Categories, books: Array<Book> }
+export interface Category {
+  name: Categories
+  books: Book[]
+}
 
-export type Year = { year: number, count: number }
+export interface Year {
+  year: number
+  count: number
+}
 
 // State
 
-type Result = Array<number>
+type Result = number[]
 
-export type NormalizedBooks = {
-  result: Result,
-  books: { [string]: Book },
+export interface NormalizedBooks {
+  result: Result
+  entities: {
+    books: { [id: string]: Book }
+  }
+  activeYear: number
 }
 
-export type NormalizedYears = {
-  result: Result,
-  years: { [string]: Year },
+export interface NormalizedYears {
+  result: Result
+  entities: {
+    years: { [id: string]: Year }
+  }
 }

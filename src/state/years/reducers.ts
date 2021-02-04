@@ -1,22 +1,26 @@
 import produce from 'immer'
 import * as R from 'ramda'
 
-import { RECEIVE_YEARS } from './constants'
-import { constants } from '../form'
+import { NormalizedYears } from 'types'
 
-const initialState = { entities: { years: {} }, result: [] }
+import { RECEIVE_YEARS, ReceiveYearsAction } from './constants'
 
-const newYear = (draft, year) => {
+const initialState: NormalizedYears = { entities: { years: {} }, result: [] }
+
+const newYear = (draft: NormalizedYears, year: number) => {
   draft.entities.years[year] = { year: year, count: 1 }
   draft.result = R.pipe(R.append(year), R.sortBy(R.identity))(draft.result)
 }
 
-const increaseExisting = (draft, year) => {
+const increaseExisting = (draft: NormalizedYears, year: number) => {
   const entity = draft.entities.years[year]
   entity.count = entity.count + 1
 }
 
-export default function years(state = initialState, action) {
+export default function years(
+  state = initialState,
+  action: ReceiveYearsAction
+) {
   return produce(state, (draft) => {
     switch (action.type) {
       case RECEIVE_YEARS: {
@@ -25,17 +29,18 @@ export default function years(state = initialState, action) {
         draft.result = result
         break
       }
-      case constants.BOOK_CREATE_SUCCESS: {
-        const year = action.payload.year
-        const yearList = state.result
+      // TODO: this state doesn't make sense
+      // case constants.BOOK_CREATE_SUCCESS: {
+      //   const year = action.payload.year
+      //   const yearList = state.result
 
-        if (R.contains(year, yearList)) {
-          increaseExisting(draft, year)
-        } else {
-          newYear(draft, year)
-        }
-        break
-      }
+      //   if (R.contains(year, yearList)) {
+      //     increaseExisting(draft, year)
+      //   } else {
+      //     newYear(draft, year)
+      //   }
+      //   break
+      // }
       default:
         break
     }

@@ -1,8 +1,6 @@
-// @flow
-
-import * as R from 'ramda'
+import { RootState } from './../index'
 
 import { namespace } from './constants'
 
-const booksSelector = R.path([namespace])
+const booksSelector = (state: RootState) => state[namespace]
 export default booksSelector

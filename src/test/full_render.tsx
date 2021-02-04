@@ -5,7 +5,7 @@ import { MemoryRouter } from 'react-router-dom'
 
 import mockStore from './mock_store'
 
-const fullRender = (jsx, state = {}, route = '/') => {
+const fullRender = (jsx: React.Component, state = {}, route = '/') => {
   const store = mockStore(state)
   const component = renderer.create(
     <Provider store={store}>

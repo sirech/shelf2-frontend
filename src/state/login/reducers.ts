@@ -1,10 +1,11 @@
+import { LoginActions } from './actions'
 import produce from 'immer'
 
 import { LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT_SUCCESS } from './constants'
 
 const initialState = { authenticated: false, failed: false }
 
-export function status(state = initialState, action) {
+export function status(state = initialState, action: LoginActions) {
   return produce(state, (draft) => {
     switch (action.type) {
       case LOGIN_SUCCESS:
