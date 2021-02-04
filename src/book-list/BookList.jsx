@@ -1,71 +1,38 @@
 // @flow
 
-import React from 'react'
-import { connect } from 'react-redux'
-import { createStructuredSelector } from 'reselect'
-
-import * as R from 'ramda'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
 import booksSelector from './selectors'
 
-import { actionPicker } from 'state'
 import { actions } from 'state/books'
 import Category from 'molecules/category'
 
-import type { Category as CategoryType } from 'types'
 type Props = {
-  // eslint-disable-next-line react/no-unused-prop-types
   match: { params: { year?: string } },
-  categories: Array<CategoryType>,
-  fetchBooks: (string) => void,
 }
 
-class BookList extends React.Component<Props> {
-  static defaultProps: Props
+const BookList = ({
+  match: {
+    params: { year },
+  },
+}: Props) => {
+  const categories = useSelector(booksSelector)
+  const dispatch = useDispatch()
 
-  static getYear(props) {
-    return R.path(['match', 'params', 'year'], props)
-  }
-
-  componentDidMount() {
-    const year = BookList.getYear(this.props)
-
+  useEffect(() => {
     if (year) {
-      this.props.fetchBooks(year)
+      dispatch(actions.fetchBooks(year))
     }
-  }
+  }, [year, dispatch])
 
-  componentDidUpdate(previousProps: Props) {
-    const newYear = BookList.getYear(this.props)
-    const year = BookList.getYear(previousProps)
-
-    if (year && newYear && year !== newYear) {
-      this.props.fetchBooks(newYear)
-    }
-  }
-
-  render() {
-    const { categories } = this.props
-    return (
-      <div>
-        {categories.map(({ name, books }) => (
-          <Category key={name} name={name} books={books} />
-        ))}
-      </div>
-    )
-  }
+  return (
+    <div>
+      {categories.map(({ name, books }) => (
+        <Category key={name} name={name} books={books} />
+      ))}
+    </div>
+  )
 }
 
-BookList.defaultProps = {
-  match: { params: {} },
-  categories: [],
-  fetchBooks: (_) => undefined,
-}
-
-export default connect(
-  (state, props) =>
-    createStructuredSelector({
-      categories: booksSelector,
-    })(state),
-  actionPicker(['fetchBooks'])(actions)
-)(BookList)
+export default BookList
