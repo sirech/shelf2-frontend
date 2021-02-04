@@ -3,6 +3,7 @@ import * as R from 'ramda'
 
 import { NormalizedYears } from 'types'
 
+import { constants } from 'state/form'
 import { RECEIVE_YEARS, ReceiveYearsAction } from './constants'
 
 const initialState: NormalizedYears = { entities: { years: {} }, result: [] }
@@ -19,7 +20,7 @@ const increaseExisting = (draft: NormalizedYears, year: number) => {
 
 export default function years(
   state = initialState,
-  action: ReceiveYearsAction
+  action: ReceiveYearsAction | constants.BookCreateSuccessAction
 ) {
   return produce(state, (draft) => {
     switch (action.type) {
@@ -29,18 +30,17 @@ export default function years(
         draft.result = result
         break
       }
-      // TODO: this state doesn't make sense
-      // case constants.BOOK_CREATE_SUCCESS: {
-      //   const year = action.payload.year
-      //   const yearList = state.result
+      case constants.BOOK_CREATE_SUCCESS: {
+        const year = action.payload.year
+        const yearList = state.result
 
-      //   if (R.contains(year, yearList)) {
-      //     increaseExisting(draft, year)
-      //   } else {
-      //     newYear(draft, year)
-      //   }
-      //   break
-      // }
+        if (R.contains(year, yearList)) {
+          increaseExisting(draft, year)
+        } else {
+          newYear(draft, year)
+        }
+        break
+      }
       default:
         break
     }

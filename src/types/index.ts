@@ -5,6 +5,7 @@ export interface BookForm {
   title: string
   stars: StarCount
   category: Categories
+  year: number
 }
 export type Book = BookForm & { id: number }
 export interface Category {

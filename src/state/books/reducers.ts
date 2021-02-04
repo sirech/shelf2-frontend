@@ -1,10 +1,14 @@
-import { MarkActiveYearAction } from './actions'
 import produce from 'immer'
 
-import { RECEIVE_BOOKS, MARK_ACTIVE_YEAR } from './constants'
-import { constants } from '../form'
+import {
+  RECEIVE_BOOKS,
+  MARK_ACTIVE_YEAR,
+  ReceiveBooksAction,
+  MarkActiveYearAction,
+} from './constants'
+
+import { constants } from 'state/form'
 import { NormalizedBooks } from 'types'
-import { ReceiveYearsAction } from 'state/years/constants'
 
 const initialState: NormalizedBooks = {
   entities: { books: {} },
@@ -14,7 +18,10 @@ const initialState: NormalizedBooks = {
 
 export default function books(
   state = initialState,
-  action: ReceiveYearsAction | MarkActiveYearAction
+  action:
+    | ReceiveBooksAction
+    | MarkActiveYearAction
+    | constants.BookCreateSuccessAction
 ) {
   return produce(state, (draft) => {
     switch (action.type) {
