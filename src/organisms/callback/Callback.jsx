@@ -1,50 +1,29 @@
 // @flow
 
-import React from 'react'
-import { connect } from 'react-redux'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
-import { createStructuredSelector } from 'reselect'
 import { Redirect } from 'react-router-dom'
 
-import { actionPicker } from 'state'
 import { actions, authenticatedSelector } from 'state/login'
 
-type Props = {
-  authenticated: boolean,
-  login: () => undefined,
+const redirectIfLoggedIn = (authenticated: boolean) => {
+  if (authenticated) {
+    return <Redirect to="/" />
+  }
 }
 
-class Callback extends React.Component {
-  static defaultProps: Props
+const Callback = () => {
+  const authenticated = useSelector(authenticatedSelector)
+  const dispatch = useDispatch()
 
-  props: Props
-
-  redirectIfLoggedIn() {
-    if (this.props.authenticated) {
-      return <Redirect to="/" />
+  useEffect(() => {
+    if (!authenticated) {
+      dispatch(actions.login())
     }
-  }
+  }, [authenticated, dispatch])
 
-  componentDidMount() {
-    if (!this.props.authenticated) {
-      this.props.login()
-    }
-  }
-
-  render() {
-    return <div>{this.redirectIfLoggedIn()}</div>
-  }
+  return <div>{redirectIfLoggedIn(authenticated)}</div>
 }
 
-Callback.defaultProps = {
-  authenticated: false,
-  login: (_) => undefined,
-}
-
-export default connect(
-  (state, props) =>
-    createStructuredSelector({
-      authenticated: authenticatedSelector,
-    })(state),
-  actionPicker(['login'])(actions)
-)(Callback)
+export default Callback
