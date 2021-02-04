@@ -6,8 +6,8 @@ import {
   Switch,
 } from 'react-router-dom'
 
-import Header from 'molecules/header'
-import BooksArea from 'molecules/books_area'
+import Header from 'header'
+import BooksArea from 'books_area'
 
 import SearchList from 'organisms/search_list'
 import Callback from 'organisms/callback'
