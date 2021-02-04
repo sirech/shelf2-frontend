@@ -12,7 +12,7 @@ import BooksArea from 'books_area'
 import SearchList from 'search_list'
 import Callback from 'callback'
 import Login from 'login'
-import NewBook from 'organisms/new_book'
+import NewBook from 'new_book'
 
 const year = new Date().getFullYear()
 
