@@ -4,7 +4,7 @@ import React from 'react'
 
 import { Card, CardHeader } from 'reactstrap'
 
-import SimpleBookList from 'molecules/simple_book_list'
+import SimpleBookList from 'components/simple_book_list'
 
 import './styles.css'
 

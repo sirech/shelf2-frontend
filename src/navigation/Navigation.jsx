@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { ListGroup } from 'reactstrap'
 
-import NavigationItem from 'molecules/navigation_item'
+import NavigationItem from './NavigationItem'
 
 import yearsSelector from './selectors'
 

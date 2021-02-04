@@ -2,7 +2,7 @@
 
 import React from 'react'
 
-import Stars from 'molecules/stars'
+import Stars from 'components/stars'
 
 import styles from './styles.module.css'
 

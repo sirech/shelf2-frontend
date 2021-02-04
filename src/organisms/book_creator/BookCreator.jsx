@@ -3,7 +3,7 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
 
-import CreateButton from 'molecules/create_button'
+import CreateButton from 'components/create_button'
 
 type Props = {
   history: object,

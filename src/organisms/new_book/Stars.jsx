@@ -5,7 +5,7 @@ import { Field } from 'formik'
 
 import { FormGroup, Label } from 'reactstrap'
 
-import StarBlock from 'molecules/stars'
+import StarBlock from 'components/stars'
 
 const fieldName = 'stars'
 

@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import booksSelector from './selectors'
 
 import { actions } from 'state/books'
-import Category from 'molecules/category'
+import Category from 'components/category'
 
 type Props = {
   match: { params: { year?: string } },

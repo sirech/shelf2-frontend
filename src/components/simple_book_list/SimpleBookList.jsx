@@ -2,7 +2,7 @@
 
 import React from 'react'
 
-import Book from 'molecules/book'
+import Book from 'components/book'
 
 import type { Book as BookType } from 'types'
 

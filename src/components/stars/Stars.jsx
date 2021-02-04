@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react'
-import Star from 'molecules/star'
+import Star from 'components/star'
 
 import styles from './styles.module.css'
 
