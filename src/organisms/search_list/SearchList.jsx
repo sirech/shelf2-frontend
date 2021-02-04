@@ -1,10 +1,8 @@
 // @flow
 
-import React from 'react'
-import { connect } from 'react-redux'
-import { createStructuredSelector } from 'reselect'
+import React, { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 
-import * as R from 'ramda'
 import { Card, CardHeader } from 'reactstrap'
 import debounce from 'lodash.debounce'
 import Pluralize from 'react-pluralize'
@@ -13,68 +11,36 @@ import SimpleBookList from 'components/simple_book_list'
 
 import booksSelector from './selectors'
 
-import { actionPicker } from 'state'
 import { actions } from 'state/search'
 
-import type { Book as BookType } from 'types'
 type Props = {
   // eslint-disable-next-line react/no-unused-prop-types
   match: { params: { keyword?: string } },
-  books: Array<BookType>,
-  search: (string) => void,
 }
 
-class SearchList extends React.Component<Props> {
-  static defaultProps: Props
+const SearchList = ({
+  match: {
+    params: { keyword },
+  },
+}: Props) => {
+  const books = useSelector(booksSelector)
+  const dispatch = useDispatch()
+  const debouncedSearch = debounce(actions.search, 300)
 
-  debouncedSearch: (string) => void
-
-  static getKeyword(props) {
-    return R.path(['match', 'params', 'keyword'], props)
-  }
-
-  componentDidMount() {
-    this.debouncedSearch = debounce(this.props.search, 300)
-
-    const keyword = SearchList.getKeyword(this.props)
-
+  useEffect(() => {
     if (keyword) {
-      this.debouncedSearch(keyword)
+      dispatch(debouncedSearch(keyword))
     }
-  }
+  }, [keyword, dispatch])
 
-  componentDidUpdate(nextProps: Props) {
-    const keyword = SearchList.getKeyword(this.props)
-    const newKeyword = SearchList.getKeyword(nextProps)
-
-    if (keyword && newKeyword && keyword !== newKeyword) {
-      this.debouncedSearch(newKeyword)
-    }
-  }
-
-  render() {
-    const { books } = this.props
-    return (
-      <Card className="ml-3 mr-3">
-        <CardHeader className="text-right">
-          <Pluralize singular="result" count={books.length} />
-        </CardHeader>
-        <SimpleBookList books={books} />
-      </Card>
-    )
-  }
+  return (
+    <Card className="ml-3 mr-3">
+      <CardHeader className="text-right">
+        <Pluralize singular="result" count={books.length} />
+      </CardHeader>
+      <SimpleBookList books={books} />
+    </Card>
+  )
 }
 
-SearchList.defaultProps = {
-  match: { params: {} },
-  books: [],
-  search: (_) => undefined,
-}
-
-export default connect(
-  (state, props) =>
-    createStructuredSelector({
-      books: booksSelector,
-    })(state),
-  actionPicker(['search'])(actions)
-)(SearchList)
+export default SearchList
