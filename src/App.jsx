@@ -9,7 +9,7 @@ import {
 import Header from 'header'
 import BooksArea from 'books_area'
 
-import SearchList from 'organisms/search_list'
+import SearchList from 'search_list'
 import Callback from 'organisms/callback'
 import Login from 'organisms/login'
 import LoginStatusChecker from 'organisms/login_status_checker'
