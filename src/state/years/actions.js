@@ -12,11 +12,11 @@ export const receiveYears = (years: NormalizedYears) => ({
 })
 
 export function fetchYears() {
-  return (dispatch: Dispatch) => {
+  return async (dispatch: Dispatch) => {
     const url = '/books/years'
 
-    return fetch(url)
-      .then((response) => normalizeYears(response.data))
-      .then((years) => dispatch(receiveYears(years)))
+    const response = await fetch(url)
+    const years = normalizeYears(response.data)
+    dispatch(receiveYears(years))
   }
 }

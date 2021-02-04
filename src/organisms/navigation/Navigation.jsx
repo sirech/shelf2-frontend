@@ -1,8 +1,5 @@
-// @flow
-
-import React from 'react'
-import { connect } from 'react-redux'
-import { createStructuredSelector } from 'reselect'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { ListGroup } from 'reactstrap'
 
@@ -10,42 +7,22 @@ import NavigationItem from 'molecules/navigation_item'
 
 import yearsSelector from './selectors'
 
-import { actionPicker } from 'state'
 import { actions } from 'state/years'
 
-type Props = {
-  years: Array<{ year: number, count: number }>,
-  fetchYears: () => void,
+const Navigation = () => {
+  const years = useSelector(yearsSelector)
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(actions.fetchYears())
+  }, [dispatch])
+
+  return (
+    <ListGroup tag="aside">
+      {years.map((entry) => (
+        <NavigationItem key={entry.year} {...entry} />
+      ))}
+    </ListGroup>
+  )
 }
 
-class Navigation extends React.Component<Props> {
-  static defaultProps: Props
-
-  componentDidMount() {
-    this.props.fetchYears()
-  }
-
-  render() {
-    const { years } = this.props
-    return (
-      <ListGroup tag="aside">
-        {years.map((entry) => (
-          <NavigationItem key={entry.year} {...entry} />
-        ))}
-      </ListGroup>
-    )
-  }
-}
-
-Navigation.defaultProps = {
-  years: [],
-  fetchYears: () => undefined,
-}
-
-export default connect(
-  (state, props) =>
-    createStructuredSelector({
-      years: yearsSelector,
-    })(state),
-  actionPicker(['fetchYears'])(actions)
-)(Navigation)
+export default Navigation
