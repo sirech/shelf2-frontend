@@ -10,7 +10,7 @@ import Header from 'header'
 import BooksArea from 'books_area'
 
 import SearchList from 'search_list'
-import Callback from 'organisms/callback'
+import Callback from 'callback'
 import Login from 'login'
 import NewBook from 'organisms/new_book'
 
