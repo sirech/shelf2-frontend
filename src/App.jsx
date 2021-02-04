@@ -12,7 +12,6 @@ import BooksArea from 'books_area'
 import SearchList from 'search_list'
 import Callback from 'organisms/callback'
 import Login from 'login'
-import LoginStatusChecker from 'organisms/login_status_checker'
 import NewBook from 'organisms/new_book'
 
 const year = new Date().getFullYear()
@@ -39,7 +38,6 @@ const Checks = () => (
       path="/books"
       render={() => <Redirect to={`/books/${year}`} />}
     />
-    <LoginStatusChecker />
   </div>
 )
 
