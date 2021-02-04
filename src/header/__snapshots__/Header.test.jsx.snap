@@ -40,6 +40,28 @@ exports[`components Header renders correctly 1`] = `
             type="text"
           />
         </form>
+        <li
+          className="nav-item"
+        >
+          <a
+            className="nav-link"
+            href="/login"
+            onClick={[Function]}
+          >
+            Login
+          </a>
+        </li>
+        <li
+          className="nav-item"
+        >
+          <div
+            className="nav-link"
+            onClick={[Function]}
+            role="link"
+          >
+            Logout
+          </div>
+        </li>
       </ul>
     </div>
   </nav>

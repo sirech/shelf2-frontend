@@ -5,8 +5,6 @@ import { useDispatch } from 'react-redux'
 
 import { NavItem } from 'reactstrap'
 
-import authenticated from 'organisms/authenticated'
-
 import { actions } from 'state/login'
 
 const Logout = () => {
@@ -25,4 +23,4 @@ const Logout = () => {
   )
 }
 
-export default authenticated()(Logout)
+export default Logout

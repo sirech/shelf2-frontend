@@ -5,8 +5,6 @@ import { Link } from 'react-router-dom'
 import { LinkContainer } from 'react-router-bootstrap'
 import { Helmet } from 'react-helmet'
 
-import authenticated from 'organisms/authenticated'
-
 import Logout from './Logout'
 import SearchBar from './SearchBar'
 
@@ -19,13 +17,13 @@ import {
   NavbarToggler,
 } from 'reactstrap'
 
-const Login = authenticated(false)(() => (
+const Login = () => (
   <NavItem>
     <Link to="/login" className="nav-link">
       Login
     </Link>
   </NavItem>
-))
+)
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
