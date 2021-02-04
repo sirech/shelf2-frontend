@@ -7,9 +7,10 @@ import styles from './styles.module.css'
 import { Route } from 'react-router-dom'
 
 import authenticated from 'organisms/authenticated'
-import BookCreator from 'organisms/book_creator'
 import BookList from 'book-list'
 import Navigation from 'navigation'
+
+import BookCreator from './BookCreator'
 
 const AuthBookCreator = authenticated()(BookCreator)
 
