@@ -18,7 +18,7 @@ const Star = ({
   onClick,
 }: {
   isFull: boolean,
-  onClick?: (void) => void,
+  onClick?: () => void,
 }) => (
   <span className={styles.star} onClick={onClick}>
     {renderStar(isFull)}
