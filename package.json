@@ -70,17 +70,14 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "pretest": "tsc --noEmit",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "flow": "flow",
     "format": "prettier --write \"**/*.+(js|jsx|json|css|scss)\"",
-    "linter:js": "node_modules/.bin/eslint src --ext jsx --ext js",
     "linter:css": "node_modules/.bin/stylelint \"src/**/*.css\"",
     "stub": "bin/launch-stub-server",
     "bundle": "yarn build && source-map-explorer 'build/static/js/*.js'"
-  },
-  "eslintConfig": {
-    "extends": ".eslintrc.js"
   },
   "proxy": "http://localhost:3001",
   "pre-commit": [
