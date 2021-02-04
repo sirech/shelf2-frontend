@@ -6,8 +6,8 @@ import { LinkContainer } from 'react-router-bootstrap'
 import { Helmet } from 'react-helmet'
 
 import authenticated from 'organisms/authenticated'
-import Logout from 'organisms/logout'
 
+import Logout from './Logout'
 import SearchBar from './SearchBar'
 
 import {
