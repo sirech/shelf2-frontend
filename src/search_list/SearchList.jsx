@@ -31,7 +31,7 @@ const SearchList = ({
     if (keyword) {
       dispatch(debouncedSearch(keyword))
     }
-  }, [keyword, dispatch])
+  }, [keyword, dispatch, debouncedSearch])
 
   return (
     <Card className="ml-3 mr-3">
