@@ -1,8 +1,8 @@
 // @flow
 
 import React from 'react'
-import { withRouter } from 'react-router-dom'
-import { connect } from 'react-redux'
+import { useHistory } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
 import { Field, Form, Formik } from 'formik'
 
 import { LinkContainer } from 'react-router-bootstrap'
@@ -15,14 +15,9 @@ import Stars from './Stars'
 import initialBook from './initial_book'
 import bookSchema from './schema'
 
-import { actionPicker } from 'state'
 import { actions } from 'state/form'
 
-import type { Categories, BookForm as BookFormType } from 'types'
-type Props = {
-  history: Object,
-  create: (BookFormType) => void,
-}
+import type { Categories } from 'types'
 
 const categories: Array<Categories> = [
   'sociology',
@@ -32,19 +27,25 @@ const categories: Array<Categories> = [
   'other',
 ]
 
-const NewBookWrapper = (props: Props) => (
-  <Formik
-    initialValues={initialBook}
-    initialStatus={{ submitError: '' }}
-    render={NewBook}
-    validationSchema={bookSchema}
-    onSubmit={(values, { setStatus }) =>
-      props.create(values, props.history, (error) =>
-        setStatus({ submitError: error })
-      )
-    }
-  />
-)
+const NewBookWrapper = () => {
+  const history = useHistory()
+  const dispatch = useDispatch()
+  return (
+    <Formik
+      initialValues={initialBook}
+      initialStatus={{ submitError: '' }}
+      render={NewBook}
+      validationSchema={bookSchema}
+      onSubmit={(values, { setStatus }) =>
+        dispatch(
+          actions.create(values, history, (error) =>
+            setStatus({ submitError: error })
+          )
+        )
+      }
+    />
+  )
+}
 
 const NewBook = ({
   status: { submitError },
@@ -103,11 +104,4 @@ const NewBook = ({
   </section>
 )
 
-NewBookWrapper.defaultProps = {
-  create: (_) => undefined,
-}
-
-export default connect(
-  null,
-  actionPicker(['create'])(actions)
-)(withRouter(NewBookWrapper))
+export default NewBookWrapper
