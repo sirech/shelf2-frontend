@@ -1,50 +1,28 @@
 // @flow
 
-import React from 'react'
-import { connect } from 'react-redux'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
-import { createStructuredSelector } from 'reselect'
 import { Redirect } from 'react-router-dom'
 
-import { actionPicker } from 'state'
 import { actions, authenticatedSelector } from 'state/login'
 
-type Props = {
-  authenticated: boolean,
-  startLogin: () => undefined,
+const redirectIfLoggedIn = (authenticated: boolean) => {
+  if (authenticated) {
+    return <Redirect to="/" />
+  }
 }
+const Login = () => {
+  const authenticated = useSelector(authenticatedSelector)
+  const dispatch = useDispatch()
 
-class Login extends React.Component {
-  static defaultProps: Props
-
-  props: Props
-
-  redirectIfLoggedIn() {
-    if (this.props.authenticated) {
-      return <Redirect to="/" />
+  useEffect(() => {
+    if (!authenticated) {
+      dispatch(actions.startLogin())
     }
-  }
+  }, [authenticated, dispatch])
 
-  componentDidMount() {
-    if (!this.props.authenticated) {
-      this.props.startLogin()
-    }
-  }
-
-  render() {
-    return <div>{this.redirectIfLoggedIn()}</div>
-  }
+  return <div>{redirectIfLoggedIn(authenticated)}</div>
 }
 
-Login.defaultProps = {
-  authenticated: false,
-  startLogin: (_) => undefined,
-}
-
-export default connect(
-  (state, props) =>
-    createStructuredSelector({
-      authenticated: authenticatedSelector,
-    })(state),
-  actionPicker(['startLogin'])(actions)
-)(Login)
+export default Login
