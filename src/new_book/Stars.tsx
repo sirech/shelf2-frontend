@@ -1,7 +1,5 @@
-// @flow
-
 import React from 'react'
-import { Field } from 'formik'
+import { Field, FieldProps } from 'formik'
 
 import { FormGroup, Label } from 'reactstrap'
 
@@ -11,7 +9,7 @@ const fieldName = 'stars'
 
 const Stars = () => (
   <Field name={fieldName} id={fieldName} type="number">
-    {({ field: { value }, form: { setFieldValue } }) => (
+    {({ field: { value }, form: { setFieldValue } }: FieldProps) => (
       <FormGroup>
         <Label for={fieldName} className="label-color">
           {fieldName}

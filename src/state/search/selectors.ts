@@ -1,8 +1,6 @@
-// @flow
-
-import * as R from 'ramda'
+import { RootState } from 'state'
 
 import { namespace } from './constants'
 
-const searchSelector = R.path([namespace])
+const searchSelector = (state: RootState) => state[namespace]
 export default searchSelector

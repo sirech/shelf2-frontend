@@ -1,18 +1,12 @@
-// @flow
-
+import { FieldProps } from 'formik'
 import React from 'react'
 import { FormFeedback, FormGroup, Input, Label } from 'reactstrap'
 
 const ReactstrapInput = ({
   field: { ...fields },
-  form: { touched, errors, ...rest },
+  form: { touched, errors },
   ...props
-}: {
-  field: Object,
-  form: Object,
-  id: string,
-  label: string,
-}) => (
+}: FieldProps & { id: string; label: string }) => (
   <FormGroup>
     <Label for={props.id} className="label-color">
       {props.label}

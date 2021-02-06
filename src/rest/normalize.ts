@@ -1,5 +1,3 @@
-// @flow
-
 import { normalize, schema } from 'normalizr'
 import type { Book, NormalizedBooks, Year, NormalizedYears } from 'types'
 

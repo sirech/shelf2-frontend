@@ -1,5 +1,3 @@
-// @flow
-
 import React from 'react'
 import Star from 'components/star'
 
@@ -11,8 +9,8 @@ const Stars = ({
   count,
   handleClick,
 }: {
-  count: StarCount,
-  handleClick: (number) => void,
+  count: StarCount
+  handleClick: (count: number) => void
 }) => (
   <span className={styles.stars}>
     {[...Array(5).keys()].map((i) => (

@@ -1,8 +1,5 @@
-// @flow
-
-import * as R from 'ramda'
-
+import { RootState } from 'state'
 import { namespace } from './constants'
 
-const yearsSelector = R.path([namespace])
+const yearsSelector = (state: RootState) => state[namespace]
 export default yearsSelector

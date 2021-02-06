@@ -6,7 +6,6 @@ import { RECEIVE_SEARCH_RESULT, ReceiveSearchResultAction } from './constants'
 const initialState: NormalizedBooks = {
   entities: { books: {} },
   result: [],
-  activeYear: 0,
 }
 
 export default function books(

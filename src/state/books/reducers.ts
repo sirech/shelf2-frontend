@@ -10,7 +10,7 @@ import {
 import { constants } from 'state/form'
 import { NormalizedBooks } from 'types'
 
-const initialState: NormalizedBooks = {
+const initialState: NormalizedBooks & { activeYear: number } = {
   entities: { books: {} },
   result: [],
   activeYear: 0,

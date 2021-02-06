@@ -1,11 +1,8 @@
-// @flow
-
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
 import { Card, CardHeader } from 'reactstrap'
 import debounce from 'lodash.debounce'
-import Pluralize from 'react-pluralize'
 
 import SimpleBookList from 'components/simple_book_list'
 
@@ -15,7 +12,7 @@ import { actions } from 'state/search'
 
 type Props = {
   // eslint-disable-next-line react/no-unused-prop-types
-  match: { params: { keyword?: string } },
+  match: { params: { keyword?: string } }
 }
 
 const SearchList = ({
@@ -35,9 +32,7 @@ const SearchList = ({
 
   return (
     <Card className="ml-3 mr-3">
-      <CardHeader className="text-right">
-        <Pluralize singular="result" count={books.length} />
-      </CardHeader>
+      <CardHeader className="text-right">{books.length} results</CardHeader>
       <SimpleBookList books={books} />
     </Card>
   )

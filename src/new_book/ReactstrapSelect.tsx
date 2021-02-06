@@ -1,20 +1,13 @@
-// @flow
-
+import { FieldProps } from 'formik'
 import * as React from 'react'
-import { FormFeedback, FormGroup, Input, Label } from 'reactstrap'
+import { FormFeedback, FormGroup, Input, InputProps, Label } from 'reactstrap'
 
 const ReactstrapSelect = ({
   field,
-  form: { isSubmitting, touched, errors },
+  form: { touched, errors },
   disabled = false,
   ...props
-}: {
-  field: Object,
-  form: Object,
-  disabled: boolean,
-  label: string,
-  inputprops: Object,
-}) => {
+}: FieldProps & InputProps) => {
   const error = errors[field.name]
   const touch = touched[field.name]
   return (
@@ -31,13 +24,7 @@ const ReactstrapSelect = ({
         placeholder="Test"
       >
         <option value="">{props.inputprops.defaultOption}</option>
-        {props.inputprops.options.map((option, index) => {
-          if (option.name)
-            return (
-              <option value={option.id} key={index}>
-                {option.name}
-              </option>
-            )
+        {props.inputprops.options.map((option: string, index: string) => {
           return (
             <option value={option} key={index}>
               {option}

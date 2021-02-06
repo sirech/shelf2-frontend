@@ -3,6 +3,7 @@ export type Categories = 'sociology' | 'software' | 'econ' | 'history' | 'other'
 
 export interface BookForm {
   title: string
+  description: string
   stars: StarCount
   category: Categories
   year: number
@@ -27,7 +28,6 @@ export interface NormalizedBooks {
   entities: {
     books: { [id: string]: Book }
   }
-  activeYear: number
 }
 
 export interface NormalizedYears {

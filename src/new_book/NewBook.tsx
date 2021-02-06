@@ -1,9 +1,7 @@
-// @flow
-
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import { Field, Form, Formik } from 'formik'
+import { Field, Form, Formik, FormikProps } from 'formik'
 
 import { LinkContainer } from 'react-router-bootstrap'
 import { Button, Container, Row, Col } from 'reactstrap'
@@ -17,9 +15,9 @@ import bookSchema from './schema'
 
 import { actions } from 'state/form'
 
-import type { Categories } from 'types'
+import type { BookForm, Categories } from 'types'
 
-const categories: Array<Categories> = [
+const categories: Categories[] = [
   'sociology',
   'software',
   'econ',
@@ -36,7 +34,7 @@ const NewBookWrapper = () => {
       initialStatus={{ submitError: '' }}
       render={NewBook}
       validationSchema={bookSchema}
-      onSubmit={(values, { setStatus }) =>
+      onSubmit={async (values, { setStatus }) =>
         dispatch(
           actions.create(values, history, (error) =>
             setStatus({ submitError: error })
@@ -50,9 +48,8 @@ const NewBookWrapper = () => {
 const NewBook = ({
   status: { submitError },
   isSubmitting,
-  fields,
   setFieldValue,
-}: Object) => (
+}: FormikProps<BookForm>) => (
   <section>
     <Form>
       <Container fluid>

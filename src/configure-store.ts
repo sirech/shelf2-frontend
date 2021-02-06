@@ -1,8 +1,8 @@
-import rootReducer from 'state'
+import rootReducer, { RootState } from 'state'
 import { createStore, applyMiddleware, compose } from 'redux'
 import thunk from 'redux-thunk'
 
-export default (initialState) => {
+export default (initialState: RootState) => {
   return createStore(
     rootReducer,
     initialState,
