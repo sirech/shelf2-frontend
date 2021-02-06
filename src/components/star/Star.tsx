@@ -1,5 +1,3 @@
-// @flow
-
 import React from 'react'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -8,7 +6,7 @@ import { faStar as regularStar } from '@fortawesome/free-regular-svg-icons'
 
 import styles from './styles.module.css'
 
-const renderStar = (isFull) => {
+const renderStar = (isFull: boolean) => {
   const icon = isFull ? faStar : regularStar
   return <FontAwesomeIcon icon={icon} size="lg" />
 }
@@ -17,8 +15,8 @@ const Star = ({
   isFull,
   onClick,
 }: {
-  isFull: boolean,
-  onClick?: () => void,
+  isFull: boolean
+  onClick?: () => void
 }) => (
   <span className={styles.star} onClick={onClick}>
     {renderStar(isFull)}

@@ -1,4 +1,3 @@
-import { RootState } from './../state/index'
 import * as R from 'ramda'
 
 import { searchSelector as baseSelector } from 'state/search'

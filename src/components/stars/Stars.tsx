@@ -1,16 +1,18 @@
 import React from 'react'
 import Star from 'components/star'
 
+import * as R from 'ramda'
+
 import styles from './styles.module.css'
 
 import type { StarCount } from 'types'
 
 const Stars = ({
   count,
-  handleClick,
+  handleClick = R.identity,
 }: {
   count: StarCount
-  handleClick: (count: number) => void
+  handleClick?: (count: number) => void
 }) => (
   <span className={styles.stars}>
     {[...Array(5).keys()].map((i) => (
@@ -18,10 +20,5 @@ const Stars = ({
     ))}
   </span>
 )
-
-Stars.defaultProps = {
-  count: 1,
-  handleClick: (e) => e,
-}
 
 export default Stars

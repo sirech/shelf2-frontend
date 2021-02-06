@@ -1,7 +1,5 @@
 import { combineReducers } from 'redux'
 
-import * as R from 'ramda'
-
 import { constants as booksConstants, reducer as booksReducer } from './books'
 import {
   constants as searchConstants,

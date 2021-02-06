@@ -1,11 +1,13 @@
-// @flow
-
 import React from 'react'
 import { useHistory } from 'react-router-dom'
+import { History } from 'history'
 
 import { Form, Input } from 'reactstrap'
 
-const handleChange = (e, history) => {
+const handleChange = (
+  e: React.ChangeEvent<HTMLInputElement>,
+  history: History
+) => {
   e.preventDefault()
   history.push(`/books/search/${e.target.value}`)
 }
