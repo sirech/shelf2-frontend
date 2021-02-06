@@ -1,0 +1,123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`years reducer handles BOOK_CREATE_SUCCESS increments the counter for existing years 1`] = `
+Object {
+  "entities": Object {
+    "years": Object {
+      "2010": Object {
+        "count": 2,
+        "year": 2010,
+      },
+      "2012": Object {
+        "count": 1,
+        "year": 2012,
+      },
+      "2013": Object {
+        "count": 1,
+        "year": 2013,
+      },
+      "2014": Object {
+        "count": 1,
+        "year": 2014,
+      },
+      "2016": Object {
+        "count": 7,
+        "year": 2016,
+      },
+    },
+  },
+  "result": Array [
+    2010,
+    2012,
+    2013,
+    2014,
+    2016,
+  ],
+}
+`;
+
+exports[`years reducer handles BOOK_CREATE_SUCCESS it adds a new year entry 1`] = `
+Object {
+  "entities": Object {
+    "years": Object {
+      "2010": Object {
+        "count": 1,
+        "year": 2010,
+      },
+      "2012": Object {
+        "count": 1,
+        "year": 2012,
+      },
+      "2013": Object {
+        "count": 1,
+        "year": 2013,
+      },
+      "2014": Object {
+        "count": 1,
+        "year": 2014,
+      },
+      "2015": Object {
+        "count": 1,
+        "year": 2015,
+      },
+      "2016": Object {
+        "count": 7,
+        "year": 2016,
+      },
+    },
+  },
+  "result": Array [
+    2010,
+    2012,
+    2013,
+    2014,
+    2015,
+    2016,
+  ],
+}
+`;
+
+exports[`years reducer handles RECEIVE_YEARS 1`] = `
+Object {
+  "entities": Object {
+    "years": Object {
+      "2010": Object {
+        "count": 1,
+        "year": 2010,
+      },
+      "2012": Object {
+        "count": 1,
+        "year": 2012,
+      },
+      "2013": Object {
+        "count": 1,
+        "year": 2013,
+      },
+      "2014": Object {
+        "count": 1,
+        "year": 2014,
+      },
+      "2016": Object {
+        "count": 7,
+        "year": 2016,
+      },
+    },
+  },
+  "result": Array [
+    2010,
+    2012,
+    2013,
+    2014,
+    2016,
+  ],
+}
+`;
+
+exports[`years reducer returns the initial state 1`] = `
+Object {
+  "entities": Object {
+    "years": Object {},
+  },
+  "result": Array [],
+}
+`;
