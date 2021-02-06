@@ -1,4 +1,4 @@
-import auth0 from 'auth0-js'
+import auth0, { Auth0DecodedHash, Auth0ParseHashError } from 'auth0-js'
 import { Dispatch } from 'redux'
 
 import { LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT_SUCCESS } from './constants'
@@ -35,11 +35,15 @@ export type LoginActions =
 export const login = () => {
   return (dispatch: Dispatch) => {
     auth0Client().parseHash(
-      (err: object, authResult: { accessToken: string; expiresIn: number }) => {
+      (
+        err: Auth0ParseHashError | null,
+        authResult: Auth0DecodedHash | null
+      ) => {
         if (authResult && authResult.accessToken) {
           window.location.hash = ''
           const expiresAt = new Date()
-          expiresAt.setSeconds(expiresAt.getSeconds() + authResult.expiresIn)
+          if (authResult.expiresIn)
+            expiresAt.setSeconds(expiresAt.getSeconds() + authResult.expiresIn)
 
           localStorage.setItem('authToken', authResult.accessToken)
           localStorage.setItem('expiresAt', expiresAt.toString())

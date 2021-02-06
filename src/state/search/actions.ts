@@ -1,12 +1,14 @@
-// @flow
+import { Dispatch } from 'redux'
 
-import { RECEIVE_SEARCH_RESULT } from './constants'
+import { RECEIVE_SEARCH_RESULT, ReceiveSearchResultAction } from './constants'
 
 import { fetch, normalizeBooks } from 'rest'
 import type { NormalizedBooks } from 'types'
 
 // exported for testing
-export const receiveSearchResult = (books: NormalizedBooks) => ({
+export const receiveSearchResult = (
+  books: NormalizedBooks
+): ReceiveSearchResultAction => ({
   type: RECEIVE_SEARCH_RESULT,
   payload: books,
 })

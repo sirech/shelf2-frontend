@@ -1,4 +1,6 @@
+import { Dispatch } from 'redux'
 import { fetch } from 'rest'
+import { History } from 'history'
 
 import {
   BOOK_CREATE_SUCCESS,
@@ -13,15 +15,15 @@ const bookCreated = (book: Book): BookCreateSuccessAction => ({
   payload: book,
 })
 
-const bookCreationFailed = (error) => ({
+const bookCreationFailed = (error: string) => ({
   type: BOOK_CREATE_FAIL,
   payload: error,
 })
 
 export const create = (
   book: BookForm,
-  history: Object,
-  errorCallback: (string) => void
+  history: History,
+  errorCallback: (message: string) => void
 ) => {
   return (dispatch: Dispatch) => {
     const url = '/books'

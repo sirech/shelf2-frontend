@@ -1,10 +1,18 @@
+import { NormalizedBooks } from 'types'
 import produce from 'immer'
 
-import { RECEIVE_SEARCH_RESULT } from './constants'
+import { RECEIVE_SEARCH_RESULT, ReceiveSearchResultAction } from './constants'
 
-const initialState = { entities: { books: {} }, result: [] }
+const initialState: NormalizedBooks = {
+  entities: { books: {} },
+  result: [],
+  activeYear: 0,
+}
 
-export default function books(state = initialState, action) {
+export default function books(
+  state = initialState,
+  action: ReceiveSearchResultAction
+) {
   return produce(state, (draft) => {
     switch (action.type) {
       case RECEIVE_SEARCH_RESULT: {
