@@ -60,7 +60,7 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-testing-library": "^3.10.1",
     "faker": "^5.1.0",
-    "flow-bin": "0.136.0",
+    "flow-bin": "0.144.0",
     "npm-ls-scripts": "^0.1.2",
     "pact": "^4.2.1",
     "path": "^0.12.7",
