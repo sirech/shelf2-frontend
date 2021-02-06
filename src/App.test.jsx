@@ -1,14 +1,13 @@
 import React from 'react'
-
+import App from './App'
 import { fullRender } from 'test'
-import state from 'state/__fixtures__'
 
-import Logout from './Logout'
+jest.mock('rest/fetch')
 
 describe('components', () => {
-  describe('Logout', () => {
+  describe('App', () => {
     it('renders correctly', () => {
-      const { component } = fullRender(<Logout />, state())
+      const { component } = fullRender(<App />)
       expect(component.toJSON()).toMatchSnapshot()
     })
   })

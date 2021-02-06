@@ -1,7 +1,7 @@
 import React from 'react'
 
-import ReactstrapInput from './ReactstrapInput'
 import { Field } from 'formik'
+import ReactstrapInput from './ReactstrapInput'
 
 const input = ({
   name,

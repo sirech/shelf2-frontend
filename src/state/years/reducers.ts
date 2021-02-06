@@ -1,10 +1,10 @@
-import produce from 'immer'
+import { produce } from 'immer'
 import * as R from 'ramda'
 
+import { RECEIVE_YEARS, ReceiveYearsAction } from './constants'
 import { NormalizedYears } from 'types'
 
 import { constants } from 'state/form'
-import { RECEIVE_YEARS, ReceiveYearsAction } from './constants'
 
 const initialState: NormalizedYears = { entities: { years: {} }, result: [] }
 

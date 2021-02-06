@@ -1,6 +1,6 @@
 import React from 'react'
-import { fullRender } from 'test'
 import NavigationItem from './NavigationItem'
+import { fullRender } from 'test'
 
 describe('components', () => {
   describe('NavigationItem', () => {

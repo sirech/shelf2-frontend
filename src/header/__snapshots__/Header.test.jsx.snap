@@ -52,15 +52,11 @@ exports[`components Header renders correctly 1`] = `
           </a>
         </li>
         <li
-          className="nav-item"
+          className="nav-link nav-item"
+          onClick={[Function]}
+          role="link"
         >
-          <div
-            className="nav-link"
-            onClick={[Function]}
-            role="link"
-          >
-            Logout
-          </div>
+          Logout
         </li>
       </ul>
     </div>

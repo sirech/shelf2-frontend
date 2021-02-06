@@ -4,14 +4,13 @@
 import * as R from 'ramda'
 import { Matchers } from 'pact'
 
-import { mockStore, createProvider } from 'test'
-
 import { fetchBooks } from './books/actions'
 import { create } from './form/actions'
 import { search } from './search/actions'
 import { fetchYears } from './years/actions'
 
 import { books, years, rest } from './__fixtures__'
+import { mockStore, createProvider } from 'test'
 
 describe('pacts', () => {
   let store

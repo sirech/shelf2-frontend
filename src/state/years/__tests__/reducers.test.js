@@ -2,8 +2,8 @@ import reducer from '../reducers'
 
 import { receiveYears } from '../actions'
 import { constants } from '../../form'
-import { factories } from 'test'
 import { years } from '../../__fixtures__'
+import { factories } from 'test'
 
 describe('years reducer', () => {
   it('returns the initial state', () => {
@@ -15,7 +15,7 @@ describe('years reducer', () => {
   })
 
   describe('handles BOOK_CREATE_SUCCESS', () => {
-    it('it adds a new year entry', () => {
+    it('adds a new year entry', () => {
       const book = factories.book.build({ year: 2015 })
       expect(
         reducer(years(), { type: constants.BOOK_CREATE_SUCCESS, payload: book })

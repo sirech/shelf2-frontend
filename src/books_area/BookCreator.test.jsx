@@ -6,7 +6,7 @@ import { BookCreator } from './BookCreator'
 describe('components', () => {
   describe('BookCreator', () => {
     // TODO: wrap in route
-    xit('renders correctly', () => {
+    it.skip('renders correctly', () => {
       const component = renderer.create(<BookCreator />)
       expect(component.toJSON()).toMatchSnapshot()
     })

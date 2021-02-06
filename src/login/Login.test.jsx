@@ -1,10 +1,9 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
 
+import Login from './Login'
 import { fullRender } from 'test'
 import state from 'state/__fixtures__'
-
-import Login from './Login'
 
 import { actions } from 'state/login'
 jest.mock('state/login/actions', () => ({
@@ -14,7 +13,7 @@ jest.mock('state/login/actions', () => ({
 describe('components', () => {
   describe('Login', () => {
     // TODO: action needs tick
-    xit('does not blow up', () => {
+    it.skip('does not blow up', () => {
       const currentState = state()
       currentState.login.authenticated = false
       fullRender(

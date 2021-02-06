@@ -1,10 +1,9 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
 
+import Callback from './Callback'
 import { fullRender } from 'test'
 import state from 'state/__fixtures__'
-
-import Callback from './Callback'
 
 import { actions } from 'state/login'
 jest.mock('state/login/actions', () => ({
@@ -18,7 +17,7 @@ describe('components', () => {
     })
 
     // TODO: needs a tick
-    xit('logs in if not authenticated', () => {
+    it.skip('logs in if not authenticated', () => {
       const currentState = state()
       currentState.login.authenticated = false
       fullRender(

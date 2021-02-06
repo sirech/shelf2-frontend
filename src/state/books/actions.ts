@@ -1,3 +1,4 @@
+import { Dispatch } from 'redux'
 import {
   RECEIVE_BOOKS,
   MARK_ACTIVE_YEAR,
@@ -7,7 +8,6 @@ import {
 
 import { fetch, normalizeBooks } from 'rest'
 import { NormalizedBooks } from 'types'
-import { Dispatch } from 'redux'
 
 // exported for testing
 export const receiveBooks = (books: NormalizedBooks): ReceiveBooksAction => ({

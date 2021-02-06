@@ -1,13 +1,22 @@
 import { FieldProps } from 'formik'
 import * as React from 'react'
+// eslint-disable-next-line import/named
 import { FormFeedback, FormGroup, Input, InputProps, Label } from 'reactstrap'
+import { Categories } from 'types'
 
 const ReactstrapSelect = ({
   field,
   form: { touched, errors },
-  disabled = false,
   ...props
-}: FieldProps & InputProps) => {
+}: FieldProps &
+  InputProps & {
+    inputprops: {
+      id: string
+      label: string
+      options: Categories[]
+      defaultOption: Categories
+    }
+  }) => {
   const error = errors[field.name]
   const touch = touched[field.name]
   return (
@@ -24,7 +33,7 @@ const ReactstrapSelect = ({
         placeholder="Test"
       >
         <option value="">{props.inputprops.defaultOption}</option>
-        {props.inputprops.options.map((option: string, index: string) => {
+        {props.inputprops.options.map((option: Categories, index: number) => {
           return (
             <option value={option} key={index}>
               {option}

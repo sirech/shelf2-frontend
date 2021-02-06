@@ -1,7 +1,7 @@
-import { RootState } from 'state'
 import * as R from 'ramda'
 
 import { namespace } from './constants'
+import { RootState } from 'state'
 
 const selector = (state: RootState) => state[namespace]
 

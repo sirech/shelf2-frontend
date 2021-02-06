@@ -4,9 +4,8 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Card, CardHeader } from 'reactstrap'
 import debounce from 'lodash.debounce'
 
-import SimpleBookList from 'components/simple_book_list'
-
 import booksSelector from './selectors'
+import SimpleBookList from 'components/simple_book_list'
 
 import { actions } from 'state/search'
 

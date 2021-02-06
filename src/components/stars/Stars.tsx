@@ -1,9 +1,9 @@
 import React from 'react'
-import Star from 'components/star'
 
 import * as R from 'ramda'
 
 import styles from './styles.module.css'
+import Star from 'components/star'
 
 import type { StarCount } from 'types'
 

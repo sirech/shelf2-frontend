@@ -2,14 +2,12 @@
 
 import React from 'react'
 
+import { Route } from 'react-router-dom'
 import styles from './styles.module.css'
 
-import { Route } from 'react-router-dom'
-
+import BookCreator from './BookCreator'
 import BookList from 'book-list'
 import Navigation from 'navigation'
-
-import BookCreator from './BookCreator'
 
 const BooksArea = () => (
   <div className={styles.grid}>

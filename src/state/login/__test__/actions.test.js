@@ -1,6 +1,5 @@
-import { mockStore } from 'test'
-
 import { login, logout } from '../actions'
+import { mockStore } from 'test'
 
 jest.mock('auth0-js', () => ({
   WebAuth: jest.fn().mockImplementation(() => ({

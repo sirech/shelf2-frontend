@@ -1,7 +1,7 @@
-import { NormalizedBooks } from 'types'
-import produce from 'immer'
+import { produce } from 'immer'
 
 import { RECEIVE_SEARCH_RESULT, ReceiveSearchResultAction } from './constants'
+import { NormalizedBooks } from 'types'
 
 const initialState: NormalizedBooks = {
   entities: { books: {} },

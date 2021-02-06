@@ -1,5 +1,5 @@
+import { produce } from 'immer'
 import { LoginActions } from './actions'
-import produce from 'immer'
 
 import { LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT_SUCCESS } from './constants'
 

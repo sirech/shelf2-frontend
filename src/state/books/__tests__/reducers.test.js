@@ -2,8 +2,8 @@ import reducer from '../reducers'
 import { markActiveYear, receiveBooks } from '../actions'
 
 import { constants } from '../../form'
-import { factories } from 'test'
 import { books } from '../../__fixtures__'
+import { factories } from 'test'
 
 describe('book reducer', () => {
   it('returns the initial state', () => {

@@ -5,9 +5,6 @@ import { Link } from 'react-router-dom'
 import { LinkContainer } from 'react-router-bootstrap'
 import { Helmet } from 'react-helmet'
 
-import Logout from './Logout'
-import SearchBar from './SearchBar'
-
 import {
   Collapse,
   Nav,
@@ -16,6 +13,8 @@ import {
   NavItem,
   NavbarToggler,
 } from 'reactstrap'
+import Logout from './Logout'
+import SearchBar from './SearchBar'
 
 const Login = () => (
   <NavItem>

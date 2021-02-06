@@ -1,8 +1,8 @@
 import React from 'react'
 
+import SearchList from './SearchList'
 import { fullRender } from 'test'
 import state from 'state/__fixtures__'
-import SearchList from './SearchList'
 
 // Mock thunk that triggers API request
 import { actions } from 'state/search'
@@ -25,7 +25,7 @@ describe('components', () => {
     })
 
     // TODO: needs tick to happen
-    xit('fetches the book at the beginning', () => {
+    it.skip('fetches the book at the beginning', () => {
       fullRender(<SearchList match={match} />, state())
       expect(actions.search.mock.calls.length).toBe(1)
       expect(actions.search.mock.calls[0][0]).toBe('no')

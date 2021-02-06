@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/named
 import { Factory } from 'rosie'
 import faker from 'faker'
 

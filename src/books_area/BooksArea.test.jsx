@@ -1,14 +1,13 @@
 import React from 'react'
+import BooksArea from './BooksArea'
 import { fullRender } from 'test'
-
-import App from './App'
 
 jest.mock('rest/fetch')
 
 describe('components', () => {
-  describe('App', () => {
+  describe('BooksArea', () => {
     it('renders correctly', () => {
-      const { component } = fullRender(<App />)
+      const { component } = fullRender(<BooksArea />, {}, '/books/2016')
       expect(component.toJSON()).toMatchSnapshot()
     })
   })

@@ -1,8 +1,7 @@
 import React from 'react'
 
-import Stars from 'components/stars'
-
 import styles from './styles.module.css'
+import Stars from 'components/stars'
 
 import type { Book as BookType } from 'types'
 

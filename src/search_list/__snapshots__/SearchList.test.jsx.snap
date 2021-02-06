@@ -7,12 +7,8 @@ exports[`components SearchList renders correctly 1`] = `
   <div
     className="text-right card-header"
   >
-    <span
-      className={null}
-      style={Object {}}
-    >
-      7 results
-    </span>
+    7
+     results
   </div>
   <ul
     className="list-unstyled mb-0"

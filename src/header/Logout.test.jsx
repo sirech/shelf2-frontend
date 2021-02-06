@@ -1,11 +1,13 @@
 import React from 'react'
+
+import Logout from './Logout'
 import { fullRender } from 'test'
-import Header from './Header'
+import state from 'state/__fixtures__'
 
 describe('components', () => {
-  describe('Header', () => {
+  describe('Logout', () => {
     it('renders correctly', () => {
-      const { component } = fullRender(<Header />)
+      const { component } = fullRender(<Logout />, state())
       expect(component.toJSON()).toMatchSnapshot()
     })
   })

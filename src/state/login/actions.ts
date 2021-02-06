@@ -1,4 +1,4 @@
-import auth0, { Auth0DecodedHash, Auth0ParseHashError } from 'auth0-js'
+import { Auth0DecodedHash, Auth0ParseHashError, WebAuth } from 'auth0-js'
 import { Dispatch } from 'redux'
 
 import { LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT_SUCCESS } from './constants'
@@ -66,13 +66,13 @@ export const logout = () => {
 }
 
 export const startLogin = () => {
-  return (dispatch: Dispatch) => {
+  return () => {
     auth0Client().authorize()
   }
 }
 
 const auth0Client = () => {
-  return new auth0.WebAuth({
+  return new WebAuth({
     clientID: 'K0KbX0Mq54eJqqFg3bHaYWn71QhJf7K6',
     domain: 'hceris.eu.auth0.com',
     responseType: 'token id_token',
@@ -82,4 +82,4 @@ const auth0Client = () => {
   })
 }
 
-const redirectUri = () => `${process.env.REACT_APP_HOST}/callback`
+const redirectUri = () => `${process.env.REACT_APP_HOST || ''}/callback`

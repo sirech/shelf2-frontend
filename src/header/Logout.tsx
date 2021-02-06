@@ -1,5 +1,3 @@
-// @flow
-
 import React from 'react'
 import { useDispatch } from 'react-redux'
 
@@ -11,14 +9,12 @@ const Logout = () => {
   const dispatch = useDispatch()
 
   return (
-    <NavItem>
-      <div
-        onClick={() => dispatch(actions.logout())}
-        className="nav-link"
-        role="link"
-      >
-        Logout
-      </div>
+    <NavItem
+      onClick={() => dispatch(actions.logout())}
+      className="nav-link"
+      role="link"
+    >
+      Logout
     </NavItem>
   )
 }

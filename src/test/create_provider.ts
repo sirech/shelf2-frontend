@@ -1,7 +1,7 @@
-import Pact from 'pact'
 import path from 'path'
+import Pact from 'pact'
 
-const provider = () =>
+const provider = (): Pact.PactProvider =>
   Pact({
     port: 8989,
     log: path.resolve(process.cwd(), 'logs', 'pact.log'),

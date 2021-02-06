@@ -19,7 +19,7 @@ const addAuthorization = (headers: Record<string, string>) => {
 
 const fetch = (
   url: string,
-  opts: Record<string, unknown> & { headers?: object } = {}
+  opts: Record<string, unknown> & { headers?: Record<string, unknown> } = {}
 ): Promise<AxiosResponse> => {
   const DEFAULT_OPTIONS = {
     credentials: 'same-origin',

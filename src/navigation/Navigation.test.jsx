@@ -1,8 +1,8 @@
 import React from 'react'
 
+import Navigation from './Navigation'
 import { fullRender } from 'test'
 import state from 'state/__fixtures__'
-import Navigation from './Navigation'
 
 // Mock thunk that triggers API request
 import { actions } from 'state/years'

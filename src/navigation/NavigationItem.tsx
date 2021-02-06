@@ -4,7 +4,7 @@ import React from 'react'
 import { Badge, ListGroupItem } from 'reactstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 
-const NavigationItem = ({ year, count }: { year: number, count: number }) => (
+const NavigationItem = ({ year, count }: { year: number; count: number }) => (
   <LinkContainer
     to={`/books/${year}`}
     className="d-flex justify-content-between align-items-center"

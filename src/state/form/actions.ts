@@ -1,5 +1,4 @@
 import { Dispatch } from 'redux'
-import { fetch } from 'rest'
 import { History } from 'history'
 
 import {
@@ -7,6 +6,7 @@ import {
   BOOK_CREATE_FAIL,
   BookCreateSuccessAction,
 } from './constants'
+import { fetch } from 'rest'
 
 import { BookForm, Book } from 'types'
 
@@ -33,7 +33,7 @@ export const create = (
     return fetch(url, { method, data })
       .then((response) => dispatch(bookCreated(response.data)))
       .then(() => history.push('/books'))
-      .catch((error) => {
+      .catch((error: { response: { data: string } }) => {
         dispatch(bookCreationFailed(error.response.data))
         errorCallback(error.response.data)
       })
