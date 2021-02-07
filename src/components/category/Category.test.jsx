@@ -1,17 +1,21 @@
 import React from 'react'
-import renderer from 'react-test-renderer'
+import { screen } from '@testing-library/react'
+
 import Category from './Category'
+import { fullRender } from 'test'
 
 describe('components', () => {
   describe('Category', () => {
-    it('renders correctly', () => {
-      const component = renderer.create(
+    it('renders correctly', async () => {
+      fullRender(
         <Category
           name="Software"
           books={[{ id: 1, title: 'Catch 22', stars: 3 }]}
         />
       )
-      expect(component.toJSON()).toMatchSnapshot()
+
+      await screen.findByText('Software')
+      await screen.findByText('Catch 22')
     })
   })
 })

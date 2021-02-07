@@ -1,12 +1,12 @@
 import React from 'react'
-import renderer from 'react-test-renderer'
+
 import Stars from './Stars'
+import { fullRender } from 'test'
 
 describe('components', () => {
   describe('Stars', () => {
     it('renders correctly', () => {
-      const component = renderer.create(<Stars count={3} />)
-      expect(component.toJSON()).toMatchSnapshot()
+      fullRender(<Stars count={3} />)
     })
   })
 })

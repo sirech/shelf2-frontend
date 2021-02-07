@@ -1,12 +1,15 @@
 import React from 'react'
-import renderer from 'react-test-renderer'
+import { screen } from '@testing-library/react'
+
 import CreateButton from './CreateButton'
+import { fullRender } from 'test'
 
 describe('components', () => {
   describe('CreateButton', () => {
-    it('renders correctly', () => {
-      const component = renderer.create(<CreateButton />)
-      expect(component.toJSON()).toMatchSnapshot()
+    it('renders correctly', async () => {
+      fullRender(<CreateButton />)
+
+      await screen.findByText('Add Book')
     })
   })
 })
