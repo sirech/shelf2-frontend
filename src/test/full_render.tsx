@@ -4,8 +4,7 @@ import { Router } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import { createMemoryHistory, History } from 'history'
 import { render } from '@testing-library/react'
-
-import mockStore from './mock_store'
+import configureStore from 'configure-store'
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 const fullRender = (
@@ -13,10 +12,9 @@ const fullRender = (
   {
     route = '/',
     history = createMemoryHistory({ initialEntries: [route] }),
-    state = {},
-  }: { route?: string; history?: History; state?: Record<string, unknown> } = {}
+  }: { route?: string; history?: History } = {}
 ) => {
-  const store = mockStore(state)
+  const store = configureStore()
   return {
     ...render(
       <Provider store={store}>

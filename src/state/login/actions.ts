@@ -1,4 +1,4 @@
-import { Auth0DecodedHash, Auth0ParseHashError, WebAuth } from 'auth0-js'
+import auth0, { Auth0DecodedHash, Auth0ParseHashError } from 'auth0-js'
 import { Dispatch } from 'redux'
 
 import { LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT_SUCCESS } from './constants'
@@ -72,7 +72,8 @@ export const startLogin = () => {
 }
 
 const auth0Client = () => {
-  return new WebAuth({
+  // eslint-disable-next-line import/no-named-as-default-member
+  return new auth0.WebAuth({
     clientID: 'K0KbX0Mq54eJqqFg3bHaYWn71QhJf7K6',
     domain: 'hceris.eu.auth0.com',
     responseType: 'token id_token',

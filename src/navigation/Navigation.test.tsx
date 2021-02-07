@@ -1,13 +1,19 @@
 import React from 'react'
 import { screen } from '@testing-library/react'
 
-import NavigationItem from './NavigationItem'
+import Navigation from './Navigation'
 import { fullRender } from 'test'
 
+jest.mock('rest/fetch')
+
 describe('components', () => {
-  describe('NavigationItem', () => {
+  describe('Navigation', () => {
+    beforeEach(() => {
+      jest.clearAllMocks()
+    })
+
     it('renders correctly', async () => {
-      fullRender(<NavigationItem year="2016" count="2" />)
+      fullRender(<Navigation />)
 
       await screen.findAllByText('2016')
     })
