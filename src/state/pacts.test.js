@@ -97,6 +97,10 @@ describe('pacts', () => {
     }, 5 * 60 * 1000)
     afterAll(() => provider.verify(), 5 * 60 * 1000)
 
+    beforeEach(() => {
+      global.localStorage.getItem = (token) => rest.authToken
+    })
+
     it('should dispatch the correct actions', () => {
       const expectedActions = [
         { type: 'books:book:create:success', payload: rest.book },
@@ -137,6 +141,10 @@ describe('pacts', () => {
       return provider.addInteraction(interaction)
     }, 5 * 60 * 1000)
     afterAll(() => provider.verify(), 5 * 60 * 1000)
+
+    beforeEach(() => {
+      global.localStorage.getItem = (token) => 'EXPIRED'
+    })
 
     it('should dispatch the correct actions', () => {
       const expectedActions = [{ type: 'books:book:create:fail', payload: '' }]
