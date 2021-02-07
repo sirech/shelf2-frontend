@@ -21,13 +21,13 @@ const SearchList = ({
 }: Props) => {
   const books = useSelector(booksSelector)
   const dispatch = useDispatch()
-  const debouncedSearch = debounce(actions.search, 300)
+  const debouncedSearch = debounce(dispatch, 300)
 
   useEffect(() => {
     if (keyword) {
-      dispatch(debouncedSearch(keyword))
+      debouncedSearch(actions.search(keyword))
     }
-  }, [keyword, dispatch, debouncedSearch])
+  }, [keyword, debouncedSearch])
 
   return (
     <Card className="ml-3 mr-3">
