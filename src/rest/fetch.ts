@@ -1,5 +1,3 @@
-// @flow
-
 import axios, { AxiosResponse } from 'axios'
 
 const testableUrl = (path: string) => {

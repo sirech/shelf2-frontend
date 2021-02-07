@@ -1,5 +1,3 @@
-// @flow
-
 import React from 'react'
 import { Badge, ListGroupItem } from 'reactstrap'
 import { LinkContainer } from 'react-router-bootstrap'
