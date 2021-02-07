@@ -9,12 +9,21 @@ describe('components', () => {
     it('renders correctly', async () => {
       fullRender(
         <Category
-          name="Software"
-          books={[{ id: 1, title: 'Catch 22', stars: 3 }]}
+          name="software"
+          books={[
+            {
+              id: 1,
+              title: 'Catch 22',
+              description: 'desc',
+              category: 'software',
+              stars: 3,
+              year: 2020,
+            },
+          ]}
         />
       )
 
-      await screen.findByText('Software')
+      await screen.findByText('software')
       await screen.findByText('Catch 22')
     })
   })

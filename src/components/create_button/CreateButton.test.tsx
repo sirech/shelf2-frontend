@@ -7,7 +7,7 @@ import { fullRender } from 'test'
 describe('components', () => {
   describe('CreateButton', () => {
     it('renders correctly', async () => {
-      fullRender(<CreateButton />)
+      fullRender(<CreateButton onClick={() => null} />)
 
       await screen.findByText('Add Book')
     })
