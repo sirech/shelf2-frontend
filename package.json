@@ -60,10 +60,10 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-testing-library": "^3.10.1",
     "faker": "^5.1.0",
-    "npm-ls-scripts": "^0.1.2",
+    "husky": "^4.3.8",
+    "lint-staged": "^10.5.3",
     "pact": "^4.2.1",
     "path": "^0.12.7",
-    "pre-commit": "^1.2.2",
     "prettier": "^2.2.1",
     "react-scripts": "3.4.3",
     "react-test-renderer": "^16.14.0",
@@ -88,10 +88,15 @@
     "bundle": "yarn build && source-map-explorer 'build/static/js/*.js'"
   },
   "proxy": "http://localhost:3001",
-  "pre-commit": [
-    "linter:js",
-    "linter:css"
-  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": "eslint --config .eslintrc.js --max-warnings 0",
+    "*.scss": "./go linter-css"
+  },
   "browserslist": {
     "production": [
       ">0.2%",
