@@ -10,7 +10,6 @@ import SimpleBookList from 'components/simple_book_list'
 import { actions } from 'state/search'
 
 type Props = {
-  // eslint-disable-next-line react/no-unused-prop-types
   match: { params: { keyword?: string } }
 }
 
