@@ -10,7 +10,7 @@ const booksSelector = createSelector(
   R.pipe(
     R.groupBy((elem: Book) => elem.category),
     R.toPairs,
-    R.map(([category, books]) => ({
+    R.map(([category, books]: [category: string, books: Book[]]) => ({
       name: category as Categories,
       books: R.sort(
         R.comparator((a, b) => a.title < b.title),
