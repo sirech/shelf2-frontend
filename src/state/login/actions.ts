@@ -74,7 +74,7 @@ export const startLogin = () => {
 const auth0Client = () => {
   // eslint-disable-next-line import/no-named-as-default-member
   return new auth0.WebAuth({
-    clientID: 'K0KbX0Mq54eJqqFg3bHaYWn71QhJf7K6',
+    clientID: 'xwIxFMYa0YtuNexQzbZ642vF3L9BQiSd',
     domain: 'hceris.eu.auth0.com',
     responseType: 'token id_token',
     audience: 'shelf2.hceris.com',
