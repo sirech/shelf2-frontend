@@ -32,7 +32,7 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
-    "@testing-library/user-event": "^12.7.2",
+    "@testing-library/user-event": "^12.8.0",
     "@types/auth0-js": "^9.14.2",
     "@types/faker": "^5.1.7",
     "@types/jest": "^26.0.20",
