@@ -51,7 +51,7 @@
     "@typescript-eslint/eslint-plugin": "^4.15.2",
     "@typescript-eslint/parser": "^4.15.2",
     "coveralls": "^3.1.0",
-    "eslint-config-prettier": "^7.2.0",
+    "eslint-config-prettier": "^8.1.0",
     "eslint-config-react": "^1.1.7",
     "eslint-import-resolver-typescript": "^2.4.0",
     "eslint-plugin-css-modules": "^2.11.0",
@@ -68,7 +68,7 @@
     "pact": "^4.2.1",
     "path": "^0.12.7",
     "prettier": "^2.2.1",
-    "react-scripts": "4.0.2",
+    "react-scripts": "4.0.3",
     "redux-devtools-extension": "^2.13.8",
     "redux-mock-store": "^1.5.4",
     "rosie": "^2.0.1",
@@ -87,14 +87,10 @@
     "linter:js": "npx eslint --config .eslintrc.js 'src/**/*.{ts,tsx}' --max-warnings 0",
     "linter:css": "npx stylelint 'src/**/*.css'",
     "stub": "bin/launch-stub-server",
-    "bundle": "yarn build && source-map-explorer 'build/static/js/*.js'"
+    "bundle": "yarn build && source-map-explorer 'build/static/js/*.js'",
+    "prepare": "husky install"
   },
   "proxy": "http://localhost:3001",
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
     "*.{ts,tsx}": "eslint --config .eslintrc.js --max-warnings 0",
     "*.scss": "./go linter-css"
