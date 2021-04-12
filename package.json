@@ -61,7 +61,7 @@
     "eslint-plugin-react": "^7.23.1",
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-testing-library": "^3.10.2",
-    "faker": "^5.5.2",
+    "faker": "^5.5.3",
     "husky": "^5.2.0",
     "jest-environment-jsdom-sixteen": "^1.0.3",
     "lint-staged": "^10.5.3",
