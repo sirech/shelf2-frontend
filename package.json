@@ -67,7 +67,7 @@
     "lint-staged": "^10.5.3",
     "pact": "^4.2.1",
     "path": "^0.12.7",
-    "prettier": "^2.3.0",
+    "prettier": "^2.3.1",
     "react-scripts": "4.0.3",
     "redux-devtools-extension": "^2.13.9",
     "redux-mock-store": "^1.5.4",
