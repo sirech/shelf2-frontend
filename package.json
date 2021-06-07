@@ -40,7 +40,7 @@
     "@types/node": "^15.12.1",
     "@types/ramda": "^0.27.40",
     "@types/react": "^17.0.9",
-    "@types/react-dom": "^17.0.5",
+    "@types/react-dom": "^17.0.6",
     "@types/react-helmet": "^6.1.1",
     "@types/react-redux": "^7.1.16",
     "@types/react-router-bootstrap": "^0.24.5",
