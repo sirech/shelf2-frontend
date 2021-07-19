@@ -48,7 +48,7 @@
     "@types/redux-mock-store": "^1.0.3",
     "@types/rosie": "^0.0.39",
     "@types/yup": "^0.29.12",
-    "@typescript-eslint/eslint-plugin": "^4.28.2",
+    "@typescript-eslint/eslint-plugin": "^4.28.3",
     "@typescript-eslint/parser": "^4.28.3",
     "coveralls": "^3.1.1",
     "eslint-config-prettier": "^8.3.0",
