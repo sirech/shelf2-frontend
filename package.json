@@ -33,7 +33,7 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^13.2.0",
-    "@types/auth0-js": "^9.14.4",
+    "@types/auth0-js": "^9.14.5",
     "@types/faker": "^5.5.7",
     "@types/jest": "^26.0.24",
     "@types/lodash.debounce": "^4.0.6",
