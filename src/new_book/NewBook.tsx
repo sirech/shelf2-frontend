@@ -32,7 +32,6 @@ const NewBookWrapper = () => {
     <Formik
       initialValues={initialBook}
       initialStatus={{ submitError: '' }}
-      render={NewBook}
       validationSchema={bookSchema}
       // eslint-disable-next-line @typescript-eslint/require-await
       onSubmit={async (values, { setStatus }) =>
@@ -42,7 +41,9 @@ const NewBookWrapper = () => {
           )
         )
       }
-    />
+    >
+      {(props) => <NewBook {...props}></NewBook>}
+    </Formik>
   )
 }
 
