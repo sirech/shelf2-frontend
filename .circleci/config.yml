@@ -1,14 +1,12 @@
 version: 2
 jobs:
   check:
-
     working_directory: ~/app
 
     docker:
-      - image: cimg/node:14.4.0
+      - image: cimg/node:16.5.0
 
     steps:
-
       - checkout
       - run: yarn
       - run: yarn run linter:js
@@ -28,15 +26,13 @@ jobs:
       - persist_to_workspace:
           root: build
           paths:
-            - "*"
+            - '*'
 
   deploy:
-
     docker:
-      - image: cimg/node:14.4.0
+      - image: cimg/node:16.5.0
 
     steps:
-
       - add_ssh_keys:
       - attach_workspace:
           at: build

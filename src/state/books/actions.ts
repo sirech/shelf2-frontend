@@ -7,7 +7,7 @@ import {
 } from './constants'
 
 import { fetch, normalizeBooks } from 'rest'
-import { NormalizedBooks } from 'types'
+import { Book, NormalizedBooks } from 'types'
 
 // exported for testing
 export const receiveBooks = (books: NormalizedBooks): ReceiveBooksAction => ({
@@ -25,7 +25,7 @@ export function fetchBooks(year: string) {
   return (dispatch: Dispatch) => {
     const url = `/books?year=${year}`
 
-    return fetch(url)
+    return fetch<Book[]>(url)
       .then((response) => normalizeBooks(response.data))
       .then((books) => dispatch(receiveBooks(books)))
       .then(() => dispatch(markActiveYear(parseInt(year, 10))))

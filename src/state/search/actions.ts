@@ -3,7 +3,7 @@ import { Dispatch } from 'redux'
 import { RECEIVE_SEARCH_RESULT, ReceiveSearchResultAction } from './constants'
 
 import { fetch, normalizeBooks } from 'rest'
-import type { NormalizedBooks } from 'types'
+import { Book, NormalizedBooks } from 'types'
 
 // exported for testing
 export const receiveSearchResult = (
@@ -17,7 +17,7 @@ export function search(keyword: string) {
   return (dispatch: Dispatch) => {
     const url = `/books/search/${keyword}`
 
-    return fetch(url)
+    return fetch<Book[]>(url)
       .then((response) => normalizeBooks(response.data))
       .then((books) => dispatch(receiveSearchResult(books)))
   }

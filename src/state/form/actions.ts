@@ -30,7 +30,7 @@ export const create = (
     const method = 'POST'
     const data = { book }
 
-    return fetch(url, { method, data })
+    return fetch<Book>(url, { method, data })
       .then((response) => dispatch(bookCreated(response.data)))
       .then(() => history.push('/books'))
       .catch((error: { response: { data: string } }) => {
