@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useCallback, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
 import { Card, CardHeader } from 'reactstrap'
@@ -20,13 +20,14 @@ const SearchList = ({
 }: Props) => {
   const books = useSelector(booksSelector)
   const dispatch = useDispatch()
-  const debouncedSearch = debounce(dispatch, 300)
+  const debouncedSearch = useCallback(debounce(dispatch, 300), [])
 
   useEffect(() => {
+    console.log('stuff:', keyword, debouncedSearch)
     if (keyword) {
       debouncedSearch(actions.search(keyword))
     }
-  }, [keyword, debouncedSearch])
+  }, [keyword])
 
   return (
     <Card className="ml-3 mr-3">
