@@ -67,7 +67,7 @@
     "pact": "^4.2.1",
     "path": "^0.12.7",
     "prettier": "^2.5.1",
-    "react-scripts": "5.0.0",
+    "react-scripts": "5.0.1",
     "redux-devtools-extension": "^2.13.9",
     "redux-mock-store": "^1.5.4",
     "rosie": "^2.1.0",
