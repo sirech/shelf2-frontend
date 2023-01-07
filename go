@@ -6,24 +6,32 @@ set -o pipefail
 
 SCRIPT_DIR=$(cd "$(dirname "$0")" ; pwd -P)
 
+_npm() {
+  if [ -z "${CI:-}" ] ; then
+    n exec auto npm "$@"
+  else
+    npm "$@"
+  fi
+}
+
 goal_linter-js() {
-  npm run linter:js
+  _npm run linter:js
 }
 
 goal_linter-css() {
-  npm run linter:css
+  _npm run linter:css
 }
 
 goal_test-js() {
-  npm test
+  _npm test
 }
 
 goal_run() {
-  npm run start
+  _npm run start
 }
 
 goal_build() {
-  npm run build
+  _npm run build
 }
 
 goal_all() {
