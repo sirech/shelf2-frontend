@@ -3110,10 +3110,10 @@
   resolved "https://registry.yarnpkg.com/@types/retry/-/retry-0.12.1.tgz#d8f1c0d0dc23afad6dc16a9e993a0865774b4065"
   integrity sha512-xoDlM2S4ortawSWORYqsdU+2rxdh4LRW9ytc3zmT37RIKQh6IHyKwwtKhKis9ah8ol07DCkZxPt8BBvPjC6v4g==
 
-"@types/rosie@^0.0.40":
-  version "0.0.40"
-  resolved "https://registry.yarnpkg.com/@types/rosie/-/rosie-0.0.40.tgz#3fe51a3ac08d2f1a335999e74ee7b8743610ab11"
-  integrity sha512-Snog8oO88AXDhFG1BHPkKSg2urcGhyA+/fqQUuc4Abejt+HHrc2VszujyJGVBlN6DD8Gnp3PV5rogs3uYt/ZOA==
+"@types/rosie@^0.0.44":
+  version "0.0.44"
+  resolved "https://registry.yarnpkg.com/@types/rosie/-/rosie-0.0.44.tgz#cf561bbf0a92a06ca7fc3929be7266991c6c2bcf"
+  integrity sha512-Ex89wZaaeMBHEGNwi9haBkePyYk9T2PQ92E+vjZD2PQ/VOVleQGCKG5bYpyenJ9f1Lfa+A8scMWS7h5f6iVfuQ==
 
 "@types/scheduler@*":
   version "0.16.1"
