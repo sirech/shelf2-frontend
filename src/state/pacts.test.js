@@ -2,7 +2,7 @@
  * @jest-environment node
  */
 import * as R from 'ramda'
-import { Matchers } from 'pact'
+import { Matchers } from '@pact-foundation/pact'
 
 import { fetchBooks } from './books/actions'
 import { create } from './form/actions'
