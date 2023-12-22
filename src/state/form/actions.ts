@@ -33,9 +33,16 @@ export const create = (
     return fetch<Book>(url, { method, data })
       .then((response) => dispatch(bookCreated(response.data)))
       .then(() => history.push('/books'))
-      .catch((error: { response: { data: string } }) => {
-        dispatch(bookCreationFailed(error.response.data))
-        errorCallback(error.response.data)
+      .catch((error: { response: { data: string }; message: string }) => {
+        let payload = ''
+
+        if (error.response) {
+          payload = error.response.data
+        } else {
+          payload = error.message
+        }
+        dispatch(bookCreationFailed(payload))
+        errorCallback(payload)
       })
   }
 }

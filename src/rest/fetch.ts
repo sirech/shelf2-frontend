@@ -30,9 +30,14 @@ const fetch = <T>(
 
   const headers = { ...DEFAULT_OPTIONS.headers, ...opts.headers }
   addAuthorization(headers)
-  const options = { ...DEFAULT_OPTIONS, ...opts, ...{ headers } }
+  const options = {
+    ...DEFAULT_OPTIONS,
+    ...opts,
+    ...{ headers },
+    url: prepareUrl(url),
+  }
 
-  return axios(prepareUrl(url), options)
+  return axios(options)
 }
 
 export default fetch
