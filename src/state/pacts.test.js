@@ -27,29 +27,32 @@ describe('pacts', () => {
   describe('books - fetchBooks', () => {
     const year = '2016'
 
-    beforeAll(async () => {
-      const interaction = {
-        state: 'i have some books',
-        uponReceiving: 'a request for a list of books for a given year',
-        withRequest: {
-          method: 'GET',
-          path: '/rest/books',
-          query: { year },
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-            'X-Requested-With': 'XMLHttpRequest',
+    beforeAll(
+      async () => {
+        const interaction = {
+          state: 'i have some books',
+          uponReceiving: 'a request for a list of books for a given year',
+          withRequest: {
+            method: 'GET',
+            path: '/rest/books',
+            query: { year },
+            headers: {
+              Accept: 'application/json',
+              'Content-Type': 'application/json',
+              'X-Requested-With': 'XMLHttpRequest',
+            },
           },
-        },
-        willRespondWith: {
-          status: 200,
-          headers: { 'Content-Type': 'application/json; charset=utf-8' },
-          body: rest.books,
-        },
-      }
+          willRespondWith: {
+            status: 200,
+            headers: { 'Content-Type': 'application/json; charset=utf-8' },
+            body: rest.books,
+          },
+        }
 
-      return provider.addInteraction(interaction)
-    }, 5 * 60 * 1000)
+        return provider.addInteraction(interaction)
+      },
+      5 * 60 * 1000
+    )
     afterAll(() => provider.verify(), 5 * 60 * 1000)
 
     it('should dispatch the correct actions', () => {
@@ -72,30 +75,33 @@ describe('pacts', () => {
     const history = { push: jest.fn() }
     const errorCallback = jest.fn()
 
-    beforeAll(async () => {
-      const interaction = {
-        state: 'i am logged in',
-        uponReceiving: 'a request to create a new book',
-        withRequest: {
-          method: 'POST',
-          path: '/rest/books',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-            'X-Requested-With': 'XMLHttpRequest',
-            Authorization: `Bearer: ${rest.authToken}`,
+    beforeAll(
+      async () => {
+        const interaction = {
+          state: 'i am logged in',
+          uponReceiving: 'a request to create a new book',
+          withRequest: {
+            method: 'POST',
+            path: '/rest/books',
+            headers: {
+              Accept: 'application/json',
+              'Content-Type': 'application/json',
+              'X-Requested-With': 'XMLHttpRequest',
+              Authorization: `Bearer: ${rest.authToken}`,
+            },
+            body: { book: bookForm },
           },
-          body: { book: bookForm },
-        },
-        willRespondWith: {
-          status: 201,
-          headers: { 'Content-Type': 'application/json; charset=utf-8' },
-          body: Matchers.somethingLike(rest.book),
-        },
-      }
+          willRespondWith: {
+            status: 201,
+            headers: { 'Content-Type': 'application/json; charset=utf-8' },
+            body: Matchers.somethingLike(rest.book),
+          },
+        }
 
-      return provider.addInteraction(interaction)
-    }, 5 * 60 * 1000)
+        return provider.addInteraction(interaction)
+      },
+      5 * 60 * 1000
+    )
     afterAll(() => provider.verify(), 5 * 60 * 1000)
 
     beforeEach(() => {
@@ -121,28 +127,31 @@ describe('pacts', () => {
     const history = { push: jest.fn() }
     const errorCallback = jest.fn()
 
-    beforeAll(async () => {
-      const interaction = {
-        state: 'i have an expired token',
-        uponReceiving: 'a request to create a new book',
-        withRequest: {
-          method: 'POST',
-          path: '/rest/books',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-            'X-Requested-With': 'XMLHttpRequest',
-            Authorization: 'Bearer: EXPIRED',
+    beforeAll(
+      async () => {
+        const interaction = {
+          state: 'i have an expired token',
+          uponReceiving: 'a request to create a new book',
+          withRequest: {
+            method: 'POST',
+            path: '/rest/books',
+            headers: {
+              Accept: 'application/json',
+              'Content-Type': 'application/json',
+              'X-Requested-With': 'XMLHttpRequest',
+              Authorization: 'Bearer: EXPIRED',
+            },
+            body: { book: bookForm },
           },
-          body: { book: bookForm },
-        },
-        willRespondWith: {
-          status: 401,
-        },
-      }
+          willRespondWith: {
+            status: 401,
+          },
+        }
 
-      return provider.addInteraction(interaction)
-    }, 5 * 60 * 1000)
+        return provider.addInteraction(interaction)
+      },
+      5 * 60 * 1000
+    )
     afterAll(() => provider.verify(), 5 * 60 * 1000)
 
     beforeEach(() => {
@@ -165,28 +174,31 @@ describe('pacts', () => {
   describe('search - search', () => {
     const keyword = 'a'
 
-    beforeAll(async () => {
-      const interaction = {
-        state: 'i have some books',
-        uponReceiving: 'a search request',
-        withRequest: {
-          method: 'GET',
-          path: `/rest/books/search/${keyword}`,
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-            'X-Requested-With': 'XMLHttpRequest',
+    beforeAll(
+      async () => {
+        const interaction = {
+          state: 'i have some books',
+          uponReceiving: 'a search request',
+          withRequest: {
+            method: 'GET',
+            path: `/rest/books/search/${keyword}`,
+            headers: {
+              Accept: 'application/json',
+              'Content-Type': 'application/json',
+              'X-Requested-With': 'XMLHttpRequest',
+            },
           },
-        },
-        willRespondWith: {
-          status: 200,
-          headers: { 'Content-Type': 'application/json; charset=utf-8' },
-          body: rest.books,
-        },
-      }
+          willRespondWith: {
+            status: 200,
+            headers: { 'Content-Type': 'application/json; charset=utf-8' },
+            body: rest.books,
+          },
+        }
 
-      return provider.addInteraction(interaction)
-    }, 5 * 60 * 1000)
+        return provider.addInteraction(interaction)
+      },
+      5 * 60 * 1000
+    )
     afterAll(() => provider.verify(), 5 * 60 * 1000)
 
     it('should dispatch the correct actions', () => {
@@ -204,28 +216,31 @@ describe('pacts', () => {
   })
 
   describe('years - fetchYears', () => {
-    beforeAll(async () => {
-      const interaction = {
-        state: 'i have books for different years',
-        uponReceiving: 'a request for a summary of all the years',
-        withRequest: {
-          method: 'GET',
-          path: '/rest/books/years',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-            'X-Requested-With': 'XMLHttpRequest',
+    beforeAll(
+      async () => {
+        const interaction = {
+          state: 'i have books for different years',
+          uponReceiving: 'a request for a summary of all the years',
+          withRequest: {
+            method: 'GET',
+            path: '/rest/books/years',
+            headers: {
+              Accept: 'application/json',
+              'Content-Type': 'application/json',
+              'X-Requested-With': 'XMLHttpRequest',
+            },
           },
-        },
-        willRespondWith: {
-          status: 200,
-          headers: { 'Content-Type': 'application/json; charset=utf-8' },
-          body: rest.years,
-        },
-      }
+          willRespondWith: {
+            status: 200,
+            headers: { 'Content-Type': 'application/json; charset=utf-8' },
+            body: rest.years,
+          },
+        }
 
-      return provider.addInteraction(interaction)
-    }, 5 * 60 * 1000)
+        return provider.addInteraction(interaction)
+      },
+      5 * 60 * 1000
+    )
     afterAll(() => provider.verify(), 5 * 60 * 1000)
 
     it('should dispatch the correct actions', () => {
