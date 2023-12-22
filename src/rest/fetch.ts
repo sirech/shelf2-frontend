@@ -2,7 +2,7 @@ import axios, { AxiosResponse } from 'axios'
 
 const testableUrl = (path: string) => {
   const TESTING = process.env.NODE_ENV === 'test'
-  return `${TESTING ? 'http://localhost:8989' : ''}${path}`
+  return `${TESTING ? 'http://127.0.0.1:8989' : ''}${path}`
 }
 
 const prepareUrl = (path: string) => testableUrl(`/rest${path}`)

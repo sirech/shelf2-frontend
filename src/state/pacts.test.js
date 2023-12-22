@@ -24,7 +24,7 @@ describe('pacts', () => {
   beforeAll(() => provider.setup(), 5 * 60 * 1000)
   afterAll(() => provider.finalize(), 5 * 60 * 1000)
 
-  xdescribe('books - fetchBooks', () => {
+  describe('books - fetchBooks', () => {
     const year = '2016'
 
     beforeAll(async () => {
@@ -116,7 +116,7 @@ describe('pacts', () => {
     })
   })
 
-  xdescribe('forms - errors', () => {
+  describe('forms - errors', () => {
     const bookForm = R.omit(['id'])(rest.book)
     const history = { push: jest.fn() }
     const errorCallback = jest.fn()
@@ -162,7 +162,7 @@ describe('pacts', () => {
     })
   })
 
-  xdescribe('search - search', () => {
+  describe('search - search', () => {
     const keyword = 'a'
 
     beforeAll(async () => {
