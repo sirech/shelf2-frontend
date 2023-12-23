@@ -1,12 +1,12 @@
 import * as R from 'ramda'
 
-import { createSelector } from 'reselect'
+import { createSelector } from '@reduxjs/toolkit'
 import { Book, Categories } from 'types'
 
 import { booksSelector as baseSelector } from 'state/books'
 
 const booksSelector = createSelector(
-  R.pipe(baseSelector, (state) => state?.entities?.books, R.values),
+  [R.pipe(baseSelector, (state) => state?.entities?.books, R.values)],
   R.pipe(
     R.groupBy((elem: Book) => elem.category),
     R.toPairs,
