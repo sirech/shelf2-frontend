@@ -1,4 +1,4 @@
-import { login, logout } from '../actions'
+import { login, logout } from '../slice'
 import { mockStore } from 'test'
 
 jest.mock('auth0-js', () => ({
@@ -36,7 +36,7 @@ describe('actions', () => {
 
   describe('logout', () => {
     it('should dispatch the correct actions', () => {
-      const expectedActions = [{ type: 'logout:success' }]
+      const expectedActions = [{ type: 'login/logoutSucceeded' }]
 
       store.dispatch(logout())
       expect(store.getActions()).toEqual(expectedActions)

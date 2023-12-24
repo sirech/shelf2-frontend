@@ -1,5 +1,4 @@
-import reducer from '../reducers'
-import { receiveSearchResult } from '../actions'
+import reducer, { receivedSearchResult } from '../slice'
 
 import { books } from '../../__fixtures__'
 
@@ -9,6 +8,6 @@ describe('search reducer', () => {
   })
 
   it('handles RECEIVE_BOOKS', () => {
-    expect(reducer(undefined, receiveSearchResult(books()))).toMatchSnapshot()
+    expect(reducer(undefined, receivedSearchResult(books()))).toMatchSnapshot()
   })
 })

@@ -1,6 +1,6 @@
 import * as constants from './constants'
-import * as actions from './actions'
+import * as actions from './slice'
 
 export { actions, constants }
 export { default as searchSelector } from './selectors'
-export { default as reducer } from './reducers'
+export { default as reducer } from './slice'

@@ -1,36 +1,28 @@
-import auth0, { Auth0DecodedHash, Auth0ParseHashError } from 'auth0-js'
 import { Dispatch } from 'redux'
+import { createSlice } from '@reduxjs/toolkit'
+import auth0, { Auth0DecodedHash, Auth0ParseHashError } from 'auth0-js'
 
-import { LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT_SUCCESS } from './constants'
+const initialState = { authenticated: false, failed: false }
 
-export const loginSuccess = () => ({
-  type: LOGIN_SUCCESS,
+const loginSlice = createSlice({
+  name: 'login',
+  initialState,
+  reducers: {
+    loginSucceeded(state) {
+      state.authenticated = true
+      state.failed = false
+    },
+    loginFailed(state) {
+      state.failed = true
+    },
+    logoutSucceeded(state) {
+      state.authenticated = false
+    },
+  },
 })
 
-interface LoginSuccessAction {
-  type: typeof LOGIN_SUCCESS
-}
-
-export const loginFailure = () => ({
-  type: LOGIN_FAILURE,
-})
-
-interface LoginFailureAction {
-  type: typeof LOGIN_FAILURE
-}
-
-export const logoutSuccess = () => ({
-  type: LOGOUT_SUCCESS,
-})
-
-interface LogoutSuccessAction {
-  type: typeof LOGOUT_SUCCESS
-}
-
-export type LoginActions =
-  | LoginSuccessAction
-  | LoginFailureAction
-  | LogoutSuccessAction
+export const { loginSucceeded, loginFailed, logoutSucceeded } =
+  loginSlice.actions
 
 export const login = () => {
   return (dispatch: Dispatch) => {
@@ -48,9 +40,9 @@ export const login = () => {
           localStorage.setItem('authToken', authResult.accessToken)
           localStorage.setItem('expiresAt', expiresAt.toString())
 
-          dispatch(loginSuccess())
+          dispatch(loginSucceeded())
         } else if (err) {
-          dispatch(loginFailure())
+          dispatch(loginFailed())
         }
       }
     )
@@ -61,7 +53,7 @@ export const logout = () => {
   return (dispatch: Dispatch) => {
     localStorage.removeItem('authToken')
     localStorage.removeItem('expiresAt')
-    dispatch(logoutSuccess())
+    dispatch(logoutSucceeded())
   }
 }
 
@@ -70,6 +62,8 @@ export const startLogin = () => {
     auth0Client().authorize()
   }
 }
+
+const redirectUri = () => `${process.env.REACT_APP_HOST || ''}/callback`
 
 const auth0Client = () => {
   // eslint-disable-next-line import/no-named-as-default-member
@@ -83,4 +77,4 @@ const auth0Client = () => {
   })
 }
 
-const redirectUri = () => `${process.env.REACT_APP_HOST || ''}/callback`
+export default loginSlice.reducer

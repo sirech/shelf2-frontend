@@ -1,8 +1,8 @@
-import reducer from '../reducers'
+import reducer, { receivedYears } from '../slice'
 
-import { receiveYears } from '../actions'
-import { constants } from '../../form'
 import { years } from '../../__fixtures__'
+
+import { actions } from 'state/form'
 import { factories } from 'test'
 
 describe('years reducer', () => {
@@ -11,22 +11,18 @@ describe('years reducer', () => {
   })
 
   it('handles RECEIVE_YEARS', () => {
-    expect(reducer(undefined, receiveYears(years()))).toMatchSnapshot()
+    expect(reducer(undefined, receivedYears(years()))).toMatchSnapshot()
   })
 
   describe('handles BOOK_CREATE_SUCCESS', () => {
     it('adds a new year entry', () => {
       const book = factories.book.build({ year: 2015 })
-      expect(
-        reducer(years(), { type: constants.BOOK_CREATE_SUCCESS, payload: book })
-      ).toMatchSnapshot()
+      expect(reducer(years(), actions.bookCreated(book))).toMatchSnapshot()
     })
 
     it('increments the counter for existing years', () => {
       const book = factories.book.build({ year: 2010 })
-      expect(
-        reducer(years(), { type: constants.BOOK_CREATE_SUCCESS, payload: book })
-      ).toMatchSnapshot()
+      expect(reducer(years(), actions.bookCreated(book))).toMatchSnapshot()
     })
   })
 })

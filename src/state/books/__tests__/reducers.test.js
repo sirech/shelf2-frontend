@@ -1,8 +1,8 @@
-import reducer from '../reducers'
-import { markActiveYear, receiveBooks } from '../actions'
+import reducer, { activeYearMarked, receivedBooks } from '../slice'
 
-import { constants } from '../../form'
 import { books } from '../../__fixtures__'
+
+import { actions } from 'state/form'
 import { factories } from 'test'
 
 describe('book reducer', () => {
@@ -11,19 +11,17 @@ describe('book reducer', () => {
   })
 
   it('handles RECEIVE_BOOKS', () => {
-    expect(reducer(undefined, receiveBooks(books()))).toMatchSnapshot()
+    expect(reducer(undefined, receivedBooks(books()))).toMatchSnapshot()
   })
 
   it('handles MARK_ACTIVE_YEAR', () => {
-    expect(reducer(undefined, markActiveYear(2017))).toMatchSnapshot()
+    expect(reducer(undefined, activeYearMarked(2017))).toMatchSnapshot()
   })
 
   describe('handles BOOK_CREATE_SUCCESS', () => {
     it('does not do anything if it is not the same year', () => {
       const book = factories.book.build({ year: 2100 })
-      expect(
-        reducer(books(), { type: constants.BOOK_CREATE_SUCCESS, payload: book })
-      ).toEqual(books())
+      expect(reducer(books(), actions.bookCreated(book))).toEqual(books())
     })
 
     it('adds the book if it is in the same year', () => {
@@ -33,9 +31,7 @@ describe('book reducer', () => {
         stars: 3,
         year: 2016,
       })
-      expect(
-        reducer(books(), { type: constants.BOOK_CREATE_SUCCESS, payload: book })
-      ).toMatchSnapshot()
+      expect(reducer(books(), actions.bookCreated(book))).toMatchSnapshot()
     })
   })
 })

@@ -1,24 +1,14 @@
 import { Dispatch } from 'redux'
 import { History } from 'history'
+import { createAction } from '@reduxjs/toolkit'
 
-import {
-  BOOK_CREATE_SUCCESS,
-  BOOK_CREATE_FAIL,
-  BookCreateSuccessAction,
-} from './constants'
+import { BOOK_CREATE_SUCCESS, BOOK_CREATE_FAIL } from './constants'
 import { fetch } from 'rest'
 
 import { BookForm, Book } from 'types'
 
-const bookCreated = (book: Book): BookCreateSuccessAction => ({
-  type: BOOK_CREATE_SUCCESS,
-  payload: book,
-})
-
-const bookCreationFailed = (error: string) => ({
-  type: BOOK_CREATE_FAIL,
-  payload: error,
-})
+export const bookCreated = createAction<Book>(BOOK_CREATE_SUCCESS)
+export const bookCreationFailed = createAction<string>(BOOK_CREATE_FAIL)
 
 export const create = (
   book: BookForm,

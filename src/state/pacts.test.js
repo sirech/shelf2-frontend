@@ -4,10 +4,10 @@
 import * as R from 'ramda'
 import { Matchers } from '@pact-foundation/pact'
 
-import { fetchBooks } from './books/actions'
+import { fetchBooks } from './books/slice'
 import { create } from './form/actions'
-import { search } from './search/actions'
-import { fetchYears } from './years/actions'
+import { search } from './search/slice'
+import { fetchYears } from './years/slice'
 
 import { books, years, rest } from './__fixtures__'
 import { mockStore, createProvider } from 'test'
@@ -58,10 +58,10 @@ describe('pacts', () => {
     it('should dispatch the correct actions', () => {
       const expectedActions = [
         {
-          type: 'books:receive',
+          type: 'books/receivedBooks',
           payload: R.pick(['entities', 'result'])(books()),
         },
-        { type: 'books:activeYear', payload: 2016 },
+        { type: 'books/activeYearMarked', payload: 2016 },
       ]
 
       return store.dispatch(fetchBooks(year)).then(() => {
@@ -204,7 +204,7 @@ describe('pacts', () => {
     it('should dispatch the correct actions', () => {
       const expectedActions = [
         {
-          type: 'search:result',
+          type: 'search/receivedSearchResult',
           payload: R.pick(['entities', 'result'])(books()),
         },
       ]
@@ -244,7 +244,9 @@ describe('pacts', () => {
     afterAll(() => provider.verify(), 5 * 60 * 1000)
 
     it('should dispatch the correct actions', () => {
-      const expectedActions = [{ type: 'years:receive', payload: years() }]
+      const expectedActions = [
+        { type: 'years/receivedYears', payload: years() },
+      ]
 
       return store.dispatch(fetchYears()).then(() => {
         expect(store.getActions()).toEqual(expectedActions)
