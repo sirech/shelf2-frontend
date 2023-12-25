@@ -1,10 +1,12 @@
 import React, { useEffect, useMemo } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
 
 import { Card, CardHeader } from 'reactstrap'
 import debounce from 'lodash.debounce'
 
+import { bindActionCreators } from '@reduxjs/toolkit'
 import booksSelector from './selectors'
+
+import { useAppDispatch, useAppSelector } from 'hooks'
 import SimpleBookList from 'components/simple_book_list'
 
 import { actions } from 'state/search'
@@ -18,13 +20,21 @@ const SearchList = ({
     params: { keyword },
   },
 }: Props) => {
-  const books = useSelector(booksSelector)
-  const dispatch = useDispatch()
-  const debouncedSearch = useMemo(() => debounce(dispatch, 300), [dispatch])
+  const books = useAppSelector(booksSelector)
+  const dispatch = useAppDispatch()
+
+  const boundDispatch = useMemo(
+    () => bindActionCreators(actions, dispatch),
+    [dispatch]
+  )
+  const debouncedSearch = useMemo(
+    () => debounce(boundDispatch.search, 300),
+    [boundDispatch]
+  )
 
   useEffect(() => {
     if (keyword) {
-      debouncedSearch(actions.search(keyword))
+      debouncedSearch(keyword)
     }
   }, [keyword, debouncedSearch])
 

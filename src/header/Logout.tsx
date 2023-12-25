@@ -1,12 +1,12 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
 
 import { NavItem } from 'reactstrap'
+import { useAppDispatch } from 'hooks'
 
 import { actions } from 'state/login'
 
 const Logout = () => {
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
 
   return (
     <NavItem

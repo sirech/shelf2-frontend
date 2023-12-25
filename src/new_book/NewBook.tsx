@@ -1,6 +1,5 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
 import { Field, Form, Formik, FormikProps } from 'formik'
 
 import { LinkContainer } from 'react-router-bootstrap'
@@ -13,6 +12,7 @@ import Stars from './Stars'
 import initialBook from './initial_book'
 import bookSchema from './schema'
 
+import { useAppDispatch } from 'hooks'
 import { actions } from 'state/form'
 
 import type { BookForm, Categories } from 'types'
@@ -27,7 +27,7 @@ const categories: Categories[] = [
 
 const NewBookWrapper = () => {
   const history = useHistory()
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
   return (
     <Formik
       initialValues={initialBook}

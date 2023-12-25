@@ -1,10 +1,10 @@
 import * as R from 'ramda'
+import { createSelector } from 'reselect'
 
 import { searchSelector as baseSelector } from 'state/search'
 
-const searchSelector = R.pipe(
-  baseSelector,
-  (state) => state.entities.books,
+const searchSelector = createSelector(
+  [R.pipe(baseSelector, (state) => state.entities.books)],
   R.values
 )
 

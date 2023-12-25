@@ -1,6 +1,7 @@
 import { Dispatch } from 'redux'
 import { createSlice } from '@reduxjs/toolkit'
 import auth0, { Auth0DecodedHash, Auth0ParseHashError } from 'auth0-js'
+import { AppThunk } from 'state'
 
 const initialState = { authenticated: false, failed: false }
 
@@ -24,7 +25,7 @@ const loginSlice = createSlice({
 export const { loginSucceeded, loginFailed, logoutSucceeded } =
   loginSlice.actions
 
-export const login = () => {
+export const login = (): AppThunk => {
   return (dispatch: Dispatch) => {
     auth0Client().parseHash(
       (
@@ -49,7 +50,7 @@ export const login = () => {
   }
 }
 
-export const logout = () => {
+export const logout = (): AppThunk => {
   return (dispatch: Dispatch) => {
     localStorage.removeItem('authToken')
     localStorage.removeItem('expiresAt')

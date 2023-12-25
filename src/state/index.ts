@@ -1,4 +1,4 @@
-import { configureStore } from '@reduxjs/toolkit'
+import { ThunkAction, UnknownAction, configureStore } from '@reduxjs/toolkit'
 
 import { constants as booksConstants, reducer as booksReducer } from './books'
 import {
@@ -19,5 +19,11 @@ const store = configureStore({
 
 export type RootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch
+export type AppThunk<ReturnType = void> = ThunkAction<
+  ReturnType,
+  RootState,
+  unknown,
+  UnknownAction
+>
 
 export default store

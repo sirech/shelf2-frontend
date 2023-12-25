@@ -31,6 +31,15 @@ module.exports = {
     '@typescript-eslint/explicit-member-accessibility': 0,
     '@typescript-eslint/explicit-function-return-type': 0,
     '@typescript-eslint/no-floating-promises': 0,
+    '@typescript-eslint/no-restricted-imports': [
+      'warn',
+      {
+        name: 'react-redux',
+        importNames: ['useSelector', 'useDispatch'],
+        message:
+          'Use typed hooks `useAppDispatch` and `useAppSelector` instead.',
+      },
+    ],
     'react-hooks/rules-of-hooks': 2,
     'react-hooks/exhaustive-deps': 2,
     'import/no-internal-modules': [
@@ -44,6 +53,7 @@ module.exports = {
     'import/order': 2,
     'import/no-absolute-path': 2,
     'jest/expect-expect': 0,
+    'no-restricted-imports': 'off',
   },
   settings: {
     react: { version: 'detect' },

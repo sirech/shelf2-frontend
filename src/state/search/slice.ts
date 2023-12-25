@@ -3,6 +3,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 import { fetch, normalizeBooks } from 'rest'
 import { Book, NormalizedBooks } from 'types'
+import { AppThunk } from 'state'
 
 const initialState: NormalizedBooks = {
   entities: { books: {} },
@@ -23,13 +24,13 @@ const searchSlice = createSlice({
 
 export const { receivedSearchResult } = searchSlice.actions
 
-export function search(keyword: string) {
+export const search = (keyword: string): AppThunk<Promise<void>> => {
   return async (dispatch: Dispatch) => {
     const url = `/books/search/${keyword}`
 
     const response = await fetch<Book[]>(url)
     const books = normalizeBooks(response.data)
-    return dispatch(receivedSearchResult(books))
+    dispatch(receivedSearchResult(books))
   }
 }
 

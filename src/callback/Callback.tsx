@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
 
 import { Redirect } from 'react-router-dom'
+import { useAppDispatch, useAppSelector } from 'hooks'
 
 import { actions, authenticatedSelector } from 'state/login'
 
@@ -12,8 +12,8 @@ const redirectIfLoggedIn = (authenticated: boolean) => {
 }
 
 const Callback = () => {
-  const authenticated = useSelector(authenticatedSelector)
-  const dispatch = useDispatch()
+  const authenticated = useAppSelector(authenticatedSelector)
+  const dispatch = useAppDispatch()
 
   useEffect(() => {
     if (!authenticated) {

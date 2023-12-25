@@ -10,13 +10,13 @@ import { search } from './search/slice'
 import { fetchYears } from './years/slice'
 
 import { books, years, rest } from './__fixtures__'
-import { mockStore, createProvider } from 'test'
+import { createProvider } from 'test'
 
 describe('pacts', () => {
-  let store
+  let dispatch
 
   beforeEach(() => {
-    store = mockStore({})
+    dispatch = jest.fn()
   })
 
   const provider = createProvider()
@@ -55,7 +55,7 @@ describe('pacts', () => {
     )
     afterAll(() => provider.verify(), 5 * 60 * 1000)
 
-    it('should dispatch the correct actions', () => {
+    it('should dispatch the correct actions', async () => {
       const expectedActions = [
         {
           type: 'books/receivedBooks',
@@ -64,9 +64,8 @@ describe('pacts', () => {
         { type: 'books/activeYearMarked', payload: 2016 },
       ]
 
-      return store.dispatch(fetchBooks(year)).then(() => {
-        expect(store.getActions()).toEqual(expectedActions)
-      })
+      await fetchBooks(year)(dispatch)
+      expect(dispatch.mock.calls.flat()).toEqual(expectedActions)
     })
   })
 
@@ -108,17 +107,14 @@ describe('pacts', () => {
       global.localStorage.getItem = (token) => rest.authToken
     })
 
-    it('should dispatch the correct actions', () => {
+    it('should dispatch the correct actions', async () => {
       const expectedActions = [
         { type: 'books:book:create:success', payload: rest.book },
       ]
 
-      return store
-        .dispatch(create(bookForm, history, errorCallback))
-        .then(() => {
-          expect(store.getActions()).toEqual(expectedActions)
-          expect(history.push).toHaveBeenCalledWith('/books')
-        })
+      await create(bookForm, history, errorCallback)(dispatch)
+      expect(dispatch.mock.calls.flat()).toEqual(expectedActions)
+      expect(history.push).toHaveBeenCalledWith('/books')
     })
   })
 
@@ -158,16 +154,13 @@ describe('pacts', () => {
       global.localStorage.getItem = (token) => 'EXPIRED'
     })
 
-    it('should dispatch the correct actions', () => {
+    it('should dispatch the correct actions', async () => {
       const expectedActions = [{ type: 'books:book:create:fail', payload: '' }]
 
-      return store
-        .dispatch(create(bookForm, history, errorCallback))
-        .then(() => {
-          expect(store.getActions()).toEqual(expectedActions)
-          expect(history.push).not.toHaveBeenCalled()
-          expect(errorCallback).toHaveBeenCalled()
-        })
+      await create(bookForm, history, errorCallback)(dispatch)
+      expect(dispatch.mock.calls.flat()).toEqual(expectedActions)
+      expect(history.push).not.toHaveBeenCalled()
+      expect(errorCallback).toHaveBeenCalled()
     })
   })
 
@@ -201,7 +194,7 @@ describe('pacts', () => {
     )
     afterAll(() => provider.verify(), 5 * 60 * 1000)
 
-    it('should dispatch the correct actions', () => {
+    it('should dispatch the correct actions', async () => {
       const expectedActions = [
         {
           type: 'search/receivedSearchResult',
@@ -209,9 +202,8 @@ describe('pacts', () => {
         },
       ]
 
-      return store.dispatch(search(keyword)).then(() => {
-        expect(store.getActions()).toEqual(expectedActions)
-      })
+      await search(keyword)(dispatch)
+      expect(dispatch.mock.calls.flat()).toEqual(expectedActions)
     })
   })
 
@@ -243,14 +235,13 @@ describe('pacts', () => {
     )
     afterAll(() => provider.verify(), 5 * 60 * 1000)
 
-    it('should dispatch the correct actions', () => {
+    it('should dispatch the correct actions', async () => {
       const expectedActions = [
         { type: 'years/receivedYears', payload: years() },
       ]
 
-      return store.dispatch(fetchYears()).then(() => {
-        expect(store.getActions()).toEqual(expectedActions)
-      })
+      await fetchYears()(dispatch)
+      expect(dispatch.mock.calls.flat()).toEqual(expectedActions)
     })
   })
 })
