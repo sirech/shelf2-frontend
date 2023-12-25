@@ -15,7 +15,7 @@
     "formik": "^2.2.9",
     "lodash.debounce": "^4.0.8",
     "normalizr": "^3.6.1",
-    "ramda": "0.27.2",
+    "ramda": "0.29.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-helmet": "^6.1.0",
@@ -37,7 +37,7 @@
     "@types/jest": "^29.0.0",
     "@types/lodash.debounce": "^4.0.6",
     "@types/node": "^16.0.0",
-    "@types/ramda": "^0.27.44",
+    "@types/ramda": "^0.29.1",
     "@types/react": "^17.0.15",
     "@types/react-dom": "^17.0.9",
     "@types/react-helmet": "^6.1.2",
@@ -47,8 +47,8 @@
     "@types/redux-mock-store": "^1.0.3",
     "@types/rosie": "^0.0.45",
     "@types/yup": "^0.29.13",
-    "@typescript-eslint/eslint-plugin": "^5.10.0",
-    "@typescript-eslint/parser": "^5.10.0",
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0",
     "coveralls": "^3.1.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-config-react": "^1.1.7",
@@ -73,7 +73,7 @@
     "source-map-explorer": "^2.5.2",
     "stylelint": "^16.0.2",
     "stylelint-config-recommended": "^14.0.0",
-    "typescript": "^4.5.5"
+    "typescript": "^5.3.3"
   },
   "scripts": {
     "start": "react-scripts start",

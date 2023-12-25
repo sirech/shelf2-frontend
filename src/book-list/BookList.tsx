@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
 
 import booksSelector from './selectors'
 
+import { useAppDispatch, useAppSelector } from 'hooks'
 import { actions } from 'state/books'
 import Category from 'components/category'
 
@@ -15,8 +15,8 @@ const BookList = ({
     params: { year },
   },
 }: Props) => {
-  const categories = useSelector(booksSelector)
-  const dispatch = useDispatch()
+  const categories = useAppSelector(booksSelector)
+  const dispatch = useAppDispatch()
 
   useEffect(() => {
     if (year) {

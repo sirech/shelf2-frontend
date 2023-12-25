@@ -35,7 +35,7 @@ const yearsSlice = createSlice({
       const year = action.payload.year
       const yearList = state.result
 
-      if (R.contains(year, yearList)) {
+      if (R.includes(year, yearList)) {
         increaseExisting(state, year)
       } else {
         newYear(state, year)
