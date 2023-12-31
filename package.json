@@ -10,7 +10,7 @@
     "@reduxjs/toolkit": "^2.0.1",
     "auth0-js": "^9.16.2",
     "axios": "^1.6.2",
-    "bootstrap": "^4.6.0",
+    "bootstrap": "^5.0.0",
     "classnames": "^2.3.1",
     "formik": "^2.4.5",
     "lodash.debounce": "^4.0.8",
