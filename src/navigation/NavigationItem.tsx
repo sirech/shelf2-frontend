@@ -1,6 +1,6 @@
 import React from 'react'
 import { Badge, ListGroupItem } from 'reactstrap'
-import { NavigateFunction, useNavigate } from 'react-router'
+import { NavigateFunction, useLocation, useNavigate } from 'react-router'
 
 const safeNavigate = (
   event: React.MouseEvent<HTMLElement>,
@@ -23,20 +23,22 @@ const safeNavigate = (
 
 const NavigationItem = ({ year, count }: { year: number; count: number }) => {
   const navigate = useNavigate()
+  const { pathname } = useLocation()
+  const link = `/books/${year}`
+
   return (
-    // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/interactive-supports-focus
-    <div
-      onClick={(event) => safeNavigate(event, navigate, `/books/${year}`)}
+    <ListGroupItem
+      action
+      tag="a"
       className="d-flex justify-content-between align-items-center"
-      role="menuitem"
+      active={link === pathname}
+      onClick={(event) => safeNavigate(event, navigate, link)}
     >
-      <ListGroupItem action tag="a">
-        <span>{year}</span>
-        <Badge pill color="warning" className="ml-auto">
-          {count}
-        </Badge>
-      </ListGroupItem>
-    </div>
+      <span>{year}</span>
+      <Badge pill color="warning" className="ml-auto">
+        {count}
+      </Badge>
+    </ListGroupItem>
   )
 }
 
