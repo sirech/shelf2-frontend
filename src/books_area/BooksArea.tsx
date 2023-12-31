@@ -1,6 +1,5 @@
 import React from 'react'
 
-import { Route } from 'react-router-dom'
 import styles from './styles.module.css'
 
 import BookCreator from './BookCreator'
@@ -11,7 +10,7 @@ const BooksArea = () => (
   <div className={styles.grid}>
     <main>
       <BookCreator />
-      <Route exact path="/books/:year" component={BookList} />
+      <BookList />
     </main>
     <Navigation />
   </div>

@@ -1,23 +1,22 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom'
-import { History } from 'history'
+import { NavigateFunction, useNavigate } from 'react-router-dom'
 
 import { Form, Input } from 'reactstrap'
 
 const handleChange = (
   e: React.ChangeEvent<HTMLInputElement>,
-  history: History
+  navigate: NavigateFunction
 ) => {
   e.preventDefault()
-  history.push(`/books/search/${e.target.value}`)
+  navigate(`/books/search/${e.target.value}`)
 }
 
 const SearchBar = () => {
-  const history = useHistory()
+  const navigate = useNavigate()
 
   return (
     <Form inline>
-      <Input onChange={(e) => handleChange(e, history)} />
+      <Input onChange={(e) => handleChange(e, navigate)} />
     </Form>
   )
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import { screen } from '@testing-library/react'
 
 import SearchList from './SearchList'
@@ -13,7 +13,9 @@ describe('components', () => {
   describe('SearchList', () => {
     it('renders correctly', async () => {
       fullRender(
-        <Route path="/books/search/:keyword" component={SearchList} />,
+        <Routes>
+          <Route path="/books/search/:keyword" element={<SearchList />} />
+        </Routes>,
         { route: '/books/search/no' }
       )
 

@@ -1,5 +1,4 @@
 import axios from 'axios'
-import '@testing-library/jest-dom/extend-expect'
 
 console.error = jest.fn()
 

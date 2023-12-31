@@ -4,6 +4,7 @@ import { Card, CardHeader } from 'reactstrap'
 import debounce from 'lodash.debounce'
 
 import { bindActionCreators } from '@reduxjs/toolkit'
+import { useParams } from 'react-router-dom'
 import booksSelector from './selectors'
 
 import { useAppDispatch, useAppSelector } from 'hooks'
@@ -11,15 +12,8 @@ import SimpleBookList from 'components/simple_book_list'
 
 import { actions } from 'state/search'
 
-type Props = {
-  match: { params: { keyword?: string } }
-}
-
-const SearchList = ({
-  match: {
-    params: { keyword },
-  },
-}: Props) => {
+const SearchList = () => {
+  const { keyword } = useParams<string>()
   const books = useAppSelector(booksSelector)
   const dispatch = useAppDispatch()
 

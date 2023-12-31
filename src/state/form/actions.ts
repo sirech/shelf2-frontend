@@ -1,7 +1,7 @@
 import { Dispatch } from 'redux'
-import { History } from 'history'
 import { createAction } from '@reduxjs/toolkit'
 
+import { NavigateFunction } from 'react-router'
 import { BOOK_CREATE_SUCCESS, BOOK_CREATE_FAIL } from './constants'
 import { fetch } from 'rest'
 
@@ -12,7 +12,7 @@ export const bookCreationFailed = createAction<string>(BOOK_CREATE_FAIL)
 
 export const create = (
   book: BookForm,
-  history: History,
+  navigate: NavigateFunction,
   errorCallback: (message: string) => void
 ) => {
   return (dispatch: Dispatch) => {
@@ -22,7 +22,7 @@ export const create = (
 
     return fetch<Book>(url, { method, data })
       .then((response) => dispatch(bookCreated(response.data)))
-      .then(() => history.push('/books'))
+      .then(() => navigate('/books'))
       .catch((error: { response: { data: string }; message: string }) => {
         let payload = ''
 

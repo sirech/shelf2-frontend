@@ -17,7 +17,9 @@ const ReactstrapInput = ({
       invalid={Boolean(touched[fields.name] && errors[fields.name])}
     />
     {touched[fields.name] && errors[fields.name] ? (
-      <FormFeedback>{errors[fields.name]}</FormFeedback>
+      <FormFeedback>
+        <>{errors[fields.name]}</>
+      </FormFeedback>
     ) : (
       ''
     )}

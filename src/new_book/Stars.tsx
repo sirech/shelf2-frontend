@@ -10,19 +10,20 @@ const fieldName = 'stars'
 
 const Stars = () => (
   <Field name={fieldName} id={fieldName} type="number">
-    {({ field: { value }, form: { setFieldValue } }: FieldProps<StarCount>) => (
-      <FormGroup>
-        <Label for={fieldName} className="label-color">
-          {fieldName}
-        </Label>
-        <div>
-          <StarBlock
-            count={value}
-            handleClick={(number) => setFieldValue(fieldName, number)}
-          />
-        </div>
-      </FormGroup>
-    )}
+    {({ field: { value }, form: { setFieldValue } }: FieldProps<StarCount>) => {
+      const handleClick = (number: number) => setFieldValue(fieldName, number)
+
+      return (
+        <FormGroup>
+          <Label for={fieldName} className="label-color">
+            {fieldName}
+          </Label>
+          <div>
+            <StarBlock count={value} handleClick={void handleClick} />
+          </div>
+        </FormGroup>
+      )
+    }}
   </Field>
 )
 

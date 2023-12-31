@@ -1,20 +1,14 @@
 import React, { useEffect } from 'react'
 
+import { useParams } from 'react-router'
 import booksSelector from './selectors'
 
 import { useAppDispatch, useAppSelector } from 'hooks'
 import { actions } from 'state/books'
 import Category from 'components/category'
 
-type Props = {
-  match: { params: { year?: string } }
-}
-
-const BookList = ({
-  match: {
-    params: { year },
-  },
-}: Props) => {
+const BookList = () => {
+  const { year } = useParams<string>()
   const categories = useAppSelector(booksSelector)
   const dispatch = useAppDispatch()
 

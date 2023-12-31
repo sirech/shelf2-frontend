@@ -41,7 +41,11 @@ const ReactstrapSelect = ({
           )
         })}
       </Input>
-      {touch && error && <FormFeedback>{error}</FormFeedback>}
+      {touch && error && (
+        <FormFeedback>
+          <>{error}</>
+        </FormFeedback>
+      )}
     </FormGroup>
   )
 }

@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import {
   BrowserRouter as Router,
-  Redirect,
+  Navigate,
   Route,
-  Switch,
+  Routes,
 } from 'react-router-dom'
 
 import Header from 'header'
@@ -21,7 +21,6 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Checks />
           <Header />
           <Content />
         </div>
@@ -30,26 +29,17 @@ class App extends Component {
   }
 }
 
-const Checks = () => (
-  <div>
-    <Route exact path="/" render={() => <Redirect to="/books" />} />
-    <Route
-      exact
-      path="/books"
-      render={() => <Redirect to={`/books/${year}`} />}
-    />
-  </div>
-)
-
 const Content = () => (
-  <Switch>
-    <Route exact path="/login" component={Login} />
-    <Route exact path="/callback" component={Callback} />
-    <Route exact path="/books/search" render={() => <Redirect to="/books" />} />
-    <Route exact path="/books/search/:keyword" component={SearchList} />
-    <Route exact path="/books/new" component={NewBook} />
-    <Route component={BooksArea} />
-  </Switch>
+  <Routes>
+    <Route path="/" element={<Navigate replace to="/books" />} />
+    <Route path="/books" element={<Navigate to={`/books/${year}`} />} />
+    <Route path="/login" element={<Login />} />
+    <Route path="/callback" element={<Callback />} />
+    <Route path="/books/search" element={<Navigate replace to="/books" />} />
+    <Route path="/books/search/:keyword" element={<SearchList />} />
+    <Route path="/books/new" element={<NewBook />} />
+    <Route path="/books/:year" element={<BooksArea />} />
+  </Routes>
 )
 
 export default App

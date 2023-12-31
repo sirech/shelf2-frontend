@@ -71,7 +71,7 @@ describe('pacts', () => {
 
   describe('forms - change', () => {
     const bookForm = R.omit(['id'])(rest.book)
-    const history = { push: jest.fn() }
+    const navigate = jest.fn()
     const errorCallback = jest.fn()
 
     beforeAll(
@@ -112,15 +112,15 @@ describe('pacts', () => {
         { type: 'books:book:create:success', payload: rest.book },
       ]
 
-      await create(bookForm, history, errorCallback)(dispatch)
+      await create(bookForm, navigate, errorCallback)(dispatch)
       expect(dispatch.mock.calls.flat()).toEqual(expectedActions)
-      expect(history.push).toHaveBeenCalledWith('/books')
+      expect(navigate).toHaveBeenCalledWith('/books')
     })
   })
 
   describe('forms - errors', () => {
     const bookForm = R.omit(['id'])(rest.book)
-    const history = { push: jest.fn() }
+    const navigate = jest.fn()
     const errorCallback = jest.fn()
 
     beforeAll(
@@ -157,9 +157,9 @@ describe('pacts', () => {
     it('should dispatch the correct actions', async () => {
       const expectedActions = [{ type: 'books:book:create:fail', payload: '' }]
 
-      await create(bookForm, history, errorCallback)(dispatch)
+      await create(bookForm, navigate, errorCallback)(dispatch)
       expect(dispatch.mock.calls.flat()).toEqual(expectedActions)
-      expect(history.push).not.toHaveBeenCalled()
+      expect(navigate).not.toHaveBeenCalled()
       expect(errorCallback).toHaveBeenCalled()
     })
   })
