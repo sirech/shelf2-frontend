@@ -19,7 +19,8 @@ const Stars = () => (
             {fieldName}
           </Label>
           <div>
-            <StarBlock count={value} handleClick={void handleClick} />
+            {/* eslint-disable-next-line @typescript-eslint/no-misused-promises */}
+            <StarBlock count={value} handleClick={handleClick} />
           </div>
         </FormGroup>
       )
