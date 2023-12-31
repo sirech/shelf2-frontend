@@ -33,7 +33,7 @@ const SearchList = () => {
   }, [keyword, debouncedSearch])
 
   return (
-    <Card className="ml-3 mr-3">
+    <Card className="mx-3">
       <CardHeader className="text-right">{books.length} results</CardHeader>
       <SimpleBookList books={books} />
     </Card>

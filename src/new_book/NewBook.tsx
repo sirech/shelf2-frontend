@@ -84,13 +84,13 @@ const NewBook = ({
                 {submitError && <div>{submitError}</div>}
                 <Button
                   onClick={() => navigate('/books')}
-                  className="float-right "
+                  className="float-end"
                   color="secondary"
                 >
                   Cancel
                 </Button>
                 <Button
-                  className="float-right mr-2"
+                  className="float-end me-2"
                   color="primary"
                   type="submit"
                   disabled={isSubmitting}

@@ -15,7 +15,7 @@ const SearchBar = () => {
   const navigate = useNavigate()
 
   return (
-    <Form inline>
+    <Form>
       <Input onChange={(e) => handleChange(e, navigate)} />
     </Form>
   )

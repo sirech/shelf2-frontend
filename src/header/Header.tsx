@@ -29,7 +29,7 @@ const Header = () => {
         <NavbarBrand onClick={() => navigate('/books')}>Shelf</NavbarBrand>
         <NavbarToggler onClick={() => setIsOpen(!isOpen)} />
         <Collapse isOpen={isOpen} navbar>
-          <Nav className="ml-auto" navbar>
+          <Nav className="ms-auto" navbar>
             <SearchBar />
             <Login />
             <Logout />

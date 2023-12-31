@@ -35,7 +35,7 @@ const NavigationItem = ({ year, count }: { year: number; count: number }) => {
       onClick={(event) => safeNavigate(event, navigate, link)}
     >
       <span>{year}</span>
-      <Badge pill color="warning" className="ml-auto">
+      <Badge pill color="warning" className="ml-auto text-dark">
         {count}
       </Badge>
     </ListGroupItem>
