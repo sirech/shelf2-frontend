@@ -21,9 +21,11 @@ root.render(
     <Auth0Provider
       domain="hceris.eu.auth0.com"
       clientId="xwIxFMYa0YtuNexQzbZ642vF3L9BQiSd"
-      scope="profile create:books"
-      audience="shelf2.hceris.com"
-      redirectUri={redirectUri()}
+      authorizationParams={{
+        scope: 'profile create:books',
+        audience: 'shelf2.hceris.com',
+        redirect_uri: redirectUri(),
+      }}
     >
       <App />
     </Auth0Provider>

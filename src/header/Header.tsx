@@ -43,7 +43,7 @@ const Header = () => {
               <Login onClick={() => void loginWithRedirect()} />
             )}
             {isAuthenticated && (
-              <Logout onClick={() => logout({ localOnly: true })} />
+              <Logout onClick={() => void logout({ openUrl: false })} />
             )}
           </Nav>
         </Collapse>
