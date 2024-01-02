@@ -13,14 +13,18 @@ export const bookCreationFailed = createAction<string>(BOOK_CREATE_FAIL)
 export const create = (
   book: BookForm,
   navigate: NavigateFunction,
+  token: string,
   errorCallback: (message: string) => void
 ) => {
   return (dispatch: Dispatch) => {
     const url = '/books'
     const method = 'POST'
+    const headers = {
+      Authorization: `Bearer ${token}`,
+    }
     const data = { book }
 
-    return fetch<Book>(url, { method, data })
+    return fetch<Book>(url, { method, data, headers })
       .then((response) => dispatch(bookCreated(response.data)))
       .then(() => navigate('/books'))
       .catch((error: { response: { data: string }; message: string }) => {

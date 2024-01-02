@@ -7,14 +7,6 @@ const testableUrl = (path: string) => {
 
 const prepareUrl = (path: string) => testableUrl(`/rest${path}`)
 
-const addAuthorization = (headers: Record<string, string>) => {
-  const token = localStorage.getItem('authToken')
-
-  if (token) {
-    headers.Authorization = `Bearer: ${token}`
-  }
-}
-
 const fetch = <T>(
   url: string,
   opts: Record<string, unknown> & { headers?: Record<string, unknown> } = {}
@@ -29,7 +21,6 @@ const fetch = <T>(
   }
 
   const headers = { ...DEFAULT_OPTIONS.headers, ...opts.headers }
-  addAuthorization(headers)
   const options = {
     ...DEFAULT_OPTIONS,
     ...opts,

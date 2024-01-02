@@ -10,9 +10,9 @@ import Header from 'header'
 import BooksArea from 'books_area'
 
 import SearchList from 'search_list'
-import Callback from 'callback'
-import Login from 'login'
 import NewBook from 'new_book'
+
+import Callback from 'callback'
 
 const year = new Date().getFullYear()
 
@@ -33,12 +33,11 @@ const Content = () => (
   <Routes>
     <Route path="/" element={<Navigate replace to="/books" />} />
     <Route path="/books" element={<Navigate to={`/books/${year}`} />} />
-    <Route path="/login" element={<Login />} />
-    <Route path="/callback" element={<Callback />} />
     <Route path="/books/search" element={<Navigate replace to="/books" />} />
     <Route path="/books/search/:keyword" element={<SearchList />} />
     <Route path="/books/new" element={<NewBook />} />
     <Route path="/books/:year" element={<BooksArea />} />
+    <Route path="/callback" element={<Callback />} />
   </Routes>
 )
 

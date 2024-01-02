@@ -2,6 +2,8 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Field, Form, Formik, FormikProps } from 'formik'
 
+import { useAuth0 } from '@auth0/auth0-react'
+
 import { Button, Container, Row, Col } from 'reactstrap'
 
 import ReactstrapSelect from './ReactstrapSelect'
@@ -25,6 +27,7 @@ const categories: Categories[] = [
 ]
 
 const NewBookWrapper = () => {
+  const { getAccessTokenSilently } = useAuth0()
   const navigate = useNavigate()
   const dispatch = useAppDispatch()
   return (
@@ -33,13 +36,15 @@ const NewBookWrapper = () => {
       initialStatus={{ submitError: '' }}
       validationSchema={bookSchema}
       // eslint-disable-next-line @typescript-eslint/require-await
-      onSubmit={async (values, { setStatus }) =>
+      onSubmit={async (values, { setStatus }) => {
+        const accessToken = await getAccessTokenSilently({})
+
         dispatch(
-          actions.create(values, navigate, (error) =>
+          actions.create(values, navigate, accessToken, (error) =>
             setStatus({ submitError: error })
           )
         )
-      }
+      }}
     >
       {(props) => <NewBook {...props}></NewBook>}
     </Formik>
@@ -81,7 +86,8 @@ const NewBook = ({
               />
 
               <section>
-                {submitError && <div>{submitError}</div>}
+                {submitError && <div>{JSON.stringify(submitError)}</div>}
+
                 <Button
                   onClick={() => navigate('/books')}
                   className="float-end"

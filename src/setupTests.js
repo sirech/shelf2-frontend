@@ -2,14 +2,6 @@ import axios from 'axios'
 
 console.error = jest.fn()
 
-const localStorage = {
-  getItem: jest.fn(),
-  setItem: jest.fn(),
-  removeItem: jest.fn(),
-  clear: jest.fn(),
-}
-global.localStorage = localStorage
-
 const spies = {
   get: jest.spyOn(axios, 'get'),
   patch: jest.spyOn(axios, 'patch'),

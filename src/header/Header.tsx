@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+
+import { useAuth0 } from '@auth0/auth0-react'
+import { useNavigate } from 'react-router-dom'
 
 import {
   Collapse,
@@ -9,18 +11,24 @@ import {
   NavItem,
   NavbarToggler,
 } from 'reactstrap'
-import Logout from './Logout'
 import SearchBar from './SearchBar'
 
-const Login = () => (
-  <NavItem>
-    <Link to="/login" className="nav-link">
-      Login
-    </Link>
+type ClickHandler = { onClick: () => void }
+
+const Login = ({ onClick }: ClickHandler) => (
+  <NavItem onClick={onClick} className="nav-link" role="link">
+    Login
+  </NavItem>
+)
+
+const Logout = ({ onClick }: ClickHandler) => (
+  <NavItem onClick={onClick} className="nav-link" role="link">
+    Logout
   </NavItem>
 )
 
 const Header = () => {
+  const { loginWithRedirect, logout, isAuthenticated } = useAuth0()
   const [isOpen, setIsOpen] = useState(false)
   const navigate = useNavigate()
   return (
@@ -31,8 +39,12 @@ const Header = () => {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="ms-auto" navbar>
             <SearchBar />
-            <Login />
-            <Logout />
+            {!isAuthenticated && (
+              <Login onClick={() => void loginWithRedirect()} />
+            )}
+            {isAuthenticated && (
+              <Logout onClick={() => logout({ localOnly: true })} />
+            )}
           </Nav>
         </Collapse>
       </Navbar>

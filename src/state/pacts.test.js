@@ -86,7 +86,7 @@ describe('pacts', () => {
               Accept: 'application/json',
               'Content-Type': 'application/json',
               'X-Requested-With': 'XMLHttpRequest',
-              Authorization: `Bearer: ${rest.authToken}`,
+              Authorization: `Bearer ${rest.authToken}`,
             },
             body: { book: bookForm },
           },
@@ -103,16 +103,12 @@ describe('pacts', () => {
     )
     afterAll(() => provider.verify(), 5 * 60 * 1000)
 
-    beforeEach(() => {
-      global.localStorage.getItem = (token) => rest.authToken
-    })
-
     it('should dispatch the correct actions', async () => {
       const expectedActions = [
         { type: 'books:book:create:success', payload: rest.book },
       ]
 
-      await create(bookForm, navigate, errorCallback)(dispatch)
+      await create(bookForm, navigate, rest.authToken, errorCallback)(dispatch)
       expect(dispatch.mock.calls.flat()).toEqual(expectedActions)
       expect(navigate).toHaveBeenCalledWith('/books')
     })
@@ -135,7 +131,7 @@ describe('pacts', () => {
               Accept: 'application/json',
               'Content-Type': 'application/json',
               'X-Requested-With': 'XMLHttpRequest',
-              Authorization: 'Bearer: EXPIRED',
+              Authorization: 'Bearer EXPIRED',
             },
             body: { book: bookForm },
           },
@@ -150,14 +146,10 @@ describe('pacts', () => {
     )
     afterAll(() => provider.verify(), 5 * 60 * 1000)
 
-    beforeEach(() => {
-      global.localStorage.getItem = (token) => 'EXPIRED'
-    })
-
     it('should dispatch the correct actions', async () => {
       const expectedActions = [{ type: 'books:book:create:fail', payload: '' }]
 
-      await create(bookForm, navigate, errorCallback)(dispatch)
+      await create(bookForm, navigate, 'EXPIRED', errorCallback)(dispatch)
       expect(dispatch.mock.calls.flat()).toEqual(expectedActions)
       expect(navigate).not.toHaveBeenCalled()
       expect(errorCallback).toHaveBeenCalled()
