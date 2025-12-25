@@ -19,7 +19,12 @@ const year = new Date().getFullYear()
 class App extends Component {
   render() {
     return (
-      <Router>
+      <Router
+        future={{
+          v7_startTransition: true,
+          v7_relativeSplatPath: true,
+        }}
+      >
         <div>
           <Header />
           <Content />

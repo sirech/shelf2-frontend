@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { TextEncoder, TextDecoder } from "node:util"
+import { TextEncoder, TextDecoder } from 'node:util'
 
 global.TextEncoder = TextEncoder
 global.TextDecoder = TextDecoder
