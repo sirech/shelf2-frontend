@@ -1,4 +1,8 @@
 import axios from 'axios'
+import { TextEncoder, TextDecoder } from "node:util"
+
+global.TextEncoder = TextEncoder
+global.TextDecoder = TextDecoder
 
 console.error = jest.fn()
 

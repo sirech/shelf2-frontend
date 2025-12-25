@@ -57,6 +57,7 @@ module.exports = {
   },
   settings: {
     react: { version: 'detect' },
+    jest: { version: 'detect' },
     'import/resolver': {
       typescript: {},
 
