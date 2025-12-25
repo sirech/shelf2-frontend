@@ -2581,7 +2581,7 @@
     "@pact-foundation/pact-core-linux-x64-musl" "16.1.1"
     "@pact-foundation/pact-core-windows-x64" "16.1.1"
 
-"@pact-foundation/pact@^15.1.1":
+"@pact-foundation/pact@^15.0.1":
   version "15.0.1"
   resolved "https://registry.yarnpkg.com/@pact-foundation/pact/-/pact-15.0.1.tgz#b05270149d5720186198114b5bf6e333ebba634e"
   integrity sha512-9pv9mN/grXiXCPmyzQb9YYeyT8aHYO4uRNtfuR4IGLhNSHkHIhiS97ZUsegPruVkWiTcCv9tJahG+1OhL5BrTQ==
