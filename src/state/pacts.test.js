@@ -12,60 +12,57 @@ import { fetchYears } from './years/slice'
 import { books, years, rest } from './__fixtures__'
 import { createProvider } from 'test'
 
+import axios from 'axios'
+import http from 'node:http'
+import https from 'node:https'
+
+// Pact tests can be slower due to mock server start/stop and verification.
+jest.setTimeout(5 * 60 * 1000)
+
 describe('pacts', () => {
   let dispatch
 
   beforeEach(() => {
     dispatch = jest.fn()
+    axios.defaults.httpAgent = new http.Agent({ keepAlive: false })
+    axios.defaults.httpsAgent = new https.Agent({ keepAlive: false })
   })
 
   const provider = createProvider()
 
-  beforeAll(() => provider.setup(), 5 * 60 * 1000)
-  afterAll(() => provider.finalize(), 5 * 60 * 1000)
-
   describe('books - fetchBooks', () => {
     const year = '2016'
 
-    beforeAll(
-      async () => {
-        const interaction = {
-          state: 'i have some books',
-          uponReceiving: 'a request for a list of books for a given year',
-          withRequest: {
-            method: 'GET',
-            path: '/rest/books',
-            query: { year },
-            headers: {
-              Accept: 'application/json',
-              'Content-Type': 'application/json',
-              'X-Requested-With': 'XMLHttpRequest',
-            },
-          },
-          willRespondWith: {
-            status: 200,
-            headers: { 'Content-Type': 'application/json; charset=utf-8' },
-            body: rest.books,
-          },
-        }
-
-        return provider.addInteraction(interaction)
-      },
-      5 * 60 * 1000
-    )
-    afterAll(() => provider.verify(), 5 * 60 * 1000)
-
     it('should dispatch the correct actions', async () => {
-      const expectedActions = [
-        {
-          type: 'books/receivedBooks',
-          payload: R.pick(['entities', 'result'])(books()),
-        },
-        { type: 'books/activeYearMarked', payload: 2016 },
-      ]
+      await provider
+        .addInteraction()
+        .given('i have some books')
+        .uponReceiving('a request for a list of books for a given year')
+        .withRequest('GET', '/rest/books', (builder) => {
+          builder.query({ year })
+          builder.headers({
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+            'X-Requested-With': 'XMLHttpRequest',
+          })
+        })
+        .willRespondWith(200, (builder) => {
+          builder.headers({ 'Content-Type': 'application/json; charset=utf-8' })
+          builder.jsonBody(rest.books)
+        })
+        .executeTest(async (mockserver) => {
+          const expectedActions = [
+            {
+              type: 'books/receivedBooks',
+              payload: R.pick(['entities', 'result'])(books()),
+            },
+            { type: 'books/activeYearMarked', payload: 2016 },
+          ]
 
-      await fetchBooks(year)(dispatch)
-      expect(dispatch.mock.calls.flat()).toEqual(expectedActions)
+          const result = await fetchBooks(year)(dispatch)
+          expect(dispatch.mock.calls.flat()).toEqual(expectedActions)
+          return result
+        })
     })
   })
 
@@ -74,43 +71,38 @@ describe('pacts', () => {
     const navigate = jest.fn()
     const errorCallback = jest.fn()
 
-    beforeAll(
-      async () => {
-        const interaction = {
-          state: 'i am logged in',
-          uponReceiving: 'a request to create a new book',
-          withRequest: {
-            method: 'POST',
-            path: '/rest/books',
-            headers: {
-              Accept: 'application/json',
-              'Content-Type': 'application/json',
-              'X-Requested-With': 'XMLHttpRequest',
-              Authorization: `Bearer ${rest.authToken}`,
-            },
-            body: { book: bookForm },
-          },
-          willRespondWith: {
-            status: 201,
-            headers: { 'Content-Type': 'application/json; charset=utf-8' },
-            body: Matchers.somethingLike(rest.book),
-          },
-        }
-
-        return provider.addInteraction(interaction)
-      },
-      5 * 60 * 1000
-    )
-    afterAll(() => provider.verify(), 5 * 60 * 1000)
-
     it('should dispatch the correct actions', async () => {
-      const expectedActions = [
-        { type: 'books:book:create:success', payload: rest.book },
-      ]
+      await provider
+        .addInteraction()
+        .given('i am logged in')
+        .uponReceiving('a request to create a new book')
+        .withRequest('POST', '/rest/books', (builder) => {
+          builder.headers({
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+            'X-Requested-With': 'XMLHttpRequest',
+            Authorization: `Bearer ${rest.authToken}`,
+          })
+          builder.jsonBody({ book: bookForm })
+        })
+        .willRespondWith(201, (builder) => {
+          builder.headers({ 'Content-Type': 'application/json; charset=utf-8' })
+          builder.jsonBody(Matchers.like(rest.book))
+        })
+        .executeTest(async () => {
+          const expectedActions = [
+            { type: 'books:book:create:success', payload: rest.book },
+          ]
 
-      await create(bookForm, navigate, rest.authToken, errorCallback)(dispatch)
-      expect(dispatch.mock.calls.flat()).toEqual(expectedActions)
-      expect(navigate).toHaveBeenCalledWith('/books')
+          await create(
+            bookForm,
+            navigate,
+            rest.authToken,
+            errorCallback
+          )(dispatch)
+          expect(dispatch.mock.calls.flat()).toEqual(expectedActions)
+          expect(navigate).toHaveBeenCalledWith('/books')
+        })
     })
   })
 
@@ -119,121 +111,92 @@ describe('pacts', () => {
     const navigate = jest.fn()
     const errorCallback = jest.fn()
 
-    beforeAll(
-      async () => {
-        const interaction = {
-          state: 'i have an expired token',
-          uponReceiving: 'a request to create a new book',
-          withRequest: {
-            method: 'POST',
-            path: '/rest/books',
-            headers: {
-              Accept: 'application/json',
-              'Content-Type': 'application/json',
-              'X-Requested-With': 'XMLHttpRequest',
-              Authorization: 'Bearer EXPIRED',
-            },
-            body: { book: bookForm },
-          },
-          willRespondWith: {
-            status: 401,
-          },
-        }
-
-        return provider.addInteraction(interaction)
-      },
-      5 * 60 * 1000
-    )
-    afterAll(() => provider.verify(), 5 * 60 * 1000)
-
     it('should dispatch the correct actions', async () => {
-      const expectedActions = [{ type: 'books:book:create:fail', payload: '' }]
+      await provider
+        .addInteraction()
+        .given('i have an expired token')
+        .uponReceiving('a request to create a new book')
+        .withRequest('POST', '/rest/books', (builder) => {
+          builder.headers({
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+            'X-Requested-With': 'XMLHttpRequest',
+            Authorization: 'Bearer EXPIRED',
+          })
+          builder.jsonBody({ book: bookForm })
+        })
+        .willRespondWith(401)
+        .executeTest(async () => {
+          const expectedActions = [
+            { type: 'books:book:create:fail', payload: '' },
+          ]
 
-      await create(bookForm, navigate, 'EXPIRED', errorCallback)(dispatch)
-      expect(dispatch.mock.calls.flat()).toEqual(expectedActions)
-      expect(navigate).not.toHaveBeenCalled()
-      expect(errorCallback).toHaveBeenCalled()
+          await create(bookForm, navigate, 'EXPIRED', errorCallback)(dispatch)
+          expect(dispatch.mock.calls.flat()).toEqual(expectedActions)
+          expect(navigate).not.toHaveBeenCalled()
+          expect(errorCallback).toHaveBeenCalled()
+        })
     })
   })
 
   describe('search - search', () => {
     const keyword = 'a'
 
-    beforeAll(
-      async () => {
-        const interaction = {
-          state: 'i have some books',
-          uponReceiving: 'a search request',
-          withRequest: {
-            method: 'GET',
-            path: `/rest/books/search/${keyword}`,
-            headers: {
-              Accept: 'application/json',
-              'Content-Type': 'application/json',
-              'X-Requested-With': 'XMLHttpRequest',
-            },
-          },
-          willRespondWith: {
-            status: 200,
-            headers: { 'Content-Type': 'application/json; charset=utf-8' },
-            body: rest.books,
-          },
-        }
-
-        return provider.addInteraction(interaction)
-      },
-      5 * 60 * 1000
-    )
-    afterAll(() => provider.verify(), 5 * 60 * 1000)
-
     it('should dispatch the correct actions', async () => {
-      const expectedActions = [
-        {
-          type: 'search/receivedSearchResult',
-          payload: R.pick(['entities', 'result'])(books()),
-        },
-      ]
+      await provider
+        .addInteraction()
+        .given('i have some books')
+        .uponReceiving('a search request')
+        .withRequest('GET', `/rest/books/search/${keyword}`, (builder) => {
+          builder.headers({
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+            'X-Requested-With': 'XMLHttpRequest',
+          })
+        })
+        .willRespondWith(200, (builder) => {
+          builder.headers({ 'Content-Type': 'application/json; charset=utf-8' })
+          builder.jsonBody(rest.books)
+        })
+        .executeTest(async () => {
+          const expectedActions = [
+            {
+              type: 'search/receivedSearchResult',
+              payload: R.pick(['entities', 'result'])(books()),
+            },
+          ]
 
-      await search(keyword)(dispatch)
-      expect(dispatch.mock.calls.flat()).toEqual(expectedActions)
+          await search(keyword)(dispatch)
+          expect(dispatch.mock.calls.flat()).toEqual(expectedActions)
+        })
     })
   })
 
   describe('years - fetchYears', () => {
-    beforeAll(
-      async () => {
-        const interaction = {
-          state: 'i have books for different years',
-          uponReceiving: 'a request for a summary of all the years',
-          withRequest: {
-            method: 'GET',
-            path: '/rest/books/years',
-            headers: {
-              Accept: 'application/json',
-              'Content-Type': 'application/json',
-              'X-Requested-With': 'XMLHttpRequest',
-            },
-          },
-          willRespondWith: {
-            status: 200,
-            headers: { 'Content-Type': 'application/json; charset=utf-8' },
-            body: rest.years,
-          },
-        }
-
-        return provider.addInteraction(interaction)
-      },
-      5 * 60 * 1000
-    )
-    afterAll(() => provider.verify(), 5 * 60 * 1000)
-
     it('should dispatch the correct actions', async () => {
-      const expectedActions = [
-        { type: 'years/receivedYears', payload: years() },
-      ]
+      await provider
+        .addInteraction()
+        .given('i have books for different years')
+        .uponReceiving('a request for a summary of all the years')
+        .withRequest('GET', '/rest/books/years', (builder) => {
+          builder.headers({
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+            'X-Requested-With': 'XMLHttpRequest',
+          })
+        })
+        .willRespondWith(200, (builder) => {
+          builder.headers({ 'Content-Type': 'application/json; charset=utf-8' })
+          builder.jsonBody(rest.years)
+        })
+        .executeTest(async () => {
+          const expectedActions = [
+            { type: 'years/receivedYears', payload: years() },
+          ]
 
-      await fetchYears()(dispatch)
-      expect(dispatch.mock.calls.flat()).toEqual(expectedActions)
+          await fetchYears()(dispatch)
+          expect(dispatch.mock.calls.flat()).toEqual(expectedActions)
+        })
     })
   })
 })
