@@ -1,13 +1,14 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { screen } from '@testing-library/react'
+import { vi } from 'vitest'
 
 import SearchList from './SearchList'
 import { fullRender } from 'test'
 
-jest.mock('rest/fetch')
+vi.mock('rest/fetch')
 // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-jest.mock('lodash.debounce', () => (f) => f)
+vi.mock('lodash.debounce', () => ({ default: (f) => f }))
 
 describe('components', () => {
   describe('SearchList', () => {

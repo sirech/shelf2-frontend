@@ -66,4 +66,13 @@ module.exports = {
       },
     },
   },
+  overrides: [
+    {
+      files: ['**/*.test.{ts,tsx}'],
+      rules: {
+        '@typescript-eslint/no-unsafe-call': 'off',
+        '@typescript-eslint/no-unsafe-member-access': 'off',
+      },
+    },
+  ],
 }

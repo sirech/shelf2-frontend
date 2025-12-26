@@ -1,52 +1,52 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`search reducer handles RECEIVE_BOOKS 1`] = `
-Object {
-  "entities": Object {
-    "books": Object {
-      "10": Object {
+exports[`search reducer > handles RECEIVE_BOOKS 1`] = `
+{
+  "entities": {
+    "books": {
+      "10": {
         "category": "other",
         "id": 10,
         "stars": 1,
         "title": "Carrion Comfort",
         "year": 2016,
       },
-      "11": Object {
+      "11": {
         "category": "history",
         "id": 11,
         "stars": 2,
         "title": "Time To Murder And Create",
         "year": 2016,
       },
-      "4": Object {
+      "4": {
         "category": "history",
         "id": 4,
         "stars": 5,
         "title": "Fear and Trembling",
         "year": 2016,
       },
-      "6": Object {
+      "6": {
         "category": "sociology",
         "id": 6,
         "stars": 1,
         "title": "The Painted Veil",
         "year": 2016,
       },
-      "7": Object {
+      "7": {
         "category": "other",
         "id": 7,
         "stars": 1,
         "title": "Things Fall Apart",
         "year": 2016,
       },
-      "8": Object {
+      "8": {
         "category": "sociology",
         "id": 8,
         "stars": 2,
         "title": "Alone on a Wide, Wide Sea",
         "year": 2016,
       },
-      "9": Object {
+      "9": {
         "category": "other",
         "id": 9,
         "stars": 2,
@@ -55,7 +55,7 @@ Object {
       },
     },
   },
-  "result": Array [
+  "result": [
     8,
     10,
     4,
@@ -67,11 +67,11 @@ Object {
 }
 `;
 
-exports[`search reducer returns the initial state 1`] = `
-Object {
-  "entities": Object {
-    "books": Object {},
+exports[`search reducer > returns the initial state 1`] = `
+{
+  "entities": {
+    "books": {},
   },
-  "result": Array [],
+  "result": [],
 }
 `;

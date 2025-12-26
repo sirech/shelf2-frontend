@@ -1,8 +1,9 @@
 /**
- * @jest-environment node
+ * @vitest-environment node
  */
 import * as R from 'ramda'
 import { Matchers } from '@pact-foundation/pact'
+import { vi } from 'vitest'
 
 import { fetchBooks } from './books/slice'
 import { create } from './form/actions'
@@ -17,13 +18,13 @@ import http from 'node:http'
 import https from 'node:https'
 
 // Pact tests can be slower due to mock server start/stop and verification.
-jest.setTimeout(5 * 60 * 1000)
+vi.setConfig({ testTimeout: 5 * 60 * 1000 })
 
 describe('pacts', () => {
   let dispatch
 
   beforeEach(() => {
-    dispatch = jest.fn()
+    dispatch = vi.fn()
     axios.defaults.httpAgent = new http.Agent({ keepAlive: false })
     axios.defaults.httpsAgent = new https.Agent({ keepAlive: false })
   })
@@ -68,8 +69,8 @@ describe('pacts', () => {
 
   describe('forms - change', () => {
     const bookForm = R.omit(['id'])(rest.book)
-    const navigate = jest.fn()
-    const errorCallback = jest.fn()
+    const navigate = vi.fn()
+    const errorCallback = vi.fn()
 
     it('should dispatch the correct actions', async () => {
       await provider
@@ -108,8 +109,8 @@ describe('pacts', () => {
 
   describe('forms - errors', () => {
     const bookForm = R.omit(['id'])(rest.book)
-    const navigate = jest.fn()
-    const errorCallback = jest.fn()
+    const navigate = vi.fn()
+    const errorCallback = vi.fn()
 
     it('should dispatch the correct actions', async () => {
       await provider
