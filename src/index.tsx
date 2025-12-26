@@ -10,7 +10,7 @@ import store from './state'
 // eslint-disable-next-line import/no-internal-modules
 import 'bootstrap/dist/css/bootstrap.css'
 
-const host = () => process.env.REACT_APP_HOST || ''
+const host = () => import.meta.env.VITE_HOST || ''
 const redirectUri = () => `${host()}/callback`
 
 const container = document.getElementById('root')

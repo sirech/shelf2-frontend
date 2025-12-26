@@ -4,12 +4,12 @@ import { screen } from '@testing-library/react'
 import Navigation from './Navigation'
 import { fullRender } from 'test'
 
-jest.mock('rest/fetch')
+vi.mock('rest/fetch')
 
 describe('components', () => {
   describe('Navigation', () => {
     beforeEach(() => {
-      jest.clearAllMocks()
+      vi.clearAllMocks()
     })
 
     it('renders correctly', async () => {

@@ -5,7 +5,7 @@ import { screen } from '@testing-library/react'
 import BookList from './BookList'
 import { fullRender } from 'test'
 
-jest.mock('rest/fetch')
+vi.mock('rest/fetch')
 
 describe('components', () => {
   describe('BookList', () => {

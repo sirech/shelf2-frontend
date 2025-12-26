@@ -1,10 +1,11 @@
 import React from 'react'
 import { screen } from '@testing-library/react'
+import { vi } from 'vitest'
 
 import App from './App'
 import { fullRenderWithoutRouter } from 'test'
 
-jest.mock('rest/fetch')
+vi.mock('rest/fetch')
 
 describe('components', () => {
   describe('App', () => {

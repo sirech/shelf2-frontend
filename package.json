@@ -29,7 +29,6 @@
     "@testing-library/jest-dom": "^6.1.6",
     "@testing-library/react": "^15.0.0",
     "@testing-library/user-event": "^14.5.2",
-    "@types/jest": "^30.0.0",
     "@types/lodash.debounce": "^4.0.9",
     "@types/node": "^20.10.6",
     "@types/ramda": "^0.31.0",
@@ -38,6 +37,8 @@
     "@types/rosie": "^0.0.45",
     "@typescript-eslint/eslint-plugin": "^8.50.1",
     "@typescript-eslint/parser": "^8.50.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "@vitest/coverage-v8": "^2.1.9",
     "coveralls": "^3.1.1",
     "eslint-config-prettier": "^10.0.0",
     "eslint-config-react": "^1.1.7",
@@ -50,32 +51,32 @@
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-testing-library": "^7.15.3",
     "husky": "^9.1.7",
-    "jest-environment-jsdom-sixteen": "^2.0.0",
-    "jest-watch-typeahead": "3.0.1",
+    "jsdom": "^25.0.1",
     "lint-staged": "^16.2.7",
     "path": "^0.12.7",
     "prettier": "^3.1.1",
-    "react-scripts": "5.0.1",
     "rosie": "^2.1.1",
     "source-map-explorer": "^2.5.3",
     "stylelint": "^16.1.0",
     "stylelint-config-recommended": "^17.0.0",
-    "typescript": "5.3.3"
+    "typescript": "5.3.3",
+    "vite": "^5.4.10",
+    "vite-tsconfig-paths": "^4.3.2",
+    "vitest": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "vite",
+    "build": "vite build",
     "pretest": "tsc --noEmit",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "test": "vitest run",
+    "preview": "vite preview",
     "format": "prettier --write \"**/*.+(js|jsx|ts|tsx|json|css|scss)\"",
     "linter:js": "npx eslint --config .eslintrc.js 'src/**/*.{ts,tsx}' --max-warnings 0",
     "linter:css": "npx stylelint 'src/**/*.css'",
     "stub": "bin/launch-stub-server",
-    "bundle": "npm run build && source-map-explorer 'build/static/js/*.js'",
+    "bundle": "npm run build && source-map-explorer 'dist/assets/*.js'",
     "prepare": "husky"
   },
-  "proxy": "http://localhost:3001",
   "lint-staged": {
     "*.{ts,tsx}": "eslint --config .eslintrc.js --max-warnings 0",
     "*.scss": "./go linter-css"
@@ -94,10 +95,5 @@
   },
   "stylelint": {
     "extends": "stylelint-config-recommended"
-  },
-  "jest": {
-    "moduleNameMapper": {
-      "axios": "axios/dist/node/axios.cjs"
-    }
   }
 }

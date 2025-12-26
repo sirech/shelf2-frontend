@@ -45,7 +45,12 @@ module.exports = {
     'import/no-internal-modules': [
       2,
       {
-        allow: ['components/*', 'state/*', 'pact/src/dsl/interaction'],
+        allow: [
+          'components/*',
+          'state/*',
+          'pact/src/dsl/interaction',
+          'vitest/config',
+        ],
       },
     ],
     'import/default': 0,
@@ -66,4 +71,13 @@ module.exports = {
       },
     },
   },
+  overrides: [
+    {
+      files: ['**/*.test.{ts,tsx}'],
+      rules: {
+        '@typescript-eslint/no-unsafe-call': 'off',
+        '@typescript-eslint/no-unsafe-member-access': 'off',
+      },
+    },
+  ],
 }

@@ -1,7 +1,7 @@
 import axios, { AxiosResponse } from 'axios'
 
 const testableUrl = (path: string) => {
-  const TESTING = process.env.NODE_ENV === 'test'
+  const TESTING = import.meta.env.MODE === 'test'
   return `${TESTING ? 'http://127.0.0.1:8989' : ''}${path}`
 }
 

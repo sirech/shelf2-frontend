@@ -5,7 +5,7 @@ import { Route, Routes } from 'react-router-dom'
 import BooksArea from './BooksArea'
 import { fullRender } from 'test'
 
-jest.mock('rest/fetch')
+vi.mock('rest/fetch')
 
 describe('components', () => {
   describe('BooksArea', () => {

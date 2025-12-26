@@ -1,19 +1,20 @@
 import axios from 'axios'
 import { TextEncoder, TextDecoder } from 'node:util'
+import { afterEach, beforeEach, expect, vi } from 'vitest'
 
 global.TextEncoder = TextEncoder
 global.TextDecoder = TextDecoder
 
-console.error = jest.fn()
+console.error = vi.fn()
 
 const spies = {
-  get: jest.spyOn(axios, 'get'),
-  patch: jest.spyOn(axios, 'patch'),
-  post: jest.spyOn(axios, 'post'),
+  get: vi.spyOn(axios, 'get'),
+  patch: vi.spyOn(axios, 'patch'),
+  post: vi.spyOn(axios, 'post'),
 }
 
 beforeEach(() => {
-  jest.resetAllMocks()
+  vi.resetAllMocks()
 })
 
 afterEach(() => {
