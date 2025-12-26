@@ -24,7 +24,7 @@ jobs:
             find dist -regextype posix-basic -regex '.*\.\(js\|css\)\(.map\)\?$' -print0 | xargs --null -I@ sh -c "gzip -c @ > @.gz"
 
       - persist_to_workspace:
-          root: build
+          root: dist
           paths:
             - '*'
 
