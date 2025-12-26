@@ -49,17 +49,17 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-testing-library": "^7.15.3",
-    "husky": "^8.0.3",
+    "husky": "^9.1.7",
     "jest-environment-jsdom-sixteen": "^2.0.0",
     "jest-watch-typeahead": "3.0.1",
-    "lint-staged": "^15.2.0",
+    "lint-staged": "^16.2.7",
     "path": "^0.12.7",
     "prettier": "^3.1.1",
     "react-scripts": "5.0.1",
     "rosie": "^2.1.1",
     "source-map-explorer": "^2.5.3",
     "stylelint": "^16.1.0",
-    "stylelint-config-recommended": "^14.0.0",
+    "stylelint-config-recommended": "^17.0.0",
     "typescript": "5.3.3"
   },
   "scripts": {
@@ -73,7 +73,7 @@
     "linter:css": "npx stylelint 'src/**/*.css'",
     "stub": "bin/launch-stub-server",
     "bundle": "npm run build && source-map-explorer 'build/static/js/*.js'",
-    "prepare": "husky install"
+    "prepare": "husky"
   },
   "proxy": "http://localhost:3001",
   "lint-staged": {
