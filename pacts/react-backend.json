@@ -5,585 +5,250 @@
   "interactions": [
     {
       "description": "a request for a list of books for a given year",
-      "pending": false,
-      "providerStates": [
-        {
-          "name": "i have some books"
-        }
-      ],
+      "providerState": "i have some books",
       "request": {
         "headers": {
-          "Accept": [
-            "application/json"
-          ],
-          "Content-Type": [
-            "application/json"
-          ],
-          "X-Requested-With": [
-            "XMLHttpRequest"
-          ]
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+          "X-Requested-With": "XMLHttpRequest"
         },
         "method": "GET",
         "path": "/rest/books",
-        "query": {
-          "year": [
-            "2016"
-          ]
-        }
+        "query": "year=2016"
       },
       "response": {
-        "body": {
-          "content": [
-            {
-              "category": "sociology",
-              "id": 8,
-              "stars": 2,
-              "title": "Alone on a Wide, Wide Sea",
-              "year": 2016
-            },
-            {
-              "category": "other",
-              "id": 10,
-              "stars": 1,
-              "title": "Carrion Comfort",
-              "year": 2016
-            },
-            {
-              "category": "history",
-              "id": 4,
-              "stars": 5,
-              "title": "Fear and Trembling",
-              "year": 2016
-            },
-            {
-              "category": "other",
-              "id": 9,
-              "stars": 2,
-              "title": "I Know Why the Caged Bird Sings",
-              "year": 2016
-            },
-            {
-              "category": "sociology",
-              "id": 6,
-              "stars": 1,
-              "title": "The Painted Veil",
-              "year": 2016
-            },
-            {
-              "category": "other",
-              "id": 7,
-              "stars": 1,
-              "title": "Things Fall Apart",
-              "year": 2016
-            },
-            {
-              "category": "history",
-              "id": 11,
-              "stars": 2,
-              "title": "Time To Murder And Create",
-              "year": 2016
-            }
-          ],
-          "contentType": "application/json",
-          "encoded": false
-        },
-        "headers": {
-          "Content-Type": [
-            "application/json; charset=utf-8"
-          ]
-        },
-        "status": 200
-      },
-      "type": "Synchronous/HTTP"
-    },
-    {
-      "description": "a request for a list of books for a given year",
-      "pending": false,
-      "providerStates": [
-        {
-          "name": "i have some books"
-        }
-      ],
-      "request": {
-        "headers": {
-          "Accept": [
-            "application/json"
-          ],
-          "Content-Type": [
-            "application/json"
-          ],
-          "X-Requested-With": [
-            "XMLHttpRequest"
-          ]
-        },
-        "method": "GET",
-        "path": "/rest/books",
-        "query": {
-          "year": [
-            "2016"
-          ]
-        }
-      },
-      "response": {
-        "body": {
-          "content": "W3siY2F0ZWdvcnkiOiJzb2Npb2xvZ3kiLCJpZCI6OCwic3RhcnMiOjIsInRpdGxlIjoiQWxvbmUgb24gYSBXaWRlLCBXaWRlIFNlYSIsInllYXIiOjIwMTZ9LHsiY2F0ZWdvcnkiOiJvdGhlciIsImlkIjoxMCwic3RhcnMiOjEsInRpdGxlIjoiQ2FycmlvbiBDb21mb3J0IiwieWVhciI6MjAxNn0seyJjYXRlZ29yeSI6Imhpc3RvcnkiLCJpZCI6NCwic3RhcnMiOjUsInRpdGxlIjoiRmVhciBhbmQgVHJlbWJsaW5nIiwieWVhciI6MjAxNn0seyJjYXRlZ29yeSI6Im90aGVyIiwiaWQiOjksInN0YXJzIjoyLCJ0aXRsZSI6IkkgS25vdyBXaHkgdGhlIENhZ2VkIEJpcmQgU2luZ3MiLCJ5ZWFyIjoyMDE2fSx7ImNhdGVnb3J5Ijoic29jaW9sb2d5IiwiaWQiOjYsInN0YXJzIjoxLCJ0aXRsZSI6IlRoZSBQYWludGVkIFZlaWwiLCJ5ZWFyIjoyMDE2fSx7ImNhdGVnb3J5Ijoib3RoZXIiLCJpZCI6Nywic3RhcnMiOjEsInRpdGxlIjoiVGhpbmdzIEZhbGwgQXBhcnQiLCJ5ZWFyIjoyMDE2fSx7ImNhdGVnb3J5IjoiaGlzdG9yeSIsImlkIjoxMSwic3RhcnMiOjIsInRpdGxlIjoiVGltZSBUbyBNdXJkZXIgQW5kIENyZWF0ZSIsInllYXIiOjIwMTZ9XQ==",
-          "contentType": "*/*",
-          "encoded": "base64"
-        },
-        "headers": {
-          "Content-Type": [
-            "application/json; charset=utf-8"
-          ]
-        },
-        "status": 200
-      },
-      "type": "Synchronous/HTTP"
-    },
-    {
-      "description": "a request for a summary of all the years",
-      "pending": false,
-      "providerStates": [
-        {
-          "name": "i have books for different years"
-        }
-      ],
-      "request": {
-        "headers": {
-          "Accept": [
-            "application/json"
-          ],
-          "Content-Type": [
-            "application/json"
-          ],
-          "X-Requested-With": [
-            "XMLHttpRequest"
-          ]
-        },
-        "method": "GET",
-        "path": "/rest/books/years"
-      },
-      "response": {
-        "body": {
-          "content": [
-            {
-              "count": 1,
-              "year": 2010
-            },
-            {
-              "count": 1,
-              "year": 2012
-            },
-            {
-              "count": 1,
-              "year": 2013
-            },
-            {
-              "count": 1,
-              "year": 2014
-            },
-            {
-              "count": 7,
-              "year": 2016
-            }
-          ],
-          "contentType": "application/json",
-          "encoded": false
-        },
-        "headers": {
-          "Content-Type": [
-            "application/json; charset=utf-8"
-          ]
-        },
-        "status": 200
-      },
-      "type": "Synchronous/HTTP"
-    },
-    {
-      "description": "a request for a summary of all the years",
-      "pending": false,
-      "providerStates": [
-        {
-          "name": "i have books for different years"
-        }
-      ],
-      "request": {
-        "headers": {
-          "Accept": [
-            "application/json"
-          ],
-          "Content-Type": [
-            "application/json"
-          ],
-          "X-Requested-With": [
-            "XMLHttpRequest"
-          ]
-        },
-        "method": "GET",
-        "path": "/rest/books/years"
-      },
-      "response": {
-        "body": {
-          "content": "W3siY291bnQiOjEsInllYXIiOjIwMTB9LHsiY291bnQiOjEsInllYXIiOjIwMTJ9LHsiY291bnQiOjEsInllYXIiOjIwMTN9LHsiY291bnQiOjEsInllYXIiOjIwMTR9LHsiY291bnQiOjcsInllYXIiOjIwMTZ9XQ==",
-          "contentType": "*/*",
-          "encoded": "base64"
-        },
-        "headers": {
-          "Content-Type": [
-            "application/json; charset=utf-8"
-          ]
-        },
-        "status": 200
-      },
-      "type": "Synchronous/HTTP"
-    },
-    {
-      "description": "a request for a summary of all the years",
-      "pending": false,
-      "providerStates": [
-        {
-          "name": "i have books for different years"
-        }
-      ],
-      "request": {
-        "headers": {
-          "Accept": [
-            "application/json"
-          ],
-          "Content-Type": [
-            "application/json"
-          ],
-          "X-Requested-With": [
-            "XMLHttpRequest"
-          ]
-        },
-        "method": "GET",
-        "path": "/rest/books/years"
-      },
-      "response": {
-        "body": {
-          "content": "W3siY291bnQiOjEsInllYXIiOjIwMTB9LHsiY291bnQiOjEsInllYXIiOjIwMTJ9LHsiY291bnQiOjEsInllYXIiOjIwMTN9LHsiY291bnQiOjEsInllYXIiOjIwMTR9LHsiY291bnQiOjcsInllYXIiOjIwMTZ9XQ==",
-          "contentType": "*/*",
-          "encoded": "base64"
-        },
-        "headers": {
-          "Content-Type": [
-            "application/json; charset=utf-8"
-          ]
-        },
-        "status": 200
-      },
-      "type": "Synchronous/HTTP"
-    },
-    {
-      "description": "a request to create a new book",
-      "pending": false,
-      "providerStates": [
-        {
-          "name": "i am logged in"
-        }
-      ],
-      "request": {
-        "body": {
-          "content": {
-            "book": {
-              "category": "sociology",
-              "stars": 2,
-              "title": "Alone on a Wide, Wide Sea",
-              "year": 2016
-            }
-          },
-          "contentType": "application/json",
-          "encoded": false
-        },
-        "headers": {
-          "Accept": [
-            "application/json"
-          ],
-          "Authorization": [
-            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.xPUpABeLDWit5v187rP_x8dgTthuFjrMseKuPOK45NM"
-          ],
-          "Content-Type": [
-            "application/json"
-          ],
-          "X-Requested-With": [
-            "XMLHttpRequest"
-          ]
-        },
-        "method": "POST",
-        "path": "/rest/books"
-      },
-      "response": {
-        "body": {
-          "content": {
+        "body": [
+          {
             "category": "sociology",
             "id": 8,
             "stars": 2,
             "title": "Alone on a Wide, Wide Sea",
             "year": 2016
           },
-          "contentType": "application/json",
-          "encoded": false
-        },
-        "headers": {
-          "Content-Type": [
-            "application/json; charset=utf-8"
-          ]
-        },
-        "matchingRules": {
-          "body": {
-            "$": {
-              "combine": "AND",
-              "matchers": [
-                {
-                  "match": "type"
-                }
-              ]
-            }
+          {
+            "category": "other",
+            "id": 10,
+            "stars": 1,
+            "title": "Carrion Comfort",
+            "year": 2016
+          },
+          {
+            "category": "history",
+            "id": 4,
+            "stars": 5,
+            "title": "Fear and Trembling",
+            "year": 2016
+          },
+          {
+            "category": "other",
+            "id": 9,
+            "stars": 2,
+            "title": "I Know Why the Caged Bird Sings",
+            "year": 2016
+          },
+          {
+            "category": "sociology",
+            "id": 6,
+            "stars": 1,
+            "title": "The Painted Veil",
+            "year": 2016
+          },
+          {
+            "category": "other",
+            "id": 7,
+            "stars": 1,
+            "title": "Things Fall Apart",
+            "year": 2016
+          },
+          {
+            "category": "history",
+            "id": 11,
+            "stars": 2,
+            "title": "Time To Murder And Create",
+            "year": 2016
           }
+        ],
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8"
         },
-        "status": 201
+        "status": 200
+      }
+    },
+    {
+      "description": "a request for a summary of all the years",
+      "providerState": "i have books for different years",
+      "request": {
+        "headers": {
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "method": "GET",
+        "path": "/rest/books/years"
       },
-      "type": "Synchronous/HTTP"
+      "response": {
+        "body": [
+          {
+            "count": 1,
+            "year": 2010
+          },
+          {
+            "count": 1,
+            "year": 2012
+          },
+          {
+            "count": 1,
+            "year": 2013
+          },
+          {
+            "count": 1,
+            "year": 2014
+          },
+          {
+            "count": 7,
+            "year": 2016
+          }
+        ],
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8"
+        },
+        "status": 200
+      }
     },
     {
       "description": "a request to create a new book",
-      "pending": false,
-      "providerStates": [
-        {
-          "name": "i have an expired token"
-        }
-      ],
+      "providerState": "i am logged in",
       "request": {
         "body": {
-          "content": {
-            "book": {
-              "category": "sociology",
-              "stars": 2,
-              "title": "Alone on a Wide, Wide Sea",
-              "year": 2016
-            }
-          },
-          "contentType": "application/json",
-          "encoded": false
+          "book": {
+            "category": "sociology",
+            "stars": 2,
+            "title": "Alone on a Wide, Wide Sea",
+            "year": 2016
+          }
         },
         "headers": {
-          "Accept": [
-            "application/json"
-          ],
-          "Authorization": [
-            "Bearer EXPIRED"
-          ],
-          "Content-Type": [
-            "application/json"
-          ],
-          "X-Requested-With": [
-            "XMLHttpRequest"
-          ]
+          "Accept": "application/json",
+          "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.xPUpABeLDWit5v187rP_x8dgTthuFjrMseKuPOK45NM",
+          "Content-Type": "application/json",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "method": "POST",
+        "path": "/rest/books"
+      },
+      "response": {
+        "body": {
+          "category": "sociology",
+          "id": 8,
+          "stars": 2,
+          "title": "Alone on a Wide, Wide Sea",
+          "year": 2016
+        },
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8"
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        },
+        "status": 201
+      }
+    },
+    {
+      "description": "a request to create a new book",
+      "providerState": "i have an expired token",
+      "request": {
+        "body": {
+          "book": {
+            "category": "sociology",
+            "stars": 2,
+            "title": "Alone on a Wide, Wide Sea",
+            "year": 2016
+          }
+        },
+        "headers": {
+          "Accept": "application/json",
+          "Authorization": "Bearer EXPIRED",
+          "Content-Type": "application/json",
+          "X-Requested-With": "XMLHttpRequest"
         },
         "method": "POST",
         "path": "/rest/books"
       },
       "response": {
         "status": 401
-      },
-      "type": "Synchronous/HTTP"
-    },
-    {
-      "description": "a request to create a new book",
-      "pending": false,
-      "providerStates": [
-        {
-          "name": "i am logged in"
-        }
-      ],
-      "request": {
-        "body": {
-          "content": {
-            "book": {
-              "category": "sociology",
-              "stars": 2,
-              "title": "Alone on a Wide, Wide Sea",
-              "year": 2016
-            }
-          },
-          "contentType": "application/json",
-          "encoded": false
-        },
-        "headers": {
-          "Accept": [
-            "application/json"
-          ],
-          "Authorization": [
-            "Bearer: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.xPUpABeLDWit5v187rP_x8dgTthuFjrMseKuPOK45NM"
-          ],
-          "Content-Type": [
-            "application/json"
-          ],
-          "X-Requested-With": [
-            "XMLHttpRequest"
-          ]
-        },
-        "method": "POST",
-        "path": "/rest/books"
-      },
-      "response": {
-        "body": {
-          "content": "eyJjYXRlZ29yeSI6InNvY2lvbG9neSIsImlkIjo4LCJzdGFycyI6MiwidGl0bGUiOiJBbG9uZSBvbiBhIFdpZGUsIFdpZGUgU2VhIiwieWVhciI6MjAxNn0=",
-          "contentType": "*/*",
-          "encoded": "base64"
-        },
-        "headers": {
-          "Content-Type": [
-            "application/json; charset=utf-8"
-          ]
-        },
-        "matchingRules": {
-          "body": {
-            "$": {
-              "combine": "AND",
-              "matchers": [
-                {
-                  "match": "type"
-                }
-              ]
-            }
-          }
-        },
-        "status": 201
-      },
-      "type": "Synchronous/HTTP"
-    },
-    {
-      "description": "a request to create a new book",
-      "pending": false,
-      "providerStates": [
-        {
-          "name": "i have an expired token"
-        }
-      ],
-      "request": {
-        "body": {
-          "content": {
-            "book": {
-              "category": "sociology",
-              "stars": 2,
-              "title": "Alone on a Wide, Wide Sea",
-              "year": 2016
-            }
-          },
-          "contentType": "application/json",
-          "encoded": false
-        },
-        "headers": {
-          "Accept": [
-            "application/json"
-          ],
-          "Authorization": [
-            "Bearer: EXPIRED"
-          ],
-          "Content-Type": [
-            "application/json"
-          ],
-          "X-Requested-With": [
-            "XMLHttpRequest"
-          ]
-        },
-        "method": "POST",
-        "path": "/rest/books"
-      },
-      "response": {
-        "headers": {},
-        "status": 401
-      },
-      "type": "Synchronous/HTTP"
+      }
     },
     {
       "description": "a search request",
-      "pending": false,
-      "providerStates": [
-        {
-          "name": "i have some books"
-        }
-      ],
+      "providerState": "i have some books",
       "request": {
         "headers": {
-          "Accept": [
-            "application/json"
-          ],
-          "Content-Type": [
-            "application/json"
-          ],
-          "X-Requested-With": [
-            "XMLHttpRequest"
-          ]
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+          "X-Requested-With": "XMLHttpRequest"
         },
         "method": "GET",
         "path": "/rest/books/search/a"
       },
       "response": {
-        "body": {
-          "content": [
-            {
-              "category": "sociology",
-              "id": 8,
-              "stars": 2,
-              "title": "Alone on a Wide, Wide Sea",
-              "year": 2016
-            },
-            {
-              "category": "other",
-              "id": 10,
-              "stars": 1,
-              "title": "Carrion Comfort",
-              "year": 2016
-            },
-            {
-              "category": "history",
-              "id": 4,
-              "stars": 5,
-              "title": "Fear and Trembling",
-              "year": 2016
-            },
-            {
-              "category": "other",
-              "id": 9,
-              "stars": 2,
-              "title": "I Know Why the Caged Bird Sings",
-              "year": 2016
-            },
-            {
-              "category": "sociology",
-              "id": 6,
-              "stars": 1,
-              "title": "The Painted Veil",
-              "year": 2016
-            },
-            {
-              "category": "other",
-              "id": 7,
-              "stars": 1,
-              "title": "Things Fall Apart",
-              "year": 2016
-            },
-            {
-              "category": "history",
-              "id": 11,
-              "stars": 2,
-              "title": "Time To Murder And Create",
-              "year": 2016
-            }
-          ],
-          "contentType": "application/json",
-          "encoded": false
-        },
+        "body": [
+          {
+            "category": "sociology",
+            "id": 8,
+            "stars": 2,
+            "title": "Alone on a Wide, Wide Sea",
+            "year": 2016
+          },
+          {
+            "category": "other",
+            "id": 10,
+            "stars": 1,
+            "title": "Carrion Comfort",
+            "year": 2016
+          },
+          {
+            "category": "history",
+            "id": 4,
+            "stars": 5,
+            "title": "Fear and Trembling",
+            "year": 2016
+          },
+          {
+            "category": "other",
+            "id": 9,
+            "stars": 2,
+            "title": "I Know Why the Caged Bird Sings",
+            "year": 2016
+          },
+          {
+            "category": "sociology",
+            "id": 6,
+            "stars": 1,
+            "title": "The Painted Veil",
+            "year": 2016
+          },
+          {
+            "category": "other",
+            "id": 7,
+            "stars": 1,
+            "title": "Things Fall Apart",
+            "year": 2016
+          },
+          {
+            "category": "history",
+            "id": 11,
+            "stars": 2,
+            "title": "Time To Murder And Create",
+            "year": 2016
+          }
+        ],
         "headers": {
-          "Content-Type": [
-            "application/json; charset=utf-8"
-          ]
+          "Content-Type": "application/json; charset=utf-8"
         },
         "status": 200
-      },
-      "type": "Synchronous/HTTP"
+      }
     }
   ],
   "metadata": {
@@ -592,7 +257,7 @@
       "models": "1.3.5"
     },
     "pactSpecification": {
-      "version": "4.0"
+      "version": "2.0.0"
     }
   },
   "provider": {
