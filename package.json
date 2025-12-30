@@ -36,8 +36,8 @@
     "@types/rosie": "^0.0.45",
     "@typescript-eslint/eslint-plugin": "^8.50.1",
     "@typescript-eslint/parser": "^8.50.1",
-    "@vitejs/plugin-react": "^4.3.4",
-    "@vitest/coverage-v8": "^2.1.9",
+    "@vitejs/plugin-react": "^5.1.2",
+    "@vitest/coverage-v8": "^4.0.16",
     "coveralls": "^3.1.1",
     "eslint-config-prettier": "^10.0.0",
     "eslint-config-react": "^1.1.7",
@@ -59,9 +59,9 @@
     "stylelint": "^16.1.0",
     "stylelint-config-recommended": "^17.0.0",
     "typescript": "5.9.3",
-    "vite": "^5.4.10",
-    "vite-tsconfig-paths": "^4.3.2",
-    "vitest": "^2.1.4"
+    "vite": "^7.3.0",
+    "vite-tsconfig-paths": "^6.0.3",
+    "vitest": "^4.0.16"
   },
   "scripts": {
     "start": "vite",
