@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 
-import { useParams } from 'react-router'
+import { useParams } from 'react-router-dom'
 import booksSelector from './selectors'
 
 import { useAppDispatch, useAppSelector } from 'hooks'
