@@ -89,7 +89,7 @@ const NewBook = ({
                 {submitError && <div>{JSON.stringify(submitError)}</div>}
 
                 <Button
-                  onClick={() => navigate('/books')}
+                  onClick={() => void navigate('/books')}
                   className="float-end"
                   color="secondary"
                 >

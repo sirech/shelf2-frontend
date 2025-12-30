@@ -1,6 +1,6 @@
 import React from 'react'
 import { Badge, ListGroupItem } from 'reactstrap'
-import { NavigateFunction, useLocation, useNavigate } from 'react-router'
+import { NavigateFunction, useLocation, useNavigate } from 'react-router-dom'
 
 const safeNavigate = (
   event: React.MouseEvent<HTMLElement>,

@@ -1,7 +1,7 @@
 import { Dispatch } from 'redux'
 import { createAction } from '@reduxjs/toolkit'
 
-import { NavigateFunction } from 'react-router'
+import { NavigateFunction } from 'react-router-dom'
 import { BOOK_CREATE_SUCCESS, BOOK_CREATE_FAIL } from './constants'
 import { fetch } from 'rest'
 

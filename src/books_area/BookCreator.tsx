@@ -5,7 +5,7 @@ import CreateButton from 'components/create_button'
 
 const BookCreator = () => {
   const navigate = useNavigate()
-  return <CreateButton onClick={() => navigate('/books/new')} />
+  return <CreateButton onClick={() => void navigate('/books/new')} />
 }
 
 export default BookCreator

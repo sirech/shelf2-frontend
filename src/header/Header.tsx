@@ -34,7 +34,7 @@ const Header = () => {
   return (
     <header className="mb-4">
       <Navbar dark color="dark" expand="sm">
-        <NavbarBrand onClick={() => navigate('/books')}>Shelf</NavbarBrand>
+        <NavbarBrand onClick={() => void navigate('/books')}>Shelf</NavbarBrand>
         <NavbarToggler onClick={() => setIsOpen(!isOpen)} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="ms-auto" navbar>

@@ -13,15 +13,7 @@ const fullRender = (
   return {
     ...render(
       <Provider store={store}>
-        <MemoryRouter
-          initialEntries={[route]}
-          future={{
-            v7_startTransition: true,
-            v7_relativeSplatPath: true,
-          }}
-        >
-          {children}
-        </MemoryRouter>
+        <MemoryRouter initialEntries={[route]}>{children}</MemoryRouter>
       </Provider>
     ),
     store,
